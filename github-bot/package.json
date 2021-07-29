@@ -1,0 +1,37 @@
+{
+  "name": "@arisu/github",
+  "description": "☔ GitHub automation bot to automate syncing translations from Arisu <- -> GitHub",
+  "version": "1.0.0-alpha.0",
+  "main": "build/main.js",
+  "private": true,
+  "license": "GPL-3.0",
+  "homepage": "https://docs.arisu.land/github",
+  "repository": "https://github.com/arisuland/Arisu/tree/master/github-bot",
+  "bugs": "https://github.com/arisuland/Arisu/issues",
+  "author": "Noel <cutie@floofy.dev>, Arisu Team <contact@arisu.land>",
+  "scripts": {
+    "start": "cd build && node main.js",
+    "build": "rm -rf build && tsc",
+    "lint": "eslint src --ext .ts --fix"
+  },
+  "dependencies": {
+    "@augu/lilith": "5.0.4",
+    "@augu/utils": "1.5.3",
+    "@sentry/node": "6.10.0",
+    "probot": "12.1.0",
+    "reflect-metadata": "0.1.13",
+    "source-map-support": "0.5.19",
+    "tslog": "3.2.0"
+  },
+  "devDependencies": {
+    "@augu/eslint-config": "2.1.2",
+    "@augu/tsconfig": "1.1.1",
+    "@types/node": "16.4.6",
+    "@typescript-eslint/eslint-plugin": "4.28.5",
+    "@typescript-eslint/parser": "4.28.5",
+    "eslint": "7.31.0",
+    "nodemon": "2.0.12",
+    "ts-node": "10.1.0",
+    "typescript": "4.3.5"
+  }
+}

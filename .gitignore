@@ -1,0 +1,27 @@
+# Project
+node_modules
+build
+.next
+
+backend/.env
+backend/config.yml
+github-bot/config.yml
+frontend/.env
+frontend/.env.*
+frontend/.next
+
+# Yarn workspace
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# Jetbrains IDEs
+.idea/
+*/.idea/
+
+# Husky - pre-commit hooks
+.husky/_/

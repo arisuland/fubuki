@@ -1,0 +1,16 @@
+{
+  "name": "@arisuland/typings",
+  "description": "☔ TypeScript definitions made for Arisu's JavaScript SDK",
+  "version": "1.0.0",
+  "files": ["typings/"],
+  "types": "typings/index.d.ts",
+  "author": "Noel <cutie@floofy.dev>, Arisu Team <contact@arisu.land>",
+  "license": "GPL-3.0",
+  "homepage": "https://arisu.land",
+  "repository": "https://github.com/arisuland/Arisu/tree/master/typings",
+  "bugs": "https://github.com/arisuland/Arisu/issues",
+  "scripts": {
+    "generate": "npm run scripts/generate.js",
+    "lint": "eslint src --ext .d.ts --fix"
+  }
+}
