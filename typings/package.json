@@ -1,5 +1,5 @@
 {
-  "name": "@arisuland/typings",
+  "name": "@arisu/typings",
   "description": "☔ TypeScript definitions made for Arisu's JavaScript SDK",
   "version": "1.0.0",
   "files": ["typings/"],

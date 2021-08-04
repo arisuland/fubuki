@@ -94,6 +94,8 @@ __metadata:
     "@augu/orchid": 3.1.1
     "@augu/tsconfig": 1.1.1
     "@augu/utils": 1.5.3
+    "@prisma/client": 2.28.0
+    "@sentry/node": ^6.10.0
     "@types/ioredis": 4.26.6
     "@types/luxon": 1.27.1
     "@types/node": 16.4.6
@@ -116,6 +118,7 @@ __metadata:
     reflect-metadata: 0.1.13
     source-map-support: 0.5.19
     ts-node: 10.1.0
+    tslog: 3.2.0
     type-graphql: 1.1.1
     typescript: 4.3.5
   languageName: unknown
@@ -159,22 +162,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@arisu/github@workspace:github-bot"
   dependencies:
-    "@augu/eslint-config": ^2.1.2
-    "@augu/lilith": ^5.0.4
-    "@augu/tsconfig": ^1.1.1
-    "@augu/utils": ^1.5.3
-    "@sentry/node": ^6.10.0
-    "@types/node": ^16.4.6
-    "@typescript-eslint/eslint-plugin": ^4.28.5
-    "@typescript-eslint/parser": ^4.28.5
-    eslint: ^7.31.0
-    nodemon: ^2.0.12
-    probot: ^12.1.0
-    reflect-metadata: ^0.1.13
-    source-map-support: ^0.5.19
-    ts-node: ^10.1.0
-    tslog: ^3.2.0
-    typescript: ^4.3.5
+    "@augu/eslint-config": 2.1.2
+    "@augu/lilith": 5.0.4
+    "@augu/tsconfig": 1.1.1
+    "@augu/utils": 1.5.3
+    "@sentry/node": 6.10.0
+    "@types/node": 16.4.6
+    "@typescript-eslint/eslint-plugin": 4.28.5
+    "@typescript-eslint/parser": 4.28.5
+    eslint: 7.31.0
+    nodemon: 2.0.12
+    probot: 12.1.0
+    reflect-metadata: 0.1.13
+    source-map-support: 0.5.19
+    ts-node: 10.1.0
+    tslog: 3.2.0
+    typescript: 4.3.5
   languageName: unknown
   linkType: soft
 
@@ -192,7 +195,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@augu/eslint-config@npm:2.1.2, @augu/eslint-config@npm:^2.1.2":
+"@augu/eslint-config@npm:2.1.2":
   version: 2.1.2
   resolution: "@augu/eslint-config@npm:2.1.2"
   dependencies:
@@ -207,7 +210,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@augu/lilith@npm:5.0.4, @augu/lilith@npm:^5.0.4":
+"@augu/lilith@npm:5.0.4":
   version: 5.0.4
   resolution: "@augu/lilith@npm:5.0.4"
   dependencies:
@@ -230,14 +233,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@augu/tsconfig@npm:1.1.1, @augu/tsconfig@npm:^1.1.1":
+"@augu/tsconfig@npm:1.1.1":
   version: 1.1.1
   resolution: "@augu/tsconfig@npm:1.1.1"
   checksum: b734975ae5362ac16de2c6be189b82d204e6744f4d23b2bdf1e7f4176994a2cf31967e8678ebf350a1404d2e308d7b87d35af176ecd043228d30aab674122e0c
   languageName: node
   linkType: hard
 
-"@augu/utils@npm:1.5.3, @augu/utils@npm:^1.5.3":
+"@augu/utils@npm:1.5.3":
   version: 1.5.3
   resolution: "@augu/utils@npm:1.5.3"
   checksum: ff1aa2d37a95660bea988e8bd6065899de9bcd83af0cb8b4adaa31e008b7d0ab22bdf9a14b0b2e3638e9b749816e5060c1295e93cb035e3dd7d4e481487c9e9f
@@ -2663,6 +2666,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/client@npm:2.28.0":
+  version: 2.28.0
+  resolution: "@prisma/client@npm:2.28.0"
+  dependencies:
+    "@prisma/engines-version": 2.28.0-17.89facabd0366f63911d089156a7a70125bfbcd27
+  peerDependencies:
+    prisma: "*"
+  peerDependenciesMeta:
+    prisma:
+      optional: true
+  checksum: 8530a9317200ecd85f23c249c4d72e9f97244c7030ee2f6bcdae5d7f5acd3c867a5705bdc7d877ac1154fc418889a04204d3b5b62a1b6763377dc24f7629694f
+  languageName: node
+  linkType: hard
+
+"@prisma/engines-version@npm:2.28.0-17.89facabd0366f63911d089156a7a70125bfbcd27":
+  version: 2.28.0-17.89facabd0366f63911d089156a7a70125bfbcd27
+  resolution: "@prisma/engines-version@npm:2.28.0-17.89facabd0366f63911d089156a7a70125bfbcd27"
+  checksum: be139a155699311749ca356c1211b5eaf140b29531788420ab42910546fffb3a1956fe4bf1c1ca2044f9c6c61440ded935b1a9af3aa899d09ad5a6f6b9a96b43
+  languageName: node
+  linkType: hard
+
 "@prisma/engines@npm:2.28.0-17.89facabd0366f63911d089156a7a70125bfbcd27":
   version: 2.28.0-17.89facabd0366f63911d089156a7a70125bfbcd27
   resolution: "@prisma/engines@npm:2.28.0-17.89facabd0366f63911d089156a7a70125bfbcd27"
@@ -2830,7 +2854,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/node@npm:^6.0.0, @sentry/node@npm:^6.10.0":
+"@sentry/node@npm:6.10.0, @sentry/node@npm:^6.0.0, @sentry/node@npm:^6.10.0":
   version: 6.10.0
   resolution: "@sentry/node@npm:6.10.0"
   dependencies:
@@ -4277,7 +4301,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:16.4.6, @types/node@npm:^16.4.6":
+"@types/node@npm:*, @types/node@npm:16.4.6":
   version: 16.4.6
   resolution: "@types/node@npm:16.4.6"
   checksum: b5fdec9873bff636e00c26cca4e81ddfae2287f30dc4275f9fb4447dd6794d7210620ea912abe690ec9d21aac5b376578c901213d885153c8acf63af167f9e44
@@ -4608,7 +4632,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:4.28.5, @typescript-eslint/eslint-plugin@npm:^4.28.5":
+"@typescript-eslint/eslint-plugin@npm:4.28.5":
   version: 4.28.5
   resolution: "@typescript-eslint/eslint-plugin@npm:4.28.5"
   dependencies:
@@ -4678,7 +4702,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:4.28.5, @typescript-eslint/parser@npm:^4.28.5":
+"@typescript-eslint/parser@npm:4.28.5":
   version: 4.28.5
   resolution: "@typescript-eslint/parser@npm:4.28.5"
   dependencies:
@@ -8645,7 +8669,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:7.31.0, eslint@npm:^7.31.0":
+"eslint@npm:7.31.0":
   version: 7.31.0
   resolution: "eslint@npm:7.31.0"
   dependencies:
@@ -13435,7 +13459,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"nodemon@npm:2.0.12, nodemon@npm:^2.0.12":
+"nodemon@npm:2.0.12":
   version: 2.0.12
   resolution: "nodemon@npm:2.0.12"
   dependencies:
@@ -14714,7 +14738,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"probot@npm:^12.1.0":
+"probot@npm:12.1.0":
   version: 12.1.0
   resolution: "probot@npm:12.1.0"
   dependencies:
@@ -15548,7 +15572,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"reflect-metadata@npm:0.1.13, reflect-metadata@npm:^0.1.13":
+"reflect-metadata@npm:0.1.13":
   version: 0.1.13
   resolution: "reflect-metadata@npm:0.1.13"
   checksum: 798d379a7b6f6455501145419505c97dd11cbc23857a386add2b9ef15963ccf15a48d9d15507afe01d4cd74116df8a213247200bac00320bd7c11ddeaa5e8fb4
@@ -17671,7 +17695,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"ts-node@npm:10.1.0, ts-node@npm:^10.1.0":
+"ts-node@npm:10.1.0":
   version: 10.1.0
   resolution: "ts-node@npm:10.1.0"
   dependencies:
@@ -17743,7 +17767,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"tslog@npm:^3.2.0":
+"tslog@npm:3.2.0":
   version: 3.2.0
   resolution: "tslog@npm:3.2.0"
   dependencies:
@@ -17905,7 +17929,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"typescript@4.3.5, typescript@^4.3.5":
+typescript@4.3.5:
   version: 4.3.5
   resolution: "typescript@npm:4.3.5"
   bin:
@@ -17915,7 +17939,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.3.5#~builtin<compat/typescript>, typescript@patch:typescript@^4.3.5#~builtin<compat/typescript>":
+"typescript@patch:typescript@4.3.5#~builtin<compat/typescript>":
   version: 4.3.5
   resolution: "typescript@patch:typescript@npm%3A4.3.5#~builtin<compat/typescript>::version=4.3.5&hash=d8b4e7"
   bin:
