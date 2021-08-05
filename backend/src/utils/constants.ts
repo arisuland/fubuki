@@ -26,16 +26,14 @@ export const githubUrl = 'https://github.com/arisuland/Arisu/tree/master/backend
 /**
  * Returns the unified version of Arisu's backend
  */
-export const version = (require('../../package.json')).version;
+export const version = require('../../package.json').version;
 
 /**
  * Returns the git commit hash
  */
 export const commitHash = (() => {
   try {
-    return execSync('git rev-parse HEAD', { encoding: 'utf8' })
-      .trim()
-      .slice(0, 8);
+    return execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim().slice(0, 8);
   } catch {
     return null;
   }

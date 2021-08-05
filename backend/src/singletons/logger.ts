@@ -28,7 +28,7 @@ const logger = new Logger({
   displayTypes: false,
   instanceName: hostname(),
   minLevel: process.env.NODE_ENV === 'production' ? 'info' : 'silly',
-  name: 'Arisu'
+  name: 'Arisu',
 });
 
 export default logger;

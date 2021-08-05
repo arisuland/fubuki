@@ -2,7 +2,9 @@
   "name": "@arisu/typings",
   "description": "☔ TypeScript definitions made for Arisu's JavaScript SDK",
   "version": "1.0.0",
-  "files": ["typings/"],
+  "files": [
+    "typings/"
+  ],
   "types": "typings/index.d.ts",
   "author": "Noel <cutie@floofy.dev>, Arisu Team <contact@arisu.land>",
   "license": "GPL-3.0",
@@ -12,5 +14,8 @@
   "scripts": {
     "generate": "npm run scripts/generate.js",
     "lint": "eslint src --ext .d.ts --fix"
+  },
+  "dependencies": {
+    "eslint-plugin-prettier": "3.4.0"
   }
 }

@@ -20,5 +20,5 @@ import { HttpClient } from '@augu/orchid';
 import * as constants from '../utils/constants';
 
 export default new HttpClient({
-  userAgent: `Arisu/Backend (+${constants.githubUrl}; v${constants.version})`
+  userAgent: `Arisu/Backend (+${constants.githubUrl}; v${constants.version})`,
 });

@@ -26,16 +26,12 @@ import log from './singletons/logger';
 const container = new Container({
   componentsDir: join(process.cwd(), 'components'),
   servicesDir: join(process.cwd(), 'services'),
-  singletons: [
-    prisma,
-    http,
-    log
-  ]
+  singletons: [prisma, http, log],
 });
 
 container
-  .on('onBeforeInit', cls => log.debug(`>> ${cls.name}: initializing...`))
-  .on('onAfterInit',  cls => log.debug(`>> ${cls.name}: initialized successfully~`))
+  .on('onBeforeInit', (cls) => log.debug(`>> ${cls.name}: initializing...`))
+  .on('onAfterInit', (cls) => log.debug(`>> ${cls.name}: initialized successfully~`))
   .on('childInitError', log.fatal)
   .on('initError', log.fatal)
   .on('debug', log.debug);
