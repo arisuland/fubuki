@@ -4,8 +4,9 @@
 </div>
 
 ## What is this folder?
+
 This folder is the source code of the frontend of Arisu.
 
 It is live at https://arisu.land :3
 
-You can view our **Storybook** at https://storybook.arisu.land, you can view staging changes at https://staging.arisu.land! :3
+You can view our **Storybook** at https://storybook.arisu.land, you can view staging changes at https://staging.arisu.land :3

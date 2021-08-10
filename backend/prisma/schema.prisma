@@ -47,6 +47,7 @@ model User {
   updatedAt     DateTime       @updatedAt
   createdAt     DateTime
   password      String
+  username      String
   avatar        String?
   email         String
   flags         Int
@@ -65,7 +66,7 @@ model Project {
   updatedAt    DateTime @updatedAt
   createdAt    DateTime
   directory    String
-  owner_id     String
+  ownerID      String
   webhooks     Webhook[]
   handle       ProjectHandle
   flags        Int
@@ -83,12 +84,12 @@ model Webhook {
 }
 
 model AuditLogs {
-  permissionIds Int?
   actionType    AuditLogAction
-  webhookId     String?
-  memberId      String?
-  project       String?
+  project       String
   reason        String?
   target        AuditLogTarget
+
+  // Audit Logs can have specific data tied to it's target.
+  data          Json?
   id            String @id
 }

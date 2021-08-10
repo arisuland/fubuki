@@ -17,18 +17,9 @@
  */
 
 /**
- * Represents the current Next.js configuration for Arisu
+ * Configuration for `next-sitemap`.
  */
 module.exports = {
-  productionBrowserSourceMaps: true,
-  poweredByHeader: false,
-  trailingSlash: true,
-  webpack5: true,
-  images: {
-    domains: ['cdn.arisu.land', 'cdn.floofy.dev'],
-  },
-  eslint: {
-    // ESLint shouldn't be ran in `next build` at all.
-    ignoreDuringBuilds: true,
-  },
+  siteUrl: process.env.ENVIRONMENT === 'staging' ? 'staging.nino.sh' : 'nino.sh',
+  generateRobotsTxt: true,
 };
