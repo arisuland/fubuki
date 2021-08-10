@@ -88,7 +88,7 @@ __metadata:
     "@augu/utils": 1.5.3
     "@prisma/client": 2.28.0
     "@sentry/node": 6.10.0
-    "@types/ioredis": 4.26.6
+    "@types/ioredis": 4.26.7
     "@types/js-yaml": 4.0.2
     "@types/luxon": 1.27.1
     "@types/node": 16.4.12
@@ -4166,7 +4166,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ioredis@npm:4.26.6, @types/ioredis@npm:^4.17.8":
+"@types/ioredis@npm:4.26.7":
+  version: 4.26.7
+  resolution: "@types/ioredis@npm:4.26.7"
+  dependencies:
+    "@types/node": "*"
+  checksum: 1b4918e8802716c41531d067cb4b9a2f401e20a857f2815d74c65286885732834b9b7af1c2d53bf1cd053495811b4f4e7c83ecbc9c4952063f9f661e585ac0d7
+  languageName: node
+  linkType: hard
+
+"@types/ioredis@npm:^4.17.8":
   version: 4.26.6
   resolution: "@types/ioredis@npm:4.26.6"
   dependencies:
