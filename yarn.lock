@@ -145,7 +145,7 @@ __metadata:
     eslint: 7.32.0
     eslint-plugin-prettier: 3.4.0
     next: 11.0.1
-    normalize-url: 7.0.0
+    normalize-url: 7.0.1
     react: 17.0.2
     react-dom: 17.0.2
     stylelint: 13.13.1
@@ -13576,10 +13576,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"normalize-url@npm:7.0.0":
-  version: 7.0.0
-  resolution: "normalize-url@npm:7.0.0"
-  checksum: bf1851a3243c16f87ce91defda77fb823b17f1de474c25e2b5ce1415311bae0773d6369ce7014d2cb5469c06b9123b9613861540ec5c7659e8e3468e5daedc88
+"normalize-url@npm:7.0.1":
+  version: 7.0.1
+  resolution: "normalize-url@npm:7.0.1"
+  checksum: c625a3033e31f3beff39856648089df9bb44a1bbca0006d811ca91a535f07127e6c6fc5bce995f10b1ed8ea1a32cc42d8760a50f4a1aa0dc5d65feb158db7369
   languageName: node
   linkType: hard
 
