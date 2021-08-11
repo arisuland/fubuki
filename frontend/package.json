@@ -22,7 +22,7 @@
     "@tailwindcss/typography": "0.4.1",
     "autoprefixer": "10.3.1",
     "debounce": "1.2.1",
-    "next": "11.0.1",
+    "next": "11.1.0",
     "normalize-url": "7.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
