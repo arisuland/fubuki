@@ -26,7 +26,7 @@
     "apollo-server-fastify": "3.1.2",
     "class-validator": "0.13.1",
     "eslint-config-prettier": "8.3.0",
-    "fastify": "3.20.1",
+    "fastify": "3.20.2",
     "fastify-cors": "6.0.2",
     "fastify-no-icon": "4.0.0",
     "graphql": "15.5.1",
