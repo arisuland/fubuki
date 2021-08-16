@@ -1,0 +1,19 @@
+{
+  "$schema": "https://cdn.arisu.land/schematics/arisurc.json",
+  "project": "core/locales",
+  "accessToken": "${{ env.ACCESS_TOKEN }}",
+  "github": {
+    "enabled": true,
+    "repository": "auguwu/Arisu",
+    "files": [
+      ["locales/**/*.json"],
+      {
+        "format": "json",
+        "indent": 4,
+        "schema": null
+      }
+    ],
+    "branches": ["staging", "master"],
+    "commitMessage": "translations: ${{ author }} has updated ${{ localePath }} (${{ modifiedAt | pretty }})"
+  }
+}

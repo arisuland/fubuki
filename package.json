@@ -1,19 +1,19 @@
 {
-  "name": "arisu",
+  "name": "arisu-root",
   "private": true,
   "workspaces": [
     "github-bot/",
-    "frontend/",
-    "backend/",
     "typings/",
-    "locales/"
+    "app/"
   ],
   "scripts": {
     "prepare": "husky install",
     "format": "prettier --config --parser typescript ./.prettierrc.json --write backend/src/**/*.ts frontend/src/**/*.{ts,tsx,js,jsx} github-bot/src/**/*.ts typings/src/**/*.d.ts",
-    "lint": "yarn workspaces foreach --from '{@arisu/backend,@arisu/frontend,@arisu/github-bot}' -p run lint"
+    "lint": "yarn workspaces foreach --from '{@arisuland/arisu,@arisu/github-bot}' -p run lint"
   },
   "devDependencies": {
+    "@nuxt/types": "^2.15.8",
+    "@nuxt/typescript-build": "^2.1.0",
     "husky": "7.0.1",
     "prettier": "2.3.2"
   }

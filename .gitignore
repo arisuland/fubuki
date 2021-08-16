@@ -1,14 +1,12 @@
 # Project
+.nuxt-storybook
+storybook-static
 node_modules
 build
-.next
 
-backend/.env
-backend/config.yml
 github-bot/config.yml
-frontend/.env
-frontend/.env.*
-frontend/.next
+app/config.yml
+app/.env
 
 # Yarn workspace
 .yarn/*
