@@ -15,7 +15,7 @@
     "lint": "eslint src --ext .ts --fix"
   },
   "dependencies": {
-    "@augu/lilith": "5.0.4",
+    "@augu/lilith": "5.1.0",
     "@augu/utils": "1.5.3",
     "@sentry/node": "6.10.0",
     "probot": "12.1.0",
