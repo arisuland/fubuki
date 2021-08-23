@@ -141,7 +141,7 @@ __metadata:
     emoji-regex: 9.2.2
     eslint: 7.32.0
     eslint-config-prettier: 8.3.0
-    eslint-plugin-nuxt: ^2.0.0
+    eslint-plugin-nuxt: 2.0.0
     eslint-plugin-prettier: 3.4.0
     eslint-plugin-vue: 7.16.0
     fastify: 3.20.2
@@ -153,7 +153,7 @@ __metadata:
     js-yaml: 4.1.0
     jsonwebtoken: 8.5.1
     luxon: 2.0.2
-    module-alias: ^2.2.2
+    module-alias: 2.2.2
     normalize-url: 7.0.1
     nuxt: 2.15.8
     postcss: 8.3.6
@@ -2337,7 +2337,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/typescript-build@npm:^2.1.0":
+"@nuxt/typescript-build@npm:2.1.0":
   version: 2.1.0
   resolution: "@nuxt/typescript-build@npm:2.1.0"
   dependencies:
@@ -5001,7 +5001,7 @@ __metadata:
   resolution: "arisu-root@workspace:."
   dependencies:
     "@nuxt/types": ^2.15.8
-    "@nuxt/typescript-build": ^2.1.0
+    "@nuxt/typescript-build": 2.1.0
     husky: 7.0.1
     prettier: 2.3.2
   languageName: unknown
@@ -8159,7 +8159,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-nuxt@npm:^2.0.0":
+"eslint-plugin-nuxt@npm:2.0.0":
   version: 2.0.0
   resolution: "eslint-plugin-nuxt@npm:2.0.0"
   dependencies:
@@ -13163,7 +13163,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"module-alias@npm:^2.2.2":
+"module-alias@npm:2.2.2":
   version: 2.2.2
   resolution: "module-alias@npm:2.2.2"
   checksum: 4b5543f834b484033e5bd184096ca8276b9195e32e88883ee6ea8d3a4789d97c470d26f5fa7271bd7a26588bf67e4d27dbdb594ee327aef1c9619d855dc78342
