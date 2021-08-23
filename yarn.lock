@@ -82,7 +82,7 @@ __metadata:
     "@augu/lilith": 5.1.0
     "@augu/tsconfig": 1.1.1
     "@augu/utils": 1.5.3
-    "@sentry/node": 6.10.0
+    "@sentry/node": 6.11.0
     "@types/node": 16.4.12
     "@typescript-eslint/eslint-plugin": 4.29.3
     "@typescript-eslint/parser": 4.29.3
@@ -2933,23 +2933,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/node@npm:6.10.0, @sentry/node@npm:^6.0.0":
-  version: 6.10.0
-  resolution: "@sentry/node@npm:6.10.0"
-  dependencies:
-    "@sentry/core": 6.10.0
-    "@sentry/hub": 6.10.0
-    "@sentry/tracing": 6.10.0
-    "@sentry/types": 6.10.0
-    "@sentry/utils": 6.10.0
-    cookie: ^0.4.1
-    https-proxy-agent: ^5.0.0
-    lru_map: ^0.3.3
-    tslib: ^1.9.3
-  checksum: 2b4b99682c4c37552c1ad5ac4f350c57c11b46a88f4912796610ca2f4e7dc4f156add60ad8258dfa383f61c8cde830b2d9b40870fe9e048ce1c5de34132dc7dc
-  languageName: node
-  linkType: hard
-
 "@sentry/node@npm:6.11.0":
   version: 6.11.0
   resolution: "@sentry/node@npm:6.11.0"
@@ -2964,6 +2947,23 @@ __metadata:
     lru_map: ^0.3.3
     tslib: ^1.9.3
   checksum: 30a380ef41735609415231778dc1df56f43d616a40b7af67977d12c9ed578f52f28bb4302a4c7993e9f9f80591edcdb0c682188564ba716bf59a3931bed67247
+  languageName: node
+  linkType: hard
+
+"@sentry/node@npm:^6.0.0":
+  version: 6.10.0
+  resolution: "@sentry/node@npm:6.10.0"
+  dependencies:
+    "@sentry/core": 6.10.0
+    "@sentry/hub": 6.10.0
+    "@sentry/tracing": 6.10.0
+    "@sentry/types": 6.10.0
+    "@sentry/utils": 6.10.0
+    cookie: ^0.4.1
+    https-proxy-agent: ^5.0.0
+    lru_map: ^0.3.3
+    tslib: ^1.9.3
+  checksum: 2b4b99682c4c37552c1ad5ac4f350c57c11b46a88f4912796610ca2f4e7dc4f156add60ad8258dfa383f61c8cde830b2d9b40870fe9e048ce1c5de34132dc7dc
   languageName: node
   linkType: hard
 
