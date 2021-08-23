@@ -134,7 +134,7 @@ __metadata:
     "@typescript-eslint/parser": 4.29.3
     apollo-server-fastify: 3.1.2
     autoprefixer: 10.3.2
-    bree: 6.2.1
+    bree: 6.3.0
     class-validator: 0.13.1
     cypress: 8.2.0
     debounce: 1.2.1
@@ -5591,9 +5591,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bree@npm:6.2.1":
-  version: 6.2.1
-  resolution: "bree@npm:6.2.1"
+"bree@npm:6.3.0":
+  version: 6.3.0
+  resolution: "bree@npm:6.3.0"
   dependencies:
     "@babel/runtime": ^7.12.5
     "@breejs/later": ^4.0.2
@@ -5608,7 +5608,7 @@ __metadata:
     ms: ^2.1.2
     p-wait-for: 3.1.0
     safe-timers: ^1.1.0
-  checksum: 70f2de2443c09f669608a346a614ebff7b1043473e3f487b631abebcc8aa8a3817c4c9787af99d57a369d3e5f7fa99df64f702e03ca3052369ff20ff31a885b2
+  checksum: a7a5d0357e3b421a6e8c7af96cfef624d06fac3a41530f8dfd6728f551791888550e7690e8e915fb8184d7857c2c9687e84e99d898d69816da4c8541eafd47c6
   languageName: node
   linkType: hard
 
