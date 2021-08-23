@@ -40,7 +40,7 @@
     "fastify-cors": "6.0.2",
     "graphql": "15.5.1",
     "graphql-scalars": "1.10.0",
-    "ioredis": "4.27.7",
+    "ioredis": "4.27.8",
     "js-yaml": "4.1.0",
     "jsonwebtoken": "8.5.1",
     "luxon": "2.0.2",
