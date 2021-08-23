@@ -93,7 +93,7 @@ __metadata:
     reflect-metadata: 0.1.13
     source-map-support: 0.5.19
     ts-node: 10.1.0
-    tslog: 3.2.0
+    tslog: 3.2.1
     typescript: 4.3.5
   languageName: unknown
   linkType: soft
@@ -18249,12 +18249,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"tslog@npm:3.2.0":
-  version: 3.2.0
-  resolution: "tslog@npm:3.2.0"
+"tslog@npm:3.2.1":
+  version: 3.2.1
+  resolution: "tslog@npm:3.2.1"
   dependencies:
     source-map-support: ^0.5.19
-  checksum: 68a33619623f6378f06f2a95c68a7250d19cd58c69371814dda9859b9d07fea86826fe8dc953b42f00c6abb4192ee96628a605e0f62b47abf0813855f0f10cda
+  checksum: 2d4acb13b2c62bdd845d9e2b608d1d5837ad660951216f320d7e6718ce9892ffd83beb2b69376e6f1c452f99f9ae36281dcfb2fb9f859ed4d201a589d7a0e3e1
   languageName: node
   linkType: hard
 
