@@ -16,6 +16,6 @@
     "lint": "eslint src --ext .d.ts --fix"
   },
   "dependencies": {
-    "eslint-plugin-prettier": "3.4.0"
+    "eslint-plugin-prettier": "3.4.1"
   }
 }
