@@ -7,8 +7,10 @@
     "app/"
   ],
   "scripts": {
+    "build:ci": "true",
     "prepare": "husky install",
     "format": "prettier --config --parser typescript ./.prettierrc.json --write backend/src/**/*.ts frontend/src/**/*.{ts,tsx,js,jsx} github-bot/src/**/*.ts typings/src/**/*.d.ts",
+    "build": "true",
     "lint": "yarn workspaces foreach --from '{@arisuland/arisu,@arisu/github-bot}' -p run lint"
   },
   "devDependencies": {
