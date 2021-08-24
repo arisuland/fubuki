@@ -159,7 +159,7 @@ __metadata:
     postcss: 8.3.6
     prettier: 2.3.2
     reflect-metadata: 0.1.13
-    sass: 1.37.5
+    sass: 1.38.1
     source-map-support: 0.5.19
     stylelint: 13.13.1
     tailwindcss: 2.2.7
@@ -16534,14 +16534,14 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"sass@npm:1.37.5":
-  version: 1.37.5
-  resolution: "sass@npm:1.37.5"
+"sass@npm:1.38.1":
+  version: 1.38.1
+  resolution: "sass@npm:1.38.1"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
   bin:
     sass: sass.js
-  checksum: 301925e66ea8ac402fedc8e9b938fc000b8ae683ffeae474ed05bf34ee8a4b7a2e1a42a37a1bf2fbb7a5a9e88df5c0175bdbb3866cedc3bedde41a4270514d75
+  checksum: e260889fd9163f68b3916fa69f2b7c99d2980e54e8938ac3a74f6d5a4fe4d0c15450871273286f5abdaecd6e218ff70b70e8f32188203ac6a9f08582fd721b3a
   languageName: node
   linkType: hard
 
