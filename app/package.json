@@ -49,7 +49,7 @@
     "nuxt": "2.15.8",
     "postcss": "8.3.6",
     "reflect-metadata": "0.1.13",
-    "sass": "1.37.5",
+    "sass": "1.38.1",
     "source-map-support": "0.5.19",
     "tailwindcss": "2.2.7",
     "twemoji": "13.1.0",
