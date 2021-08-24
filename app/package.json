@@ -58,7 +58,7 @@
     "typeorm": "0.2.37",
     "vuex": "3.6.2",
     "vuex-module-decorators": "1.0.1",
-    "zod": "3.7.2"
+    "zod": "3.8.1"
   },
   "devDependencies": {
     "@augu/eslint-config": "2.2.0",
