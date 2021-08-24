@@ -171,7 +171,7 @@ __metadata:
     typescript: 4.3.5
     vuex: 3.6.2
     vuex-module-decorators: 1.0.1
-    zod: 3.7.2
+    zod: 3.8.1
   languageName: unknown
   linkType: soft
 
@@ -19858,10 +19858,10 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"zod@npm:3.7.2":
-  version: 3.7.2
-  resolution: "zod@npm:3.7.2"
-  checksum: 7d72fe3ccfd8e3e660e7a4e5fb32060653c86908db21a2fac78cfb032e220b5cf985047cdaefea700badfb885a87072a31ffaf2f84e09a851776ae403c89c3f7
+"zod@npm:3.8.1":
+  version: 3.8.1
+  resolution: "zod@npm:3.8.1"
+  checksum: 49e3a2d785d61c083226d17a65ac10bbbf1f53459e39c428c694688ec948da2522d7f858e11c64380d2e1dd571641d47cf004a2a9524e9be9bf049a294b5d0bf
   languageName: node
   linkType: hard
 
