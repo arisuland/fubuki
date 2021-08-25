@@ -132,7 +132,7 @@ __metadata:
     "@types/twemoji-parser": 13.1.1
     "@typescript-eslint/eslint-plugin": 4.29.3
     "@typescript-eslint/parser": 4.29.3
-    apollo-server-fastify: 3.2.0
+    apollo-server-fastify: 3.3.0
     autoprefixer: 10.3.2
     bree: 6.3.0
     class-validator: 0.13.1
@@ -4851,9 +4851,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-core@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "apollo-server-core@npm:3.2.0"
+"apollo-server-core@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "apollo-server-core@npm:3.3.0"
   dependencies:
     "@apollographql/apollo-tools": ^0.5.1
     "@apollographql/graphql-playground-html": 1.6.29
@@ -4878,7 +4878,7 @@ __metadata:
     uuid: ^8.0.0
   peerDependencies:
     graphql: ^15.3.0
-  checksum: 5e640f9d1a76faf3acafa739565fed2faaf5b3d1540547625a76b9d0e2e161be1b3ed7ba6ebf521162fc0d980aea30aeb881d727eb3c41e3598bd66944c58e1c
+  checksum: 4b6f8a57c4f4a5c8b133e89c8bb7e9f95003eb31f00034057ec17574d4b504f39ed79c6b2585f61abdfc5151d7215859a7825f1fee8f7a001c6fd221029648e3
   languageName: node
   linkType: hard
 
@@ -4900,11 +4900,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-fastify@npm:3.2.0":
-  version: 3.2.0
-  resolution: "apollo-server-fastify@npm:3.2.0"
+"apollo-server-fastify@npm:3.3.0":
+  version: 3.3.0
+  resolution: "apollo-server-fastify@npm:3.3.0"
   dependencies:
-    apollo-server-core: ^3.2.0
+    apollo-server-core: ^3.3.0
     apollo-server-types: ^3.2.0
     fast-json-stringify: ^2.7.6
     fastify-accepts: ^2.0.1
@@ -4912,7 +4912,7 @@ __metadata:
   peerDependencies:
     fastify: ^3.17.0
     graphql: ^15.3.0
-  checksum: 0f1a94711c828a879c5f874718793dd572ad97ee362c710476784893b1f0b5e91e43b5e5f6db795b93cb6fc55184d40a41d4c62406a9324e23748bc9020b7675
+  checksum: 1926c1cdee7f3d7d55edd7a67642c0fe602cc5fad52c8e28c35c9848899b8210b89c86353f7030c1ed78f2626f742d88a93fba4ed886139fb8c00fe49526c08b
   languageName: node
   linkType: hard
 

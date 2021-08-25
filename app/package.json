@@ -30,7 +30,7 @@
     "@sentry/node": "6.11.0",
     "@tailwindcss/forms": "0.3.3",
     "@tailwindcss/typography": "0.4.1",
-    "apollo-server-fastify": "3.2.0",
+    "apollo-server-fastify": "3.3.0",
     "autoprefixer": "10.3.2",
     "bree": "6.3.0",
     "class-validator": "0.13.1",
