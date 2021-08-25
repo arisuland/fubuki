@@ -16,5 +16,18 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export { Route } from './decorators/Route';
-export * from './interfaces';
+import type { AbstractRoute } from '.';
+import { createProxyDecorator } from '../util';
+import { RouteKey } from './decorators/Route';
+
+interface RouteMeta extends Omit<AbstractRoute<any>, 'path'> {
+  path: string;
+}
+
+export function Endpoint(prefix: string) {
+  return (target: any) => null;
+}
+
+export default class AbstractEndpoint {
+  constructor(public prefix: string) {}
+}

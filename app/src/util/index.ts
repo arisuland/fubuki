@@ -20,6 +20,7 @@ export { default as InterpolatedVariables, CannotInterpolateError } from './Inte
 export { default as Snowflake } from './Snowflake';
 export { default as Security } from './Security';
 export * as Constants from './Constants';
+export * from './proxy/ProxyUtil';
 
 /**
  * Traverse through an array with a tuple of `[index, item]`.

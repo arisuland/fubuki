@@ -16,5 +16,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export { Route } from './decorators/Route';
-export * from './interfaces';
+import type { RoutePath } from '../interfaces';
+
+export const RouteKey: unique symbol = Symbol('RouteKey');
+
+export function Route<P extends string>(path: RoutePath<P>, method: string): MethodDecorator {
+  return (target, _, descriptor: TypedPropertyDescriptor<any>) => {
+    const original = Reflect.getMetadata(RouteKey, target) ?? [];
+    original.push({ path, method, execute: descriptor.value });
+
+    Reflect.defineMetadata(RouteKey, original, target);
+  };
+}

@@ -16,5 +16,20 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export { Route } from './decorators/Route';
-export * from './interfaces';
+import type { AbstractRoute } from './interfaces';
+
+export default class Route<P extends string> {
+  public path: string;
+  public method: string;
+  #runner: AbstractRoute<P>['execute'];
+
+  constructor(cls: any, route: AbstractRoute<P>) {
+    this.method = route.method;
+    this.path = route.path;
+    this.#runner = route.execute.bind(cls);
+  }
+
+  run(...args: Parameters<AbstractRoute<P>['execute']>): ReturnType<AbstractRoute<P>['execute']> {
+    return this.#runner(...args);
+  }
+}
