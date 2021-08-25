@@ -124,7 +124,7 @@ __metadata:
     "@sentry/node": 6.11.0
     "@tailwindcss/forms": 0.3.3
     "@tailwindcss/typography": 0.4.1
-    "@types/ioredis": 4.26.7
+    "@types/ioredis": 4.27.0
     "@types/jest": 27.0.1
     "@types/js-yaml": 4.0.3
     "@types/node": 16.6.1
@@ -146,7 +146,7 @@ __metadata:
     eslint-plugin-vue: 7.16.0
     fastify: 3.20.2
     fastify-cors: 6.0.2
-    fastify-swagger: ^4.9.0
+    fastify-swagger: 4.9.0
     graphql: 15.5.1
     graphql-scalars: 1.10.0
     ioredis: 4.27.8
@@ -3387,12 +3387,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ioredis@npm:4.26.7":
-  version: 4.26.7
-  resolution: "@types/ioredis@npm:4.26.7"
+"@types/ioredis@npm:4.27.0":
+  version: 4.27.0
+  resolution: "@types/ioredis@npm:4.27.0"
   dependencies:
     "@types/node": "*"
-  checksum: 1b4918e8802716c41531d067cb4b9a2f401e20a857f2815d74c65286885732834b9b7af1c2d53bf1cd053495811b4f4e7c83ecbc9c4952063f9f661e585ac0d7
+  checksum: 4dc1afc3df3867d8e4299d404eb56cc0d4eb79ee1f8ba147c300429bc4f364368a43ed15d9bb1968d8a640066575d12ee051bd8699d9a5a68058d30985b45d4d
   languageName: node
   linkType: hard
 
@@ -8839,7 +8839,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-swagger@npm:^4.9.0":
+"fastify-swagger@npm:4.9.0":
   version: 4.9.0
   resolution: "fastify-swagger@npm:4.9.0"
   dependencies:

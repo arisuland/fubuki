@@ -64,7 +64,7 @@
   "devDependencies": {
     "@augu/eslint-config": "2.2.0",
     "@augu/tsconfig": "1.1.1",
-    "@types/ioredis": "4.26.7",
+    "@types/ioredis": "4.27.0",
     "@types/jest": "27.0.1",
     "@types/js-yaml": "4.0.3",
     "@types/node": "16.6.1",
