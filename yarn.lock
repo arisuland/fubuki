@@ -146,6 +146,7 @@ __metadata:
     eslint-plugin-vue: 7.16.0
     fastify: 3.20.2
     fastify-cors: 6.0.2
+    fastify-swagger: ^4.9.0
     graphql: 15.5.1
     graphql-scalars: 1.10.0
     ioredis: 4.27.8
@@ -6753,7 +6754,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"content-disposition@npm:0.5.3":
+"content-disposition@npm:0.5.3, content-disposition@npm:^0.5.3":
   version: 0.5.3
   resolution: "content-disposition@npm:0.5.3"
   dependencies:
@@ -7994,6 +7995,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"encoding-negotiator@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "encoding-negotiator@npm:2.0.1"
+  checksum: 3a9226dc47a327796c7c01d06eff0bf9a614ef9b8cbe3a7539d0c506ae92e603582c4fc5b5a61d093ff14a5d71b1b332d28a7dad73eda798a08ed73c08531c41
+  languageName: node
+  linkType: hard
+
 "encoding@npm:^0.1.12":
   version: 0.1.13
   resolution: "encoding@npm:0.1.13"
@@ -8814,6 +8822,33 @@ __metadata:
   version: 3.0.0
   resolution: "fastify-plugin@npm:3.0.0"
   checksum: 00324690789ee02f977ab58ba70d937e2e420a6813a6aa7ae3ba47e34022dc8ac40e15a36ab14a67d94474de984398b1c8b30279fb51d92966f5d3d3ebd1b6fa
+  languageName: node
+  linkType: hard
+
+"fastify-static@npm:^4.0.0":
+  version: 4.2.3
+  resolution: "fastify-static@npm:4.2.3"
+  dependencies:
+    content-disposition: ^0.5.3
+    encoding-negotiator: ^2.0.1
+    fastify-plugin: ^3.0.0
+    glob: ^7.1.4
+    readable-stream: ^3.4.0
+    send: ^0.17.1
+  checksum: 196abf8d2f2547feacf5959a104e6d431b1428149574a995adc1f596d559a33c1fbcfb931bc94dd930a5ec88323e71c6f0f46fdc24ce6c5d0acea7b6bf292a9e
+  languageName: node
+  linkType: hard
+
+"fastify-swagger@npm:^4.9.0":
+  version: 4.9.0
+  resolution: "fastify-swagger@npm:4.9.0"
+  dependencies:
+    fastify-plugin: ^3.0.0
+    fastify-static: ^4.0.0
+    js-yaml: ^4.0.0
+    json-schema-resolver: ^1.2.0
+    openapi-types: ^9.1.0
+  checksum: 33bafb340a70004b38beb55ff9e9fdac285be92fedae3ee552319a512e65309b9ad2ebf5a47de026f9bb541261a3fc122f504a6faa256ded473b067d537fd398
   languageName: node
   linkType: hard
 
@@ -11858,6 +11893,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"json-schema-resolver@npm:^1.2.0":
+  version: 1.2.2
+  resolution: "json-schema-resolver@npm:1.2.2"
+  dependencies:
+    debug: ^4.1.1
+    rfdc: ^1.1.4
+    uri-js: ^4.2.2
+  checksum: 3d826e5c4f9cc54a951f73f9d0a09526b7d80b419af1f28b5ff562143a53de67c3899556db6f5cf4b3a11835e24986e8b2526d2fc9707ecd0d2d8facb51cd8b5
+  languageName: node
+  linkType: hard
+
 "json-schema-traverse@npm:^0.4.1":
   version: 0.4.1
   resolution: "json-schema-traverse@npm:0.4.1"
@@ -13871,6 +13917,13 @@ fsevents@^1.2.7:
   dependencies:
     mimic-fn: ^2.1.0
   checksum: 2478859ef817fc5d4e9c2f9e5728512ddd1dbc9fb7829ad263765bb6d3b91ce699d6e2332eef6b7dff183c2f490bd3349f1666427eaba4469fba0ac38dfd0d34
+  languageName: node
+  linkType: hard
+
+"openapi-types@npm:^9.1.0":
+  version: 9.2.0
+  resolution: "openapi-types@npm:9.2.0"
+  checksum: 1d5b830de29d1f5914c0c26756e5ee695378265abd903b22a50c223000966deac297b08b8d23af688c692d83f4ba4ef751cfbd0290ceb3c2dae5f4f8dbf2e7c1
   languageName: node
   linkType: hard
 
@@ -16689,7 +16742,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"send@npm:0.17.1":
+"send@npm:0.17.1, send@npm:^0.17.1":
   version: 0.17.1
   resolution: "send@npm:0.17.1"
   dependencies:

@@ -16,6 +16,28 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import './util/patches/RequirePatch';
-import 'source-map-support/register';
-import 'reflect-metadata';
+/**
+ * Represents a Snowflake ID.
+ */
+export default class Snowflake {
+  /**
+   * Returns the epoch timestamp of the snowflake, which
+   * is January 1st, 2022. (`2022-01-01T07:00:00.000Z`)
+   */
+  public static EPOCH: number = 1641020400000;
+
+  // Returns the increment id of the snowflake
+  private static increment: number = 0;
+
+  /**
+   * Genereates a new snowflake ID using this utility.
+   * @param workerId The worker ID to use.
+   */
+  static generate() {
+    const timestamp = Date.now();
+    this.increment++;
+
+    if (this.increment >= 4095) this.increment = 0;
+    return ((timestamp - this.EPOCH) << 23) | (process.pid << 12) | this.increment;
+  }
+}

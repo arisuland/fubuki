@@ -16,8 +16,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+export { default as InterpolatedVariables, CannotInterpolateError } from './InterpolatedVariables';
+export { default as Snowflake } from './Snowflake';
+export { default as Security } from './Security';
+export * as Constants from './Constants';
+
 /**
  * Traverse through an array with a tuple of `[index, item]`.
+ *
  * @param array The array to traverse from
  * @returns A sync {@link Generator} to use in for-of loops.
  * @example ```ts
