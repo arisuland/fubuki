@@ -31,7 +31,7 @@
     "@tailwindcss/forms": "0.3.3",
     "@tailwindcss/typography": "0.4.1",
     "apollo-server-fastify": "3.3.0",
-    "autoprefixer": "10.3.2",
+    "autoprefixer": "10.3.3",
     "bree": "6.3.0",
     "class-validator": "0.13.1",
     "debounce": "1.2.1",
