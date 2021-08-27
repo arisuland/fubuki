@@ -143,7 +143,7 @@ __metadata:
     eslint-config-prettier: 8.3.0
     eslint-plugin-nuxt: 2.0.0
     eslint-plugin-prettier: 3.4.1
-    eslint-plugin-vue: 7.16.0
+    eslint-plugin-vue: 7.17.0
     fastify: 3.20.2
     fastify-cors: 6.0.2
     fastify-swagger: 4.9.0
@@ -8238,7 +8238,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vue@npm:7.16.0, eslint-plugin-vue@npm:^7.1.0":
+"eslint-plugin-vue@npm:7.17.0":
+  version: 7.17.0
+  resolution: "eslint-plugin-vue@npm:7.17.0"
+  dependencies:
+    eslint-utils: ^2.1.0
+    natural-compare: ^1.4.0
+    semver: ^6.3.0
+    vue-eslint-parser: ^7.10.0
+  peerDependencies:
+    eslint: ^6.2.0 || ^7.0.0 || ^8.0.0-0
+  checksum: 2d94b6d7b605b21ee3e4139d63fef1ed5ddf6144fba947f15a31b4fdcfb0a3765201b3869d7ffe60635ad53da43b93ed70ae5b5f50b046153400cc7c0446a76f
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-vue@npm:^7.1.0":
   version: 7.16.0
   resolution: "eslint-plugin-vue@npm:7.16.0"
   dependencies:
