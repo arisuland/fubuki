@@ -1,0 +1,32 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  description String?
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  createdAt   DateTime @default(now()) @map("created_at")
+  username    String @unique // users cannot have the same username
+  projects    Project[]
+  name        String?
+  id          String @id @default(uuid())
+
+  @@map("users")
+}
+
+model Project {
+  description String?
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+  ownerId     String @map("owner_id")
+  owner       User @relation(fields: [ownerId], references: [id])
+  name        String
+  id          String @id @default(uuid())
+
+  @@map("projects")
+}

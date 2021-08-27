@@ -27,6 +27,14 @@ declare global {
     }
   }
 
+  type PossiblyUndefined<T> = T | undefined;
+  type PossiblyNull<T> = T | null;
+  type FunctionLike = (...args: any[]) => any;
+
+  namespace Any {
+    export type Function<T> = T extends (...args: any[]) => any ? T : never;
+  }
+
   interface RedisInfo {
     total_connections_received: number;
     total_commands_processed: number;

@@ -16,6 +16,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export { Endpoint, EndpointKey } from './decorators/Endpoint';
-export { Route, RouteKey } from './decorators/Route';
-export * from './interfaces';
+import * as leeks from 'leeks.js';
+
+function getCallSites(): NodeJS.CallSite[] {
+  const _prepare = Error.prepareStackTrace;
+
+  Error.prepareStackTrace = (_, stack) => stack;
+  const stack = new Error().stack!.slice(1) as unknown as NodeJS.CallSite[];
+  Error.prepareStackTrace = _prepare;
+
+  return stack;
+}

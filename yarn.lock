@@ -118,9 +118,9 @@ __metadata:
     "@augu/orchid": 3.1.1
     "@augu/tsconfig": 1.1.1
     "@augu/utils": 1.5.3
-    "@ayanaware/logger": 2.2.1
     "@headlessui/vue": 1.4.0
     "@nuxtjs/pwa": 3.3.5
+    "@prisma/client": 2.30.0
     "@sentry/node": 6.11.0
     "@tailwindcss/forms": 0.3.3
     "@tailwindcss/typography": 0.4.1
@@ -146,19 +146,20 @@ __metadata:
     eslint-plugin-vue: 7.16.0
     fastify: 3.20.2
     fastify-cors: 6.0.2
-    fastify-swagger: ^4.9.0
+    fastify-swagger: 4.9.0
     graphql: 15.5.1
     graphql-scalars: 1.10.0
     ioredis: 4.27.8
     jest: 27.0.6
     js-yaml: 4.1.0
     jsonwebtoken: 8.5.1
+    leeks.js: ^0.2.2
     luxon: 2.0.2
-    module-alias: 2.2.2
     normalize-url: 7.0.1
     nuxt: 2.15.8
     postcss: 8.3.6
     prettier: 2.3.2
+    prisma: 2.30.0
     reflect-metadata: 0.1.13
     sass: 1.38.1
     source-map-support: 0.5.19
@@ -255,15 +256,6 @@ __metadata:
   version: 1.5.3
   resolution: "@augu/utils@npm:1.5.3"
   checksum: ff1aa2d37a95660bea988e8bd6065899de9bcd83af0cb8b4adaa31e008b7d0ab22bdf9a14b0b2e3638e9b749816e5060c1295e93cb035e3dd7d4e481487c9e9f
-  languageName: node
-  linkType: hard
-
-"@ayanaware/logger@npm:2.2.1":
-  version: 2.2.1
-  resolution: "@ayanaware/logger@npm:2.2.1"
-  dependencies:
-    fecha: ^4.1.0
-  checksum: d5afaeabf56824a451b25f03044c88b80f7b443395f8de9431382a1bbf0612e8e83a7c1166885e3719e32d9671d2f94ea18184264bf91578e2aa7cdd7fc87cea
   languageName: node
   linkType: hard
 
@@ -2767,6 +2759,34 @@ __metadata:
   version: 1.0.0-next.17
   resolution: "@polka/url@npm:1.0.0-next.17"
   checksum: 6a24aa7a04b3b50fa42e9c7c2f3ca46a762773850b663c4e5ed67939ff94c66d5361d1a1866cc82a0c171c3dd043b62b30881a04f51fc77dc9efc3716b77d563
+  languageName: node
+  linkType: hard
+
+"@prisma/client@npm:2.30.0":
+  version: 2.30.0
+  resolution: "@prisma/client@npm:2.30.0"
+  dependencies:
+    "@prisma/engines-version": 2.30.0-28.60b19f4a1de4fe95741da371b4c44a92f4d1adcb
+  peerDependencies:
+    prisma: "*"
+  peerDependenciesMeta:
+    prisma:
+      optional: true
+  checksum: c3f61aa8e7ba40cd51958617247d120482c8e70a21710a6fda04dd9e41e446bed057cc1e6dffc5ab01648ba52ac86e5349e3302f1254509b38415e9d1f8eef00
+  languageName: node
+  linkType: hard
+
+"@prisma/engines-version@npm:2.30.0-28.60b19f4a1de4fe95741da371b4c44a92f4d1adcb":
+  version: 2.30.0-28.60b19f4a1de4fe95741da371b4c44a92f4d1adcb
+  resolution: "@prisma/engines-version@npm:2.30.0-28.60b19f4a1de4fe95741da371b4c44a92f4d1adcb"
+  checksum: 347b620d6e41bdabfcec0c8b0114f152594a73afbf29cda078b14b38689a920061741b7957dd3524dcb9928401caebe87264b569a1d0f467cd73d3b25ccc3bc1
+  languageName: node
+  linkType: hard
+
+"@prisma/engines@npm:2.30.0-28.60b19f4a1de4fe95741da371b4c44a92f4d1adcb":
+  version: 2.30.0-28.60b19f4a1de4fe95741da371b4c44a92f4d1adcb
+  resolution: "@prisma/engines@npm:2.30.0-28.60b19f4a1de4fe95741da371b4c44a92f4d1adcb"
+  checksum: ccf91dd7e5b854231c3bb8e251bb45a71735cae0ad5b6a0813d2a6fb1ed923413867794d97965db5422647719c91be1159d2366e01960ec781b96df8ef37c655
   languageName: node
   linkType: hard
 
@@ -8839,7 +8859,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-swagger@npm:^4.9.0":
+"fastify-swagger@npm:4.9.0":
   version: 4.9.0
   resolution: "fastify-swagger@npm:4.9.0"
   dependencies:
@@ -8907,13 +8927,6 @@ __metadata:
   dependencies:
     pend: ~1.2.0
   checksum: c8585fd5713f4476eb8261150900d2cb7f6ff2d87f8feb306ccc8a1122efd152f1783bdb2b8dc891395744583436bfd8081d8e63ece0ec8687eeefea394d4ff2
-  languageName: node
-  linkType: hard
-
-"fecha@npm:^4.1.0":
-  version: 4.2.1
-  resolution: "fecha@npm:4.2.1"
-  checksum: 26993474949d94cd2de5eee7dfe283d671d5cd61acdba8819df478cbc86495273363f4a7e98d15ee51563110a38328d268982a6e9048169bce8f15aeba5931f9
   languageName: node
   linkType: hard
 
@@ -12157,6 +12170,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"leeks.js@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "leeks.js@npm:0.2.2"
+  checksum: 6eff9f5b5a6dd15d7ab255b549f70b404f2455a322559b9148084c943355a28217a2c90f0b7aa6e733bfa11bec35e66b8214713349462e70adbff6382be68752
+  languageName: node
+  linkType: hard
+
 "leven@npm:2.1.0":
   version: 2.1.0
   resolution: "leven@npm:2.1.0"
@@ -13244,13 +13264,6 @@ fsevents@^1.2.7:
   version: 1.1.0
   resolution: "modern-normalize@npm:1.1.0"
   checksum: edfd40650bd7250eb4761651886a02ca3c524effca41b9832932eab9ccf9f2cfa7e5da8491c7c8bc2d58e1696e5e765adebeaf90cd9d3376444bd6bc0b0f2c99
-  languageName: node
-  linkType: hard
-
-"module-alias@npm:2.2.2":
-  version: 2.2.2
-  resolution: "module-alias@npm:2.2.2"
-  checksum: 4b5543f834b484033e5bd184096ca8276b9195e32e88883ee6ea8d3a4789d97c470d26f5fa7271bd7a26588bf67e4d27dbdb594ee327aef1c9619d855dc78342
   languageName: node
   linkType: hard
 
@@ -15563,6 +15576,18 @@ fsevents@^1.2.7:
   version: 1.1.0
   resolution: "pretty-time@npm:1.1.0"
   checksum: a319e7009aadbc6cfedbd8b66861327d3a0c68bd3e8794bf5b86f62b40b01b9479c5a70c76bb368ad454acce52a1216daee460cc825766e2442c04f3a84a02c9
+  languageName: node
+  linkType: hard
+
+"prisma@npm:2.30.0":
+  version: 2.30.0
+  resolution: "prisma@npm:2.30.0"
+  dependencies:
+    "@prisma/engines": 2.30.0-28.60b19f4a1de4fe95741da371b4c44a92f4d1adcb
+  bin:
+    prisma: build/index.js
+    prisma2: build/index.js
+  checksum: b465d2bccd5ae04490e18f00a1a50219501aaf17ce4daf4d9aea269a8f65153b3adc175d40dbc52bba7293a9a2105488f1bc91855d944ae93abe6ee378113721
   languageName: node
   linkType: hard
 

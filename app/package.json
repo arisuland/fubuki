@@ -24,9 +24,9 @@
     "@augu/lilith": "5.1.0",
     "@augu/orchid": "3.1.1",
     "@augu/utils": "1.5.3",
-    "@ayanaware/logger": "2.2.1",
     "@headlessui/vue": "1.4.0",
     "@nuxtjs/pwa": "3.3.5",
+    "@prisma/client": "2.30.0",
     "@sentry/node": "6.11.0",
     "@tailwindcss/forms": "0.3.3",
     "@tailwindcss/typography": "0.4.1",
@@ -44,8 +44,8 @@
     "ioredis": "4.27.8",
     "js-yaml": "4.1.0",
     "jsonwebtoken": "8.5.1",
+    "leeks.js": "0.2.2",
     "luxon": "2.0.2",
-    "module-alias": "2.2.2",
     "normalize-url": "7.0.1",
     "nuxt": "2.15.8",
     "postcss": "8.3.6",
@@ -80,12 +80,9 @@
     "eslint-plugin-vue": "7.16.0",
     "jest": "27.0.6",
     "prettier": "2.3.2",
+    "prisma": "2.30.0",
     "stylelint": "13.13.1",
     "ts-jest": "27.0.5",
     "typescript": "4.3.5"
-  },
-  "_moduleAlias": {
-    "~/": "build/",
-    "@/": "build/dist"
   }
 }

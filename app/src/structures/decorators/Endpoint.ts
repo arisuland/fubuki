@@ -16,18 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import type { AbstractRoute } from '.';
-import { createProxyDecorator } from '../util';
-import { RouteKey } from './decorators/Route';
+import type { RoutePath } from '../interfaces';
 
-interface RouteMeta extends Omit<AbstractRoute<any>, 'path'> {
-  path: string;
-}
+export const EndpointKey: unique symbol = Symbol.for('EndpointKey');
 
-export function Endpoint(prefix: string) {
-  return (target: any) => null;
-}
-
-export default class AbstractEndpoint {
-  constructor(public prefix: string) {}
-}
+export const Endpoint: <P extends string>(prefix: RoutePath<P>) => ClassDecorator =
+  <P extends string>(prefix: RoutePath<P>) =>
+  (target: any) => {
+    Reflect.defineMetadata(EndpointKey, { prefix }, target);
+  };
