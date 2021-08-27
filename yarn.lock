@@ -5,9 +5,9 @@ __metadata:
   version: 4
   cacheKey: 8
 
-"@apollo/client@npm:3.4.9":
-  version: 3.4.9
-  resolution: "@apollo/client@npm:3.4.9"
+"@apollo/client@npm:3.4.10":
+  version: 3.4.10
+  resolution: "@apollo/client@npm:3.4.10"
   dependencies:
     "@graphql-typed-document-node/core": ^3.0.0
     "@wry/context": ^0.6.0
@@ -30,7 +30,7 @@ __metadata:
       optional: true
     subscriptions-transport-ws:
       optional: true
-  checksum: 14877d78f3fc0d1f5d29ef66c2b6ea4e576de038189179557bbd8244f8cfa10bb1c98a67fcef68d69ba05b08b1b6b137570ad7f19ffd4eadf4a649654d3ed82f
+  checksum: 2d8a943b082558a43439d9801e868a690f2db1f3f4beccbde04b7b9cda81babc58332fb70eb9a919af2c758c460468da4c8967b101c81898891cbe2ee4b7d92f
   languageName: node
   linkType: hard
 
@@ -110,7 +110,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@arisuland/arisu@workspace:app"
   dependencies:
-    "@apollo/client": 3.4.9
+    "@apollo/client": 3.4.10
     "@augu/collections": 1.0.12
     "@augu/dotenv": 1.3.0
     "@augu/eslint-config": 2.2.0
