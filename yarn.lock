@@ -136,7 +136,7 @@ __metadata:
     autoprefixer: 10.3.3
     bree: 6.3.0
     class-validator: 0.13.1
-    cypress: 8.3.0
+    cypress: 8.3.1
     debounce: 1.2.1
     emoji-regex: 9.2.2
     eslint: 7.32.0
@@ -1613,9 +1613,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress/request@npm:^2.88.5":
-  version: 2.88.5
-  resolution: "@cypress/request@npm:2.88.5"
+"@cypress/request@npm:^2.88.6":
+  version: 2.88.6
+  resolution: "@cypress/request@npm:2.88.6"
   dependencies:
     aws-sign2: ~0.7.0
     aws4: ^1.8.0
@@ -1630,14 +1630,13 @@ __metadata:
     isstream: ~0.1.2
     json-stringify-safe: ~5.0.1
     mime-types: ~2.1.19
-    oauth-sign: ~0.9.0
     performance-now: ^2.1.0
     qs: ~6.5.2
     safe-buffer: ^5.1.2
     tough-cookie: ~2.5.0
     tunnel-agent: ^0.6.0
-    uuid: ^3.3.2
-  checksum: a605f8a623f4665402768f4d7730315a420967d41c44194eeb2a946ce0b74ce3eb8205a73b0cab879fcf65870dbb1189ac60ea67d163c7acd64228e39e65611a
+    uuid: ^8.3.2
+  checksum: 31d4586e212e20955091cdf67a0de746c2587f97f7ff0e2b8e84e772d98a73a1c6051c9090dd938ecdf595c37aec9193b6211faf754b5fcf43c7a151b4d274b7
   languageName: node
   linkType: hard
 
@@ -7344,11 +7343,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:8.3.0":
-  version: 8.3.0
-  resolution: "cypress@npm:8.3.0"
+"cypress@npm:8.3.1":
+  version: 8.3.1
+  resolution: "cypress@npm:8.3.1"
   dependencies:
-    "@cypress/request": ^2.88.5
+    "@cypress/request": ^2.88.6
     "@cypress/xvfb": ^1.2.4
     "@types/node": ^14.14.31
     "@types/sinonjs__fake-timers": ^6.0.2
@@ -7391,7 +7390,7 @@ __metadata:
     yauzl: ^2.10.0
   bin:
     cypress: bin/cypress
-  checksum: acffc5ee3a347c3dc0989b43509f1d56ef2089aab6d8a2a8087f91dd93fd81d86939fa71a6df4a6690014385650e24599777bc5513c66ef7acfe34e6733dc4d6
+  checksum: fc2b3500b43a27f8a9c9ed421739147b4722b017d745068c7cdb76d576126576aac9e218769992cfb4ed32b591fb1e2b6c7d16f589597b4971c4ae60ec5149fa
   languageName: node
   linkType: hard
 
@@ -13853,13 +13852,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"oauth-sign@npm:~0.9.0":
-  version: 0.9.0
-  resolution: "oauth-sign@npm:0.9.0"
-  checksum: 8f5497a127967866a3c67094c21efd295e46013a94e6e828573c62220e9af568cc1d2d04b16865ba583e430510fa168baf821ea78f355146d8ed7e350fc44c64
-  languageName: node
-  linkType: hard
-
 "object-assign@npm:^4.0.1, object-assign@npm:^4.1.0, object-assign@npm:^4.1.1":
   version: 4.1.1
   resolution: "object-assign@npm:4.1.1"
@@ -19142,15 +19134,6 @@ typescript@~4.2:
   version: 1.0.1
   resolution: "utils-merge@npm:1.0.1"
   checksum: c81095493225ecfc28add49c106ca4f09cdf56bc66731aa8dabc2edbbccb1e1bfe2de6a115e5c6a380d3ea166d1636410b62ef216bb07b3feb1cfde1d95d5080
-  languageName: node
-  linkType: hard
-
-"uuid@npm:^3.3.2":
-  version: 3.4.0
-  resolution: "uuid@npm:3.4.0"
-  bin:
-    uuid: ./bin/uuid
-  checksum: 58de2feed61c59060b40f8203c0e4ed7fd6f99d42534a499f1741218a1dd0c129f4aa1de797bcf822c8ea5da7e4137aa3673431a96dae729047f7aca7b27866f
   languageName: node
   linkType: hard
 
