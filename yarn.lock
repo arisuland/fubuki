@@ -173,7 +173,7 @@ __metadata:
     stylelint: 13.13.1
     tailwindcss: 2.2.8
     ts-jest: 27.0.5
-    ts-loader: 8.1.0
+    ts-loader: 8.3.0
     twemoji: 13.1.0
     twemoji-parser: 13.1.0
     type-graphql: 1.1.1
@@ -23165,23 +23165,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"ts-loader@npm:8.1.0":
-  version: 8.1.0
-  resolution: "ts-loader@npm:8.1.0"
-  dependencies:
-    chalk: ^4.1.0
-    enhanced-resolve: ^4.0.0
-    loader-utils: ^2.0.0
-    micromatch: ^4.0.0
-    semver: ^7.3.4
-  peerDependencies:
-    typescript: "*"
-    webpack: "*"
-  checksum: fd021e2027c541dc4f69ad7b438c001b1aaefd20344e2190e5b971e240ffffb20a4378013e412965e43abaa7eb4e0fb33a66d1afae0cd175e8db90ac30565470
-  languageName: node
-  linkType: hard
-
-"ts-loader@npm:^8.0.14, ts-loader@npm:^8.0.17":
+"ts-loader@npm:8.3.0, ts-loader@npm:^8.0.14, ts-loader@npm:^8.0.17":
   version: 8.3.0
   resolution: "ts-loader@npm:8.3.0"
   dependencies:
