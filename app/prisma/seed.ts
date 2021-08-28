@@ -16,21 +16,27 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import * as pkg from '@/package.json';
-import shell from '~/util/shell';
+import { PrismaClient } from '.prisma/client';
+import * as argon2 from 'argon2';
 
-/**
- * Returns the current version of Arisu.
- */
-export const version = pkg.version;
+const prisma = new PrismaClient();
 
-/**
- * Returns the commit hash or `null` if `git` doesn't exist.
- */
-export const commitHash: string | null = (() => {
-  try {
-    return shell.exec('git', ['rev-parse', 'HEAD']);
-  } catch (ex) {
-    return null;
-  }
-})();
+const main = async () => {
+  // `admin` account gets deleted after first initialization
+  console.log('Creating `admin` user with `admin` password...');
+
+  const password = await argon2.hash('admin');
+  await prisma.user.create({
+    data: {
+      description: 'Temporary administration account.',
+      password: password,
+      username: 'admin',
+      flags: 0,
+      name: 'Admin',
+    },
+  });
+
+  console.log('Created admin account!');
+};
+
+main();

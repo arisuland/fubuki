@@ -22,6 +22,9 @@ export { default as Security } from './Security';
 export * as Constants from './Constants';
 export * from './proxy/ProxyUtil';
 
+import { isObject } from '@augu/utils';
+import * as leeks from 'leeks.js';
+
 /**
  * Traverse through an array with a tuple of `[index, item]`.
  *
@@ -42,4 +45,21 @@ export function* withIndex<T extends any[]>(array: T): Generator<[index: number,
   for (let i = 0; i < array.length; i++) {
     yield [i, array[i]];
   }
+}
+
+/**
+ * Returns the {@link NodeJS.CallSite call sites} of a empty error.
+ * @returns Returns the call sites available.
+ */
+export function getCallSites(_of?: Error): NodeJS.CallSite[] {
+  const _prepare = Error.prepareStackTrace;
+
+  Error.prepareStackTrace = (_, stack) => stack;
+  const stack = _of
+    ? (_of.stack!.slice(1) as unknown as NodeJS.CallSite[])
+    : (new Error().stack!.slice(1) as unknown as NodeJS.CallSite[]);
+
+  Error.prepareStackTrace = _prepare;
+
+  return stack;
 }

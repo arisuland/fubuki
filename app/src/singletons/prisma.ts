@@ -16,21 +16,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import * as pkg from '@/package.json';
-import shell from '~/util/shell';
+import { PrismaClient } from '.prisma/client';
 
-/**
- * Returns the current version of Arisu.
- */
-export const version = pkg.version;
+export const teardown = async (prisma: PrismaClient) => {
+  await prisma.$disconnect();
+};
 
-/**
- * Returns the commit hash or `null` if `git` doesn't exist.
- */
-export const commitHash: string | null = (() => {
-  try {
-    return shell.exec('git', ['rev-parse', 'HEAD']);
-  } catch (ex) {
-    return null;
-  }
-})();
+// Why not a seperate variable for this?
+//
+// Lilith doesn't create new instances everytime it is
+// referenced in @Inject, so doing `new PrismaClient` is safe
+// in that regard.
+export default new PrismaClient();

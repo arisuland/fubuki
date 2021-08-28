@@ -20,18 +20,78 @@
 
 import type { NuxtConfig } from '@nuxt/types';
 
-// TODO: fill out this kekw
 const nuxtConfig: NuxtConfig = {
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/pwa'],
+  target: 'server',
+  modern: process.env.NODE_ENV === 'production' && 'client',
   srcDir: 'src/frontend',
-  head: {},
-  dev: process.env.NODE_ENV === 'development',
+  dir: {
+    pages: 'views',
+  },
+
+  head: {
+    title: 'Arisu ☔',
+    meta: [
+      { charset: 'utf-8' },
+      { hid: 'viewport', name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'robots', content: 'index, follow' },
+    ],
+    htmlAttrs: {
+      lang: 'en',
+    },
+  },
+
+  plugins: ['~/plugins/logger'],
+
+  generate: {
+    fallback: true,
+    subFolders: false,
+    interval: 2000, // allow async funcs to resolve (issue with @nuxtjs/composition-api ~ https://composition-api.nuxtjs.org/getting-started/setup)
+  },
+
+  buildModules: [
+    '@nuxt/typescript-build',
+    '@nuxtjs/fontawesome',
+    '@nuxtjs/pwa',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/composition-api/module',
+  ],
+
+  sitemap: {
+    hostname: 'arisu.land',
+    exclude: [],
+    defaults: {
+      lastmod: new Date(),
+    },
+  },
+
+  tailwindcss: {
+    exposeConfig: true,
+  },
+
   pwa: {
-    icon: false,
-    meta: {
-      name: 'Arisu',
-      description: '☔ Translation made with simplicity, yet robust.',
-      theme_color: '#361E36',
+    description: 'Translation made with simplicity.',
+    theme_color: '#361E36',
+    ogDescription: 'Translation made with simplicity.',
+    ogTitle: 'Arisu ☔',
+    ogImage: true,
+    ogSiteName: 'Arisu',
+    twitterCard: 'summary',
+    twitterSite: '@arisu_land', // not available :)
+  },
+
+  fontawesome: {
+    component: 'fa',
+    icons: {
+      solid: ['faHeart', 'faLaptop'],
+      brands: ['faDiscord', 'faGitHub', 'faTelegram', 'faSteam', 'faTwitter'],
+    },
+  },
+
+  build: {
+    postcss: {
+      plugins: {
+        autoprefixer: {},
+      },
     },
   },
 };

@@ -10,8 +10,8 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "@/*": ["./*"]
     }
   },
   "exclude": ["node_modules", "jest.config.ts", "tests/**/*.(spec|test).ts"],

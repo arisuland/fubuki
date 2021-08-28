@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "app"
+		},
+		{
+			"path": "github-bot"
+		},
+		{
+			"path": "typings"
+		}
+	],
+  "settings": {}
+}

@@ -16,21 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import * as pkg from '@/package.json';
-import shell from '~/util/shell';
+import { HttpClient } from '@augu/orchid';
+import { version } from '~/util/Constants';
 
-/**
- * Returns the current version of Arisu.
- */
-export const version = pkg.version;
-
-/**
- * Returns the commit hash or `null` if `git` doesn't exist.
- */
-export const commitHash: string | null = (() => {
-  try {
-    return shell.exec('git', ['rev-parse', 'HEAD']);
-  } catch (ex) {
-    return null;
-  }
-})();
+export default new HttpClient({
+  userAgent: `Arisu (+https://github.com/auguwu/Arisu; v${version})`,
+});

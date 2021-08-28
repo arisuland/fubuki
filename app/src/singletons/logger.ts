@@ -16,21 +16,21 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import * as pkg from '@/package.json';
-import shell from '~/util/shell';
+import { createLogger, format, transports } from 'winston';
+import * as leeks from 'leeks.js';
 
-/**
- * Returns the current version of Arisu.
- */
-export const version = pkg.version;
+export default createLogger({
+  transports: [new transports.Console()],
+  format: format.combine(
+    format.colorize(),
+    format.timestamp({
+      format: 'MMM Do, YYYY [at] HH:mm:ss A',
+    }),
+    format.printf((info) => {
+      const metadata = Object.keys(info).filter((s) => !['level', 'message', 'timestamp', 'ms'].includes(s));
+      const tags = metadata.map((key) => `[${leeks.colors.magenta(key)}: ${info[key]}]`).join(' ') + ' ';
 
-/**
- * Returns the commit hash or `null` if `git` doesn't exist.
- */
-export const commitHash: string | null = (() => {
-  try {
-    return shell.exec('git', ['rev-parse', 'HEAD']);
-  } catch (ex) {
-    return null;
-  }
-})();
+      return `${leeks.colors.gray(info.timestamp)} ${tags}[${info.level}] ${info.message}`;
+    })
+  ),
+});

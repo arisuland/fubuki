@@ -9,10 +9,13 @@ generator client {
 
 model User {
   description String?
+  accessToken AccessTokens?
   updatedAt   DateTime @updatedAt @map("updated_at")
   createdAt   DateTime @default(now()) @map("created_at")
   username    String @unique // users cannot have the same username
+  password    String
   projects    Project[]
+  flags       Int @default(0)
   name        String?
   id          String @id @default(uuid())
 
@@ -25,8 +28,18 @@ model Project {
   createdAt   DateTime @default(now())
   ownerId     String @map("owner_id")
   owner       User @relation(fields: [ownerId], references: [id])
+  flags       Int @default(0)
   name        String
   id          String @id @default(uuid())
 
   @@map("projects")
+}
+
+model AccessTokens {
+  ownerId String @map("owner_id")
+  owner   User @relation(fields: [ownerId], references: [id])
+  token   String
+  id      String @id @default(uuid())
+
+  @@map("access_tokens")
 }
