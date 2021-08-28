@@ -59,7 +59,7 @@
     "sass": "1.38.1",
     "source-map-support": "0.5.19",
     "tailwindcss": "2.2.8",
-    "ts-loader": "8.3.0",
+    "ts-loader": "9.2.5",
     "twemoji": "13.1.0",
     "twemoji-parser": "13.1.0",
     "type-graphql": "1.1.1",
