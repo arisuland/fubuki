@@ -132,7 +132,7 @@ __metadata:
     "@sentry/node": 6.11.0
     "@tailwindcss/forms": 0.3.3
     "@tailwindcss/typography": 0.4.1
-    "@types/bree": ^6.2.1
+    "@types/bree": 6.2.1
     "@types/ioredis": 4.27.1
     "@types/jest": 27.0.1
     "@types/js-yaml": 4.0.3
@@ -5854,7 +5854,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/bree@npm:^6.2.1":
+"@types/bree@npm:6.2.1":
   version: 6.2.1
   resolution: "@types/bree@npm:6.2.1"
   dependencies:
