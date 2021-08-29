@@ -2,6 +2,7 @@
   "name": "arisu-root",
   "private": true,
   "workspaces": [
+    "singyeong/",
     "github-bot/",
     "typings/",
     "app/"
