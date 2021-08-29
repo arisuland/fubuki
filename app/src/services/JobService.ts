@@ -17,6 +17,7 @@
  */
 
 import { Inject, Service, ServiceAPI } from '@augu/lilith';
+import BreeListener from '~/listeners/BreeListener';
 import { Logger } from 'tslog';
 import { join } from 'path';
 import Sentry from '@sentry/node';
@@ -79,6 +80,8 @@ export default class JobService {
         Sentry.captureException(error);
       },
     });
+
+    this.api.forwardSubscriptions(this.bree, new BreeListener());
   }
 
   dispose() {

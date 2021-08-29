@@ -55,6 +55,7 @@ const nuxtConfig: NuxtConfig = {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/composition-api/module',
     '@nuxtjs/storybook',
+    '@nuxt/postcss8',
   ],
 
   sitemap: {

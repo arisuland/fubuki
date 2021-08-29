@@ -11,6 +11,7 @@
   "rules": {
     // TypeScript
     "@typescript-eslint/indent": "off",
+    "quotes": "off",
 
     // Nuxt.js
     "nuxt/no-timing-in-fetch-data": "error",
