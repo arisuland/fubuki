@@ -18,6 +18,23 @@
 
 const pkg = require('../package.json');
 
-export const version: string = pkg.version;
-export { default as Client } from './Client';
-export { default as Dsn } from './Dsn';
+import Client from './Client';
+
+const main = async () => {
+  const client = new Client({
+    dsn: 'singyeong://noel:owodauwu@localhost:2999/?encoding=json',
+    connection: {
+      namespace: 'test',
+      clientId: 'testing_uwu',
+    },
+  });
+
+  client.on('debug', console.debug);
+  await client.connect();
+};
+
+main();
+
+// export const version: string = pkg.version;
+// export { default as Client } from './Client';
+// export { default as Dsn } from './Dsn';

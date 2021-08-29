@@ -16,7 +16,55 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { URL } from 'url';
+
+/**
+ * Returns the encoding for a {@link Dsn DSN}. Use {@link Dsn.encoding} to return
+ * the encoding.
+ */
+export enum DsnEncoding {
+  Json = 'json',
+  Etf = 'etf',
+  MessagePack = 'msgpack',
+}
+
 /**
  * Represents a 신경 DSN to connect to a 신경 server.
  */
-export default class Dsn {}
+export default class Dsn {
+  private static readonly DSN_REGEX: RegExp =
+    /s?singyeong:\/\/.+(:.+)?@[\w-]+(:\d{1,5})?\/?(\?encoding=(json|etf|msgpack))?/;
+
+  /**
+   * Returns the {@link DsnEncoding encoding} to (de)serialize packets.
+   */
+  public encoding: DsnEncoding;
+
+  /**
+   * Returns if the DSN is SSL.
+   */
+  public isSsl: boolean;
+
+  /**
+   * Parses a string to return a {@link Dsn}.
+   * @param url The URL to check for.
+   */
+  public static parse(url: string): Dsn {
+    if (!this.DSN_REGEX.test(url)) throw new Error(`DSN didn't follow regex: ${this.DSN_REGEX}`);
+
+    return new Dsn(new URL(url));
+  }
+
+  private constructor(private raw: URL) {
+    if (!['singyeong:', 'ssingyeong:'].includes(raw.protocol)) throw new Error(`Invalid protocol: ${raw.protocol}.`);
+    if (!raw.username)
+      throw new Error("Username was not present in DSN. Please use it since it'll be your application ID.");
+
+    this.encoding = (raw.searchParams.get('encoding') as DsnEncoding) ?? DsnEncoding.Json;
+    this.isSsl = raw.protocol === 'ssingyeong:';
+  }
+
+  toUrl() {
+    return this.raw;
+  }
+}
