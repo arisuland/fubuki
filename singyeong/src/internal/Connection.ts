@@ -150,7 +150,7 @@ export default class Connection extends EventBus<ConnectionEvents> {
       this._resolveConnection = { resolve, reject };
 
       const asDsnUrl = this.dsn.toUrl();
-      const dsn = `${asDsnUrl.protocol === 'ssingyeong://' ? 'wss://' : 'ws://'}${asDsnUrl.hostname}:${
+      const dsn = `${asDsnUrl.protocol === 'ssingyeong:' ? 'wss://' : 'ws://'}${asDsnUrl.hostname}:${
         asDsnUrl.port || '80'
       }/gateway/websocket?encoding=json`;
 
