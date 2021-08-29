@@ -52,4 +52,4 @@ export const validate = (object: any) => zodSchema.parse(object);
  * Returns the zod schema as a {@link InterpolatedVariables interpolated variable schema}.
  */
 export const useInterpolated = (schema: ArisurcZodSchema) =>
-  new InterpolatedVariables(/[$]\{\{( [\w\.]+ )\}\}/g, schema);
+  new InterpolatedVariables(/[$]\{\{( [\w\.]+ )\}\}|[$]\{([\w\.]+)\}/g, schema);
