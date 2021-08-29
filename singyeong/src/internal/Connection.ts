@@ -24,7 +24,7 @@ import { EventBus } from '@augu/utils';
 import WebSocket from 'ws';
 import Dsn from '../Dsn';
 
-import { HelloPayload, OPCode, Payload } from './payloads';
+import { HelloPayload, OPCode, Payload, ReadyEvent } from './payloads';
 
 /**
  * Represents the current {@link Connection connection} state.
@@ -83,6 +83,7 @@ export interface ConnectionOptions {
 }
 
 export interface ConnectionEvents {
+  destroyed(): void;
   close(code: number, reason: string): void;
   debug(message: string): void;
   error(error: Error): void;
@@ -96,9 +97,10 @@ export default class Connection extends EventBus<ConnectionEvents> {
   };
 
   private _heartbeatTimer?: NodeJS.Timer;
+  private lastReceivedAt: number | null = null;
+  private lastAckedAt: number | null = null;
   private acked: boolean = true;
-  private pings: number[] = [];
-  private socket!: WebSocket;
+  private socket?: WebSocket;
 
   /**
    * Returns the client options
@@ -138,11 +140,18 @@ export default class Connection extends EventBus<ConnectionEvents> {
    */
   get latency() {
     if (this.state !== ConnectionState.Connected) return -1;
+    if (this.lastAckedAt === null) return -1;
+    if (this.lastReceivedAt === null) return -1;
 
-    return this.pings.reduce((acc, curr) => acc + curr) / this.pings.length;
+    return this.lastReceivedAt - this.lastAckedAt;
   }
 
   async connect() {
+    if (this.state === ConnectionState.Connected) {
+      this.emit('debug', 'Connection is already established.');
+      return Promise.resolve(this);
+    }
+
     return new Promise<Connection>((resolve, reject) => {
       this.emit('debug', `Starting the connection with singyeong with DSN ${this.dsn.toUrl()}!`);
 
@@ -164,13 +173,37 @@ export default class Connection extends EventBus<ConnectionEvents> {
     });
   }
 
+  destroy(reconnect = true) {
+    if (!this.socket) return;
+    if (this._heartbeatTimer !== undefined) clearInterval(this._heartbeatTimer);
+
+    if (this.socket.readyState !== WebSocket.CLOSED) {
+      this.socket.removeListener('close', this._onClose.bind(this));
+      reconnect ? this.socket.terminate() : this.socket.close(1000, 'destroying connection');
+    }
+
+    this.state = ConnectionState.Dead;
+    this.socket = undefined;
+    this.emit('destroyed');
+
+    if (reconnect) {
+      // TODO: backoff?
+      setTimeout(() => this.connect(), 5000);
+    } else {
+      this.emit('debug', 'Reached EOL. End of line. :<');
+    }
+  }
+
   private _onOpen() {
     this.emit('debug', 'Established a connection!');
+
+    this.state = ConnectionState.Connected;
     this._resolveConnection?.resolve(this);
   }
 
   private _onClose(code: number, reason: string) {
-    // todo: this
+    // TODO: do shit here ig?
+    this.destroy(false);
   }
 
   private _onError(error: Error) {
@@ -192,7 +225,6 @@ export default class Connection extends EventBus<ConnectionEvents> {
       this.emit('error', ex as Error);
     }
 
-    this.pings.push(Date.now() - msg.ts);
     switch (msg.op) {
       case OPCode.Hello:
         {
@@ -206,13 +238,16 @@ export default class Connection extends EventBus<ConnectionEvents> {
 
       case OPCode.Ready:
         {
-          this.emit('debug', 'Ready!');
+          const packet = msg as ReadyEvent;
+
+          this.emit('debug', `Ready as client ${packet.d!.client_id} (restricted: ${packet.d!.restricted})`);
           this.emit('ready');
         }
         break;
 
       case OPCode.HeartbeatAck:
         {
+          this.lastReceivedAt = Date.now();
           this.acked = true;
           this.emit('debug', `Acked a heartbeat from singyeong! Ping is ~${this.latency}ms`);
         }
@@ -223,11 +258,12 @@ export default class Connection extends EventBus<ConnectionEvents> {
   private ackHeartbeat() {
     if (!this.acked) {
       this.emit('debug', "Didn't receive heartbeat back, possible server lost connection...");
-      return this.socket.close();
+      return this.socket?.close();
     }
 
     this.acked = false;
-    this.socket.send(
+    this.lastAckedAt = Date.now();
+    this.socket?.send(
       JSON.stringify({
         op: OPCode.Heartbeat,
       })
@@ -235,7 +271,7 @@ export default class Connection extends EventBus<ConnectionEvents> {
   }
 
   private identify() {
-    this.socket.send(
+    this.socket?.send(
       JSON.stringify({
         op: OPCode.Identify,
         d: {

@@ -151,4 +151,4 @@ export type IdentifyPacket = Payload<
   }
 >;
 
-export type ReadyEvent = Payload<OPCode.Ready, { client_id: string }>;
+export type ReadyEvent = Payload<OPCode.Ready, { client_id: string; restricted: boolean }>;
