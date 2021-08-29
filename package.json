@@ -10,9 +10,9 @@
   "scripts": {
     "build:ci": "true",
     "prepare": "husky install",
-    "format": "prettier --config --parser typescript ./.prettierrc.json --write backend/src/**/*.ts frontend/src/**/*.{ts,tsx,js,jsx} github-bot/src/**/*.ts typings/src/**/*.d.ts",
+    "format": "prettier --config --parser typescript ./.prettierrc.json --write app/src/**/*.ts singyeong/src/**/*.ts github-bot/src/**/*.ts typings/typings/**/*.d.ts",
     "build": "true",
-    "lint": "yarn workspaces foreach --from '{@arisuland/arisu,@arisu/github-bot}' -p run lint"
+    "lint": "yarn workspaces foreach --from '{@arisuland/arisu,@arisu/github-bot,@arisuland/singyeong}' -p run lint"
   },
   "devDependencies": {
     "@nuxt/types": "2.15.8",
