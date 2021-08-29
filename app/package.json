@@ -61,13 +61,13 @@
     "sass": "1.38.2",
     "source-map-support": "0.5.19",
     "tailwindcss": "2.2.8",
+    "tslog": "^3.2.1",
     "twemoji": "13.1.0",
     "twemoji-parser": "13.1.0",
     "type-graphql": "1.1.1",
     "typeorm": "0.2.37",
     "vuex": "3.6.2",
     "vuex-module-decorators": "1.0.1",
-    "winston": "3.3.3",
     "zod": "3.8.1"
   },
   "devDependencies": {

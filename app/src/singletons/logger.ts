@@ -16,21 +16,19 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { createLogger, format, transports } from 'winston';
-import * as leeks from 'leeks.js';
+import { hostname } from 'os';
+import { Logger } from 'tslog';
 
-export default createLogger({
-  transports: [new transports.Console()],
-  format: format.combine(
-    format.colorize(),
-    format.timestamp({
-      format: 'MMM Do, YYYY [at] HH:mm:ss A',
-    }),
-    format.printf((info) => {
-      const metadata = Object.keys(info).filter((s) => !['level', 'message', 'timestamp', 'ms'].includes(s));
-      const tags = metadata.map((key) => `[${leeks.colors.magenta(key)}: ${info[key]}]`).join(' ') + ' ';
-
-      return `${leeks.colors.gray(info.timestamp)} ${tags}[${info.level}] ${info.message}`;
-    })
-  ),
+const logger = new Logger({
+  displayFunctionName: false,
+  exposeErrorCodeFrame: true,
+  displayInstanceName: true,
+  dateTimePattern: '[hour:minute:second @ day/month/year]',
+  displayFilePath: 'hideNodeModulesOnly',
+  displayTypes: false,
+  instanceName: hostname(),
+  minLevel: process.env.NODE_ENV === 'production' ? 'info' : 'silly',
+  name: 'Arisu',
 });
+
+export default logger;

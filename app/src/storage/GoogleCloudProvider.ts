@@ -19,7 +19,7 @@
 import type { StorageProvider, IStorageConfig } from '.';
 import { Storage } from '@google-cloud/storage';
 import { Inject } from '@augu/lilith';
-import { Logger } from 'winston';
+import { Logger } from 'tslog';
 
 /**
  * Represents the configuration details for using Google Cloud
@@ -66,7 +66,7 @@ export default class GoogleCloudProvider implements StorageProvider<IStorageConf
   }
 
   async init() {
-    this.logger.info('Loading Google Cloud Storage provider...', { provider: 'gcs' });
+    this.logger.info('Loading Google Cloud Storage provider...');
     this.logger.warn(
       'GCS is in alpha mode, things will break. Report bugs at here: https://github.com/auguwu/Arisu/issues',
       { provider: 'gcs' }
@@ -75,20 +75,20 @@ export default class GoogleCloudProvider implements StorageProvider<IStorageConf
     this.storage = new Storage();
     const [buckets] = await this.storage.getBuckets();
 
-    this.logger.info(`Found the following buckets: ${buckets.map((s) => s.name).join(', ')}`, { provider: 'gcs' });
+    this.logger.info(`Found the following buckets: ${buckets.map((s) => s.name).join(', ')}`);
     if (!buckets.find((s) => s.name === this.config.bucket ?? 'arisu')) {
-      this.logger.warn(`Bucket ${this.config.bucket ?? 'arisu'} doesn't exist, creating...`, { provider: 'gcs' });
+      this.logger.warn(`Bucket ${this.config.bucket ?? 'arisu'} doesn't exist, creating...`);
       await this.storage.createBucket(this.config.bucket ?? 'arisu', {
         location: this.config.location ?? 'US-EAST1',
         [this.config.storageClass?.toLowerCase() ?? 'coldline']: true,
       });
 
-      this.logger.info('Created bucket!', { provider: 'gcs' });
+      this.logger.info('Created bucket!');
     }
   }
 
   async handle(files: any[]) {
-    this.logger.info(`Told to handle ${files.length} files to upload.`, { provider: 'gcs' });
+    this.logger.info(`Told to handle ${files.length} files to upload.`);
 
     // TODO: this :3
   }

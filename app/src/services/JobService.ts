@@ -17,7 +17,7 @@
  */
 
 import { Inject, Service, ServiceAPI } from '@augu/lilith';
-import { Logger } from 'winston';
+import { Logger } from 'tslog';
 import { join } from 'path';
 import Sentry from '@sentry/node';
 import Bree from 'bree';

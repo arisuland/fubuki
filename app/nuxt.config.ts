@@ -54,6 +54,7 @@ const nuxtConfig: NuxtConfig = {
     '@nuxtjs/pwa',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/composition-api/module',
+    '@nuxtjs/storybook',
   ],
 
   sitemap: {

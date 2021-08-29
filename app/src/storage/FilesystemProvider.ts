@@ -20,7 +20,7 @@ import { lstat, mkdir, readFile, rm, writeFile } from 'fs/promises';
 import type { StorageProvider, IStorageConfig } from '.';
 import { existsSync } from 'fs';
 import { Inject } from '@augu/lilith';
-import { Logger } from 'winston';
+import { Logger } from 'tslog';
 import { join } from 'path';
 
 /**
@@ -50,14 +50,13 @@ export default class FilesystemStorageProvider implements StorageProvider<Filesy
   }
 
   async init() {
-    this.logger.info('Initializing filesystem provider...', { provider: 'fs' });
+    this.logger.info('Initializing filesystem provider...');
     if (!existsSync(this.config.directory)) await mkdir(this.config.directory, { recursive: true });
 
     const stats = await lstat(this.config.directory);
     if (!stats.isDirectory()) {
       this.logger.error(
-        `Path "${this.config.directory}" is not a directory! Please make it a directory before continuing.`,
-        { provider: 'fs' }
+        `Path "${this.config.directory}" is not a directory! Please make it a directory before continuing.`
       );
 
       return;
@@ -69,16 +68,16 @@ export default class FilesystemStorageProvider implements StorageProvider<Filesy
 
     const lockfile = await readFile(LOCKFILE, 'utf-8');
     if (lockfile !== '-- This file is not meant to be edited. This is just for validation. --') {
-      this.logger.warn(`Lockfile in path ${lockfile} is corrupted.`, { provider: 'fs' });
+      this.logger.warn(`Lockfile in path ${lockfile} is corrupted.`);
       await rm(LOCKFILE, { force: true });
       await writeFile(LOCKFILE, '-- This file is not meant to be edited. This is just for validation. --');
 
-      this.logger.warn('Lockfile is no longer corrupted. :3', { provider: 'fs' });
+      this.logger.warn('Lockfile is no longer corrupted. :3');
     }
   }
 
   async handle(files: any[]) {
-    this.logger.info(`Told to handle ${files.length} files to upload.`, { provider: 'fs' });
+    this.logger.info(`Told to handle ${files.length} files to upload.`);
 
     // TODO: this :3
   }

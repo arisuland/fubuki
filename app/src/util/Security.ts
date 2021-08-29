@@ -31,11 +31,9 @@ export interface Token {
  * don't have a TLL and are stored in PostgreSQL.
  */
 class Security {
-  constructor(private secret: string) {}
-
-  validate(token: string) {
+  static validate(token: string) {
     try {
-      const v = jwt.verify(token, this.secret, {
+      const v = jwt.verify(token, process.env.JWT_SECRET!, {
         subject: 'Arisu',
         algorithms: ['HS256'],
       });
@@ -50,7 +48,7 @@ class Security {
   }
 
   generate(userId: string, type: 'access' | 'session'): Token & { token: string } {
-    const token = jwt.sign({ type, user: userId }, this.secret, {
+    const token = jwt.sign({ type, user: userId }, process.env.JWT_SECRET!, {
       subject: 'Arisu',
       algorithm: 'HS256',
     });
@@ -59,4 +57,4 @@ class Security {
   }
 }
 
-export default (secret: string) => new Security(secret);
+export default Security;

@@ -20,7 +20,7 @@ import { S3Client, ListBucketsCommand, CreateBucketCommand } from '@aws-sdk/clie
 import type { StorageProvider, IStorageConfig } from '.';
 import type { Credentials } from '@aws-sdk/types';
 import { Inject } from '@augu/lilith';
-import { Logger } from 'winston';
+import { Logger } from 'tslog';
 
 /**
  * Represents the provider for the {@link S3StorageProvider}.
@@ -99,7 +99,7 @@ export default class S3StorageProvider implements StorageProvider<S3StorageConfi
   }
 
   async init() {
-    this.logger.info('Initializing S3 client...', { provider: 's3' });
+    this.logger.info('Initializing S3 client...');
 
     const endpoint = this.config.provider === S3Provider.Wasabi ? 'https://s3.wasabisys.com' : undefined;
     this.s3 = new S3Client({
@@ -119,17 +119,17 @@ export default class S3StorageProvider implements StorageProvider<S3StorageConfi
           : undefined,
     });
 
-    this.logger.info('Initialized S3 client!', { provider: 's3' });
+    this.logger.info('Initialized S3 client!');
     const result = await this.s3.send(new ListBucketsCommand({}));
 
     if (!result.Buckets) {
-      this.logger.error('Malformed response when receiving buckets.', { provider: 's3' });
+      this.logger.error('Malformed response when receiving buckets.');
       return;
     }
 
-    this.logger.info(`Found buckets - ${result.Buckets.map((s) => s.Name!).join(', ')}`, { provider: 's3' });
+    this.logger.info(`Found buckets - ${result.Buckets.map((s) => s.Name!).join(', ')}`);
     if (!result.Buckets.find((s) => s.Name! === this.config.bucket ?? 'arisu')) {
-      this.logger.warn("Bucket for repositories doesn't exist, creating...", { provider: 's3' });
+      this.logger.warn("Bucket for repositories doesn't exist, creating...");
       await this.s3.send(
         new CreateBucketCommand({
           Bucket: this.config.bucket ?? 'arisu',
@@ -141,12 +141,12 @@ export default class S3StorageProvider implements StorageProvider<S3StorageConfi
       );
 
       // imagine if i went "still creating" <3
-      this.logger.info('Created S3 bucket!', { provider: 's3' });
+      this.logger.info('Created S3 bucket!');
     }
   }
 
   async handle(files: any[]) {
-    this.logger.info(`Told to handle ${files.length} files to upload.`, { provider: 's3' });
+    this.logger.info(`Told to handle ${files.length} files to upload.`);
 
     // TODO: this :3
   }
