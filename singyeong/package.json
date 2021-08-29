@@ -6,6 +6,7 @@
   "license": "MIT",
   "author": "Noel <cutie@floofy.dev>",
   "private": true,
+  "types": "./build/index.d.ts",
   "files": [
     "build",
     "index.d.ts"
