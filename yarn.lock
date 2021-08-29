@@ -177,7 +177,7 @@ __metadata:
     tailwindcss: 2.2.8
     ts-jest: 27.0.5
     ts-loader: 8.1.0
-    tslog: ^3.2.1
+    tslog: 3.2.1
     twemoji: 13.1.0
     twemoji-parser: 13.1.0
     type-graphql: 1.1.1
@@ -24457,7 +24457,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"tslog@npm:3.2.1, tslog@npm:^3.2.1":
+"tslog@npm:3.2.1":
   version: 3.2.1
   resolution: "tslog@npm:3.2.1"
   dependencies:
