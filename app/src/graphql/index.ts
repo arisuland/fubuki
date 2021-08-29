@@ -16,21 +16,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-// DO NOT RUN THIS USING `node` SINCE THIS IS A WORKER
+import type { FastifyRequest, FastifyReply } from 'fastify';
+import type { Container } from '@augu/lilith';
 
-import { parentPort } from 'worker_threads';
-import logger from '../singletons/logger';
+import TestResolver from './resolvers/TestResolver';
 
-if (parentPort === null) {
-  process.exit(1);
+export interface ArisuContext {
+  req: FastifyRequest;
+  reply: FastifyReply;
+  container: Container;
 }
 
-const log = logger.getChildLogger({ name: 'job: verify dns' });
-const main = async () => {
-  log.info('Verifying DNS records...');
-};
-
-(async () => {
-  await main();
-  parentPort.postMessage('done');
-})();
+export const resolvers = [TestResolver];

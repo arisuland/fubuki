@@ -16,21 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-// DO NOT RUN THIS USING `node` SINCE THIS IS A WORKER
+import { Query, Resolver } from 'type-graphql';
 
-import { parentPort } from 'worker_threads';
-import logger from '../singletons/logger';
-
-if (parentPort === null) {
-  process.exit(1);
+@Resolver()
+export default class TestResolver {
+  @Query(() => String)
+  test() {
+    return 'hello world';
+  }
 }
-
-const log = logger.getChildLogger({ name: 'job: verify dns' });
-const main = async () => {
-  log.info('Verifying DNS records...');
-};
-
-(async () => {
-  await main();
-  parentPort.postMessage('done');
-})();

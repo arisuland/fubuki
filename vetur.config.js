@@ -16,21 +16,22 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-// DO NOT RUN THIS USING `node` SINCE THIS IS A WORKER
+/**
+ * Stub config to make vetur happy
+ * @type {import('vls').VeturConfig}
+ */
+module.exports = {
+  settings: {
+    'vetur.useWorkspaceDependencies': true,
+    'vetur.experimental.templateInterpolationService': true,
+  },
 
-import { parentPort } from 'worker_threads';
-import logger from '../singletons/logger';
-
-if (parentPort === null) {
-  process.exit(1);
-}
-
-const log = logger.getChildLogger({ name: 'job: verify dns' });
-const main = async () => {
-  log.info('Verifying DNS records...');
+  projects: [
+    {
+      root: './app',
+      tsconfig: './tsconfig.json',
+      package: './package.json',
+      globalComponents: ['./app/frontend/components/**/*.vue'],
+    },
+  ],
 };
-
-(async () => {
-  await main();
-  parentPort.postMessage('done');
-})();

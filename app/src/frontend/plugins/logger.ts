@@ -16,21 +16,30 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-// DO NOT RUN THIS USING `node` SINCE THIS IS A WORKER
+import type { Plugin } from '@nuxt/types';
 
-import { parentPort } from 'worker_threads';
-import logger from '../singletons/logger';
-
-if (parentPort === null) {
-  process.exit(1);
+declare module '@nuxt/types/index' {
+  interface Context {
+    $log: (...messages: unknown[]) => void;
+  }
 }
 
-const log = logger.getChildLogger({ name: 'job: verify dns' });
-const main = async () => {
-  log.info('Verifying DNS records...');
+const formatMessage = (message: unknown) => {
+  if (message instanceof Date) return message.toISOString();
+  if (typeof message === 'number') return isNaN(message) ? 'NaN' : message.toString();
+  if (message instanceof Error) return message.stack ?? '<... no stacktrace ...>';
+
+  return message;
 };
 
-(async () => {
-  await main();
-  parentPort.postMessage('done');
-})();
+const logger: Plugin = (_, inject) => {
+  inject('log', (...messages: unknown[]) =>
+    console.log(
+      `%c;[Arisu]%c » ${messages.map(formatMessage).join('\n')}`,
+      'background-color:#ffffff;color:#B28585;',
+      'color:white;'
+    )
+  );
+};
+
+export default logger;

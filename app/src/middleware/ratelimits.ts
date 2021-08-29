@@ -71,6 +71,8 @@ const cleanup = () => {
       ratelimits.delete(record);
     }
   }
+
+  lastPurge = new Date();
 };
 
 const getRatelimit = (ip: string) => {
