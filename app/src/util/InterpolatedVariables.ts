@@ -24,7 +24,7 @@ const NOT_FOUND_SYMBOL = Symbol.for('$interpolation::unknown');
  * Represents a base class for interpolating a regex subsitute to interpolate
  * using the {@link InterpolatedVariables.interpolate} function.
  */
-export default class InterpolatedVariables<Schema extends Record<string, unknown>> {
+export default class InterpolatedVariables<Schema extends {}> {
   constructor(private regex: RegExp, private schema: Schema) {}
 
   /**

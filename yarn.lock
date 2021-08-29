@@ -118,10 +118,10 @@ __metadata:
     "@augu/orchid": 3.1.1
     "@augu/tsconfig": 1.1.1
     "@augu/utils": 1.5.3
-    "@aws-sdk/client-s3": ^3.28.0
+    "@aws-sdk/client-s3": 3.28.0
     "@fortawesome/free-brands-svg-icons": 5.15.4
     "@fortawesome/free-solid-svg-icons": 5.15.4
-    "@google-cloud/storage": ^5.14.0
+    "@google-cloud/storage": 5.14.0
     "@headlessui/vue": 1.4.0
     "@nuxtjs/composition-api": 0.27.0
     "@nuxtjs/fontawesome": 1.1.2
@@ -132,6 +132,7 @@ __metadata:
     "@sentry/node": 6.11.0
     "@tailwindcss/forms": 0.3.3
     "@tailwindcss/typography": 0.4.1
+    "@types/bree": ^6.2.1
     "@types/ioredis": 4.27.1
     "@types/jest": 27.0.1
     "@types/js-yaml": 4.0.3
@@ -352,7 +353,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@aws-sdk/client-s3@npm:^3.28.0":
+"@aws-sdk/client-s3@npm:3.28.0":
   version: 3.28.0
   resolution: "@aws-sdk/client-s3@npm:3.28.0"
   dependencies:
@@ -3086,7 +3087,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/storage@npm:^5.14.0":
+"@google-cloud/storage@npm:5.14.0":
   version: 5.14.0
   resolution: "@google-cloud/storage@npm:5.14.0"
   dependencies:
@@ -5850,6 +5851,15 @@ __metadata:
   version: 3.0.1
   resolution: "@types/braces@npm:3.0.1"
   checksum: 3749f7673a03d498ddb2f199b222bb403e53e78ac05a599c757c2049703ece802602c78640af0ff826be0fd2ea8b03daff04ce18806ed739592302195b7a569b
+  languageName: node
+  linkType: hard
+
+"@types/bree@npm:^6.2.1":
+  version: 6.2.1
+  resolution: "@types/bree@npm:6.2.1"
+  dependencies:
+    "@types/node": "*"
+  checksum: 70d7102b00f95afab211f7de4b94318d6fd7e11ab4387247cc8688007731ec5df2179d687c4de9d9fa849b067e2a0f4ee6d42b671d7ae7ab3664aae606a466b5
   languageName: node
   linkType: hard
 
