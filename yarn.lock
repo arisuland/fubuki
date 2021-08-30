@@ -124,7 +124,7 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": 5.15.4
     "@fortawesome/free-solid-svg-icons": 5.15.4
     "@google-cloud/storage": 5.14.0
-    "@headlessui/vue": 1.4.0
+    "@headlessui/vue": 1.4.1
     "@nuxt/postcss8": 1.1.3
     "@nuxtjs/composition-api": 0.27.0
     "@nuxtjs/fontawesome": 1.1.2
@@ -3193,12 +3193,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@headlessui/vue@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@headlessui/vue@npm:1.4.0"
+"@headlessui/vue@npm:1.4.1":
+  version: 1.4.1
+  resolution: "@headlessui/vue@npm:1.4.1"
   peerDependencies:
     vue: ^3.0.0
-  checksum: 1b92ccdeb2e0508cacc4b4e4f6589c26cc85a85e390f48d4bf0d71bcefabe79be0ada255a0ef4a3d042266a88250410941ddcbc3d3fbce81e1f3bbf4a02b814a
+  checksum: 7ab29bd2e18e612c9efa9de327f685ff6c33183dd442abd9b598815c0af1018eb91d792b4e62bd63479458d0b13bc8418a395bb878a8af7cc4a1a6b3f7f7357a
   languageName: node
   linkType: hard
 
