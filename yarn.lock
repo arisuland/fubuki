@@ -161,7 +161,7 @@ __metadata:
     fastify-cors: 6.0.2
     graphql: 15.5.2
     graphql-scalars: 1.10.0
-    ioredis: 4.27.8
+    ioredis: 4.27.9
     jest: 27.1.0
     js-yaml: 4.1.0
     jsonwebtoken: 8.5.1
@@ -14677,7 +14677,26 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"ioredis@npm:4.27.8, ioredis@npm:^4.19.2":
+"ioredis@npm:4.27.9":
+  version: 4.27.9
+  resolution: "ioredis@npm:4.27.9"
+  dependencies:
+    cluster-key-slot: ^1.1.0
+    debug: ^4.3.1
+    denque: ^1.1.0
+    lodash.defaults: ^4.2.0
+    lodash.flatten: ^4.4.0
+    lodash.isarguments: ^3.1.0
+    p-map: ^2.1.0
+    redis-commands: 1.7.0
+    redis-errors: ^1.2.0
+    redis-parser: ^3.0.0
+    standard-as-callback: ^2.1.0
+  checksum: 0472f20366759fe17c71c42105869dbaba99ad54e3fc14428cd6e1d28f8767ff1aea03bfc0228b29bf6030d7ae1ac856941ab6698c850a9b27fd8a17328e7f9f
+  languageName: node
+  linkType: hard
+
+"ioredis@npm:^4.19.2":
   version: 4.27.8
   resolution: "ioredis@npm:4.27.8"
   dependencies:
