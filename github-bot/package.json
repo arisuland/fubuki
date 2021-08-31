@@ -18,7 +18,7 @@
     "@arisuland/singyeong": "workspace:singyeong",
     "@augu/lilith": "5.1.0",
     "@augu/utils": "1.5.3",
-    "@sentry/node": "6.11.0",
+    "@sentry/node": "6.12.0",
     "probot": "12.1.0",
     "reflect-metadata": "0.1.13",
     "source-map-support": "0.5.19",
