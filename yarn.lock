@@ -90,7 +90,7 @@ __metadata:
     eslint: 7.32.0
     eslint-plugin-prettier: 4.0.0
     nodemon: 2.0.12
-    probot: 12.1.0
+    probot: 12.1.1
     reflect-metadata: 0.1.13
     source-map-support: 0.5.19
     ts-node: 10.2.1
@@ -6132,7 +6132,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ioredis@npm:4.27.1, @types/ioredis@npm:^4.17.8":
+"@types/ioredis@npm:4.27.1, @types/ioredis@npm:^4.27.1":
   version: 4.27.1
   resolution: "@types/ioredis@npm:4.27.1"
   dependencies:
@@ -14759,7 +14759,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"ioredis@npm:4.27.9":
+"ioredis@npm:4.27.9, ioredis@npm:^4.27.8":
   version: 4.27.9
   resolution: "ioredis@npm:4.27.9"
   dependencies:
@@ -14775,25 +14775,6 @@ fsevents@^1.2.7:
     redis-parser: ^3.0.0
     standard-as-callback: ^2.1.0
   checksum: 0472f20366759fe17c71c42105869dbaba99ad54e3fc14428cd6e1d28f8767ff1aea03bfc0228b29bf6030d7ae1ac856941ab6698c850a9b27fd8a17328e7f9f
-  languageName: node
-  linkType: hard
-
-"ioredis@npm:^4.19.2":
-  version: 4.27.8
-  resolution: "ioredis@npm:4.27.8"
-  dependencies:
-    cluster-key-slot: ^1.1.0
-    debug: ^4.3.1
-    denque: ^1.1.0
-    lodash.defaults: ^4.2.0
-    lodash.flatten: ^4.4.0
-    lodash.isarguments: ^3.1.0
-    p-map: ^2.1.0
-    redis-commands: 1.7.0
-    redis-errors: ^1.2.0
-    redis-parser: ^3.0.0
-    standard-as-callback: ^2.1.0
-  checksum: 5c30e3c411fca10854e5804a98e5e05f34f5a52bd3226bce10d1f43c244a3705f6eebe0db21d7c7797c064da3ec0680b0c85a5f1e848fc6df970cb9133de656b
   languageName: node
   linkType: hard
 
@@ -20776,9 +20757,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"probot@npm:12.1.0":
-  version: 12.1.0
-  resolution: "probot@npm:12.1.0"
+"probot@npm:12.1.1":
+  version: 12.1.1
+  resolution: "probot@npm:12.1.1"
   dependencies:
     "@octokit/core": ^3.2.4
     "@octokit/plugin-enterprise-compatibility": ^1.2.8
@@ -20792,7 +20773,7 @@ fsevents@^1.2.7:
     "@probot/octokit-plugin-config": ^1.0.0
     "@probot/pino": ^2.2.0
     "@types/express": ^4.17.9
-    "@types/ioredis": ^4.17.8
+    "@types/ioredis": ^4.27.1
     "@types/pino": ^6.3.4
     "@types/pino-http": ^5.0.6
     "@types/update-notifier": ^5.0.0
@@ -20803,7 +20784,7 @@ fsevents@^1.2.7:
     eventsource: ^1.0.7
     express: ^4.17.1
     hbs: ^4.1.1
-    ioredis: ^4.19.2
+    ioredis: ^4.27.8
     js-yaml: ^3.14.1
     lru-cache: ^6.0.0
     octokit-auth-probot: ^1.2.2
@@ -20817,7 +20798,7 @@ fsevents@^1.2.7:
     uuid: ^8.3.2
   bin:
     probot: bin/probot.js
-  checksum: 595163db2da45877cea04e4af96ac75113d303372737d93d3c4eaa1ebbe94d72907bd9bc177fa7a32c606f1090c30ce1cfe50d3a937e93120a3fb1275ed0b5d1
+  checksum: e88b7390e379783afe085bf1fc10f2c3658aad799c69e0cb2fd4b20de7ed3d14c2570824399d493a10f028869e6f2c936ff63b43e9600006b079ac180c14cb22
   languageName: node
   linkType: hard
 
