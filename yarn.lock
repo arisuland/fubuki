@@ -94,7 +94,7 @@ __metadata:
     reflect-metadata: 0.1.13
     source-map-support: 0.5.19
     ts-node: 10.2.1
-    tslog: 3.2.1
+    tslog: 3.2.2
     typescript: 4.4.2
   languageName: unknown
   linkType: soft
@@ -179,7 +179,7 @@ __metadata:
     tailwindcss: 2.2.9
     ts-jest: 27.0.5
     ts-loader: 8.1.0
-    tslog: 3.2.1
+    tslog: 3.2.2
     twemoji: 13.1.0
     twemoji-parser: 13.1.0
     type-graphql: 1.1.1
@@ -24590,12 +24590,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"tslog@npm:3.2.1":
-  version: 3.2.1
-  resolution: "tslog@npm:3.2.1"
+"tslog@npm:3.2.2":
+  version: 3.2.2
+  resolution: "tslog@npm:3.2.2"
   dependencies:
     source-map-support: ^0.5.19
-  checksum: 2d4acb13b2c62bdd845d9e2b608d1d5837ad660951216f320d7e6718ce9892ffd83beb2b69376e6f1c452f99f9ae36281dcfb2fb9f859ed4d201a589d7a0e3e1
+  checksum: b47982666f84a12285f615af66df3d3a18adcf50254e10f96dc3301805b319e89075754388133d8bb25ad01190f94130b8bf6b893d4843d39c3aaae11b3d778a
   languageName: node
   linkType: hard
 
