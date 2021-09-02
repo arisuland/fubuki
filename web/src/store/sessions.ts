@@ -17,21 +17,38 @@
  */
 
 /**
- * Stub config to make vetur happy
- * @type {import('vls').VeturConfig}
+ * Represents the metadata of a user.
  */
-module.exports = {
-  settings: {
-    'vetur.useWorkspaceDependencies': true,
-    'vetur.experimental.templateInterpolationService': true,
-  },
+interface User {
+  description: string | null;
+  updatedAt: Date;
+  createdAt: Date;
+  username: string;
+  flags: number;
+  name: string | null;
+  id: string;
+}
 
-  projects: [
-    {
-      root: './web',
-      tsconfig: './tsconfig.json',
-      package: './package.json',
-      globalComponents: ['./web/components/**/*.vue'],
-    },
-  ],
+const omit = <T extends object, K extends keyof T = keyof T>(obj: T, keys: K[]): Omit<T, K> =>
+  Object.keys(keys)
+    .filter((k) => !keys.includes(k as any))
+    .reduce((result, key) => {
+      result[key] = obj[key];
+      return result;
+    }, {} as Omit<T, K>);
+
+/**
+ * Represents the current state of this store.
+ */
+export const state = () => ({
+  user: null,
+});
+
+/**
+ * Represents the current mutations available
+ */
+export const mutations = {
+  setUser() {
+    console.log(this);
+  },
 };

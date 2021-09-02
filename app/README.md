@@ -8,7 +8,8 @@
 This folder contains all the application code for Arisu.
 
 ## Documentation?
-[Swagger](https://arisu.land/swagger) **|** [Documentation](https://docs.arisu.land)
+
+[Documentation](https://docs.arisu.land)
 
 ## Tech Stack
 

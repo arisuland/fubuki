@@ -87,6 +87,8 @@ const getRatelimit = (ip: string) => {
 };
 
 const middleware: FastifyPluginAsync<any> = async (server, _) => {
+  logger.info('Initialized ratelimits middleware!');
+
   server.addHook('onRequest', (req, res, done) => {
     // localhost doesn't have to consume ratelimits.
     if (req.ip === '::1') return done();

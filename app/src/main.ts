@@ -19,3 +19,40 @@
 import './util/patches/RequirePatch';
 import 'source-map-support/register';
 import 'reflect-metadata';
+
+import { version, commitHash } from '~/util/Constants';
+import container from '~/container';
+import Logger from '~/singletons/logger';
+import ts from 'typescript';
+
+const log = Logger.getChildLogger({ name: 'Arisu: bootstrap' });
+const main = async () => {
+  log.info(`Launching Arisu v${version} (${commitHash ?? 'unknown'})`);
+  log.info(`-> TypeScript: ${ts.version}`);
+  log.info(`->    Node.js: ${process.version}`);
+
+  if (process.env.NODE !== undefined) {
+    log.info(`-> Dedi Node: ${process.env.NODE}`);
+  }
+
+  try {
+    await container.importSingleton(() => import('~/singletons/prisma') as any);
+    await container.load();
+  } catch (ex) {
+    log.fatal('Unable to initialize DI container:', ex);
+    process.exit(1);
+  }
+
+  log.info('✔ Arisu was launched successfully. :3');
+  process.on('SIGINT', () => {
+    log.warn('Received CTRL+C call!');
+
+    container.dispose();
+    process.exit(0);
+  });
+};
+
+main().catch((ex) => {
+  log.fatal('Unable to launch Arisu:', ex);
+  process.exit(1);
+});

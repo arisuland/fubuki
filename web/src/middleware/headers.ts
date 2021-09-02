@@ -16,22 +16,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * Stub config to make vetur happy
- * @type {import('vls').VeturConfig}
- */
-module.exports = {
-  settings: {
-    'vetur.useWorkspaceDependencies': true,
-    'vetur.experimental.templateInterpolationService': true,
-  },
+import type { ServerMiddleware } from '@nuxt/types';
 
-  projects: [
-    {
-      root: './web',
-      tsconfig: './tsconfig.json',
-      package: './package.json',
-      globalComponents: ['./web/components/**/*.vue'],
-    },
-  ],
+const mod: ServerMiddleware = (_, res, next) => {
+  if (res.headersSent) return next();
+
+  res.setHeader('Access-Control-Allow-Methods', 'GET'); // only allow get requests
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Cache-Control', 'public, max-age=7776000');
+  res.setHeader('X-Powered-By', 'cute furries doing cute things (https://floofy.dev)');
+  res.setHeader('Server', `Noelware${process.env.NODE !== undefined ? ` (${process.env.NODE})` : ''}`);
+  return next();
 };
+
+export default mod;

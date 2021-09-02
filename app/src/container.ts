@@ -15,3 +15,32 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+
+import { Container } from '@augu/lilith';
+import { join } from 'path';
+import Logger from './singletons/logger';
+import Http from './singletons/http';
+
+const logger = Logger.getChildLogger({ name: 'Arisu: lilith' });
+const container = new Container({
+  componentsDir: join(process.cwd(), 'components'),
+  servicesDir: join(process.cwd(), 'services'),
+  singletons: [Logger, Http],
+});
+
+container.on('onBeforeChildInit', (cls, child) =>
+  logger.debug(`>> ${cls.name}->${child.constructor.name}: initializing...`)
+);
+
+container.on('onAfterChildInit', (cls, child) =>
+  logger.debug(`>> ✔ ${cls.name}->${child.constructor.name}: initialized`)
+);
+
+container.on('onBeforeInit', (cls) => logger.debug(`>> ${cls.name}: initializing...`));
+container.on('onAfterInit', (cls) => logger.debug(`>> ✔ ${cls.name}: initialized`));
+container.on('debug', (message) => logger.debug(`lilith: ${message}`));
+
+container.on('initError', console.error);
+container.on('childInitError', console.error);
+
+export = container;

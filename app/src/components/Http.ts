@@ -17,11 +17,10 @@
  */
 
 import { Component, ComponentAPI, Inject } from '@augu/lilith';
-import { Nuxt, Builder } from 'nuxt'; // i wish nuxt gave us typings 3:
 import { ApolloServer } from 'apollo-server-fastify';
 import { buildSchema } from 'type-graphql';
-import nuxtConfig from '@/nuxt.config';
 import { Logger } from 'tslog';
+import { join } from 'path';
 import fastify from 'fastify';
 import Config from './Config';
 
@@ -34,7 +33,7 @@ import logPlugin from '~/middleware/logging';
 import type { ArisuContext } from '~/graphql';
 import TestResolver from '~/graphql/resolvers/TestResolver';
 
-@Component({ priority: 0, name: 'http' })
+@Component({ priority: 0, name: 'http', children: join(process.cwd(), 'endpoints') })
 export default class HttpServer {
   @Inject
   private readonly logger!: Logger;
@@ -42,9 +41,7 @@ export default class HttpServer {
   @Inject
   private readonly config!: Config;
   api!: ComponentAPI;
-
   #server!: ReturnType<typeof fastify>;
-  #apollo!: ApolloServer;
 
   async load() {
     this.logger.info('Launching website...');
@@ -63,34 +60,41 @@ export default class HttpServer {
       },
     });
 
-    this.#server = fastify();
-    this.#server.register(require('fastify-cors')).register(authPlugin).register(logPlugin).register(ratelimitsPlugin);
-
     // Start apollo
     await apollo.start();
-    this.#apollo = apollo;
-    this.#server.register(this.#apollo.createHandler());
 
-    // Create a Nuxt instance
-    const nuxt = new Nuxt(nuxtConfig);
+    this.#server = fastify();
+    this.#server
+      .register(require('fastify-cors'))
+      .register(authPlugin)
+      .register(logPlugin)
+      .register(ratelimitsPlugin)
+      .register(apollo.createHandler({ cors: true }));
 
-    // If we are in development mode, use `Builder`
-    if (process.env.NODE_ENV === 'development') {
-      const builder = new Builder(nuxt);
-      await builder.build(); // build the application shit
-    }
+    return new Promise<void>((resolve, reject) => {
+      this.#server.listen(
+        {
+          port: 17093,
+          host: this.config.getProperty('host'),
+        },
+        (error, address) => {
+          if (error) {
+            this.logger.error(error);
+            return reject(error);
+          }
 
-    // Get the generated routes.json file
-    const routes = require('@/.nuxt/routes.json');
-    for (const route of routes) {
-      // All the routes are GET requested only, so :shrug:
-      this.#server.get(route.path, (req, reply) => {
-        nuxt.render(req.raw, reply.raw);
-        reply.sent = true;
-      });
-    }
+          this.logger.info(`🚀✨ Arisu has launched at ${address.replace('[::]', 'localhost')}!`);
+          resolve();
+        }
+      );
+    });
+  }
 
-    // Call .ready on fastify
-    await this.#server.ready();
+  dispose() {
+    return this.#server.close();
+  }
+
+  onChildLoad(endpoint: any) {
+    console.log(endpoint);
   }
 }

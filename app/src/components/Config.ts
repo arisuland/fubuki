@@ -24,6 +24,10 @@ import { join } from 'path';
 import * as z from 'zod';
 import yaml from 'js-yaml';
 
+import type { FilesystemStorageConfig } from '~/storage/FilesystemProvider';
+import type { GoogleCloudStorageConfig } from '~/storage/GoogleCloudProvider';
+import { S3StorageConfig, S3Provider } from '~/storage/S3StorageProvider';
+
 const NOT_FOUND_SYMBOL = Symbol.for('$arisu::config::not.found');
 
 interface Configuration {
@@ -31,6 +35,7 @@ interface Configuration {
   prometheusPort?: number;
   sentryDsn?: string;
   singyeong?: SingyeongConfig;
+  storage: StorageConfig;
   redis: RedisConfig;
   host?: string;
 }
@@ -47,6 +52,13 @@ interface RedisConfig {
 // eslint-disable-next-line
 interface RedisSentinelConfig extends Pick<RedisConfig, 'host' | 'port'> {}
 
+interface StorageConfig {
+  filesystem?: FilesystemStorageConfig;
+  gcs?: GoogleCloudStorageConfig;
+  s3?: S3StorageConfig;
+  fs?: FilesystemStorageConfig; // add fs as an alias
+}
+
 interface SingyeongConfig {
   dsn: string;
   reconnect?: boolean;
@@ -59,6 +71,38 @@ const zodSchema = z
     runPendingMigrations: z.boolean().optional(),
     prometheusPort: z.number().min(1024).max(65535).optional(),
     sentryDsn: z.string().optional(),
+    storage: z.object({
+      filesystem: z
+        .object({
+          directory: z.string(),
+        })
+        .optional(),
+
+      fs: z
+        .object({
+          directory: z.string(),
+        })
+        .optional(),
+
+      s3: z
+        .object({
+          bucket: z.string().optional().default('arisu'),
+          provider: z.enum(['wasabi', 'amazon']).optional().default(S3Provider.Amazon),
+          accessKey: z.string().optional(),
+          secretKey: z.string().optional(),
+          region: z.string().optional().default('us-east1'),
+        })
+        .optional(),
+
+      gcs: z
+        .object({
+          bucket: z.string().optional().default('arisu'),
+          location: z.string().optional().default('US-EAST1'),
+          storageClass: z.string().optional().default('COLDLINE'),
+        })
+        .optional(),
+    }),
+
     singyeong: z
       .object({
         dsn: z.string(),
@@ -97,13 +141,20 @@ export default class Config {
   #config!: Configuration;
 
   async load() {
-    if (!existsSync(join(__dirname, '..', '..', 'config.yml'))) {
+    const configPath = join(process.cwd(), '..', 'config.yml');
+
+    if (!existsSync(configPath)) {
       const config = yaml.dump(
         {
           runPendingMigrations: true,
           redis: {
             host: 'localhost',
             port: 6379,
+          },
+          storage: {
+            fs: {
+              directory: './.arisu',
+            },
           },
         },
         {
@@ -112,7 +163,7 @@ export default class Config {
         }
       );
 
-      await writeFile(join(__dirname, '..', '..', 'config.yml'), config);
+      await writeFile(configPath, config);
       return Promise.reject(
         new SyntaxError(
           "Weird, you didn't have a configuration file... So, I may have provided you a default one, if you don't mind... >W<"
@@ -121,7 +172,7 @@ export default class Config {
     }
 
     this.logger.info('Loading configuration...');
-    const contents = await readFile(join(__dirname, '..', '..', 'config.yml'), 'utf8');
+    const contents = await readFile(configPath, 'utf8');
     const config = yaml.load(contents) as unknown as Configuration;
 
     try {
@@ -133,7 +184,6 @@ export default class Config {
       }
     }
 
-    // TODO: add validation
     this.#config = config;
   }
 

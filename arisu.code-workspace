@@ -1,14 +1,17 @@
 {
-	"folders": [
-		{
-			"path": "app"
-		},
-		{
-			"path": "github-bot"
-		},
-		{
-			"path": "typings"
-		}
-	],
+  "folders": [
+    {
+      "path": "app"
+    },
+    {
+      "path": "github-bot"
+    },
+    {
+      "path": "typings"
+    },
+    {
+      "path": "web"
+    }
+  ],
   "settings": {}
 }

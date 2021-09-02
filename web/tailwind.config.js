@@ -17,21 +17,17 @@
  */
 
 /**
- * Stub config to make vetur happy
- * @type {import('vls').VeturConfig}
+ * Represents the Tailwind configuration for Arisu.
  */
 module.exports = {
-  settings: {
-    'vetur.useWorkspaceDependencies': true,
-    'vetur.experimental.templateInterpolationService': true,
+  mode: 'jit',
+  darkMode: 'media',
+  purge: ['src/components/**/*.vue', 'src/views/**/*.vue'],
+  theme: {
+    extend: {},
   },
-
-  projects: [
-    {
-      root: './web',
-      tsconfig: './tsconfig.json',
-      package: './package.json',
-      globalComponents: ['./web/components/**/*.vue'],
-    },
-  ],
+  variants: {
+    extend: {},
+  },
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };

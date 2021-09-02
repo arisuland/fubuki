@@ -1,0 +1,19 @@
+{
+  "extends": "@augu/tsconfig/dom.json",
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "sourceMap": true,
+    "strict": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "types": ["node", "@nuxt/types"],
+    "paths": {
+      "~/*": ["./src/*"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

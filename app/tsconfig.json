@@ -16,5 +16,5 @@
     "esModuleInterop": true
   },
   "exclude": ["node_modules", "jest.config.ts", "tests/**/*.(spec|test).ts"],
-  "include": ["**/*.ts", "**/*.vue"]
+  "include": ["**/*.ts", "**/*.prisma"]
 }

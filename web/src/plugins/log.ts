@@ -16,22 +16,19 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * Stub config to make vetur happy
- * @type {import('vls').VeturConfig}
- */
-module.exports = {
-  settings: {
-    'vetur.useWorkspaceDependencies': true,
-    'vetur.experimental.templateInterpolationService': true,
-  },
+import type { Plugin } from '@nuxt/types';
 
-  projects: [
-    {
-      root: './web',
-      tsconfig: './tsconfig.json',
-      package: './package.json',
-      globalComponents: ['./web/components/**/*.vue'],
-    },
-  ],
+declare module '@nuxt/types' {
+  interface Context {
+    $log(message: string, ...args: any[]): void;
+  }
+}
+
+const mod: Plugin = (_, inject) => {
+  // wrapper for consola *for now*
+  inject('log', (message: string, ...args: any[]) => {
+    console.log(message, ...args);
+  });
 };
+
+export default mod;
