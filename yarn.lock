@@ -317,7 +317,7 @@ __metadata:
     twemoji: 13.1.0
     typescript: 4.4.2
     vuex: 3.6.2
-    vuex-class-component: ^2.3.5
+    vuex-class-component: 2.3.5
     vuex-persist: 3.1.3
   languageName: unknown
   linkType: soft
@@ -28539,7 +28539,7 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"vuex-class-component@npm:^2.3.5":
+"vuex-class-component@npm:2.3.5":
   version: 2.3.5
   resolution: "vuex-class-component@npm:2.3.5"
   dependencies:
