@@ -169,7 +169,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@arisu/github@workspace:github-bot"
   dependencies:
-    "@arisuland/singyeong": "workspace:singyeong"
     "@augu/eslint-config": 2.2.0
     "@augu/lilith": 5.1.0
     "@augu/tsconfig": 1.1.1
@@ -202,7 +201,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@arisuland/arisu@workspace:app"
   dependencies:
-    "@arisuland/singyeong": "workspace:singyeong"
     "@augu/collections": 1.0.12
     "@augu/dotenv": 1.3.0
     "@augu/eslint-config": 2.2.0
@@ -255,27 +253,6 @@ __metadata:
     typeorm: 0.2.37
     typescript: 4.4.2
     zod: 3.8.2
-  languageName: unknown
-  linkType: soft
-
-"@arisuland/singyeong@workspace:singyeong":
-  version: 0.0.0-use.local
-  resolution: "@arisuland/singyeong@workspace:singyeong"
-  dependencies:
-    "@augu/eslint-config": 2.2.0
-    "@augu/tsconfig": 1.1.1
-    "@augu/utils": 1.5.3
-    "@types/node": 16.7.5
-    "@types/ws": 7.4.7
-    "@typescript-eslint/eslint-plugin": 4.30.0
-    "@typescript-eslint/parser": 4.30.0
-    eslint: 7.32.0
-    eslint-config-prettier: 8.3.0
-    eslint-plugin-prettier: 4.0.0
-    prettier: 2.3.2
-    rimraf: 3.0.2
-    typescript: 4.4.2
-    ws: 8.2.1
   languageName: unknown
   linkType: soft
 
@@ -7181,13 +7158,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.7.5":
-  version: 16.7.5
-  resolution: "@types/node@npm:16.7.5"
-  checksum: 19765a6e2fea3269f627045a4e07a33f57dc567b5437c7bb18e585944a6c76a23e4b43969e586eac7d92247f424000992c1c8cbfd33faeae4676095aad4a2b61
-  languageName: node
-  linkType: hard
-
 "@types/node@npm:^10.1.0":
   version: 10.17.60
   resolution: "@types/node@npm:10.17.60"
@@ -7602,7 +7572,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ws@npm:7.4.7, @types/ws@npm:^7.0.0":
+"@types/ws@npm:^7.0.0":
   version: 7.4.7
   resolution: "@types/ws@npm:7.4.7"
   dependencies:
@@ -9446,8 +9416,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "arisu-root@workspace:."
   dependencies:
-    "@nuxt/types": 2.15.8
-    "@nuxt/typescript-build": 2.1.0
     husky: 7.0.2
     prettier: 2.3.2
     vls: 0.7.4
@@ -25238,7 +25206,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"rimraf@npm:3.0.2, rimraf@npm:^3.0.0, rimraf@npm:^3.0.2":
+"rimraf@npm:^3.0.0, rimraf@npm:^3.0.2":
   version: 3.0.2
   resolution: "rimraf@npm:3.0.2"
   dependencies:
@@ -29742,21 +29710,6 @@ typescript@~4.2:
     utf-8-validate:
       optional: true
   checksum: 5c7d1527f93ef27f9306aaf52db76315e8ff84174d1df717196527c50334c80bc10307dcaf6674a9aca4bb73aac3f77c23d3d9b1800e8aa810a5ee7f52d67cfb
-  languageName: node
-  linkType: hard
-
-"ws@npm:8.2.1":
-  version: 8.2.1
-  resolution: "ws@npm:8.2.1"
-  peerDependencies:
-    bufferutil: ^4.0.1
-    utf-8-validate: ^5.0.2
-  peerDependenciesMeta:
-    bufferutil:
-      optional: true
-    utf-8-validate:
-      optional: true
-  checksum: 22906903c7952790a911627f99e3419d8f251a6a540d9ba4f334a7e0865d7ea7026d8ad23829c3c0f2843a9f15bdb91c646e7f8853a5a5ba25a57dea2cf7d416
   languageName: node
   linkType: hard
 

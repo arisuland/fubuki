@@ -17,7 +17,6 @@
     "dev": "cd src && nodemon --exec \"ts-node --project ../tsconfig.json --files\" main.ts"
   },
   "dependencies": {
-    "@arisuland/singyeong": "workspace:singyeong",
     "@augu/collections": "1.0.12",
     "@augu/dotenv": "1.3.0",
     "@augu/lilith": "5.1.0",

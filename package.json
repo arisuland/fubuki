@@ -2,7 +2,6 @@
   "name": "arisu-root",
   "private": true,
   "workspaces": [
-    "singyeong/",
     "github-bot/",
     "typings/",
     "app/",
@@ -16,8 +15,6 @@
     "lint": "yarn workspaces foreach --from '{@arisuland/arisu,@arisu/github-bot,@arisuland/singyeong,@arisuland/web}' -p run lint"
   },
   "devDependencies": {
-    "@nuxt/types": "2.15.8",
-    "@nuxt/typescript-build": "2.1.0",
     "husky": "7.0.2",
     "prettier": "2.3.2",
     "vls": "0.7.4"

@@ -15,7 +15,6 @@
     "lint": "eslint src --ext .ts --fix"
   },
   "dependencies": {
-    "@arisuland/singyeong": "workspace:singyeong",
     "@augu/lilith": "5.1.0",
     "@augu/utils": "1.5.3",
     "@sentry/node": "6.12.0",
