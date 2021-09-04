@@ -1,6 +1,6 @@
 <div align='center'>
   <h2>☔ Arisu</h2>
-  <blockquote>Translation made with simplicity, but robust in mind. Made with 💖 <a href='https://typescriptlang.org'><strong>TypeScript</strong></a>, <a href='https://reactjs.org'><strong>React</strong></a> using <a href='https://nextjs.org'><strong>Next.js</strong></a>.</blockquote>
+  <blockquote>Translation made with simplicity, yet robust. Made with 💖 using <a href='https://typescriptlang.org'><strong>TypeScript</strong></a>, Vue with Nuxt.js.</blockquote>
 </div>
 
 ## Features
@@ -19,9 +19,10 @@ Yea, I decided to create a new repository for Arisu. The old [repository](https:
 
 Arisu is split into different packages, each of which is a seperate folder in this repository.
 
-- [**app**](./app) — The main entry point for the application.
-- [**github-bot**](./github-bot/README.md) — A bot that automatically syncs your translations with GitHub.
-- [**typings**](./typings/README.md) — A package that provides typings for Arisu's JavaScript SDKs.
+- [**app**](./app) — The main backend of Arisu.
+- [**github-bot**](./github-bot) — A GitHub bot that automatically syncs your translations with GitHub.
+- [**typings**](./typings) — A package that provides typings for Arisu's JavaScript SDKs.
+- [**web**](./web) — Web application that runs [arisu.land](https://arisu.land)
 
 There are other projects within the Arisu ecosystem, but they are split into different repositories under the **arisuland** organization.
 
