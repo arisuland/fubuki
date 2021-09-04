@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import type { FastifyPluginAsync } from 'fastify';
+import type { FastifyPluginCallback } from 'fastify';
 import { Container } from '@augu/lilith';
 import { Security } from '~/util';
 import { Logger } from 'tslog';
@@ -29,13 +29,15 @@ declare module 'fastify' {
 }
 
 const logger = Container.instance.$ref<Logger>(Logger);
-const authentication: FastifyPluginAsync<any> = async (server, _) => {
-  logger.info('Initializing authentication middleware per request...');
+const authentication: FastifyPluginCallback<any> = (server, _, done) => {
+  logger.info('Initializing authentication middleware...');
 
+  server.decorateRequest('user', null);
   server.addHook('onRequest', (req, reply, done) => {
     if (req.headers.authorization !== undefined) {
       const [prefix, token] = req.headers.authorization.split(' ');
       if (!prefix) {
+        console.log('rip prefix :<');
         reply
           .type('application/json')
           .status(400)
@@ -44,7 +46,8 @@ const authentication: FastifyPluginAsync<any> = async (server, _) => {
             available: ['Bearer'],
           });
 
-        return done();
+        done();
+        return;
       }
 
       if (prefix === 'Bearer') {
@@ -57,15 +60,21 @@ const authentication: FastifyPluginAsync<any> = async (server, _) => {
               message: `Token ${token} was not a valid token or it was expired.`,
             });
 
-          return done();
+          done();
+          return;
         }
       }
 
       // todo: get user from database
       req.user = null;
-      return done();
+      done();
     }
+
+    // fuck
+    done();
   });
+
+  done();
 };
 
 export default fp(authentication, {

@@ -16,13 +16,20 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import {
+  ApolloServerPluginLandingPageGraphQLPlayground,
+  ApolloServerPluginLandingPageDisabled,
+} from 'apollo-server-core';
+
+import fastify, { FastifyReply, FastifyRequest } from 'fastify';
+import { AbstractRoute, EndpointKey, RouteKey } from '~/structures';
 import { Component, ComponentAPI, Inject } from '@augu/lilith';
 import { ApolloServer } from 'apollo-server-fastify';
 import { buildSchema } from 'type-graphql';
 import { Logger } from 'tslog';
 import { join } from 'path';
-import fastify from 'fastify';
 import Config from './Config';
+import Route from '~/structures/Route';
 
 // Fastify plugins
 import ratelimitsPlugin from '~/middleware/ratelimits';
@@ -32,6 +39,8 @@ import logPlugin from '~/middleware/logging';
 // Resolvers
 import type { ArisuContext } from '~/graphql';
 import TestResolver from '~/graphql/resolvers/TestResolver';
+
+const mergePrefixes = (prefix: string, other: string) => (prefix === '/' ? other : `${prefix}${other}`);
 
 @Component({ priority: 0, name: 'http', children: join(process.cwd(), 'endpoints') })
 export default class HttpServer {
@@ -52,17 +61,20 @@ export default class HttpServer {
 
     const apollo = new ApolloServer({
       schema,
-      context: (a) => {
-        console.log(a);
-        return {
-          container: this.api.container,
-        } as ArisuContext;
-      },
+      context: ({ request: req, reply }: { request: FastifyRequest; reply: FastifyReply }): ArisuContext => ({
+        container: this.api.container,
+        req,
+        reply,
+      }),
+
+      plugins: [
+        process.env.NODE_ENV === 'development'
+          ? ApolloServerPluginLandingPageGraphQLPlayground({ faviconUrl: 'https://cdn.floofy.dev/images/trans.png' })
+          : ApolloServerPluginLandingPageDisabled(),
+      ],
     });
 
-    // Start apollo
     await apollo.start();
-
     this.#server = fastify();
     this.#server
       .register(require('fastify-cors'))
@@ -71,30 +83,67 @@ export default class HttpServer {
       .register(ratelimitsPlugin)
       .register(apollo.createHandler({ cors: true }));
 
-    return new Promise<void>((resolve, reject) => {
-      this.#server.listen(
-        {
-          port: 17093,
-          host: this.config.getProperty('host'),
-        },
-        (error, address) => {
-          if (error) {
-            this.logger.error(error);
-            return reject(error);
-          }
-
-          this.logger.info(`🚀✨ Arisu has launched at ${address.replace('[::]', 'localhost')}!`);
-          resolve();
+    return this.#server.listen(
+      {
+        port: 28093,
+        host: this.config.getProperty('host'),
+      },
+      (error, address) => {
+        if (error) {
+          this.logger.error(error);
+          return;
         }
-      );
-    });
+
+        this.logger.info(`🚀✨ Arisu has launched at ${address.replace('[::]', 'localhost')}`);
+      }
+    );
   }
 
   dispose() {
-    return this.#server.close();
+    this.logger.info('Closing server...');
+    return this.#server.close(() => {
+      this.logger.info('Closed server.');
+    });
   }
 
   onChildLoad(endpoint: any) {
-    console.log(endpoint);
+    const endpointMeta = Reflect.getMetadata<{ prefix: string }>(EndpointKey, endpoint.constructor);
+    if (!endpointMeta) {
+      this.logger.warn(`Endpoint class ${endpoint.constructor.name} didn't include a @Endpoint decorator.`);
+      return;
+    }
+
+    this.logger.info(`Implementing route ${endpointMeta.prefix}`);
+    const routes = Reflect.getMetadata<AbstractRoute<any>[]>(RouteKey, endpoint);
+    if (!routes) {
+      this.logger.warn(`Endpoint ${endpointMeta.prefix} is missing routes.`);
+      return;
+    }
+
+    this.logger.info(`Found ${routes.length} routes to implement!`);
+    for (const route of routes) {
+      this.logger.debug(`${route.method} ${mergePrefixes(endpointMeta.prefix, route.path)}`);
+
+      const r = new Route<any>(endpoint, route);
+      this.#server[route.method.toLowerCase()](
+        mergePrefixes(endpointMeta.prefix, route.path),
+        async (req: FastifyRequest, reply: FastifyReply) => {
+          try {
+            return await r.run(req, reply);
+          } catch (ex) {
+            this.logger.fatal(
+              `Unable to run route ${route.method} ${mergePrefixes(endpointMeta.prefix, route.path)}:`,
+              ex
+            );
+            return reply
+              .type('application/json')
+              .status(500)
+              .send({
+                message: `Unable to run route ${route.method} ${mergePrefixes(endpointMeta.prefix, route.path)}!`,
+              });
+          }
+        }
+      );
+    }
   }
 }

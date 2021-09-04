@@ -20,6 +20,11 @@ import './util/patches/RequirePatch';
 import 'source-map-support/register';
 import 'reflect-metadata';
 
+(require('@augu/dotenv') as typeof import('@augu/dotenv')).parse({
+  file: (require('path') as typeof import('path')).join(process.cwd(), '..', '.env'),
+  populate: true,
+});
+
 import { version, commitHash } from '~/util/Constants';
 import container from '~/container';
 import Logger from '~/singletons/logger';

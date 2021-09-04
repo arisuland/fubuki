@@ -16,20 +16,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const { default: consola } = require('consola');
-const { HttpClient } = require('@augu/orchid');
-const { writeFile } = require('fs/promises');
-const { version } = require('../package.json');
+/* eslint-disable camelcase */
+import type { FastifyReply, FastifyRequest } from 'fastify';
+import { Endpoint, Route } from '~/structures';
 
-const client = new HttpClient({
-  userAgent: `Arisu/Typings (+https://github.com/auguwu/Arisu/tree/master/typings; v${version})`,
-});
-
-const main = async () => {
-  consola.info('Generating typings...');
-};
-
-main().catch((error) => {
-  consola.error('Unable to generate typings from GraphQL API:', error);
-  process.exit(1);
-});
+@Endpoint('/')
+export default class MainEndpoint {
+  @Route('/', 'GET')
+  hello(_: FastifyRequest, res: FastifyReply) {
+    return res.type('application/json').status(200).send({
+      hello: 'world',
+      docs_url: 'https://docs.arisu.land/graphql',
+    });
+  }
+}

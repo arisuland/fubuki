@@ -91,7 +91,10 @@ const middleware: FastifyPluginAsync<any> = async (server, _) => {
 
   server.addHook('onRequest', (req, res, done) => {
     // localhost doesn't have to consume ratelimits.
-    if (req.ip === '::1') return done();
+    if (req.ip === '::1') {
+      done();
+      return;
+    }
 
     const ratelimit = getRatelimit(req.ip);
     res.headers({
@@ -112,12 +115,12 @@ const middleware: FastifyPluginAsync<any> = async (server, _) => {
           retry_after: retryAfter / 1000,
         });
 
-      // consider it done, do not execute the rest :(
-      return done();
+      done();
+      return;
     }
 
     // we can proceed owo
-    return done();
+    done();
   });
 };
 

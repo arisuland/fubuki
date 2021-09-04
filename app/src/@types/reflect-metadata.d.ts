@@ -13,14 +13,5 @@ declare namespace Reflect {
    *     result = Reflect.getMetadata("custom:annotation", Example);
    *
    */
-   function getMetadata<T>(metadataKey: any, target: any): T;
-
-   /**
-    * Gets the metadata value for the provided metadata key on the target object or its prototype chain.
-    * @param metadataKey A key used to store and retrieve metadata.
-    * @param target The target object on which the metadata is defined.
-    * @param propertyKey The property key for the target.
-    * @returns The metadata value for the metadata key if found; otherwise, `undefined`.
-    */
-   function getMetadata<T>(metadataKey: any, target: any, propertyKey: string | symbol): T;
+  function getMetadata<T>(metadataKey: any, target: any): T | undefined;
 }

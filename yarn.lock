@@ -193,7 +193,17 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@arisu/typings@workspace:typings"
   dependencies:
+    "@augu/eslint-config": 2.2.0
+    "@augu/orchid": 3.1.1
+    "@augu/tsconfig": 1.1.1
+    "@types/node": 16.7.10
+    "@typescript-eslint/eslint-plugin": 4.30.0
+    "@typescript-eslint/parser": 4.30.0
+    consola: 2.15.3
+    eslint: 7.32.0
+    eslint-config-prettier: 8.3.0
     eslint-plugin-prettier: 4.0.0
+    typescript: 4.4.2
   languageName: unknown
   linkType: soft
 
@@ -221,7 +231,7 @@ __metadata:
     "@types/node": 16.6.1
     "@typescript-eslint/eslint-plugin": 4.30.0
     "@typescript-eslint/parser": 4.30.0
-    apollo-server-fastify: 3.3.0
+    apollo-server-fastify: ^3.3.0
     argon2: 0.28.2
     autoprefixer: 10.3.4
     bree: 6.3.0
@@ -3514,8 +3524,8 @@ __metadata:
   linkType: hard
 
 "@graphql-tools/mock@npm:^8.1.2":
-  version: 8.3.0
-  resolution: "@graphql-tools/mock@npm:8.3.0"
+  version: 8.3.1
+  resolution: "@graphql-tools/mock@npm:8.3.1"
   dependencies:
     "@graphql-tools/schema": ^8.2.0
     "@graphql-tools/utils": ^8.2.0
@@ -3523,7 +3533,7 @@ __metadata:
     tslib: ~2.3.0
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 315441cf66f6a97e6e17f3532ca9d824ae7cd747de26e70b2f70386b6eaacf8360e891cdcc618eb1e78e662ed725492bfd859845d43384a4e7ec55e7ffad570c
+  checksum: fb021d72e6793ff9c444c3ca68374feee8c930da1a2aa1ed3738fabfa3bd12b2013e17410646cfd27ca9d6e653d711cd9a565a877f20f4970b47a6d7c9c42f69
   languageName: node
   linkType: hard
 
@@ -3689,7 +3699,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/utils@npm:^8.0.0, @graphql-tools/utils@npm:^8.2.0":
+"@graphql-tools/utils@npm:^8.0.0":
+  version: 8.2.2
+  resolution: "@graphql-tools/utils@npm:8.2.2"
+  dependencies:
+    tslib: ~2.3.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 6380f734250479b57fd9e8b6359f9e543b537a8e27652c6c49b3efc091e42fbcd25e38779abf178305e2d40276e39a7ff8fee247db0b728d8747da8f75aeb2e6
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/utils@npm:^8.2.0":
   version: 8.2.1
   resolution: "@graphql-tools/utils@npm:8.2.1"
   dependencies:
@@ -9140,7 +9161,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-fastify@npm:3.3.0":
+"apollo-server-fastify@npm:^3.3.0":
   version: 3.3.0
   resolution: "apollo-server-fastify@npm:3.3.0"
   dependencies:

@@ -49,13 +49,13 @@ const middleware: FastifyPluginAsync<any> = async (server, _) => {
     const averageLatency = getAvgLatency();
     const dur =
       duration < 0.5
-        ? colors.green(`+${duration.toFixed(2)}ms`)
+        ? colors.magenta(`+${duration.toFixed(2)}ms`)
         : duration >= 1.2 // ~1.2ms seems about right?
         ? colors.yellow(`+${duration.toFixed(2)}ms`)
-        : colors.red(`+${duration.toFixed(2)}ms`);
+        : colors.green(`+${duration.toFixed(2)}ms`);
 
     logger.info(
-      `[${req.ip === '::1' ? 'localhost' : req.ip}] ${res.statusCode} (${
+      `[${req.ip === '::1' || req.ip === '::ffff:127.0.0.1' ? 'localhost' : req.ip}] ${res.statusCode} (${
         STATUS_CODES[res.statusCode]
       }): ${req.method.toUpperCase()} ${req.url} (${dur}; avg: ~${averageLatency.toFixed(2)}ms)`
     );

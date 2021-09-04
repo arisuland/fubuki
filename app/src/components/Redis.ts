@@ -49,7 +49,7 @@ export default class Redis {
       (sentinels ?? []).length > 0
         ? {
             enableReadyCheck: true,
-            connectionName: 'Nino',
+            connectionName: 'Arisu',
             lazyConnect: true,
             sentinels,
             password: password,
@@ -58,7 +58,7 @@ export default class Redis {
           }
         : {
             enableReadyCheck: true,
-            connectionName: 'Nino',
+            connectionName: 'Arisu',
             lazyConnect: true,
             password: password,
             host: host,
@@ -68,10 +68,10 @@ export default class Redis {
 
     this.client = new IORedis(config);
 
-    await this.client.client('SETNAME', 'Nino');
+    await this.client.client('SETNAME', 'Arisu');
     this.client.on('ready', () => this.logger.info('Connected to Redis!'));
-
     this.client.on('error', this.logger.error);
+
     return this.client.connect().catch(() => {}); // eslint-disable-line
   }
 
