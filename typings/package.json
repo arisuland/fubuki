@@ -12,20 +12,21 @@
   "repository": "https://github.com/arisuland/Arisu/tree/master/typings",
   "bugs": "https://github.com/arisuland/Arisu/issues",
   "scripts": {
-    "generate": "npm run scripts/generate.js",
-    "lint": "eslint src --ext .d.ts --fix"
+    "generate": "graphql-codegen && yarn lint && prettier --config ../.prettierrc.json --parser typescript --write ./typings/*.d.ts",
+    "lint": "eslint typings --ext .d.ts --fix"
   },
   "devDependencies": {
     "@augu/eslint-config": "2.2.0",
-    "@augu/orchid": "3.1.1",
-    "@augu/tsconfig": "1.1.1",
-    "@types/node": "16.7.10",
+    "@graphql-codegen/cli": "2.1.1",
+    "@graphql-codegen/typescript": "2.2.0",
+    "@graphql-codegen/typescript-react-apollo": "3.1.3",
     "@typescript-eslint/eslint-plugin": "4.30.0",
     "@typescript-eslint/parser": "4.30.0",
-    "consola": "2.15.3",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
-    "eslint-plugin-prettier": "4.0.0",
-    "typescript": "4.4.2"
+    "eslint-plugin-prettier": "4.0.0"
+  },
+  "dependencies": {
+    "@augu/tsconfig": "^1.1.1"
   }
 }
