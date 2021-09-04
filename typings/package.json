@@ -27,6 +27,6 @@
     "eslint-plugin-prettier": "4.0.0"
   },
   "dependencies": {
-    "@augu/tsconfig": "^1.1.1"
+    "@augu/tsconfig": "1.1.1"
   }
 }
