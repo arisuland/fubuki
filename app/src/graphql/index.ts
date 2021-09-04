@@ -18,8 +18,11 @@
 
 import type { FastifyRequest, FastifyReply } from 'fastify';
 import type { Container } from '@augu/lilith';
+import { NonEmptyArray } from 'type-graphql';
 
+// Resolvers
 import TestResolver from './resolvers/TestResolver';
+import UserResolver from './resolvers/UserResolver';
 
 export interface ArisuContext {
   req: FastifyRequest;
@@ -27,4 +30,5 @@ export interface ArisuContext {
   container: Container;
 }
 
-export const resolvers = [TestResolver];
+// eslint-disable-next-line
+export const resolvers = [TestResolver, UserResolver] as NonEmptyArray<Function>;

@@ -37,8 +37,7 @@ import authPlugin from '~/middleware/authentication';
 import logPlugin from '~/middleware/logging';
 
 // Resolvers
-import type { ArisuContext } from '~/graphql';
-import TestResolver from '~/graphql/resolvers/TestResolver';
+import { ArisuContext, resolvers } from '~/graphql';
 
 const mergePrefixes = (prefix: string, other: string) => (prefix === '/' ? other : `${prefix}${other}`);
 
@@ -56,7 +55,8 @@ export default class HttpServer {
     this.logger.info('Launching website...');
 
     const schema = await buildSchema({
-      resolvers: [TestResolver],
+      resolvers,
+      dateScalarMode: 'isoDate',
     });
 
     const apollo = new ApolloServer({

@@ -4,6 +4,9 @@ CREATE TABLE "users" (
     "updated_at" TIMESTAMP(3) NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "username" TEXT NOT NULL,
+    "password" TEXT NOT NULL,
+    "flags" INTEGER NOT NULL DEFAULT 0,
+    "email" TEXT NOT NULL,
     "name" TEXT,
     "id" TEXT NOT NULL,
 
@@ -16,6 +19,7 @@ CREATE TABLE "projects" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "owner_id" TEXT NOT NULL,
+    "flags" INTEGER NOT NULL DEFAULT 0,
     "name" TEXT NOT NULL,
     "id" TEXT NOT NULL,
 

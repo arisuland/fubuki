@@ -26,11 +26,12 @@ const main = async () => {
   console.log('Creating `admin` user with `admin` password...');
 
   const password = await argon2.hash('admin');
-  await prisma.user.create({
+  await prisma.users.create({
     data: {
       description: 'Temporary administration account.',
       password: password,
       username: 'admin',
+      email: 'admin@arisu.land',
       flags: 0,
       name: 'Admin',
     },
