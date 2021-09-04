@@ -231,7 +231,7 @@ __metadata:
     "@types/node": 16.6.1
     "@typescript-eslint/eslint-plugin": 4.30.0
     "@typescript-eslint/parser": 4.30.0
-    apollo-server-fastify: ^3.3.0
+    apollo-server-fastify: 3.3.0
     argon2: 0.28.2
     autoprefixer: 10.3.4
     bree: 6.3.0
@@ -9161,7 +9161,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"apollo-server-fastify@npm:^3.3.0":
+"apollo-server-fastify@npm:3.3.0":
   version: 3.3.0
   resolution: "apollo-server-fastify@npm:3.3.0"
   dependencies:
