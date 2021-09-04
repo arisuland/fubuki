@@ -260,7 +260,7 @@ __metadata:
   resolution: "@arisu/typings@workspace:typings"
   dependencies:
     "@augu/eslint-config": 2.2.0
-    "@augu/tsconfig": ^1.1.1
+    "@augu/tsconfig": 1.1.1
     "@graphql-codegen/cli": 2.1.1
     "@graphql-codegen/typescript": 2.2.0
     "@graphql-codegen/typescript-react-apollo": 3.1.3
@@ -383,7 +383,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@augu/tsconfig@npm:1.1.1, @augu/tsconfig@npm:^1.1.1":
+"@augu/tsconfig@npm:1.1.1":
   version: 1.1.1
   resolution: "@augu/tsconfig@npm:1.1.1"
   checksum: b734975ae5362ac16de2c6be189b82d204e6744f4d23b2bdf1e7f4176994a2cf31967e8678ebf350a1404d2e308d7b87d35af176ecd043228d30aab674122e0c
