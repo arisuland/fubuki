@@ -27,7 +27,7 @@ import Config from '~/components/Config';
   name: 'storage:provider',
 })
 export default class StorageProviderService {
-  private provider!: StorageProvider<any>;
+  public provider!: StorageProvider<any>;
 
   @Inject
   private readonly logger!: Logger;

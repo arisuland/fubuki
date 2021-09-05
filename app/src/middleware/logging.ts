@@ -46,6 +46,13 @@ const middleware: FastifyPluginAsync<any> = async (server, _) => {
     const duration = calculateHRTime(lastPing);
     pings.push(duration);
 
+    // don't even log it (since it'll get spammy in development)
+    const isGraphQL = req.method === 'POST' && req.url === '/graphql';
+    if (isGraphQL) {
+      done();
+      return;
+    }
+
     const averageLatency = getAvgLatency();
     const dur =
       duration < 0.5

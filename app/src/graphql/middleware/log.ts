@@ -28,7 +28,7 @@ let lastPing: [number, number];
 // and src/graphql/middleware/log.ts? Well, the difference is,
 // this is on the GraphQL execution point while logging.ts is refered
 // to the request execution.
-const mod: MiddlewareFn<ArisuContext> = async ({ context, info }, next) => {
+const mod: MiddlewareFn<ArisuContext> = async ({ context }, next) => {
   const logger = context.container.$ref(Logger);
   const startedAt = process.hrtime();
   lastPing = startedAt;
@@ -39,7 +39,11 @@ const mod: MiddlewareFn<ArisuContext> = async ({ context, info }, next) => {
   pings.push(resolvedTime);
 
   const avg = pings.reduce((acc, curr) => acc + curr, 0) / pings.length;
-  logger.info(info);
+  logger.info(
+    `GraphQL query took ~${resolvedTime.toFixed(
+      2
+    )}ms to complete! On average, queries/mutations/subscriptions take ~${avg.toFixed(2)}ms to complete.`
+  );
 };
 
 export default mod;

@@ -127,25 +127,27 @@ export default class HttpServer {
       this.logger.debug(`${route.method} ${mergePrefixes(endpointMeta.prefix, route.path)}`);
 
       const r = new Route<any>(endpoint, route);
-      this.#server[route.method.toLowerCase()](
-        mergePrefixes(endpointMeta.prefix, route.path),
-        async (req: FastifyRequest, reply: FastifyReply) => {
-          try {
-            return await r.run(req, reply);
-          } catch (ex) {
-            this.logger.fatal(
-              `Unable to run route ${route.method} ${mergePrefixes(endpointMeta.prefix, route.path)}:`,
-              ex
-            );
-            return reply
-              .type('application/json')
-              .status(500)
-              .send({
-                message: `Unable to run route ${route.method} ${mergePrefixes(endpointMeta.prefix, route.path)}!`,
-              });
-          }
+
+      let merged = mergePrefixes(endpointMeta.prefix, route.path);
+      if (merged !== '/' && merged.endsWith('/')) merged = merged.slice(0, merged.length - 1);
+
+      console.log(merged);
+      this.#server[route.method.toLowerCase()](merged, async (req: FastifyRequest, reply: FastifyReply) => {
+        try {
+          return await r.run(req, reply);
+        } catch (ex) {
+          this.logger.fatal(
+            `Unable to run route ${route.method} ${mergePrefixes(endpointMeta.prefix, route.path)}:`,
+            ex
+          );
+          return reply
+            .type('application/json')
+            .status(500)
+            .send({
+              message: `Unable to run route ${route.method} ${mergePrefixes(endpointMeta.prefix, route.path)}!`,
+            });
         }
-      );
+      });
     }
   }
 }

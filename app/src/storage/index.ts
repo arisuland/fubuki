@@ -16,6 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+/* eslint-disable camelcase */
+
 export { default as GoogleCloudProvider, GoogleCloudStorageConfig } from './GoogleCloudProvider';
 export { default as S3StorageProvider, S3StorageConfig } from './S3StorageProvider';
 export { default as FilesystemProvider, FilesystemStorageConfig } from './FilesystemProvider';
@@ -40,13 +42,74 @@ export interface StorageProvider<C extends IStorageConfig> {
    * @param files The files to upload.
    * @returns An (a)synchronous operation.
    */
-  handle(files: any[]): void | Promise<void>;
+  handle(files: File[]): void | Promise<void>;
 
   /**
    * Disposes the storage provider when the application closes.
    */
   dispose?(): void | Promise<void>;
+
+  /**
+   * Returns the file metadata lockfile from the storage provider.
+   */
+  getMetadata?(userProject: string): Promise<FileMetadataLock>;
 }
 
 // eslint-disable-next-line
 export interface IStorageConfig {}
+
+/**
+ * Represents a File to upload to a specific {@link StorageProvider}.
+ */
+export interface File {
+  /**
+   * The name of the file, you can split this by using `sep` from the
+   * `path` library to create the directories (if using the {@link FilesystemProvider})
+   */
+  name: string;
+
+  /**
+   * The project owner / name by an Array.
+   */
+  project: [owner: string, name: string];
+
+  /**
+   * External metadata for {@link S3StorageProvider} or {@link GoogleCloudProvider}. Though,
+   * if you're using the {@link FilesystemProvider}, it'll be saved as `owner/project/metadata.json`
+   * that the `projectMetadata` query can pick up.
+   */
+  metadata: FileMetadata;
+
+  /**
+   * The file contents
+   */
+  contents: string;
+}
+
+/**
+ * Represents the metadata for a {@link File}.
+ */
+export interface FileMetadata {
+  /**
+   * Returns the size in bytes of how big this file is.
+   */
+  size: number;
+
+  /**
+   * The content type of this file.
+   */
+  contentType: string;
+}
+
+export interface FileMetadataLock {
+  format_version: 1;
+  project: string;
+  directory?: string;
+  files: IFileMetadata[];
+}
+
+export interface IFileMetadata {
+  path: string;
+  size: number;
+  contentType: string;
+}

@@ -193,6 +193,7 @@ __metadata:
     "@types/ioredis": 4.27.1
     "@types/jest": 27.0.1
     "@types/js-yaml": 4.0.3
+    "@types/mime-types": 2.1.1
     "@types/node": 16.6.1
     "@typescript-eslint/eslint-plugin": 4.30.0
     "@typescript-eslint/parser": 4.30.0
@@ -217,6 +218,7 @@ __metadata:
     js-yaml: 4.1.0
     jsonwebtoken: 8.5.1
     leeks.js: 0.2.2
+    mime-types: 2.1.32
     nodemon: 2.0.12
     prettier: 2.3.2
     prisma: 2.30.3
@@ -7730,6 +7732,13 @@ __metadata:
   dependencies:
     "@types/braces": "*"
   checksum: 6c678e9c625d5b422c6d2c1001da1c502ecc4457248343bbd324b79fd798a6563e336a4d79630d80e8202312013dd7cf8b4440afa644d04477abd26fde6fba24
+  languageName: node
+  linkType: hard
+
+"@types/mime-types@npm:2.1.1":
+  version: 2.1.1
+  resolution: "@types/mime-types@npm:2.1.1"
+  checksum: 106b5d556add46446a579ad25ff15d6b421851790d887edcad558c90c1e64b1defc72bfbaf4b08f208916e21d9cc45cdb951d77be51268b18221544cfe054a3c
   languageName: node
   linkType: hard
 
@@ -21335,7 +21344,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"mime-types@npm:^2.0.8, mime-types@npm:^2.1.12, mime-types@npm:^2.1.18, mime-types@npm:^2.1.19, mime-types@npm:^2.1.27, mime-types@npm:^2.1.30, mime-types@npm:~2.1.19, mime-types@npm:~2.1.24":
+"mime-types@npm:2.1.32, mime-types@npm:^2.0.8, mime-types@npm:^2.1.12, mime-types@npm:^2.1.18, mime-types@npm:^2.1.19, mime-types@npm:^2.1.27, mime-types@npm:^2.1.30, mime-types@npm:~2.1.19, mime-types@npm:~2.1.24":
   version: 2.1.32
   resolution: "mime-types@npm:2.1.32"
   dependencies:
