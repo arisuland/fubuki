@@ -42,9 +42,10 @@ export default class FilesystemStorageProvider implements StorageProvider<Filesy
 
   public config: FilesystemStorageConfig;
 
-  constructor() {
+  constructor(config: FilesystemStorageConfig) {
     // provide a default config for now
     this.config = {
+      ...config,
       directory: join(process.cwd(), '..', '.arisu'),
     };
   }

@@ -47,12 +47,15 @@ class Security {
     }
   }
 
-  generate(userId: string, type: 'access' | 'session'): Token & { token: string } {
-    const token = jwt.sign({ type, user: userId }, process.env.JWT_SECRET!, {
+  static generate(userId: string, type: 'access' | 'session', expiresIn?: number): Token & { token: string } {
+    const options: jwt.SignOptions = {
       subject: 'Arisu',
       algorithm: 'HS256',
-    });
+    };
 
+    if (type === 'session') options.expiresIn = expiresIn!;
+
+    const token = jwt.sign({ type, user: userId }, process.env.JWT_SECRET!, options);
     return { type, token, user: userId };
   }
 }

@@ -72,7 +72,7 @@ export default class Redis {
     this.client.on('ready', () => this.logger.info('Connected to Redis!'));
     this.client.on('error', this.logger.error);
 
-    return this.client.connect().catch(() => {}); // eslint-disable-line
+    return Promise.resolve();
   }
 
   dispose() {

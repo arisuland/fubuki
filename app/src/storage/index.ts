@@ -16,9 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export { default as GoogleCloudProvider } from './GoogleCloudProvider';
-export { default as S3StorageProvider } from './S3StorageProvider';
-export { default as FilesystemProvider } from './FilesystemProvider';
+export { default as GoogleCloudProvider, GoogleCloudStorageConfig } from './GoogleCloudProvider';
+export { default as S3StorageProvider, S3StorageConfig } from './S3StorageProvider';
+export { default as FilesystemProvider, FilesystemStorageConfig } from './FilesystemProvider';
 
 /**
  * Represents the storage provider.
@@ -40,7 +40,7 @@ export interface StorageProvider<C extends IStorageConfig> {
    * @param files The files to upload.
    * @returns An (a)synchronous operation.
    */
-  handle?(files: any[]): void | Promise<void>;
+  handle(files: any[]): void | Promise<void>;
 
   /**
    * Disposes the storage provider when the application closes.

@@ -25,4 +25,7 @@ export default class CreateUserInput {
 
   @Field({ description: "Returns the user's password they want to use." })
   password!: string;
+
+  @Field({ description: 'Returns the email the user is going to use.' })
+  email!: string;
 }

@@ -36,8 +36,9 @@ import ratelimitsPlugin from '~/middleware/ratelimits';
 import authPlugin from '~/middleware/authentication';
 import logPlugin from '~/middleware/logging';
 
-// Resolvers
+// Resolvers / Global Middleware
 import { ArisuContext, resolvers } from '~/graphql';
+import { error, log } from '~/graphql/middleware';
 
 const mergePrefixes = (prefix: string, other: string) => (prefix === '/' ? other : `${prefix}${other}`);
 
@@ -57,6 +58,7 @@ export default class HttpServer {
     const schema = await buildSchema({
       resolvers,
       dateScalarMode: 'isoDate',
+      globalMiddlewares: [log, error],
     });
 
     const apollo = new ApolloServer({

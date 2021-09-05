@@ -1,5 +1,5 @@
 {
   "automerge": true,
   "extends": ["config:base"],
-  "ignoreDeps": ["ts-loader"]
+  "ignoreDeps": ["ts-loader", "is-docker"]
 }

@@ -90,8 +90,9 @@ export default class S3StorageProvider implements StorageProvider<S3StorageConfi
   public config: S3StorageConfig;
   private s3!: S3Client;
 
-  constructor() {
+  constructor(config: S3StorageConfig) {
     this.config = {
+      ...config,
       bucket: 'arisu',
       provider: S3Provider.Amazon,
       region: 'us-east1',

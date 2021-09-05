@@ -17,12 +17,21 @@
  */
 
 import './util/patches/RequirePatch';
-import 'source-map-support/register';
 import 'reflect-metadata';
 
 (require('@augu/dotenv') as typeof import('@augu/dotenv')).parse({
   file: (require('path') as typeof import('path')).join(process.cwd(), '..', '.env'),
   populate: true,
+  schema: {
+    NODE_ENV: {
+      type: 'string',
+      oneOf: ['development', 'production'],
+      default: 'development',
+    },
+
+    DATABASE_URL: 'string',
+    JWT_SECRET: 'string',
+  },
 });
 
 import { version, commitHash } from '~/util/Constants';

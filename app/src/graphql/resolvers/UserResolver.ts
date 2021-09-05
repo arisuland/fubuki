@@ -17,8 +17,11 @@
  */
 
 import { Query, Resolver, Arg, Ctx, Mutation } from 'type-graphql';
+import PropertyAlreadyTakenException from '~/graphql/exceptions/PropertyAlreadyTakenException';
 import type { ArisuContext } from '~/graphql';
 import { PrismaClient } from '.prisma/client';
+import CreateUserInput from '~/graphql/input/users/CreateUserInput';
+import * as argon2 from 'argon2';
 import User from '~/graphql/objects/User';
 
 @Resolver()
@@ -46,7 +49,37 @@ export default class UserResolver {
   @Mutation(() => User, {
     description: 'Creates a user and registers them to the database.',
   })
-  async createUser(@Ctx() context: ArisuContext, @Arg('username') username: string) {
-    return null;
+  async createUser(
+    @Ctx() context: ArisuContext,
+    @Arg('input', { description: '' }) { username, password, email }: CreateUserInput
+  ) {
+    // Check if a user exists
+    const prisma: PrismaClient = context.container.$ref(PrismaClient);
+    const hasUser = await prisma.users.findFirst({
+      where: {
+        username,
+      },
+    });
+
+    if (hasUser !== null) throw new PropertyAlreadyTakenException(username, 'username');
+
+    // Check if the email exists
+    const hasEmail = await prisma.users.findFirst({
+      where: {
+        email,
+      },
+    });
+
+    if (hasEmail !== null) throw new PropertyAlreadyTakenException(email, 'email');
+
+    // Both aren't taken! Let's create the account~
+    const hashedPassword = await argon2.hash(password);
+    return await prisma.users.create({
+      data: {
+        username,
+        password: hashedPassword,
+        email,
+      },
+    });
   }
 }

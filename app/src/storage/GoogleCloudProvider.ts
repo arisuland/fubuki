@@ -57,8 +57,9 @@ export default class GoogleCloudProvider implements StorageProvider<IStorageConf
 
   public config: GoogleCloudStorageConfig;
 
-  constructor() {
+  constructor(config: GoogleCloudStorageConfig) {
     this.config = {
+      ...config,
       bucket: 'arisu',
       location: 'US-EAST1',
       storageClass: 'COLDLINE',

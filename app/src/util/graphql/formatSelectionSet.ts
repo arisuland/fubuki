@@ -16,22 +16,36 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import type { FastifyPluginCallback } from 'fastify';
-import type { Users } from '.prisma/client';
-import fp from 'fastify-plugin';
+import { SelectionNode } from 'graphql';
 
-declare module 'fastify' {
-  interface FastifyRequest {
-    user: Users | null;
+const formatSelectionSet = (value: SelectionNode) => {
+  let formatted = '';
+  switch (value.kind) {
+    case 'Field':
+      formatted += value.name.value;
+      break;
+
+    case 'InlineFragment':
+      {
+        formatted += `...${value.typeCondition !== undefined ? ` on ${value.typeCondition.name.value}` : ''} {`;
+        for (const select of value.selectionSet.selections) {
+          const f = formatSelectionSet(select);
+          formatted += `\n    ${f}`;
+        }
+
+        formatted += '}';
+      }
+      break;
+
+    case 'FragmentSpread':
+      formatted += `...${value.name.value}`;
+      break;
+
+    default:
+      return 'unknown';
   }
-}
 
-const authentication: FastifyPluginCallback<any> = (server, _, done) => {
-  // type-graphql will type this for us, so...
-  server.decorateRequest('user', null);
-  done();
+  return formatted;
 };
 
-export default fp(authentication, {
-  fastify: '>=3.0',
-});
+export default formatSelectionSet;

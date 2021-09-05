@@ -16,22 +16,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import type { FastifyPluginCallback } from 'fastify';
-import type { Users } from '.prisma/client';
-import fp from 'fastify-plugin';
+import { firstUpper } from '@augu/utils';
 
-declare module 'fastify' {
-  interface FastifyRequest {
-    user: Users | null;
+/**
+ * References a error in the GraphQL API that this property is already taken.
+ */
+export default class PropertyAlreadyTakenException extends Error {
+  constructor(prop: string, propName: string) {
+    super(`${firstUpper(propName)} "${prop}" is already taken.`);
+
+    this.name = `${firstUpper(propName)}AlreadyTakenException`;
   }
 }
-
-const authentication: FastifyPluginCallback<any> = (server, _, done) => {
-  // type-graphql will type this for us, so...
-  server.decorateRequest('user', null);
-  done();
-};
-
-export default fp(authentication, {
-  fastify: '>=3.0',
-});
