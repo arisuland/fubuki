@@ -20,5 +20,4 @@ jobs:
           directories: './schematics/*.json'
           access-key: ${{ secrets.S3_ACCESS_KEY }}
           secret-key: ${{ secrets.S3_SECRET_KEY }}
-          region: us-west-1
           bucket: cdn.arisu.land
