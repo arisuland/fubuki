@@ -9,11 +9,10 @@
       ["locales/**/*.json"],
       {
         "format": "json",
-        "indent": 4,
-        "schema": null
+        "indent": 4
       }
     ],
     "branches": ["staging", "master"],
-    "commitMessage": "translations: ${{ author }} has updated ${{ localePath }} (${{ modifiedAt | pretty }})"
+    "commitMessage": "translations: ${{ author }} has updated ${{ localePath }}"
   }
 }

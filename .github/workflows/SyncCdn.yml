@@ -1,0 +1,23 @@
+name: Syncs up schematics/ into CDN bucket
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'schematics/**'
+  schedule:
+    - cron: "* */12 * * *"
+jobs:
+  sync-cdn:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      
+      - name: Sync up schematics/ to cdn.arisu.land
+        uses: Noelware/s3-action@master
+        with:
+          use-wasabi: 'true'
+          directories: './schematics/*.json'
+          access-key: ${{ secrets.S3_ACCESS_KEY }}
+          secret-key: ${{ secrets.S3_SECRET_KEY }}
+          bucket: cdn.arisu.land

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.arisu.land/schematics/arisurc.json",
+  "required": ["project", "accessToken"],
+  "title": "Arisu - CLI Configuration",
+  "description": "The configuration file that any CI/CD environment or the CLI can pick up and validate.",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "Returns the project to use when using continous integration or the CLI."
+    },
+    "accessToken": {
+      "type": "string",
+      "description": "Returns the access token to push project resources without any security risks. This can also be under the `ARISU_ACCESS_TOKEN` environment variable."
+    },
+    "github": {
+      "type": "object",
+      "required": ["repository", "files"],
+      "properties": {
+        "repository": {
+          "type": "string",
+          "description": "Returns the GitHub repository as `user/project` the CLI can pick up and send a PubSub event to the GitHub bot to sync your translations."
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "This is a list of files the CLI can pick up to sync your translations with. This can be a glob-style path."
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "If the GitHub system for Arisu is enabled or not. By default, it is disabled."
+        },
+        "branches": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Returns a list of branches to sync up your translations with."
+        },
+        "commitMessage": {
+          "type": "string",
+          "description": "Returns the commit message you want to set."
+        }
+      }
+    }
+  }
+}
