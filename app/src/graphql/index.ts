@@ -17,18 +17,21 @@
  */
 
 import type { FastifyRequest, FastifyReply } from 'fastify';
+import type { NonEmptyArray } from 'type-graphql';
 import type { Container } from '@augu/lilith';
-import { NonEmptyArray } from 'type-graphql';
+import { PrismaClient } from '@prisma/client';
 
 // Resolvers
 import TestResolver from './resolvers/TestResolver';
 import UserResolver from './resolvers/UserResolver';
+import LoginResolver from './resolvers/LoginResolver';
 
 export interface ArisuContext {
   req: FastifyRequest;
   reply: FastifyReply;
   container: Container;
+  prisma: PrismaClient;
 }
 
 // eslint-disable-next-line
-export const resolvers = [TestResolver, UserResolver] as NonEmptyArray<Function>;
+export const resolvers = [TestResolver, UserResolver, LoginResolver] as NonEmptyArray<Function>;

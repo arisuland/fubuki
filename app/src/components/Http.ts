@@ -25,6 +25,7 @@ import fastify, { FastifyReply, FastifyRequest } from 'fastify';
 import { AbstractRoute, EndpointKey, RouteKey } from '~/structures';
 import { Component, ComponentAPI, Inject } from '@augu/lilith';
 import { ApolloServer } from 'apollo-server-fastify';
+import { PrismaClient } from '@prisma/client';
 import { buildSchema } from 'type-graphql';
 import { Logger } from 'tslog';
 import { join } from 'path';
@@ -45,10 +46,14 @@ const mergePrefixes = (prefix: string, other: string) => (prefix === '/' ? other
 @Component({ priority: 0, name: 'http', children: join(process.cwd(), 'endpoints') })
 export default class HttpServer {
   @Inject
+  private readonly prisma!: PrismaClient;
+
+  @Inject
   private readonly logger!: Logger;
 
   @Inject
   private readonly config!: Config;
+
   api!: ComponentAPI;
   #server!: ReturnType<typeof fastify>;
 
@@ -67,6 +72,7 @@ export default class HttpServer {
         container: this.api.container,
         req,
         reply,
+        prisma: this.prisma,
       }),
 
       plugins: [

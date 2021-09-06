@@ -16,13 +16,39 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Query, Resolver, Arg, Ctx, Mutation } from 'type-graphql';
+import { Query, Resolver, Arg, Ctx, Mutation, UseMiddleware, ObjectType, Field } from 'type-graphql';
 import PropertyAlreadyTakenException from '~/graphql/exceptions/PropertyAlreadyTakenException';
 import type { ArisuContext } from '~/graphql';
 import { PrismaClient } from '@prisma/client';
+import UpdateUserInput from '~/graphql/input/users/UpdateUserInput';
 import CreateUserInput from '~/graphql/input/users/CreateUserInput';
+import { isEmail } from 'class-validator';
 import * as argon2 from 'argon2';
+import { auth } from '../middleware';
 import User from '~/graphql/objects/User';
+
+export interface Result {
+  success: boolean;
+  errors?: readonly Error[];
+}
+
+@ObjectType()
+export class ErrorType {
+  @Field()
+  message!: string;
+
+  @Field()
+  name!: string;
+}
+
+@ObjectType()
+export class ResultObject {
+  @Field(() => [ErrorType], { nullable: true, description: 'Returns the list of validation errors, if any.' })
+  errors!: readonly Error[];
+
+  @Field({ description: 'Returns if the operation was successful or not.' })
+  success!: boolean;
+}
 
 @Resolver()
 export default class UserResolver {
@@ -67,6 +93,7 @@ export default class UserResolver {
     });
 
     if (hasUser !== null) throw new PropertyAlreadyTakenException(username, 'username');
+    if (!isEmail(email)) throw new Error(`Invalid email: "${email}"`);
 
     // Check if the email exists
     const hasEmail = await prisma.users.findFirst({
@@ -86,5 +113,126 @@ export default class UserResolver {
         email,
       },
     });
+  }
+
+  @Mutation(() => ResultObject, {
+    description: "Updates a user's metadata about themselves.",
+  })
+  @UseMiddleware(auth)
+  async updateUser(
+    @Ctx() context: ArisuContext,
+    @Arg('input') { username, password, name, description, email }: UpdateUserInput
+  ): Promise<Result> {
+    if (!username && !password && !name && !description && !email)
+      return {
+        success: false,
+        errors: [new Error('Missing data to update. :<')],
+      };
+
+    const prisma: PrismaClient = context.container.$ref(PrismaClient);
+    const oldUser = context.req.user!;
+    const transactions: any[] = [];
+
+    if (username !== undefined) {
+      if (username.length > 32)
+        return {
+          success: false,
+          errors: [new Error(`Username "${username}" is invalid: char length > 32`)],
+        };
+
+      const owo = await prisma.users.findUnique({
+        where: {
+          username,
+        },
+      });
+
+      if (owo !== null)
+        return {
+          success: false,
+          errors: [new Error(`Username "${username}" is already taken.`)],
+        };
+
+      transactions.push(
+        prisma.users.update({
+          where: {
+            id: oldUser.id,
+          },
+
+          data: {
+            username,
+          },
+        })
+      );
+    }
+
+    if (password !== undefined) {
+      const hashed = await argon2.hash(password);
+      transactions.push(
+        prisma.users.update({
+          where: {
+            id: oldUser.id,
+          },
+
+          data: {
+            password: hashed,
+          },
+        })
+      );
+    }
+
+    if (name !== undefined) {
+      // TODO: check for racist words and such?
+      transactions.push(
+        prisma.users.update({
+          where: {
+            id: oldUser.id,
+          },
+
+          data: {
+            name,
+          },
+        })
+      );
+    }
+
+    if (description !== undefined) {
+      if (description.length > 140)
+        return {
+          success: false,
+          errors: [new Error(`Description is invalid: char length > 140`)],
+        };
+
+      transactions.push(
+        prisma.users.update({
+          where: {
+            id: oldUser.id,
+          },
+
+          data: {
+            description,
+          },
+        })
+      );
+    }
+
+    await prisma.$transaction(transactions);
+
+    return {
+      success: true,
+    };
+  }
+
+  @Mutation(() => Boolean)
+  @UseMiddleware(auth)
+  async deleteUser(@Ctx() context: ArisuContext) {
+    const prisma: PrismaClient = context.container.$ref(PrismaClient);
+    return prisma.users
+      .delete({
+        where: {
+          id: context.req.user!.id,
+        },
+      })
+      .then(() => true)
+      .catch(() => false);
   }
 }

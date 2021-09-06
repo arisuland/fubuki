@@ -23,12 +23,15 @@ import fp from 'fastify-plugin';
 declare module 'fastify' {
   interface FastifyRequest {
     user: Users | null;
+    sessionToken?: string;
   }
 }
 
 const authentication: FastifyPluginCallback<any> = (server, _, done) => {
   // type-graphql will type this for us, so...
   server.decorateRequest('user', null);
+  server.decorateRequest('sessionToken', undefined);
+
   done();
 };
 

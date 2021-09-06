@@ -26,6 +26,7 @@ import { withIndex } from '~/util';
 import { Inject } from '@augu/lilith';
 import { Logger } from 'tslog';
 import mimeTypes from 'mime-types';
+import defu from 'defu';
 
 /**
  * Represents the configuration details for using the filesystem
@@ -47,11 +48,9 @@ export default class FilesystemStorageProvider implements StorageProvider<Filesy
   public config: FilesystemStorageConfig;
 
   constructor(config: FilesystemStorageConfig) {
-    // provide a default config for now
-    this.config = {
-      ...config,
+    this.config = defu(config, {
       directory: join(process.cwd(), '..', '.arisu'),
-    };
+    });
   }
 
   static get FORMAT_VERSION() {

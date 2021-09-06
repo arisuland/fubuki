@@ -16,28 +16,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Field, InputType } from 'type-graphql';
-import { IsOptional } from 'class-validator';
+/** memoization cache */
+const cache: any[] = [];
 
-@InputType()
-export default class UpdateUserInput {
-  @Field({ nullable: true, description: "Changes this user's description." })
-  @IsOptional()
-  description?: string;
+/**
+ * Memoizes a value into the cache for expensive computations.
+ * @param value The value to memoize
+ * @returns The value if it was memoized.
+ */
+export default function memo(value: any) {
+  if (cache.includes(value)) return cache[cache.indexOf(value)];
 
-  @Field({ nullable: true, description: "Changes this user's username." })
-  @IsOptional()
-  username?: string;
-
-  @Field({ nullable: true, description: "Changes this user's password." })
-  @IsOptional()
-  password?: string;
-
-  @Field({ nullable: true, description: "Changes this user's email address." })
-  @IsOptional()
-  email?: string;
-
-  @Field({ nullable: true, description: "Changes this user's name." })
-  @IsOptional()
-  name?: string;
+  cache.push(value);
+  return value;
 }

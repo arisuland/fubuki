@@ -16,25 +16,23 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Inject, Subscribe } from '@augu/lilith';
-import { Logger } from 'tslog';
+/**
+ * Debounces a certain action until the amount of time defined until the next execution is called.
+ * @param func The function to call
+ * @param wait The amount of time to wait
+ * @param immediate If this function should be immediately called after it's done.
+ */
+export default function debounce<F extends (...args: any[]) => any>(func: F, wait = 2500, immediate = false) {
+  let timeout: any;
+  return function (this: any, ...args: any[]) {
+    const shouldCall = immediate && !timeout;
+    if (timeout) window.clearTimeout(timeout);
 
-export default class SingyeongListener {
-  @Inject
-  private readonly logger!: Logger;
+    timeout = setTimeout(() => {
+      timeout = undefined;
+      if (!immediate) func.call(this, ...args);
+    }, wait);
 
-  @Subscribe('debug', { emitter: 'singyeong' })
-  onReady(message: string) {
-    this.logger.debug(`singyeong » ${message}`);
-  }
-
-  @Subscribe('destroyed', { emitter: 'singyeong' })
-  onDestroyed() {
-    this.logger.warn('Singyeong client was destroyed.');
-  }
-
-  @Subscribe('error', { emitter: 'singyeong' })
-  onError(error: Error) {
-    this.logger.error('Unknown exception occured in WS', error);
-  }
+    if (shouldCall) func.call(this, ...args);
+  };
 }

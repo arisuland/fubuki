@@ -20,6 +20,7 @@ import type { StorageProvider, IStorageConfig } from '.';
 import { Storage } from '@google-cloud/storage';
 import { Inject } from '@augu/lilith';
 import { Logger } from 'tslog';
+import defu from 'defu';
 
 /**
  * Represents the configuration details for using Google Cloud
@@ -58,12 +59,11 @@ export default class GoogleCloudProvider implements StorageProvider<IStorageConf
   public config: GoogleCloudStorageConfig;
 
   constructor(config: GoogleCloudStorageConfig) {
-    this.config = {
-      ...config,
+    this.config = defu(config, {
       bucket: 'arisu',
       location: 'US-EAST1',
       storageClass: 'COLDLINE',
-    };
+    });
   }
 
   async init() {

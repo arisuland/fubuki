@@ -34,7 +34,7 @@
     "bree": "6.3.0",
     "class-validator": "0.13.1",
     "debounce": "1.2.1",
-    "emoji-regex": "9.2.2",
+    "defu": "5.0.0",
     "fastify": "3.20.2",
     "fastify-cors": "6.0.2",
     "graphql": "15.5.2",

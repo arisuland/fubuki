@@ -65,7 +65,7 @@ export default class SessionTokenService {
 
   async createSession(user: Users, device: 'desktop' | 'mobile' | 'web' = 'web') {
     const session = await this.getSession(user.id);
-    if (session !== undefined) return;
+    if (session !== undefined) return session;
 
     const expiresAt = Date.now() + 604800000;
     const sessionToken = Security.generate(user.id, 'session', expiresAt);
@@ -77,7 +77,40 @@ export default class SessionTokenService {
     };
 
     await this.redis.client.hset('arisu:sessions', [user.id, JSON.stringify(data)]);
+    this.createExpirationTimeout(data, expiresAt);
+
     return data;
+  }
+
+  async cancelSession(token: string) {
+    const sessions = await this.redis.client.hgetall('arisu:sessions');
+    let found: Session | null = null;
+    let k: string | null = null;
+
+    for (const key in sessions) {
+      const session = sessions[key];
+      const data = JSON.parse(session) as Session;
+
+      if (data.token === token) {
+        found = data;
+        k = key;
+
+        break;
+      }
+    }
+
+    if (found !== null) {
+      await this.redis.client.hdel('arisu:sessions', k!);
+
+      if (this.sessions.has(k!)) {
+        const ses = this.sessions.get(k!)!;
+        clearTimeout(ses);
+      }
+    }
+  }
+
+  hasSession(id: string) {
+    return this.redis.client.hexists('arisu:sessions', id);
   }
 
   async load() {
@@ -102,10 +135,10 @@ export default class SessionTokenService {
     }
   }
 
-  private createExpirationTimeout(session: Session) {
+  private createExpirationTimeout(session: Session, expiresAt?: number) {
     this.logger.info(`Creating session expiration timeout for ${session.user.id}`);
 
-    const time = session.expiresAt - Date.now() + 604800000;
+    const time = expiresAt ? expiresAt : session.expiresAt - Date.now() + 604800000;
     const timeout = setTimeout(async () => {
       const exists = await this.redis.client.hexists('arisu:sessions', session.user.id);
       if (exists) {

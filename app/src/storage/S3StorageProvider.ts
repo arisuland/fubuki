@@ -21,6 +21,7 @@ import type { StorageProvider, IStorageConfig } from '.';
 import type { Credentials } from '@aws-sdk/types';
 import { Inject } from '@augu/lilith';
 import { Logger } from 'tslog';
+import defu from 'defu';
 
 /**
  * Represents the provider for the {@link S3StorageProvider}.
@@ -91,12 +92,11 @@ export default class S3StorageProvider implements StorageProvider<S3StorageConfi
   private s3!: S3Client;
 
   constructor(config: S3StorageConfig) {
-    this.config = {
-      ...config,
+    this.config = defu(config, {
       bucket: 'arisu',
       provider: S3Provider.Amazon,
       region: 'us-east1',
-    };
+    });
   }
 
   async init() {

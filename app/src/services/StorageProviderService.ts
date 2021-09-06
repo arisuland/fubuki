@@ -46,7 +46,7 @@ export default class StorageProviderService {
     if (fs !== undefined) {
       this.logger.info(`Found configuration for filesystem storage with directory ${fs.directory}`);
 
-      const directory = fs.directory.replace('./', process.cwd()).replace('~/', process.cwd());
+      const directory = fs.directory.replace('~/', process.cwd());
       if (isDocker()) this.logger.warn('Remember to have a volume set in place since your data might be destroyed.');
 
       this.provider = new FilesystemProvider({ directory });
