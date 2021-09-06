@@ -16,11 +16,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { PrismaClient } from '.prisma/client';
+import type { Container } from '@augu/lilith';
+import { PrismaClient } from '@prisma/client';
+import { Logger } from 'tslog';
 
-export const teardown = async (prisma: PrismaClient) => {
+export async function teardown(this: Container, prisma: PrismaClient) {
+  const logger: Logger = this.$ref(Logger);
+  logger.warn('Tearing down Prisma client...');
+
   await prisma.$disconnect();
-};
+}
 
 // Why not a seperate variable for this?
 //

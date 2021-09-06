@@ -4,21 +4,22 @@ datasource db {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["orderByRelation"]
 }
 
 model Users {
   description String?
   accessToken AccessTokens?
-  updatedAt   DateTime @updatedAt @map("updated_at")
-  createdAt   DateTime @default(now()) @map("created_at")
-  username    String @unique // users cannot have the same username
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+  createdAt   DateTime      @default(now()) @map("created_at")
+  username    String        @unique // users cannot have the same username
   password    String
   projects    Projects[]
-  flags       Int @default(0)
+  flags       Int           @default(0)
   email       String
   name        String?
-  id          String @id @default(uuid())
+  id          String        @id @default(uuid())
 
   @@map("users")
 }
@@ -27,11 +28,11 @@ model Projects {
   description String?
   updatedAt   DateTime @updatedAt
   createdAt   DateTime @default(now())
-  ownerId     String @map("owner_id")
-  owner       Users @relation(fields: [ownerId], references: [id])
-  flags       Int @default(0)
+  ownerId     String   @map("owner_id")
+  owner       Users    @relation(fields: [ownerId], references: [id])
+  flags       Int      @default(0)
   name        String
-  id          String @id @default(uuid())
+  id          String   @id @default(uuid())
 
   @@map("projects")
 }

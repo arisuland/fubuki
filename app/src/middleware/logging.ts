@@ -72,6 +72,7 @@ const middleware: FastifyPluginAsync<any> = async (server, _) => {
 };
 
 export const getAvgLatency = () => pings.reduce((acc, curr) => acc + curr, 0) / pings.length;
+export { lastPing };
 
 export default fp(middleware, {
   fastify: '>=3.0',

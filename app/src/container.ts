@@ -25,7 +25,7 @@ const logger = Logger.getChildLogger({ name: 'Arisu: lilith' });
 const container = new Container({
   componentsDir: join(process.cwd(), 'components'),
   servicesDir: join(process.cwd(), 'services'),
-  singletons: [Logger, Http],
+  singletons: [Logger, Http, () => import('./singletons/prisma')],
 });
 
 container.on('onBeforeChildInit', (cls, child) =>

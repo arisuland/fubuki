@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { PrismaClient } from '.prisma/client';
+import { PrismaClient } from '@prisma/client';
 import * as argon2 from 'argon2';
 
 const prisma = new PrismaClient();
@@ -38,6 +38,7 @@ const main = async () => {
   });
 
   console.log('Created admin account!');
+  await prisma.$disconnect();
 };
 
 main();

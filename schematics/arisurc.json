@@ -17,6 +17,7 @@
     "github": {
       "type": "object",
       "required": ["repository", "files"],
+      "description": "The `github` blocks allows you to configure the Arisu GitHub bot to sync up your translations in your GitHub repository.",
       "properties": {
         "repository": {
           "type": "string",

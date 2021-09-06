@@ -46,4 +46,5 @@ const mod: MiddlewareFn<ArisuContext> = async ({ context }, next) => {
   );
 };
 
+export { lastPing, pings };
 export default mod;

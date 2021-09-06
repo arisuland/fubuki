@@ -19,7 +19,7 @@
 import { Query, Resolver, Arg, Ctx, Mutation } from 'type-graphql';
 import PropertyAlreadyTakenException from '~/graphql/exceptions/PropertyAlreadyTakenException';
 import type { ArisuContext } from '~/graphql';
-import { PrismaClient } from '.prisma/client';
+import { PrismaClient } from '@prisma/client';
 import CreateUserInput from '~/graphql/input/users/CreateUserInput';
 import * as argon2 from 'argon2';
 import User from '~/graphql/objects/User';
@@ -31,17 +31,21 @@ export default class UserResolver {
     nullable: true,
     description: 'Returns a user by their unique identifier or username.',
   })
-  user(
+  async user(
     @Ctx() context: ArisuContext,
     @Arg('id', { description: "The user's unique identifer or their username to search for." }) id: string
   ) {
     const prisma: PrismaClient = context.container.$ref(PrismaClient);
-    return prisma.users.findFirst({
+    const userWithId = await prisma.users.findUnique({
       where: {
         id,
-        OR: {
-          username: id,
-        },
+      },
+    });
+
+    if (userWithId !== null) return userWithId;
+    return prisma.users.findUnique({
+      where: {
+        username: id,
       },
     });
   }
@@ -51,7 +55,8 @@ export default class UserResolver {
   })
   async createUser(
     @Ctx() context: ArisuContext,
-    @Arg('input', { description: '' }) { username, password, email }: CreateUserInput
+    @Arg('input', { description: 'The input for creating a new user in the database.' })
+    { username, password, email }: CreateUserInput
   ) {
     // Check if a user exists
     const prisma: PrismaClient = context.container.$ref(PrismaClient);

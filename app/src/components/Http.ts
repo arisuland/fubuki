@@ -131,7 +131,6 @@ export default class HttpServer {
       let merged = mergePrefixes(endpointMeta.prefix, route.path);
       if (merged !== '/' && merged.endsWith('/')) merged = merged.slice(0, merged.length - 1);
 
-      console.log(merged);
       this.#server[route.method.toLowerCase()](merged, async (req: FastifyRequest, reply: FastifyReply) => {
         try {
           return await r.run(req, reply);

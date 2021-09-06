@@ -1,4 +1,5 @@
-node_modules
+.arisu
 build
+node_modules
 .env
 .env.example

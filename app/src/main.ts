@@ -50,7 +50,6 @@ const main = async () => {
   }
 
   try {
-    await container.importSingleton(() => import('~/singletons/prisma') as any);
     await container.load();
   } catch (ex) {
     log.fatal('Unable to initialize DI container:', ex);

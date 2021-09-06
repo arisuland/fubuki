@@ -41,7 +41,7 @@ export default class User {
   })
   flags!: number;
 
-  @Field({ description: "Returns the user's name or it'll default to the username." })
+  @Field({ description: "Returns the user's name or it'll default to the username.", nullable: true })
   name!: string;
 
   @Field({ description: 'Returns the unique identifier of this user.' })

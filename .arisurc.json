@@ -5,13 +5,7 @@
   "github": {
     "enabled": true,
     "repository": "auguwu/Arisu",
-    "files": [
-      ["locales/**/*.json"],
-      {
-        "format": "json",
-        "indent": 4
-      }
-    ],
+    "files": ["locales/**/*.json"],
     "branches": ["staging", "master"],
     "commitMessage": "translations: ${{ author }} has updated ${{ localePath }}"
   }
