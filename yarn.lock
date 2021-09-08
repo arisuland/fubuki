@@ -287,7 +287,7 @@ __metadata:
     "@nuxt/types": 2.15.8
     "@nuxt/typescript-build": 2.1.0
     "@nuxtjs/apollo": 4.0.1-rc.5
-    "@nuxtjs/composition-api": 0.28.0
+    "@nuxtjs/composition-api": 0.29.0
     "@nuxtjs/pwa": 3.3.5
     "@nuxtjs/storybook": 4.1.1
     "@nuxtjs/tailwindcss": 4.2.1
@@ -5100,9 +5100,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxtjs/composition-api@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@nuxtjs/composition-api@npm:0.28.0"
+"@nuxtjs/composition-api@npm:0.29.0":
+  version: 0.29.0
+  resolution: "@nuxtjs/composition-api@npm:0.29.0"
   dependencies:
     "@vue/composition-api": ^1.1.4
     defu: ^5.0.0
@@ -5116,7 +5116,7 @@ __metadata:
     "@nuxt/vue-app": ^2.15
     nuxt: ^2.15
     vue: ^2
-  checksum: f1e489353de94980b6c9b5c219e8d366230002db288955678f0d53a16a729ccaa34aa016145ea7f04ad3337921bd3fa4bc8dc94c25beac7e74daffb38d9a6cff
+  checksum: e5299ef46cf6ed44e5a42b00bcddedc31e6b0109f0cf5b6af6968d826db79a5c3277d8fdd9f8a0262c5be6335a2eacbda8a669e611c16f8e5b33f77a94d3dbe0
   languageName: node
   linkType: hard
 
