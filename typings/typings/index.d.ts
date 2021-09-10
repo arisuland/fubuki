@@ -19,8 +19,8 @@
 import * as graphql from './graphql';
 
 declare namespace arisu {
-  type Query = graphql.Query;
-  // type Mutation = graphql.Mutation;
+  export type Query = graphql.Query;
+  export type Mutation = graphql.Mutation;
   // type Subscription = graphql.Subscription;
 }
 
