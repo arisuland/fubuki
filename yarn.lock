@@ -229,7 +229,7 @@ __metadata:
     tslog: 3.2.2
     type-graphql: 1.1.1
     typeorm: 0.2.37
-    typescript: 4.4.2
+    typescript: 4.4.3
     zod: 3.8.2
   languageName: unknown
   linkType: soft
@@ -254,7 +254,7 @@ __metadata:
     source-map-support: 0.5.20
     ts-node: 10.2.1
     tslog: 3.2.2
-    typescript: 4.4.2
+    typescript: 4.4.3
   languageName: unknown
   linkType: soft
 
@@ -312,7 +312,7 @@ __metadata:
     prettier: 2.4.0
     ts-loader: 8.1.0
     twemoji: 13.1.0
-    typescript: 4.4.2
+    typescript: 4.4.3
     vuex: 3.6.2
     vuex-class-component: 2.3.5
     vuex-persist: 3.1.3
@@ -28232,7 +28232,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"typescript@4.4.2, typescript@^4.3.2":
+typescript@4.4.3:
+  version: 4.4.3
+  resolution: "typescript@npm:4.4.3"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 05823f21796d450531a7e4ab299715d38fd9ded0e4ce7400876053f4b5166ca3dde7a68cecfe72d9086039f03c0b6edba36516fb10ed83c5837d9600532ea4c2
+  languageName: node
+  linkType: hard
+
+typescript@^4.3.2:
   version: 4.4.2
   resolution: "typescript@npm:4.4.2"
   bin:
@@ -28242,7 +28252,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.4.2#~builtin<compat/typescript>, typescript@patch:typescript@^4.3.2#~builtin<compat/typescript>":
+"typescript@patch:typescript@4.4.3#~builtin<compat/typescript>":
+  version: 4.4.3
+  resolution: "typescript@patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=d8b4e7"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 215a59742afb7e0c3668e2c50ca19813deb24b3cc0d16ac3591990e033728050aaa99e159a72b54cb43653f16c778a5cf9dfeed1f51c3b105710ae082c064af7
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^4.3.2#~builtin<compat/typescript>":
   version: 4.4.2
   resolution: "typescript@patch:typescript@npm%3A4.4.2#~builtin<compat/typescript>::version=4.4.2&hash=d8b4e7"
   bin:
