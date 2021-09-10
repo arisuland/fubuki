@@ -2,5 +2,4 @@ schema: http://localhost:28093/graphql
 generates:
   ./typings/graphql.d.ts:
     plugins:
-      - typescript-react-apollo
       - typescript

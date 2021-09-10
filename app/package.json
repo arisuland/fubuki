@@ -10,6 +10,8 @@
   "bugs": "https://github.com/auguwu/Arisu/issues",
   "author": "Noel <cutie@floofy.dev>, Arisu Team <contact@arisu.land>",
   "scripts": {
+    "migrations:run": "",
+    "generate": "prisma generate",
     "start": "cd build && node main.js",
     "build": "rm -rf build && tsc",
     "lint": "eslint src --ext .ts --fix",
