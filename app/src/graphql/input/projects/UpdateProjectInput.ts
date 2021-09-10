@@ -1,0 +1,37 @@
+/**
+ * ☔ Arisu: Translation made with simplicity, yet robust.
+ * Copyright (C) 2020-2021 Noelware
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+import { Field, InputType } from 'type-graphql';
+import { IsOptional } from 'class-validator';
+
+@InputType({
+  description: 'Object for updating projects with the GraphQL API.',
+})
+export default class UpdateProjectInput {
+  @Field({ description: "Sets the project's description, if any.", nullable: true })
+  @IsOptional()
+  description?: string;
+
+  @Field({ description: "Sets the project's base language to use when translating.", nullable: true })
+  @IsOptional()
+  language?: string;
+
+  @Field({ description: "Sets the project's name." })
+  @IsOptional()
+  name?: string;
+}
