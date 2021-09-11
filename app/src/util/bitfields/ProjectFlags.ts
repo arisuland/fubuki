@@ -16,29 +16,25 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { PrismaClient } from '@prisma/client';
-import * as argon2 from 'argon2';
+import Bitfield from './Bitfield';
 
-const prisma = new PrismaClient();
+/**
+ * Represents a list of the project flags.
+ */
+export enum ProjectFlag {
+  /**
+   * Nothing special about this project. -w-
+   */
+  None = 0,
 
-const main = async () => {
-  // `admin` account gets deleted after first initialization
-  console.log('Creating `admin` user with `admin` password...');
+  /**
+   * This project is private and only the collaborators
+   * are only allowed to contribute and view!
+   */
+  Private = 1 << 1,
+}
 
-  const password = await argon2.hash('admin');
-  await prisma.users.create({
-    data: {
-      description: 'Temporary administration account.',
-      password: password,
-      username: 'admin',
-      email: 'admin@arisu.land',
-      flags: 1 << 1,
-      name: 'Admin',
-    },
-  });
+class ProjectFlags extends Bitfield<ProjectFlag> {}
+ProjectFlags.FLAGS = ProjectFlag;
 
-  console.log('Created admin account!');
-  await prisma.$disconnect();
-};
-
-main();
+export default ProjectFlags;

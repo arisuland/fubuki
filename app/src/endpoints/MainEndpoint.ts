@@ -26,7 +26,12 @@ export default class MainEndpoint {
   hello(_: FastifyRequest, res: FastifyReply) {
     return res.type('application/json').status(200).send({
       hello: 'world',
-      docs_url: 'https://docs.arisu.land/graphql',
+      docs_url: 'https://docs.arisu.land',
     });
+  }
+
+  @Route('/favicon.ico', 'GET')
+  favicon(_: FastifyRequest, reply: FastifyReply) {
+    return reply.status(404).send('Cannot GET /favicon.ico');
   }
 }

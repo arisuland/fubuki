@@ -20,7 +20,7 @@ import { isObject } from '@augu/utils';
 import jwt from 'jsonwebtoken';
 
 export interface Token {
-  type: 'access' | 'session';
+  type: 'access' | 'session' | 'admin';
   user: string;
 }
 
@@ -47,7 +47,7 @@ class Security {
     }
   }
 
-  static generate(userId: string, type: 'access' | 'session', expiresIn?: number): Token & { token: string } {
+  static generate(userId: string, type: 'access' | 'session' | 'admin', expiresIn?: number): Token & { token: string } {
     const options: jwt.SignOptions = {
       subject: 'Arisu',
       algorithm: 'HS256',

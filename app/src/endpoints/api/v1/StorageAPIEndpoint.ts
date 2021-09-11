@@ -76,6 +76,7 @@ export default class StorageAPIEndpoint {
 
     const metadata = await this.storage.provider.getMetadata(`${user}/${project}`);
     if (metadata.directory !== undefined) delete metadata.directory;
+    if (metadata.storagePath !== undefined) delete metadata.storagePath;
 
     const files = metadata.files.map((file) => {
       // @ts-expect-error

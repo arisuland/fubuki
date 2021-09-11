@@ -99,7 +99,7 @@ export default class FilesystemStorageProvider implements StorageProvider<Filesy
       files: [],
     };
 
-    await writeFile(join(projectDir, 'metadata.json'), JSON.stringify(lock, null, 2));
+    await writeFile(join(projectDir, 'metadata.lock'), JSON.stringify(lock, null, 2));
 
     // add the directory to the `arisu.lock` file
     const LOCKFILE = join(this.config.directory, 'arisu.lock');
