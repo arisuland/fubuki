@@ -72,16 +72,40 @@ export default class FilesystemStorageProvider implements StorageProvider<Filesy
 
     const LOCKFILE = join(this.config.directory, 'arisu.lock');
     if (!existsSync(LOCKFILE))
-      await writeFile(LOCKFILE, '-- This file is not meant to be edited. This is just for validation. --');
+      await writeFile(LOCKFILE, '-- This file is not meant to be edited. This is just for validation. --\n');
 
     const lockfile = await readFile(LOCKFILE, 'utf-8');
-    if (lockfile !== '-- This file is not meant to be edited. This is just for validation. --') {
+    if (!lockfile.startsWith('-- This file is not meant to be edited. This is just for validation. --')) {
       this.logger.warn(`Lockfile in path ${lockfile} is corrupted.`);
       await rm(LOCKFILE, { force: true });
       await writeFile(LOCKFILE, '-- This file is not meant to be edited. This is just for validation. --');
 
       this.logger.warn('Lockfile is no longer corrupted. :3');
     }
+  }
+
+  async addProject(user: string, project: string) {
+    this.logger.info(`Told to create project directory for ${user}/${project}.`);
+    const projectDir = join(this.config.directory, user, project);
+
+    // recursively make the directory
+    if (!existsSync(projectDir)) await mkdir(projectDir, { recursive: true });
+
+    // create a metadata lock for it
+    const lock: FileMetadataLock = {
+      format_version: 1,
+      project: `${user}/${project}`,
+      directory: projectDir,
+      files: [],
+    };
+
+    await writeFile(join(projectDir, 'metadata.json'), JSON.stringify(lock, null, 2));
+
+    // add the directory to the `arisu.lock` file
+    const LOCKFILE = join(this.config.directory, 'arisu.lock');
+    const contents = await readFile(LOCKFILE, 'utf-8');
+
+    await writeFile(LOCKFILE, `${contents}\n-> ${user}/${project}: ${projectDir}`);
   }
 
   async handle(files: File[]) {

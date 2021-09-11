@@ -31,7 +31,10 @@ export default class UpdateProjectInput {
   @IsOptional()
   language?: string;
 
-  @Field({ description: "Sets the project's name." })
+  @Field({ description: "Sets the project's name.", nullable: true })
   @IsOptional()
   name?: string;
+
+  @Field({ description: 'The project UUID to update.' })
+  id!: string;
 }

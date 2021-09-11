@@ -25,6 +25,7 @@ import { PrismaClient } from '@prisma/client';
 import TestResolver from './resolvers/TestResolver';
 import UserResolver from './resolvers/UserResolver';
 import LoginResolver from './resolvers/LoginResolver';
+import ProjectResolver from './resolvers/ProjectResolver';
 
 export interface ArisuContext {
   req: FastifyRequest;
@@ -34,4 +35,4 @@ export interface ArisuContext {
 }
 
 // eslint-disable-next-line
-export const resolvers = [TestResolver, UserResolver, LoginResolver] as NonEmptyArray<Function>;
+export const resolvers = [TestResolver, UserResolver, LoginResolver, ProjectResolver] as NonEmptyArray<Function>;

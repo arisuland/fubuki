@@ -17,12 +17,13 @@
  */
 
 import { Field, Int, ObjectType } from 'type-graphql';
+import User from './User';
 
 @ObjectType({
   description: 'Represents a Project, linked to a User or Organization',
 })
 export default class Project {
-  @Field({ nullable: true, description: 'Returns the project description.' })
+  @Field(() => String, { nullable: true, description: 'Returns the project description.' })
   description!: string | null;
 
   @Field(() => String, { description: 'Returns a ISO8061 date on when the project was last updated.' })
@@ -33,6 +34,9 @@ export default class Project {
 
   @Field({ description: 'Returns the owner of this Project.' })
   ownerId!: string;
+
+  @Field(() => User, { description: "Returns the owner's metadata.", nullable: true })
+  owner?: User;
 
   @Field(() => Int, {
     description: 'Returns any Project flags as a bitfield. Refer to https://docs.arisu.land/#bitfield',

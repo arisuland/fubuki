@@ -53,6 +53,11 @@ export interface StorageProvider<C extends IStorageConfig> {
    * Returns the file metadata lockfile from the storage provider.
    */
   getMetadata?(userProject: string): Promise<FileMetadataLock>;
+
+  /**
+   * Adds a project resource to this storage handler.
+   */
+  addProject(user: string, project: string): Promise<void>;
 }
 
 // eslint-disable-next-line
@@ -101,15 +106,58 @@ export interface FileMetadata {
   contentType: string;
 }
 
+/**
+ * Represents the metadata lock for a specific project.
+ */
 export interface FileMetadataLock {
+  /**
+   * The format version it uses. This can differ, read [here](https://docs.arisu.land/selfhosting/storage#format-versions)
+   * for more information.
+   */
   format_version: 1;
+
+  /**
+   * Returns the project by `user/project`.
+   */
   project: string;
+
+  /**
+   * Returns the directory if any.
+   * @note This only applies in the filesystem provider. S3 and GCS will use
+   * the {@link FileMetadataLock.storagePath __storagePath__} property.
+   */
   directory?: string;
+
+  /**
+   * Returns the storage path, usually it is denoted as `bucket/user/project`.
+   * @note This only applies in the S3 and GCS providers, the filesystem
+   * provider will use the {@link FileMetadataLock.directory __directory__} property.
+   */
+  storagePath?: string;
+
+  /**
+   * Returns metadata between the files.
+   */
   files: IFileMetadata[];
 }
 
+/**
+ * Returns metadata about a specific file.
+ */
 export interface IFileMetadata {
+  /**
+   * The path to the file.
+   */
   path: string;
+
+  /**
+   * The size of the file
+   */
   size: number;
+
+  /**
+   * Returns the content type of this file, serving purpose
+   * for the frontend to show colours of it.
+   */
   contentType: string;
 }

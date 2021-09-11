@@ -151,4 +151,9 @@ export default class S3StorageProvider implements StorageProvider<S3StorageConfi
 
     // TODO: this :3
   }
+
+  addProject() {
+    // no-op operation
+    return Promise.resolve();
+  }
 }

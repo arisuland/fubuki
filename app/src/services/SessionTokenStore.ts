@@ -77,7 +77,7 @@ export default class SessionTokenService {
     };
 
     await this.redis.client.hset('arisu:sessions', [user.id, JSON.stringify(data)]);
-    this.createExpirationTimeout(data, expiresAt);
+    this.createExpirationTimeout(data, 604800000);
 
     return data;
   }
@@ -124,7 +124,7 @@ export default class SessionTokenService {
         await this.redis.client.hdel('arisu:sessions', key);
       }
 
-      if (Date.now() < data.expiresAt) {
+      if (Date.now() > data.expiresAt) {
         this.logger.info(`Purging user session ${key} - expired`);
         await this.redis.client.hdel('arisu:sessions', key);
 

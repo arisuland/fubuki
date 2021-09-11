@@ -93,4 +93,9 @@ export default class GoogleCloudProvider implements StorageProvider<IStorageConf
 
     // TODO: this :3
   }
+
+  addProject() {
+    // no-op operation
+    return Promise.resolve();
+  }
 }

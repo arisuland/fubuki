@@ -41,7 +41,7 @@ export default class Redis {
     const sentinels = this.config.getProperty('redis.sentinels');
     const password = this.config.getProperty('redis.password');
     const masterName = this.config.getProperty('redis.master');
-    const index = this.config.getProperty('redis.index');
+    const index = this.config.getProperty('redis.index') ?? 4;
     const host = this.config.getProperty('redis.host');
     const port = this.config.getProperty('redis.port');
 

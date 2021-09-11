@@ -9,8 +9,10 @@
   "repository": "https://github.com/auguwu/Arisu/tree/master/app",
   "bugs": "https://github.com/auguwu/Arisu/issues",
   "author": "Noel <cutie@floofy.dev>, Arisu Team <contact@arisu.land>",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "scripts": {
-    "migrations:run": "",
     "generate": "prisma generate",
     "start": "cd build && node main.js",
     "build": "rm -rf build && tsc",

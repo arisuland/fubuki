@@ -62,7 +62,6 @@ export default class HttpServer {
 
     const schema = await buildSchema({
       resolvers,
-      dateScalarMode: 'isoDate',
       globalMiddlewares: [log, error],
     });
 

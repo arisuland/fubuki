@@ -76,7 +76,11 @@ export default class StorageProviderService {
     return this.provider.dispose?.();
   }
 
-  async handle(...args: Parameters<StorageProvider<any>['handle']>) {
-    return await this.provider.handle(...args);
+  handle(...args: Parameters<StorageProvider<any>['handle']>) {
+    return this.provider.handle(...args);
+  }
+
+  addProject(...args: Parameters<StorageProvider<any>['addProject']>) {
+    return this.provider.addProject?.(...args);
   }
 }
