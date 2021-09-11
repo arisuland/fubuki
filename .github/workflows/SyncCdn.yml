@@ -4,8 +4,6 @@ on:
   push:
     paths:
       - 'schematics/**'
-  schedule:
-    - cron: "* */12 * * *"
 jobs:
   sync-cdn:
     runs-on: ubuntu-latest
