@@ -14,7 +14,7 @@
   },
   "scripts": {
     "generate": "prisma generate",
-    "start": "cd build && node main.js",
+    "start": "cd build/src && node index.js",
     "build": "rm -rf build && tsc",
     "lint": "eslint src --ext .ts --fix",
     "test": "jest --config jest.config.ts -i",
