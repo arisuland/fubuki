@@ -24,7 +24,7 @@
     "@augu/lilith": "5.3.2",
     "@augu/orchid": "3.1.1",
     "@augu/utils": "1.5.3",
-    "@aws-sdk/client-s3": "3.30.0",
+    "@aws-sdk/client-s3": "3.31.0",
     "@google-cloud/storage": "5.14.1",
     "@prisma/client": "3.0.2",
     "@sentry/node": "6.12.0",
