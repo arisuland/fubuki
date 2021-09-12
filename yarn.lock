@@ -176,7 +176,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@arisu/arisu@workspace:app"
   dependencies:
-    "@augu/collections": 1.0.12
+    "@augu/collections": 1.1.0
     "@augu/dotenv": 1.3.0
     "@augu/eslint-config": 2.2.0
     "@augu/lilith": 5.3.2
@@ -337,6 +337,13 @@ __metadata:
   version: 1.0.8
   resolution: "@augu/collections@npm:1.0.8"
   checksum: 219290c717b33ade9ae70b3209b63d788883d4005910147d7392a3d86265acc0033b1911e313f289d6d7baf25cef8657983913e71d6a9eb24833726f36e589f8
+  languageName: node
+  linkType: hard
+
+"@augu/collections@npm:1.1.0":
+  version: 1.1.0
+  resolution: "@augu/collections@npm:1.1.0"
+  checksum: 896f96c467bed7167f17092fa365c42d9923e52315cc546233c45cbd73785fe1eb63ebd0271e0d1182a467fbda83f58387a86c0566903147191654a54e60569c
   languageName: node
   linkType: hard
 
