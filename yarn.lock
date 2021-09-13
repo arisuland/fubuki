@@ -184,7 +184,7 @@ __metadata:
     "@augu/tsconfig": 1.1.1
     "@augu/utils": 1.5.3
     "@aws-sdk/client-s3": 3.31.0
-    "@google-cloud/storage": 5.14.1
+    "@google-cloud/storage": 5.14.2
     "@prisma/client": 3.0.2
     "@sentry/node": 6.12.0
     "@tailwindcss/forms": 0.3.3
@@ -3298,9 +3298,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/storage@npm:5.14.1":
-  version: 5.14.1
-  resolution: "@google-cloud/storage@npm:5.14.1"
+"@google-cloud/storage@npm:5.14.2":
+  version: 5.14.2
+  resolution: "@google-cloud/storage@npm:5.14.2"
   dependencies:
     "@google-cloud/common": ^3.7.0
     "@google-cloud/paginator": ^3.0.0
@@ -3321,7 +3321,7 @@ __metadata:
     snakeize: ^0.1.0
     stream-events: ^1.0.1
     xdg-basedir: ^4.0.0
-  checksum: 523b7734b941c016167d7bb9d29a987b5a19e5473cd362128b74ae43bc4bbff1314ad190c75b269b706fb954646f9867ba5ea6e5ea504146f0e6a97b7f7703d3
+  checksum: 1fe60fd0eede614e260e94e187361b5e648be74ce04e12224454d3db7ed286f3b416b0389596cf711d2f7dc6a86df91e6cf09b4738ecde49d90d2558ab30dad1
   languageName: node
   linkType: hard
 
