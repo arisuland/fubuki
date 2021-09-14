@@ -1,8 +1,8 @@
 <div align='center'>
-  <div align='left'>
-    <img src='https://cdn.arisu.land/lotus.png' alt='lotus' width='75' height='75' />
-  </div>
   <h2>☔ Arisu</h2>
+  <div align='center'>
+    <a href="https://arisu.land">Website</a>  •  <a href="https://arisu.land/discord">Discord</a>   •   <a href="https://github.com/auguwu/Arisu">Discussions</a>
+  </div>
   <blockquote>Translation made with simplicity, yet robust. Made with 💖 using <a href='https://typescriptlang.org'><strong>TypeScript</strong></a>, <a href='https://vuejs.org'><strong>Vue.js</strong></a> with <a href='https://nuxtjs.org'><strong>Nuxt.js</strong></a>.</blockquote>
 </div>
 
