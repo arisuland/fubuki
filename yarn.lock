@@ -200,7 +200,7 @@ __metadata:
     apollo-server-fastify: 3.3.0
     argon2: 0.28.2
     autoprefixer: 10.3.4
-    bree: 6.3.0
+    bree: 6.3.1
     class-validator: 0.13.1
     cypress: 8.4.0
     debounce: 1.2.1
@@ -10747,9 +10747,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bree@npm:6.3.0":
-  version: 6.3.0
-  resolution: "bree@npm:6.3.0"
+"bree@npm:6.3.1":
+  version: 6.3.1
+  resolution: "bree@npm:6.3.1"
   dependencies:
     "@babel/runtime": ^7.12.5
     "@breejs/later": ^4.0.2
@@ -10764,7 +10764,7 @@ __metadata:
     ms: ^2.1.2
     p-wait-for: 3.1.0
     safe-timers: ^1.1.0
-  checksum: a7a5d0357e3b421a6e8c7af96cfef624d06fac3a41530f8dfd6728f551791888550e7690e8e915fb8184d7857c2c9687e84e99d898d69816da4c8541eafd47c6
+  checksum: edab6896b614f8cf63ab14ffa3c47e27e64b38ff3d9f8e31e00f9154ae00b00e4e4cbfa3b3af5f2d1c7564727c547fc7650ecad6a03e9134d0584b3b3299f0ec
   languageName: node
   linkType: hard
 
