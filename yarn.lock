@@ -303,7 +303,7 @@ __metadata:
     eslint: 7.32.0
     eslint-config-prettier: 8.3.0
     eslint-plugin-nuxt: 2.0.0
-    eslint-plugin-vue: 7.17.0
+    eslint-plugin-vue: 7.18.0
     leeks.js: 0.2.2
     luxon: 2.0.2
     normalize-url: 7.0.2
@@ -14164,7 +14164,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vue@npm:7.17.0, eslint-plugin-vue@npm:^7.1.0, eslint-plugin-vue@npm:^7.10.0":
+"eslint-plugin-vue@npm:7.18.0":
+  version: 7.18.0
+  resolution: "eslint-plugin-vue@npm:7.18.0"
+  dependencies:
+    eslint-utils: ^2.1.0
+    natural-compare: ^1.4.0
+    semver: ^6.3.0
+    vue-eslint-parser: ^7.10.0
+  peerDependencies:
+    eslint: ^6.2.0 || ^7.0.0 || ^8.0.0-0
+  checksum: 5df7e23478cb1094c5a0918c4239d50126c1770e34d4fb9ad30737b58a9ad33d31dda7d05aad2bc28dc97651a6c34c67f243bd82145ff76b6aea81f5c06345fd
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-vue@npm:^7.1.0, eslint-plugin-vue@npm:^7.10.0":
   version: 7.17.0
   resolution: "eslint-plugin-vue@npm:7.17.0"
   dependencies:
