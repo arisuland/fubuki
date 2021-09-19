@@ -179,7 +179,7 @@ __metadata:
     "@augu/collections": 1.1.0
     "@augu/dotenv": 1.3.0
     "@augu/eslint-config": 2.2.0
-    "@augu/lilith": 5.3.2
+    "@augu/lilith": 5.3.3
     "@augu/orchid": 3.1.1
     "@augu/tsconfig": 1.1.1
     "@augu/utils": 1.5.5
@@ -239,7 +239,7 @@ __metadata:
   resolution: "@arisu/github@workspace:github-bot"
   dependencies:
     "@augu/eslint-config": 2.2.0
-    "@augu/lilith": 5.3.2
+    "@augu/lilith": 5.3.3
     "@augu/tsconfig": 1.1.1
     "@augu/utils": 1.5.5
     "@sentry/node": 6.12.0
@@ -319,13 +319,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@augu/collections@npm:1.0.12":
-  version: 1.0.12
-  resolution: "@augu/collections@npm:1.0.12"
-  checksum: d288f368330aedc7c19ed231ff1ced67e22012e4925e114082c15c8663d9205e6792f2d0c37c2600981cecfa69fcb09e65f14431a670ad03c94fbe5aeacdefc9
-  languageName: node
-  linkType: hard
-
 "@augu/collections@npm:1.0.3":
   version: 1.0.3
   resolution: "@augu/collections@npm:1.0.3"
@@ -371,14 +364,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@augu/lilith@npm:5.3.2":
-  version: 5.3.2
-  resolution: "@augu/lilith@npm:5.3.2"
+"@augu/lilith@npm:5.3.3":
+  version: 5.3.3
+  resolution: "@augu/lilith@npm:5.3.3"
   dependencies:
-    "@augu/collections": 1.0.12
-    "@augu/utils": 1.5.3
+    "@augu/collections": 1.1.0
+    "@augu/utils": 1.5.5
     reflect-metadata: 0.1.13
-  checksum: fbf14eead8af415905f8be372e9eb824a6d90ad68002993f900cadcd3dae0e4d63685cdfad659f91139c08c91349e6877575b7adf1adb81b3f6dae963aa85846
+  checksum: 4f8da3829e4311b4cffe537b837dd8f942e2574cbf0ca892960e4ecf5e949dd3f42aef63377faa57a3ad400e9f2f315ca3fe80df9f2aaa0636d428b4b3a7cbda
   languageName: node
   linkType: hard
 
