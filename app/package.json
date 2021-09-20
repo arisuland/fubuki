@@ -41,7 +41,7 @@
     "defu": "5.0.0",
     "fastify": "3.21.3",
     "fastify-cors": "6.0.2",
-    "graphql": "15.5.3",
+    "graphql": "15.6.0",
     "graphql-scalars": "1.10.1",
     "ioredis": "4.27.9",
     "is-docker": "2.2.1",
