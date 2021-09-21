@@ -17,7 +17,7 @@
  */
 
 import type { NuxtConfig } from '@nuxt/types';
-import redirects from './src/assets/json/redirects.json';
+import chakraTheme from './theme/arisu';
 import fs from 'fs';
 
 if (fs.existsSync('.env')) {
@@ -64,17 +64,14 @@ const nuxtConfig: NuxtConfig = {
     fallback: true,
     subFolders: false,
     interval: 2000, // allow async funcs to resolve (issue with @nuxtjs/composition-api ~ https://composition-api.nuxtjs.org/getting-started/setup)
-    routes() {
-      return ([] as string[]).concat(redirects.map((s) => `/${s.id}`));
-    },
   },
 
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/pwa',
-    '@nuxtjs/tailwindcss',
     '@nuxtjs/composition-api/module',
-    //'@nuxtjs/storybook',
+    '@chakra-ui/nuxt',
+    '@nuxtjs/emotion',
   ],
 
   sitemap: {
@@ -82,9 +79,6 @@ const nuxtConfig: NuxtConfig = {
     exclude: [],
     defaults: {
       lastmod: new Date(),
-    },
-    filter({ routes }) {
-      return routes.filter((rou: any) => !redirects.find((red) => `/${red.id}` === rou.url));
     },
   },
 
@@ -109,6 +103,15 @@ const nuxtConfig: NuxtConfig = {
         autoprefixer: {},
       },
     },
+  },
+
+  cli: {
+    bannerColor: 'bgMagenta',
+    badgeMessages: [],
+  },
+
+  chakra: {
+    extendTheme: chakraTheme,
   },
 };
 

@@ -16,39 +16,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * Represents the metadata of a user.
- */
-interface User {
-  description: string | null;
-  updatedAt: Date;
-  createdAt: Date;
-  username: string;
-  flags: number;
-  name: string | null;
-  id: string;
-}
-
-const omit = <T extends object, K extends keyof T = keyof T>(obj: T, keys: K[]): Omit<T, K> =>
-  Object.keys(keys)
-    .filter((k) => !keys.includes(k as any))
-    .reduce((result, key) => {
-      result[key] = obj[key];
-      return result;
-    }, {} as Omit<T, K>);
-
-/**
- * Represents the current state of this store.
- */
-export const state = () => ({
-  user: null,
-});
-
-/**
- * Represents the current mutations available
- */
-export const mutations = {
-  setUser() {
-    console.log(this);
-  },
-};
+import { Resolver, Subscription } from 'type-graphql';
+import isDocker from 'is-docker';
+import gcStats from 'gc-stats';
