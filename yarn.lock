@@ -140,7 +140,7 @@ __metadata:
     jest: 27.2.1
     js-yaml: 4.1.0
     jsonwebtoken: 8.5.1
-    leeks.js: 0.2.2
+    leeks.js: 0.2.3
     mime-types: 2.1.32
     nodemon: 2.0.12
     prettier: 2.4.1
@@ -195,7 +195,7 @@ __metadata:
     eslint: 7.32.0
     eslint-config-prettier: 8.3.0
     eslint-plugin-prettier: 4.0.0
-    leeks.js: 0.2.2
+    leeks.js: 0.2.3
   languageName: unknown
   linkType: soft
 
@@ -13517,10 +13517,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"leeks.js@npm:0.2.2":
-  version: 0.2.2
-  resolution: "leeks.js@npm:0.2.2"
-  checksum: 6eff9f5b5a6dd15d7ab255b549f70b404f2455a322559b9148084c943355a28217a2c90f0b7aa6e733bfa11bec35e66b8214713349462e70adbff6382be68752
+"leeks.js@npm:0.2.3":
+  version: 0.2.3
+  resolution: "leeks.js@npm:0.2.3"
+  checksum: 1b9a4cc9e50b49edf3143cde41361b9e3040122c09806a0e569494726069780454b79781a3be51dd12c68c9c280ff7fed4cc1a0622ce429ef80a80e6e239c083
   languageName: node
   linkType: hard
 
