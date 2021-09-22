@@ -1,5 +1,5 @@
 <div align='center'>
-  <h2>☔ Arisu</h2>
+  <h2>☔ @arisu/web</h2>
   <div align='center'>
     <a href="https://arisu.land"><strong>Website</strong></a>  •  <a href="https://arisu.land/discord"><strong>Discord</strong></a>   •   <a href="https://github.com/auguwu/Arisu/discussions"><strong>Discussions</strong></a>
   </div>
