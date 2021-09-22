@@ -39,7 +39,7 @@
     "class-validator": "0.13.1",
     "debounce": "1.2.1",
     "defu": "5.0.0",
-    "fastify": "3.21.3",
+    "fastify": "3.21.4",
     "fastify-cors": "6.0.2",
     "gc-stats": "1.4.0",
     "graphql": "15.5.3",
