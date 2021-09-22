@@ -181,7 +181,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@arisu/typings@workspace:typings":
+"@arisu/typings@1.0.1, @arisu/typings@workspace:typings":
   version: 0.0.0-use.local
   resolution: "@arisu/typings@workspace:typings"
   dependencies:
@@ -204,6 +204,7 @@ __metadata:
   resolution: "@arisu/web@workspace:web"
   dependencies:
     "@apollo/client": 3.4.13
+    "@arisu/typings": 1.0.1
     "@augu/dotenv": 1.3.0
     "@augu/eslint-config": 2.2.0
     "@augu/tsconfig": 1.1.1
@@ -215,14 +216,12 @@ __metadata:
     "@fontsource/noto-sans": 4.5.0
     "@mdx-js/loader": 1.6.22
     "@mdx-js/react": 1.6.22
-    "@next/mdx": 11.1.2
     "@types/marked": 3.0.0
     "@types/mdx-js__react": 1.5.4
     "@types/node": 16.7.10
     "@types/twemoji": 12.1.2
     "@typescript-eslint/eslint-plugin": 4.31.2
     "@typescript-eslint/parser": 4.31.2
-    cypress: 8.4.1
     eslint: 7.32.0
     eslint-config-prettier: 8.3.0
     eslint-plugin-react: 7.26.0
@@ -4539,16 +4538,6 @@ __metadata:
   version: 11.1.2
   resolution: "@next/env@npm:11.1.2"
   checksum: df7a95e840af351b1c37fa6490b2c6330b8f8c587ff8b2212687d7557e99ae5642495095a9a3a15fe4ac2e6fb5b1cdb24ab8fb14e95ad363a5b7b1146ec62d15
-  languageName: node
-  linkType: hard
-
-"@next/mdx@npm:11.1.2":
-  version: 11.1.2
-  resolution: "@next/mdx@npm:11.1.2"
-  peerDependencies:
-    "@mdx-js/loader": ">=0.15.0"
-    "@mdx-js/react": "*"
-  checksum: 2fb2bf5066f3b1425466b6bc34083eca5f198ecaccd5473731d8b6fa7a146706570b7422207bb171b4dfbf1e8d7618e7e2634eb34e388f35f955ee4434501428
   languageName: node
   linkType: hard
 
