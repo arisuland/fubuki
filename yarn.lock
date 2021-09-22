@@ -130,7 +130,7 @@ __metadata:
     eslint: 7.32.0
     eslint-config-prettier: 8.3.0
     eslint-plugin-prettier: 4.0.0
-    fastify: 3.21.3
+    fastify: 3.21.4
     fastify-cors: 6.0.2
     gc-stats: 1.4.0
     graphql: 15.5.3
@@ -10303,9 +10303,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:3.21.3":
-  version: 3.21.3
-  resolution: "fastify@npm:3.21.3"
+"fastify@npm:3.21.4":
+  version: 3.21.4
+  resolution: "fastify@npm:3.21.4"
   dependencies:
     "@fastify/ajv-compiler": ^1.0.0
     abstract-logging: ^2.0.0
@@ -10323,7 +10323,7 @@ __metadata:
     secure-json-parse: ^2.0.0
     semver: ^7.3.2
     tiny-lru: ^7.0.0
-  checksum: b7f89032ac8cf8609e6bef0b110400623081a1c0b39dbed124efb2c7b1bce8dcc556086a67b7a49cd6598cc5fd87e1a345b0fcbd8dd2ee575c55a4eb8482f65a
+  checksum: 1d7bb8ecf688ddb8494e84269509574595858d58aa93f66f11dbeed45d292f21d030fb82ff52b67287c5e639d0b2dfe1454ee19e2f0d453dc25129577143e752
   languageName: node
   linkType: hard
 
