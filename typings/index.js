@@ -1,0 +1,2 @@
+// stub file
+module.exports = {};
