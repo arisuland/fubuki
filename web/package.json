@@ -24,7 +24,7 @@
     "@chakra-ui/theme-tools": "1.2.1",
     "@fontsource/cantarell": "4.5.0",
     "@fontsource/jetbrains-mono": "4.5.0",
-    "@fontsource/noto-sans": "4.5.0",
+    "@fontsource/noto-sans": "4.5.1",
     "@mdx-js/loader": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "luxon": "2.0.2",

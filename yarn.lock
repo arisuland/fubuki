@@ -213,7 +213,7 @@ __metadata:
     "@chakra-ui/theme-tools": 1.2.1
     "@fontsource/cantarell": 4.5.0
     "@fontsource/jetbrains-mono": 4.5.0
-    "@fontsource/noto-sans": 4.5.0
+    "@fontsource/noto-sans": 4.5.1
     "@mdx-js/loader": 1.6.22
     "@mdx-js/react": 1.6.22
     "@types/marked": 3.0.0
@@ -3614,10 +3614,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/noto-sans@npm:4.5.0":
-  version: 4.5.0
-  resolution: "@fontsource/noto-sans@npm:4.5.0"
-  checksum: 90b4b040f3f50797eb4c3d228169ae93d8675d0cac9684fc6e1e612c5bac74de49dcb04188d3e2da699b3ffc82fcda9eed00e3b82639cd5cd4e95446858eef20
+"@fontsource/noto-sans@npm:4.5.1":
+  version: 4.5.1
+  resolution: "@fontsource/noto-sans@npm:4.5.1"
+  checksum: bfe43e90591758e9af1ceeeb5d5384228707556d60beed494da588250dca43e1a02a9e0123bb3e9f74787470e0bc27273a1878ec340f4b74f2cefe4e4d091898
   languageName: node
   linkType: hard
 
