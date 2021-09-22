@@ -40,7 +40,7 @@
   "devDependencies": {
     "@augu/eslint-config": "2.2.0",
     "@augu/tsconfig": "1.1.1",
-    "@types/marked": "3.0.0",
+    "@types/marked": "3.0.1",
     "@types/mdx-js__react": "1.5.4",
     "@types/node": "16.7.10",
     "@types/twemoji": "12.1.2",

@@ -216,7 +216,7 @@ __metadata:
     "@fontsource/noto-sans": 4.5.1
     "@mdx-js/loader": 1.6.22
     "@mdx-js/react": 1.6.22
-    "@types/marked": 3.0.0
+    "@types/marked": 3.0.1
     "@types/mdx-js__react": 1.5.4
     "@types/node": 16.7.10
     "@types/twemoji": 12.1.2
@@ -5751,10 +5751,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/marked@npm:3.0.0":
-  version: 3.0.0
-  resolution: "@types/marked@npm:3.0.0"
-  checksum: 28ec79cb0c09c84695fd546ef428536dd6bd627f980db356189a91f6f12e34e5eee20bb3ac88b4e2dedecc512732e55eb6b0033707363f14857b436566507833
+"@types/marked@npm:3.0.1":
+  version: 3.0.1
+  resolution: "@types/marked@npm:3.0.1"
+  checksum: 2060b281a493c344ecabd31e8f322967af3e149af607aca2abad7ac692643fb2b889c59b5ac99bb78775b50af0132d2740a939044f5345dba666de73ae62f757
   languageName: node
   linkType: hard
 
