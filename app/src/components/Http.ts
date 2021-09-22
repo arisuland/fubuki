@@ -84,11 +84,12 @@ export default class HttpServer {
     await apollo.start();
     this.#server = fastify();
     this.#server
-      .register(require('fastify-cors'))
+      // TODO: implement our cors middleware (for now)
+      //.register(require('fastify-cors'))
       .register(authPlugin)
       .register(logPlugin)
       .register(ratelimitsPlugin)
-      .register(apollo.createHandler({ cors: true }));
+      .register(apollo.createHandler());
 
     return this.#server.listen(
       {

@@ -19,9 +19,26 @@
 import * as graphql from './graphql';
 
 declare namespace arisu {
+  /**
+   * Represents the `Query` type, read more in our [GraphQL API documentation](https://arisu.land/docs/graphql#type-query).
+   */
   export type Query = graphql.Query;
+
+  /**
+   * Represents all the mutations available to modify, delete, or patch data.
+   * Read more in our [GraphQL API documentation](https://arisu.land/docs/graphql#type-mutation).
+   */
   export type Mutation = graphql.Mutation;
-  // type Subscription = graphql.Subscription;
+
+  /**
+   * Represents a user inserted in the database.
+   */
+  export type User = graphql.User;
+
+  /**
+   * Represents a project inserted in the database.
+   */
+  export type Project = graphql.Project;
 }
 
 export = arisu;

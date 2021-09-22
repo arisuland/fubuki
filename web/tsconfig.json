@@ -9,10 +9,10 @@
     "strict": true,
     "noEmit": true,
     "baseUrl": ".",
-    "types": ["node", "@nuxt/types"],
+    "types": ["node"],
     "paths": {
       "~/*": ["./src/*"],
-      "@/*": ["./src/*"]
+      "@/*": ["./*"]
     }
   },
   "exclude": ["node_modules"]
