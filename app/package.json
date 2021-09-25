@@ -55,7 +55,7 @@
     "tslog": "3.2.2",
     "type-graphql": "1.1.1",
     "typeorm": "0.2.37",
-    "zod": "3.8.2"
+    "zod": "3.9.1"
   },
   "devDependencies": {
     "@augu/eslint-config": "2.2.0",
