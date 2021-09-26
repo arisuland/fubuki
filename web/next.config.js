@@ -33,21 +33,6 @@ const baseConfig = {
     // ESLint gets run during docker build / ci, so not needed.
     ignoreDuringBuilds: true,
   },
-
-  webpack(config, options) {
-    config.module.rules.push({
-      test: /\.mdx$/,
-      use: [
-        options.defaultLoaders.babel,
-        {
-          loader: require.resolve('@mdx-js/loader'),
-          options: {},
-        },
-      ],
-    });
-
-    return config;
-  },
 };
 
 module.exports = withPWA(baseConfig);

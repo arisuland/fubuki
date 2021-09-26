@@ -16,31 +16,11 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-// Import fonts
-import '@fontsource/cantarell';
-import '@fontsource/jetbrains-mono';
-import '@fontsource/noto-sans';
+import { baseUrl, protocol } from './apollo';
+import { HttpClient } from '@augu/orchid';
+import { version } from '@/package.json';
 
-// Import stuffs
-import { ChakraProvider } from '@chakra-ui/react';
-import type { AppProps } from 'next/app';
-import { UserProvider } from '~/hooks/useUser';
-import theme from '../theme';
-import Head from 'next/head';
-
-// Arisu is just "Alice" translated from Japanese :shrug:
-export default function AliceApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Head>
-        <title>Arisu</title>
-      </Head>
-
-      <UserProvider>
-        <ChakraProvider resetCSS theme={theme}>
-          <Component {...pageProps} />
-        </ChakraProvider>
-      </UserProvider>
-    </>
-  );
-}
+export default new HttpClient({
+  userAgent: `Arisu/Frontend (+https://github.com/auguwu/Arisu; v${version})`,
+  baseUrl: `${protocol}://${baseUrl}`,
+});

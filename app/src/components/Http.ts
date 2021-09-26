@@ -93,7 +93,7 @@ export default class HttpServer {
 
     return this.#server.listen(
       {
-        port: 28093,
+        port: 17903,
         host: this.config.getProperty('host'),
       },
       (error, address) => {
