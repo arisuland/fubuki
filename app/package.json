@@ -34,7 +34,7 @@
     "@tailwindcss/typography": "0.4.1",
     "apollo-server-fastify": "3.3.0",
     "argon2": "0.28.2",
-    "autoprefixer": "10.3.5",
+    "autoprefixer": "10.3.6",
     "bree": "6.3.1",
     "class-validator": "0.13.1",
     "debounce": "1.2.1",
