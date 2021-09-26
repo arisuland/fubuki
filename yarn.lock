@@ -104,7 +104,7 @@ __metadata:
     "@augu/lilith": 5.3.3
     "@augu/orchid": 3.1.1
     "@augu/tsconfig": 1.1.1
-    "@augu/utils": 1.5.5
+    "@augu/utils": 1.5.6
     "@aws-sdk/client-s3": 3.34.0
     "@google-cloud/storage": 5.14.3
     "@prisma/client": 3.1.1
@@ -164,7 +164,7 @@ __metadata:
     "@augu/eslint-config": 2.2.0
     "@augu/lilith": 5.3.3
     "@augu/tsconfig": 1.1.1
-    "@augu/utils": 1.5.5
+    "@augu/utils": 1.5.6
     "@sentry/node": 6.13.2
     "@types/node": 16.4.12
     "@typescript-eslint/eslint-plugin": 4.31.2
@@ -209,7 +209,7 @@ __metadata:
     "@augu/eslint-config": 2.2.0
     "@augu/orchid": 3.1.1
     "@augu/tsconfig": 1.1.1
-    "@augu/utils": 1.5.5
+    "@augu/utils": 1.5.6
     "@chakra-ui/react": 1.6.8
     "@chakra-ui/theme-tools": 1.2.1
     "@emotion/react": 11.4.1
@@ -330,6 +330,13 @@ __metadata:
   version: 1.5.5
   resolution: "@augu/utils@npm:1.5.5"
   checksum: c4891d385dfb0f8f2607b9257f835dc8e9508c02e3583acdebcbd5c89f8e0c6e3435666f780e9204ffd0b358b57302a586ba940a83d346628daaf3bcd771ee66
+  languageName: node
+  linkType: hard
+
+"@augu/utils@npm:1.5.6":
+  version: 1.5.6
+  resolution: "@augu/utils@npm:1.5.6"
+  checksum: 81e1990707f4b7de6984e69fde71d44546297909a3b0e789338e28599f7585f81a70252880d1850d5b33193a478d662cd52ead8a2519c96610b41887bd039bb0
   languageName: node
   linkType: hard
 
