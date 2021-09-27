@@ -170,7 +170,7 @@ __metadata:
     "@augu/eslint-config": 2.2.0
     "@augu/lilith": 5.3.3
     "@augu/tsconfig": 1.1.1
-    "@augu/utils": 1.5.5
+    "@augu/utils": 1.5.6
     "@sentry/node": 6.13.2
     "@types/node": 16.4.12
     "@typescript-eslint/eslint-plugin": 4.31.2
@@ -215,7 +215,7 @@ __metadata:
     "@augu/eslint-config": 2.2.0
     "@augu/orchid": 3.1.1
     "@augu/tsconfig": 1.1.1
-    "@augu/utils": 1.5.5
+    "@augu/utils": 1.5.6
     "@chakra-ui/react": 1.6.8
     "@chakra-ui/theme-tools": 1.2.1
     "@emotion/react": 11.4.1
