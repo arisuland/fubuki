@@ -17,7 +17,7 @@
 
 ## Hey... this is a different repository?
 
-Yea, I decided to create a new repository for Arisu. The old [repository](https://github.com/arisuland/Arisu) is... weird as of the commits and the turn for the project, so I decided to create a new one.
+Yea, I decided to create a new repository for Arisu. The old [repository](https://github.com/arisuland/Arisu) is... weird as of the commit history and the turn for the project, so I decided to create a new one.
 
 ## Modules
 
