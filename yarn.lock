@@ -18,9 +18,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollo/client@npm:3.4.13":
-  version: 3.4.13
-  resolution: "@apollo/client@npm:3.4.13"
+"@apollo/client@npm:3.4.14":
+  version: 3.4.14
+  resolution: "@apollo/client@npm:3.4.14"
   dependencies:
     "@graphql-typed-document-node/core": ^3.0.0
     "@wry/context": ^0.6.0
@@ -43,7 +43,7 @@ __metadata:
       optional: true
     subscriptions-transport-ws:
       optional: true
-  checksum: 8cd1dc18472c85ec548888f8a3f364d9bbe53d25ff2472c203aafd3227c3e04e02376d38d4180bf12212429ae45f6efcd8e250cfc2b54da23a985c312e5dd214
+  checksum: bdaea01f734382fc8d6b319860f5832aebbb2fca3123bcd601e35d0a4891725e8ee655ceb5aaee0d80a3c7c05f394257ffddb7598ed9d9a0d16495db77b75257
   languageName: node
   linkType: hard
 
@@ -209,7 +209,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@arisu/web@workspace:web"
   dependencies:
-    "@apollo/client": 3.4.13
+    "@apollo/client": 3.4.14
     "@arisu/typings": 1.0.1
     "@augu/dotenv": 1.3.0
     "@augu/eslint-config": 2.2.0
