@@ -34,13 +34,21 @@ import 'reflect-metadata';
   },
 });
 
+import { registry, registerStuff } from './core/registry/PrometheusRegistry';
+import { collectDefaultMetrics } from 'prom-client';
 import { version, commitHash } from '~/util/Constants';
 import container from '~/container';
-import Logger from '~/singletons/logger';
+import Logger from '~/core/singletons/logger';
 import ts from 'typescript';
 
 const log = Logger.getChildLogger({ name: 'Arisu: bootstrap' });
 const main = async () => {
+  registerStuff();
+  collectDefaultMetrics({
+    prefix: 'arisu_',
+    register: registry,
+  });
+
   log.info(`Launching Arisu v${version} (${commitHash ?? 'unknown'})`);
   log.info(`-> TypeScript: ${ts.version}`);
   log.info(`->    Node.js: ${process.version}`);

@@ -22,7 +22,7 @@ import type { Users } from '.prisma/client';
 import { Security } from '~/util';
 import { isObject } from '@augu/utils';
 import { Logger } from 'tslog';
-import Redis from '~/components/Redis';
+import Redis from '~/core/components/Redis';
 
 export interface Session {
   expiresAt: number;

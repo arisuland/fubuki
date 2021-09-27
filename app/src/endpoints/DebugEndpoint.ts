@@ -18,14 +18,14 @@
 
 /* eslint-disable camelcase */
 
-import { lastPing as reqLastPing, getAvgLatency } from '~/middleware/logging';
+import { lastPing as reqLastPing, getAvgLatency } from '~/core/middleware/logging';
 import { Stopwatch, calculateHRTime, humanize } from '@augu/utils';
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import { lastPing as gqlLastPing, pings } from '~/graphql/middleware/log';
-import { Inject } from '@augu/lilith';
-import { Endpoint, Route } from '~/structures';
+import { Endpoint, Route } from '~/core';
 import { PrismaClient } from '@prisma/client';
-import Redis from '~/components/Redis';
+import { Inject } from '@augu/lilith';
+import Redis from '~/core/components/Redis';
 
 @Endpoint('/api/debug')
 export default class DebugEndpoint {

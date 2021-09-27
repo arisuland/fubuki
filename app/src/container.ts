@@ -18,14 +18,14 @@
 
 import { Container } from '@augu/lilith';
 import { join } from 'path';
-import Logger from './singletons/logger';
-import Http from './singletons/http';
+import Logger from './core/singletons/logger';
+import Http from './core/singletons/http';
 
 const logger = Logger.getChildLogger({ name: 'Arisu: lilith' });
 const container = new Container({
-  componentsDir: join(process.cwd(), 'components'),
-  servicesDir: join(process.cwd(), 'services'),
-  singletons: [Logger, Http, () => import('./singletons/prisma')],
+  componentsDir: join(process.cwd(), 'core', 'components'),
+  servicesDir: join(process.cwd(), 'core', 'services'),
+  singletons: [Logger, Http, () => import('./core/singletons/prisma')],
 });
 
 container.on('onBeforeChildInit', (cls, child) =>

@@ -18,7 +18,7 @@
 
 import { Resolver, Ctx, Arg, UseMiddleware, Mutation, ObjectType, Field } from 'type-graphql';
 import { ResultObject, Result } from './UserResolver';
-import SessionTokenService from '~/services/SessionTokenStore';
+import SessionTokenService from '~/core/services/SessionTokenStore';
 import type { ArisuContext } from '..';
 import { isEmail } from 'class-validator';
 import { auth } from '../middleware';

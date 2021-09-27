@@ -16,10 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+require('../util/patches/RequirePatch');
+
 // DO NOT RUN THIS USING `node` SINCE THIS IS A WORKER
 
 import { parentPort } from 'worker_threads';
-import logger from '../singletons/logger';
+import logger from '~/core/singletons/logger';
 
 if (parentPort === null) {
   process.exit(1);

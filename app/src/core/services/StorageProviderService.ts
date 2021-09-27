@@ -20,7 +20,7 @@ import { StorageProvider, S3StorageProvider, FilesystemProvider, GoogleCloudProv
 import { Service, Inject, ServiceAPI } from '@augu/lilith';
 import { Logger } from 'tslog';
 import isDocker from 'is-docker';
-import Config from '~/components/Config';
+import Config from '~/core/components/Config';
 
 @Service({
   priority: 0,

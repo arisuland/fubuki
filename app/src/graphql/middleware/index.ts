@@ -16,6 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+export { default as requireAdmin } from './is-admin';
 export { default as error } from './error';
 export { default as auth } from './auth';
 export { default as log } from './log';

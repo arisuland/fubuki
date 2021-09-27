@@ -19,7 +19,7 @@
 /* eslint-disable camelcase */
 
 import type { FastifyReply, FastifyRequest } from 'fastify';
-import { Endpoint, Route } from '~/structures';
+import { Endpoint, Route } from '~/core';
 
 @Endpoint('/api')
 export default class APIEndpoint {

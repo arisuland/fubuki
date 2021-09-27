@@ -10,11 +10,11 @@ declare module 'gc-stats' {
   import { EventBus } from '@augu/utils';
 
   interface GCStatsEvents {
-    data(): void;
-    stats(): void;
+    data(stats: Stats): void;
+    stats(stats: Stats): void;
   }
 
-  interface Stats {
+  export interface Stats {
     startTime: number;
     endTime: number;
     pause: number;

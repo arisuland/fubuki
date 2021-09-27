@@ -104,7 +104,7 @@ __metadata:
     "@augu/lilith": 5.3.3
     "@augu/orchid": 3.1.1
     "@augu/tsconfig": 1.1.1
-    "@augu/utils": 1.5.5
+    "@augu/utils": 1.5.6
     "@aws-sdk/client-s3": 3.34.0
     "@google-cloud/storage": 5.14.3
     "@prisma/client": 3.1.1
@@ -132,11 +132,14 @@ __metadata:
     eslint-plugin-prettier: 4.0.0
     fastify: 3.21.6
     fastify-cors: 6.0.2
+    fastify-websocket: 4.0.0
     gc-stats: 1.4.0
     graphql: 15.5.3
+    graphql-redis-subscriptions: 2.4.0
     graphql-scalars: 1.10.1
     ioredis: 4.27.9
     is-docker: 2.2.1
+    is-kubernetes: 1.0.1
     jest: 27.2.2
     js-yaml: 4.1.0
     jsonwebtoken: 8.5.1
@@ -145,14 +148,17 @@ __metadata:
     nodemon: 2.0.13
     prettier: 2.4.1
     prisma: 3.1.1
+    prom-client: 14.0.0
     reflect-metadata: 0.1.13
     source-map-support: 0.5.20
     stylelint: 13.13.1
+    subscriptions-transport-ws: 0.9.19
     ts-jest: 27.0.5
     tslog: 3.2.2
     type-graphql: 1.1.1
     typeorm: 0.2.37
     typescript: 4.4.3
+    ws: 8.2.2
     zod: 3.9.1
   languageName: unknown
   linkType: soft
@@ -330,6 +336,13 @@ __metadata:
   version: 1.5.5
   resolution: "@augu/utils@npm:1.5.5"
   checksum: c4891d385dfb0f8f2607b9257f835dc8e9508c02e3583acdebcbd5c89f8e0c6e3435666f780e9204ffd0b358b57302a586ba940a83d346628daaf3bcd771ee66
+  languageName: node
+  linkType: hard
+
+"@augu/utils@npm:1.5.6":
+  version: 1.5.6
+  resolution: "@augu/utils@npm:1.5.6"
+  checksum: 81e1990707f4b7de6984e69fde71d44546297909a3b0e789338e28599f7585f81a70252880d1850d5b33193a478d662cd52ead8a2519c96610b41887bd039bb0
   languageName: node
   linkType: hard
 
@@ -7382,6 +7395,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bintrees@npm:1.0.1":
+  version: 1.0.1
+  resolution: "bintrees@npm:1.0.1"
+  checksum: 71d00ce450ee7ad080a3c86ae5f05fac841bdf95c0d78f3b3bbf8f754c19d7cb732f0f9213a46ed27cbec47eb124ffe2b686bef870718a4b9918c23210b55c73
+  languageName: node
+  linkType: hard
+
 "blob-util@npm:^2.0.2":
   version: 2.0.2
   resolution: "blob-util@npm:2.0.2"
@@ -10244,6 +10264,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fastify-websocket@npm:4.0.0":
+  version: 4.0.0
+  resolution: "fastify-websocket@npm:4.0.0"
+  dependencies:
+    fastify-plugin: ^3.0.0
+    ws: ^8.0.0
+  checksum: 286dd0dc1d96f25eef74b228e47ad4d621643ba7cac6449f36c5937eb7ed7785e6535640726701d4751acc8ea3a32b7ff2aa0f0ac77a14014b810e47b210df69
+  languageName: node
+  linkType: hard
+
 "fastify@npm:3.21.6":
   version: 3.21.6
   resolution: "fastify@npm:3.21.6"
@@ -11042,6 +11072,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"graphql-redis-subscriptions@npm:2.4.0":
+  version: 2.4.0
+  resolution: "graphql-redis-subscriptions@npm:2.4.0"
+  dependencies:
+    ioredis: ^4.17.3
+    iterall: ^1.3.0
+  peerDependencies:
+    graphql-subscriptions: ^1.0.0
+  dependenciesMeta:
+    ioredis:
+      optional: true
+  checksum: 981b9993531a2b627f8f239d09fc17b5578dcafc95803706d133a561f434cef7a2448c9d29afed0b5ce1ea6ce8ed81ce96b2bbc99b55dff37764daef1a4781d4
+  languageName: node
+  linkType: hard
+
 "graphql-request@npm:^3.3.0":
   version: 3.5.0
   resolution: "graphql-request@npm:3.5.0"
@@ -11729,7 +11774,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:4.27.9, ioredis@npm:^4.27.8":
+"ioredis@npm:4.27.9, ioredis@npm:^4.17.3, ioredis@npm:^4.27.8":
   version: 4.27.9
   resolution: "ioredis@npm:4.27.9"
   dependencies:
@@ -12008,6 +12053,15 @@ __metadata:
   dependencies:
     is-glob: ^2.0.0
   checksum: 184dd40d9c7a765506e4fdcd7e664f86de68a4d5d429964b160255fe40de1b4323d1b4e6ea76ff87debf788a330e4f27cb1dfe5fc2420405e1c8a16a6ed87092
+  languageName: node
+  linkType: hard
+
+"is-kubernetes@npm:1.0.1":
+  version: 1.0.1
+  resolution: "is-kubernetes@npm:1.0.1"
+  bin:
+    is-kubernetes: cli.js
+  checksum: cbf874adabd6c7d391e3a4ea490173e010e59886b7155e6dac9f7ca00285cb0533e5b69c2b6e48531d351f0e15f65fe76de98a7e14ac930ea5fe728df40d53b7
   languageName: node
   linkType: hard
 
@@ -16017,6 +16071,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prom-client@npm:14.0.0":
+  version: 14.0.0
+  resolution: "prom-client@npm:14.0.0"
+  dependencies:
+    tdigest: ^0.1.1
+  checksum: fb77121b45803b330399f2826a9f558308022a4e403abf6995fa9df05a5573eee8b77be81e04adc2706c6dac00e489475122e75bda90acccdccd27af6dacd827
+  languageName: node
+  linkType: hard
+
 "promise-inflight@npm:^1.0.1":
   version: 1.0.1
   resolution: "promise-inflight@npm:1.0.1"
@@ -18218,6 +18281,15 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"tdigest@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "tdigest@npm:0.1.1"
+  dependencies:
+    bintrees: 1.0.1
+  checksum: 4d05fd70fb0aa70aa101d01557722b7ef9a91b2ebf8dfc274ca9852220397a74e4ed6e59c55335b4b1dd0ac5e1b65d25b8d32ae01278fc3b783c40f6d84303e2
+  languageName: node
+  linkType: hard
+
 "teeny-request@npm:^7.0.0":
   version: 7.1.2
   resolution: "teeny-request@npm:7.1.2"
@@ -20001,7 +20073,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"ws@npm:8.2.2":
+"ws@npm:8.2.2, ws@npm:^8.0.0":
   version: 8.2.2
   resolution: "ws@npm:8.2.2"
   peerDependencies:

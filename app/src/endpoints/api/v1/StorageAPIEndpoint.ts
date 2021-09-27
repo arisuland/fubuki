@@ -17,8 +17,8 @@
  */
 
 import type { FastifyReply, FastifyRequest } from 'fastify';
-import StorageProviderService from '~/services/StorageProviderService';
-import { Endpoint, Route } from '~/structures';
+import StorageProviderService from '~/core/services/StorageProviderService';
+import { Endpoint, Route } from '~/core';
 import { Inject } from '@augu/lilith';
 import { Logger } from 'tslog';
 
@@ -79,7 +79,7 @@ export default class StorageAPIEndpoint {
     if (metadata.storagePath !== undefined) delete metadata.storagePath;
 
     const files = metadata.files.map((file) => {
-      // @ts-expect-error
+      // @ts-ignore
       delete file.path;
       return file;
     });

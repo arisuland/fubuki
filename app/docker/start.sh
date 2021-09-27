@@ -1,2 +1,2 @@
 #!/bin/bash
-cd build/src && node main.js
+cd build/src && node --expose-gc main.js

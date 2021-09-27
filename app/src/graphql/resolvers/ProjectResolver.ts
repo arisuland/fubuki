@@ -17,14 +17,13 @@
  */
 
 import { Query, Resolver, Arg, Ctx, Mutation, UseMiddleware } from 'type-graphql';
-import PropertyAlreadyTakenException from '~/graphql/exceptions/PropertyAlreadyTakenException';
+import { Result, ResultObject } from './UserResolver';
 import type { ArisuContext } from '~/graphql';
+import StorageProviderService from '~/core/services/StorageProviderService';
 import UpdateProjectInput from '~/graphql/input/projects/UpdateProjectInput';
 import CreateProjectInput from '~/graphql/input/projects/CreateProjectInput';
 import { auth } from '../middleware';
 import Project from '~/graphql/objects/Project';
-import { Result, ResultObject } from './UserResolver';
-import StorageProviderService from '~/services/StorageProviderService';
 
 @Resolver()
 export default class ProjectResolver {

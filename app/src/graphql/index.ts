@@ -20,19 +20,30 @@ import type { FastifyRequest, FastifyReply } from 'fastify';
 import type { NonEmptyArray } from 'type-graphql';
 import type { Container } from '@augu/lilith';
 import { PrismaClient } from '@prisma/client';
+import { RedisPubSub } from 'graphql-redis-subscriptions';
 
 // Resolvers
 import TestResolver from './resolvers/TestResolver';
 import UserResolver from './resolvers/UserResolver';
 import LoginResolver from './resolvers/LoginResolver';
 import ProjectResolver from './resolvers/ProjectResolver';
+import AdminDashboardSubscriber from './subscribers/AdminDashboard';
 
 export interface ArisuContext {
   req: FastifyRequest;
   reply: FastifyReply;
   container: Container;
   prisma: PrismaClient;
+
+  // TODO: maybe move to Kafka once Arisu lands
+  // in production?
+  pubsub: RedisPubSub;
 }
 
-// eslint-disable-next-line
-export const resolvers = [TestResolver, UserResolver, LoginResolver, ProjectResolver] as NonEmptyArray<Function>;
+export const resolvers = [
+  TestResolver,
+  UserResolver,
+  LoginResolver,
+  ProjectResolver.toString,
+  AdminDashboardSubscriber,
+] as NonEmptyArray<Function>; // eslint-disable-line

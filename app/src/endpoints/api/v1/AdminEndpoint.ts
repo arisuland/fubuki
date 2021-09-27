@@ -18,7 +18,7 @@
 
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import UserFlags, { UserFlag } from '~/util/bitfields/UserFlags';
-import { Endpoint, Route } from '~/structures';
+import { Endpoint, Route } from '~/core';
 import { PrismaClient } from '@prisma/client';
 import { Security } from '~/util';
 import { Inject } from '@augu/lilith';

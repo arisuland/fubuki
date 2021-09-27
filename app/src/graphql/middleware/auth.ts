@@ -18,9 +18,9 @@
 
 import type { ArisuContext } from '..';
 import type { MiddlewareFn } from 'type-graphql';
+import SessionTokenService from '~/core/services/SessionTokenStore';
 import { PrismaClient } from '@prisma/client';
 import { Security } from '~/util';
-import SessionTokenService from '~/services/SessionTokenStore';
 
 const mod: MiddlewareFn<ArisuContext> = async ({ context }, next) => {
   const prisma: PrismaClient = context.container.$ref(PrismaClient);

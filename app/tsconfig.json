@@ -9,7 +9,6 @@
     "resolveJsonModule": true,
     "allowJs": true,
     "baseUrl": ".",
-    "isolatedModules": true,
     "paths": {
       "~/*": ["./src/*"],
       "@/*": ["./*"]
@@ -17,5 +16,5 @@
     "esModuleInterop": true
   },
   "exclude": ["node_modules", "jest.config.ts", "tests/**/*.(spec|test).ts"],
-  "include": ["**/*.ts", "**/*.tsx", "next-env.d.ts"] // include .env in emit
+  "include": ["**/*.ts", ".env", "*.prisma"] // include .env in emit
 }

@@ -22,20 +22,24 @@ import {
 } from 'apollo-server-core';
 
 import fastify, { FastifyReply, FastifyRequest } from 'fastify';
-import { AbstractRoute, EndpointKey, RouteKey } from '~/structures';
+import { AbstractRoute, EndpointKey, RouteKey } from '~/core';
 import { Component, ComponentAPI, Inject } from '@augu/lilith';
+import { SubscriptionServer } from 'subscriptions-transport-ws';
+import { execute, subscribe } from 'graphql';
 import { ApolloServer } from 'apollo-server-fastify';
 import { PrismaClient } from '@prisma/client';
+import { createServer, Server } from 'http';
 import { buildSchema } from 'type-graphql';
+import { RedisPubSub } from 'graphql-redis-subscriptions';
 import { Logger } from 'tslog';
 import { join } from 'path';
 import Config from './Config';
-import Route from '~/structures/Route';
+import Route from '~/core/Route';
 
 // Fastify plugins
-import ratelimitsPlugin from '~/middleware/ratelimits';
-import authPlugin from '~/middleware/authentication';
-import logPlugin from '~/middleware/logging';
+import ratelimitsPlugin from '~/core/middleware/ratelimits';
+import authPlugin from '~/core/middleware/authentication';
+import logPlugin from '~/core/middleware/logging';
 
 // Resolvers / Global Middleware
 import { ArisuContext, resolvers } from '~/graphql';
@@ -55,7 +59,11 @@ export default class HttpServer {
   private readonly config!: Config;
 
   api!: ComponentAPI;
+
   #server!: ReturnType<typeof fastify>;
+  #pubSub!: RedisPubSub;
+  #mergedServer!: Server;
+  #subscriptionServer!: ReturnType<typeof SubscriptionServer['create']>;
 
   async load() {
     this.logger.info('Launching website...');
@@ -65,6 +73,46 @@ export default class HttpServer {
       globalMiddlewares: [log, error],
     });
 
+    const sentinels = this.config.getProperty('redis.sentinels');
+    const password = this.config.getProperty('redis.password');
+    const masterName = this.config.getProperty('redis.master');
+    const index = this.config.getProperty('redis.index') ?? 4;
+    const host = this.config.getProperty('redis.host');
+    const port = this.config.getProperty('redis.port');
+
+    const config =
+      (sentinels ?? []).length > 0
+        ? {
+            enableReadyCheck: true,
+            connectionName: 'Arisu',
+            lazyConnect: true,
+            sentinels,
+            password: password,
+            name: masterName,
+            db: index,
+          }
+        : {
+            enableReadyCheck: true,
+            connectionName: 'Arisu',
+            lazyConnect: true,
+            password: password,
+            host: host,
+            port: port,
+            db: index,
+          };
+
+    this.#pubSub = new RedisPubSub({
+      connection: config,
+      connectionListener: (error) => {
+        if (error !== undefined) {
+          this.logger.error('Recieved an exception while running the PubSub client:', error);
+          return;
+        }
+
+        this.logger.info('PubSub client has successfully made a connection.');
+      },
+    });
+
     const apollo = new ApolloServer({
       schema,
       context: ({ request: req, reply }: { request: FastifyRequest; reply: FastifyReply }): ArisuContext => ({
@@ -72,6 +120,7 @@ export default class HttpServer {
         req,
         reply,
         prisma: this.prisma,
+        pubsub: this.#pubSub,
       }),
 
       plugins: [
@@ -82,14 +131,25 @@ export default class HttpServer {
     });
 
     await apollo.start();
-    this.#server = fastify();
-    this.#server
-      // TODO: implement our cors middleware (for now)
-      //.register(require('fastify-cors'))
-      .register(authPlugin)
-      .register(logPlugin)
-      .register(ratelimitsPlugin)
-      .register(apollo.createHandler());
+    this.#server = fastify({
+      serverFactory: (handler) => {
+        this.#mergedServer = createServer((req, res) => handler(req, res));
+        return this.#mergedServer;
+      },
+    });
+
+    this.#server.register(authPlugin).register(logPlugin).register(ratelimitsPlugin).register(apollo.createHandler());
+    this.#subscriptionServer = SubscriptionServer.create(
+      {
+        schema,
+        execute,
+        subscribe,
+      },
+      {
+        server: this.#mergedServer,
+        path: '/graphql',
+      }
+    );
 
     return this.#server.listen(
       {
@@ -102,13 +162,14 @@ export default class HttpServer {
           return;
         }
 
-        this.logger.info(`🚀✨ Arisu has launched at ${address.replace('[::]', 'localhost')}`);
+        this.logger.info(`🚀✨ Arisu has launched at ${address.replace('[::]', 'localhost')}!`);
       }
     );
   }
 
   dispose() {
     this.logger.info('Closing server...');
+
     return this.#server.close(() => {
       this.logger.info('Closed server.');
     });

@@ -16,13 +16,21 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import type { FastifyReply, FastifyRequest } from 'fastify';
-import { Endpoint, Route } from '~/core';
+import UserFlags, { UserFlag } from '~/util/bitfields/UserFlags';
+import type { ArisuContext } from '..';
+import type { MiddlewareFn } from 'type-graphql';
 
-@Endpoint('/api/health')
-export default class DebugEndpoint {
-  @Route('/', 'GET')
-  debug(_: FastifyRequest, res: FastifyReply) {
-    return res.status(200).send('OK');
-  }
-}
+const mod: MiddlewareFn<ArisuContext> = async ({ context }, next) => {
+  if (!context.req.user) throw new Error('unable to obtain user.');
+
+  const flags = new UserFlags(context.req.user.flags);
+  let isAdmin = flags.has('Admin') || flags.has('Owner');
+
+  if (context.req.hostname === 'arisu.land')
+    isAdmin = flags.has(UserFlag.Admin) || flags.has(UserFlag.Owner) || flags.has(UserFlag.Cutie);
+  if (!isAdmin) throw new Error('Missing permissions.');
+
+  return next();
+};
+
+export default mod;

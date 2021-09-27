@@ -36,6 +36,8 @@ const middleware: FastifyPluginAsync<any> = async (server, _) => {
     res.headers({
       'Cache-Control': 'public, max-age=7776000',
       'X-Powered-By': `Arisu (+https://github.com/auguwu/Arisu; v${version})`,
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,POST',
     });
 
     lastPing = process.hrtime();
