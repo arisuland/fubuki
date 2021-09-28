@@ -109,7 +109,7 @@ __metadata:
     "@google-cloud/storage": 5.14.4
     "@prisma/client": 3.1.1
     "@sentry/node": 6.12.0
-    "@tailwindcss/forms": 0.3.3
+    "@tailwindcss/forms": 0.3.4
     "@tailwindcss/typography": 0.4.1
     "@types/bree": 6.2.1
     "@types/ioredis": 4.27.4
@@ -5462,14 +5462,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tailwindcss/forms@npm:0.3.3":
-  version: 0.3.3
-  resolution: "@tailwindcss/forms@npm:0.3.3"
+"@tailwindcss/forms@npm:0.3.4":
+  version: 0.3.4
+  resolution: "@tailwindcss/forms@npm:0.3.4"
   dependencies:
     mini-svg-data-uri: ^1.2.3
   peerDependencies:
     tailwindcss: ">=2.0.0"
-  checksum: 6618988aae3b4d536d18a3ca6bde482024c1e0b5350549d6b530c699688b2f3e56356744e639ba4dff96d3331fc4a46c3a2d6ef6b4a3391afc5d861ffdb3c20a
+  checksum: 4b2b2b3361169bf5adf1a575c7dc8bb7946192c0edf4829e5b1de342a4e1b8138a01441a8ecef70e0777180b0797506e3f44854f09a32b9d7083658271543783
   languageName: node
   linkType: hard
 
