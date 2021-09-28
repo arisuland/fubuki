@@ -159,7 +159,7 @@ __metadata:
     typeorm: 0.2.37
     typescript: 4.4.3
     ws: 8.2.2
-    zod: 3.9.3
+    zod: 3.9.4
   languageName: unknown
   linkType: soft
 
@@ -20380,10 +20380,10 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"zod@npm:3.9.3":
-  version: 3.9.3
-  resolution: "zod@npm:3.9.3"
-  checksum: 0c0b33842111824daf3b5b55c01ae398fb866a6dd54a7b42c4de9a6b16b975ab7d10558a75d0aecfa71eb4588e702fb054790129a1c2294f1146d0060d266991
+"zod@npm:3.9.4":
+  version: 3.9.4
+  resolution: "zod@npm:3.9.4"
+  checksum: d90f08362685caaa040f998fb305e83ced0fa512d08ab047eb17a5c60c2ec5e80c951035c4e30a18431cd90b1825926e485ed1f0f1ac254fd5e39f966db1dd89
   languageName: node
   linkType: hard
 
