@@ -112,7 +112,7 @@ __metadata:
     "@tailwindcss/forms": 0.3.4
     "@tailwindcss/typography": 0.4.1
     "@types/bree": 6.2.1
-    "@types/ioredis": 4.27.4
+    "@types/ioredis": 4.27.5
     "@types/jest": 27.0.2
     "@types/js-yaml": 4.0.3
     "@types/mime-types": 2.1.1
@@ -5653,7 +5653,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ioredis@npm:4.27.4, @types/ioredis@npm:^4.27.1":
+"@types/ioredis@npm:4.27.5":
+  version: 4.27.5
+  resolution: "@types/ioredis@npm:4.27.5"
+  dependencies:
+    "@types/node": "*"
+  checksum: d451e1327afd22c796b11377d195ade104f3429b8b995fc1f5230ab4178ac0f566b5475d5a6a59f4fc131616e8b56aac72e9d7c098e5e246f4ef0c8846572e8d
+  languageName: node
+  linkType: hard
+
+"@types/ioredis@npm:^4.27.1":
   version: 4.27.4
   resolution: "@types/ioredis@npm:4.27.4"
   dependencies:
