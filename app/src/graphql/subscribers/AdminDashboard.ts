@@ -16,14 +16,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Ctx, Resolver, Subscription, UseMiddleware } from 'type-graphql';
+import { Resolver, Subscription, UseMiddleware } from 'type-graphql';
 import { ArisuProcess, GarbageCollectedType } from '../objects/AdminDashboard';
-import type { ArisuContext } from '..';
 import { requireAdmin } from '../middleware';
 import type { Stats } from 'gc-stats';
+import { sleep } from '@augu/utils';
 import isDocker from 'is-docker';
 import isK8s from 'is-kubernetes';
-import { sleep } from '@augu/utils';
 
 let gcEmitter: ReturnType<typeof import('gc-stats')> | null = null;
 
@@ -33,7 +32,9 @@ export default class AdminDashboardSubscriber {
     topics: ['ADMIN_DASHBOARD'],
   })
   @UseMiddleware(requireAdmin)
-  async adminSubscriber(@Ctx() { pubsub }: ArisuContext) {
+  async adminSubscriber() {
+    console.log('called');
+
     // Check if `--expose-gc` is in the node flags
     if (global.gc !== undefined && gcEmitter === null) gcEmitter = require('gc-stats')();
 
@@ -75,6 +76,6 @@ export default class AdminDashboardSubscriber {
       await sleep(5000);
     }
 
-    await pubsub.publish('admin:dashboard', proc);
+    return proc;
   }
 }

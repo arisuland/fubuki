@@ -38,12 +38,17 @@ import { registry, registerStuff, usersRegistered } from '~/core/registry/Promet
 import { collectDefaultMetrics } from 'prom-client';
 import { version, commitHash } from '~/util/Constants';
 import { PrismaClient } from '@prisma/client';
+import updateNotifier from './util/UpdateNotifier';
 import container from '~/container';
 import Logger from '~/core/singletons/logger';
+import isRoot from 'is-root';
 import ts from 'typescript';
 
 const log = Logger.getChildLogger({ name: 'Arisu: bootstrap' });
 const main = async () => {
+  await updateNotifier();
+  if (isRoot()) log.warn('Running Arisu as root is not recommended, you have been warned.');
+
   registerStuff();
   collectDefaultMetrics({
     prefix: 'arisu_',
