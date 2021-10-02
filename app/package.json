@@ -61,7 +61,7 @@
     "tslog": "3.2.2",
     "type-graphql": "1.1.1",
     "typeorm": "0.2.37",
-    "ws": "8.2.2",
+    "ws": "8.2.3",
     "zod": "3.9.5"
   },
   "devDependencies": {
