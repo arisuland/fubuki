@@ -44,6 +44,7 @@ import logPlugin from '~/core/middleware/logging';
 // Resolvers / Global Middleware
 import { ArisuContext, resolvers } from '~/graphql';
 import { error, log } from '~/graphql/middleware';
+import { requestsHit } from '../registry/PrometheusRegistry';
 
 const mergePrefixes = (prefix: string, other: string) => (prefix === '/' ? other : `${prefix}${other}`);
 
@@ -200,6 +201,7 @@ export default class HttpServer {
 
       this.#server[route.method.toLowerCase()](merged, async (req: FastifyRequest, reply: FastifyReply) => {
         try {
+          requestsHit.inc({ method: req.method, endpoint: req.url });
           return await r.run(req, reply);
         } catch (ex) {
           this.logger.fatal(

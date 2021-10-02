@@ -1,5 +1,5 @@
 {
-  "name": "arisu-root",
+  "name": "@arisu/root",
   "private": true,
   "workspaces": [
     "github-bot/",

@@ -18,6 +18,7 @@
 
 import type { FastifyPluginAsync } from 'fastify';
 import { calculateHRTime } from '@augu/utils';
+import { requestLatency } from '../registry/PrometheusRegistry';
 import { STATUS_CODES } from 'http';
 import { Container } from '@augu/lilith';
 import { version } from '~/util/Constants';
@@ -28,11 +29,12 @@ import fp from 'fastify-plugin';
 const logger: Logger = Container.instance.$ref(Logger);
 const pings: number[] = [];
 let lastPing!: [number, number];
+let timerHook: any;
 
 const middleware: FastifyPluginAsync<any> = async (server, _) => {
   logger.info('Initialized logging middleware!');
 
-  server.addHook('onRequest', (_, res, done) => {
+  server.addHook('onRequest', (req, res, done) => {
     res.headers({
       'Cache-Control': 'public, max-age=7776000',
       'X-Powered-By': `Arisu (+https://github.com/auguwu/Arisu; v${version})`,
@@ -41,6 +43,13 @@ const middleware: FastifyPluginAsync<any> = async (server, _) => {
     });
 
     lastPing = process.hrtime();
+    timerHook = requestLatency
+      .labels({
+        endpoint: req.url,
+        method: req.method,
+      })
+      .startTimer();
+
     done();
   });
 
@@ -56,6 +65,11 @@ const middleware: FastifyPluginAsync<any> = async (server, _) => {
     }
 
     const averageLatency = getAvgLatency();
+    timerHook?.({
+      endpoint: req.url,
+      method: req.method,
+    });
+
     const dur =
       duration < 0.5
         ? colors.magenta(`+${duration.toFixed(2)}ms`)

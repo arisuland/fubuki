@@ -19,10 +19,12 @@
 import type { MiddlewareFn } from 'type-graphql';
 import type { ArisuContext } from '..';
 import { calculateHRTime } from '@augu/utils';
+import { graphqlLatency } from '~/core/registry/PrometheusRegistry';
 import { Logger } from 'tslog';
 
 const pings = [] as number[];
 let lastPing: [number, number];
+let timerHook: any;
 
 // So Noel, what's the different between src/middleware/logging.ts
 // and src/graphql/middleware/log.ts? Well, the difference is,
@@ -33,9 +35,11 @@ const mod: MiddlewareFn<ArisuContext> = async ({ context }, next) => {
   const startedAt = process.hrtime();
   lastPing = startedAt;
 
+  timerHook = graphqlLatency.startTimer();
   await next();
 
   const resolvedTime = calculateHRTime(startedAt);
+  timerHook?.();
   pings.push(resolvedTime);
 
   const avg = pings.reduce((acc, curr) => acc + curr, 0) / pings.length;

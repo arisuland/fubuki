@@ -34,9 +34,10 @@ import 'reflect-metadata';
   },
 });
 
-import { registry, registerStuff } from './core/registry/PrometheusRegistry';
+import { registry, registerStuff, usersRegistered } from '~/core/registry/PrometheusRegistry';
 import { collectDefaultMetrics } from 'prom-client';
 import { version, commitHash } from '~/util/Constants';
+import { PrismaClient } from '@prisma/client';
 import container from '~/container';
 import Logger from '~/core/singletons/logger';
 import ts from 'typescript';
@@ -65,6 +66,12 @@ const main = async () => {
   }
 
   log.info('✔ Arisu was launched successfully. :3');
+  const client = container.$ref<PrismaClient>(PrismaClient);
+
+  // get users for metrics
+  const users = await client.users.findMany();
+  usersRegistered.set(users.length);
+
   process.on('SIGINT', () => {
     log.warn('Received CTRL+C call!');
 
