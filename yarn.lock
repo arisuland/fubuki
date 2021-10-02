@@ -157,7 +157,7 @@ __metadata:
     type-graphql: 1.1.1
     typeorm: 0.2.37
     typescript: 4.4.3
-    ws: 8.2.2
+    ws: 8.2.3
     zod: 3.9.5
   languageName: unknown
   linkType: soft
@@ -19490,6 +19490,21 @@ resolve@^2.0.0-next.3:
     utf-8-validate:
       optional: true
   checksum: 25e764c631141bdca45badc86e69437b8791e57e461f9a16c0f7cd779baf70c3fbba07ecdd9e0d34fea1155ddcf62ef165cd7f81b68ed545bc7d455c15a85fb0
+  languageName: node
+  linkType: hard
+
+"ws@npm:8.2.3":
+  version: 8.2.3
+  resolution: "ws@npm:8.2.3"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ^5.0.2
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: c869296ccb45f218ac6d32f8f614cd85b50a21fd434caf11646008eef92173be53490810c5c23aea31bc527902261fbfd7b062197eea341b26128d4be56a85e4
   languageName: node
   linkType: hard
 
