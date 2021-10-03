@@ -33,8 +33,6 @@ let timerHook: any;
 // this is on the GraphQL execution point while logging.ts is refered
 // to the request execution.
 const mod: MiddlewareFn<ArisuContext> = async ({ context, info }, next) => {
-  console.log('a');
-
   const logger = context.container.$ref(Logger);
   const startedAt = process.hrtime();
   lastPing = startedAt;
