@@ -22,9 +22,6 @@ export { default as Security } from './Security';
 export * as Constants from './Constants';
 export * from './proxy/ProxyUtil';
 
-import { isObject } from '@augu/utils';
-import * as leeks from 'leeks.js';
-
 /**
  * Traverse through an array with a tuple of `[index, item]`.
  *

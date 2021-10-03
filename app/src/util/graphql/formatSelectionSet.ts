@@ -18,7 +18,7 @@
 
 import { SelectionNode } from 'graphql';
 
-const formatSelectionSet = (value: SelectionNode) => {
+const formatSelectionSet = (value: SelectionNode, colorize = false) => {
   let formatted = '';
   switch (value.kind) {
     case 'Field':

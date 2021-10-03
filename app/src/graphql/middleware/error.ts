@@ -18,60 +18,17 @@
 
 import type { MiddlewareFn } from 'type-graphql';
 import type { ArisuContext } from '..';
+import GraphQLHighlighter from '~/util/graphql/highlighter';
 import { Logger } from 'tslog';
-import formatArgValue from '~/util/graphql/formatArgValue';
-import formatSelectionSet from '~/util/graphql/formatSelectionSet';
 
 const mod: MiddlewareFn<ArisuContext> = async ({ context, info }, next) => {
   const logger: Logger = context.container.$ref(Logger);
   try {
     return await next();
   } catch (ex) {
-    let pointedAt = '';
-    if (info.fieldNodes.length > 0) {
-      for (const field of info.fieldNodes) {
-        pointedAt += field.name.value;
+    const query = GraphQLHighlighter.instance.highlight(info);
+    logger.error('Unable to run query:', query, '', ex);
 
-        if (field.arguments !== undefined) {
-          pointedAt += '(';
-          for (const arg of field.arguments) pointedAt += `${arg.name.value}: ${formatArgValue(arg.value)}`;
-
-          pointedAt += ')';
-        }
-
-        if (field.selectionSet !== undefined) {
-          pointedAt += ' {';
-          for (const select of field.selectionSet.selections) {
-            const formatted = formatSelectionSet(select);
-            pointedAt += `\n    ${formatted}`;
-          }
-
-          pointedAt += '\n  }';
-        }
-
-        pointedAt += '\n';
-      }
-    }
-
-    let actualOperation = '';
-    switch (info.operation.operation) {
-      case 'query':
-        actualOperation += 'query {\n';
-        break;
-
-      case 'mutation':
-        actualOperation += `mutation${info.operation.name !== undefined ? ` ${info.operation.name} {\n` : ' {\n'}`;
-        break;
-
-      case 'subscription':
-        actualOperation += `subscription${info.operation.name !== undefined ? ` ${info.operation.name} {\n` : ' {\n'}`;
-        break;
-    }
-
-    actualOperation += `  ${pointedAt}`;
-    actualOperation += '}';
-
-    logger.fatal(`Unable to run GraphQL query:`, '\n', actualOperation, ex);
     throw ex;
   }
 };

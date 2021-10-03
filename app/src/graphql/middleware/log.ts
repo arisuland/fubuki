@@ -16,10 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { calculateHRTime, titleCase } from '@augu/utils';
 import type { MiddlewareFn } from 'type-graphql';
 import type { ArisuContext } from '..';
-import { calculateHRTime } from '@augu/utils';
 import { graphqlLatency } from '~/core/registry/PrometheusRegistry';
+import { colors, styles } from 'leeks.js';
+import GraphQLHighlighter from '~/util/graphql/highlighter';
 import { Logger } from 'tslog';
 
 const pings = [] as number[];
@@ -30,7 +32,9 @@ let timerHook: any;
 // and src/graphql/middleware/log.ts? Well, the difference is,
 // this is on the GraphQL execution point while logging.ts is refered
 // to the request execution.
-const mod: MiddlewareFn<ArisuContext> = async ({ context }, next) => {
+const mod: MiddlewareFn<ArisuContext> = async ({ context, info }, next) => {
+  console.log('a');
+
   const logger = context.container.$ref(Logger);
   const startedAt = process.hrtime();
   lastPing = startedAt;
@@ -43,10 +47,12 @@ const mod: MiddlewareFn<ArisuContext> = async ({ context }, next) => {
   pings.push(resolvedTime);
 
   const avg = pings.reduce((acc, curr) => acc + curr, 0) / pings.length;
-  logger.info(
-    `GraphQL query took ~${resolvedTime.toFixed(
+  logger.debug(
+    `${colors.cyan('graphql:query')} ~ ${titleCase(info.operation.operation)} was executed in ${resolvedTime.toFixed(
       2
-    )}ms to complete! On average, queries/mutations/subscriptions take ~${avg.toFixed(2)}ms to complete.`
+    )}ms (avg: ${styles.bold(colors.magenta(`${avg.toFixed(2)}ms`))})`,
+    '\n',
+    GraphQLHighlighter.instance.highlight(info)
   );
 };
 

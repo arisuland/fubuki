@@ -17,30 +17,37 @@
  */
 
 import type { ObjectFieldNode, ValueNode } from 'graphql';
+import { colors } from 'leeks.js';
 import { withIndex } from '..';
 
-const formatArgValue = (value: ValueNode) => {
+const formatArgValue = (value: ValueNode, colorize = false) => {
   let formatted = '';
   switch (value.kind) {
     case 'StringValue':
-      formatted += `"${value.value}"`;
+      formatted += colorize ? colors.gray(`"${value.value}"`) : `"${value.value}"`;
       break;
 
     case 'NullValue':
-      formatted += 'null';
+      formatted += colorize ? colors.gray('null') : 'null';
       break;
 
     case 'IntValue':
     case 'FloatValue':
-      formatted += value.value;
+      formatted += colorize ? colors.gray(value.value) : value.value;
       break;
 
     case 'BooleanValue':
-      formatted += value.value ? 'true' : 'false';
+      formatted += colorize
+        ? value.value
+          ? colors.green('true')
+          : colors.red('false')
+        : value.value
+        ? 'true'
+        : 'false';
       break;
 
     case 'EnumValue':
-      formatted += value.value;
+      formatted += colorize ? colors.white(value.value) : value.value;
       break;
 
     case 'ObjectValue':

@@ -16,10 +16,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import type { Container } from '@augu/lilith';
+import { SqlHighlighter } from '@mikro-orm/sql-highlighter';
+import { Container, useContainer } from '@augu/lilith';
 import { PrismaClient } from '@prisma/client';
 import { Logger } from 'tslog';
+import { calculateHRTime } from '@augu/utils';
+import { colors, styles } from 'leeks.js';
 
+const highlighter = new SqlHighlighter();
 export async function teardown(this: Container, prisma: PrismaClient) {
   const logger: Logger = this.$ref(Logger);
   logger.warn('Tearing down Prisma client...');
@@ -27,9 +31,37 @@ export async function teardown(this: Container, prisma: PrismaClient) {
   await prisma.$disconnect();
 }
 
-// Why not a seperate variable for this?
-//
-// Lilith doesn't create new instances everytime it is
-// referenced in @Inject, so doing `new PrismaClient` is safe
-// in that regard.
-export default new PrismaClient();
+const client = new PrismaClient({
+  errorFormat: 'pretty',
+  log: [
+    {
+      emit: 'event',
+      level: 'query',
+    },
+  ],
+});
+
+client.$on('query', (event) => {
+  const container = useContainer();
+  const logger: Logger = container.$ref(Logger);
+
+  logger.debug(`SQL query executed:\n${highlighter.highlight(event.query)}`);
+});
+
+client.$use(async (params, next) => {
+  const container = useContainer();
+  const logger: Logger = container.$ref(Logger);
+
+  const before = process.hrtime();
+  const result = await next(params);
+  const after = calculateHRTime(before);
+  logger.debug(
+    `${styles.bold(
+      colors.cyan(`${params.model}${colors.white('->')}${styles.bold(colors.cyan(params.action))}`)
+    )} ~ Executed operation in ${after.toFixed(2)}ms`
+  );
+
+  return result;
+});
+
+export default client;
