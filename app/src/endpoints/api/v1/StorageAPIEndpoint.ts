@@ -19,8 +19,12 @@
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import StorageProviderService from '~/core/services/StorageProviderService';
 import { Endpoint, Route } from '~/core';
+import type { File } from '~/storage';
 import { Inject } from '@augu/lilith';
 import { Logger } from 'tslog';
+
+// import library to include typings
+import 'fastify-multipart';
 
 type StorageDetailRequest = FastifyRequest<{
   Params: {
@@ -94,17 +98,93 @@ export default class StorageAPIEndpoint {
   }
 
   @Route('/:user/:project/upload', 'GET')
-  uploadGet(_: StorageDetailRequest, reply: FastifyReply) {
+  uploadGet(req: StorageDetailRequest, reply: FastifyReply) {
     return reply
       .type('application/json')
       .status(405)
       .send({
-        message: `Route /api/v1/storage/${_.params.user}/${_.params.project}/upload only accepts POST requests.`,
+        message: `Route /api/v1/storage/${req.params.user}/${req.params.project}/upload only accepts POST requests.`,
       });
   }
 
   @Route('/:user/:project/upload', 'POST')
   async upload(req: StorageDetailRequest, reply: FastifyReply) {
-    return reply.status(200).send('coming soon. <3');
+    if (!req.user)
+      return reply.status(403).send({
+        message: 'You are not allowed to acces upload resource, please login or create an access token.',
+      });
+
+    // TODO: check for permissions
+    if (!req.isMultipart())
+      return reply.status(415).send({
+        message: 'Request was not a multipart upload.',
+      });
+
+    const file = await req.file({
+      limits: {
+        fileSize: 100 * (1024 * 1024), // 100mb is only allowed (maybe TODO - add premium support for ~500mb single file uploads?)
+        files: 1, // one one file is allowed
+      },
+    });
+
+    this.logger.debug(`Uploading file ${file.filename} (field-name: ${file.fieldname})`);
+    const buffer = await file.toBuffer();
+    await this.storage.handle([
+      {
+        project: [req.params.user, req.params.project],
+        name: file.filename,
+        contents: buffer,
+        metadata: {
+          contentType: file.mimetype,
+          size: buffer.length,
+        },
+      },
+    ]);
+
+    return reply.status(204).send();
+  }
+
+  @Route('/:user/:project/upload/bulk', 'GET')
+  uploadBulkGet(req: StorageDetailRequest, reply: FastifyReply) {
+    return reply
+      .type('application/json')
+      .status(405)
+      .send({
+        message: `Route /api/v1/storage/${req.params.user}/${req.params.project}/upload/bulk only accepts POST requests.`,
+      });
+  }
+
+  @Route('/:user/:project/upload/bulk', 'POST')
+  async uploadBulk(req: StorageDetailRequest, reply: FastifyReply) {
+    if (!req.user)
+      return reply.status(403).send({
+        message: 'You are not allowed to acces upload resource, please login or create an access token.',
+      });
+
+    // TODO: check for permissions
+    if (!req.isMultipart())
+      return reply.status(415).send({
+        message: 'Request was not a multipart upload.',
+      });
+
+    let fileToUpload: File[] = [];
+
+    // eslint-disable-next-line
+    for await (const file of req.files({ limits: { fileSize: 100 * (1024 * 1024) } })) {
+      const contents = await file.toBuffer();
+
+      fileToUpload.push({
+        project: [req.params.user, req.params.project],
+        name: file.filename,
+        contents,
+        metadata: {
+          contentType: file.mimetype,
+          size: Buffer.byteLength(contents),
+        },
+      });
+    }
+
+    await this.storage.handle(fileToUpload);
+    return reply.status(204).send();
   }
 }

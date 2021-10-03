@@ -148,7 +148,13 @@ export default class HttpServer {
     );
 
     await apollo.start();
-    this.#server.register(authPlugin).register(logPlugin).register(ratelimitsPlugin).register(apollo.createHandler());
+    this.#server
+      .register(require('fastify-multipart'))
+      .register(require('fastify-no-icon'))
+      .register(authPlugin)
+      .register(logPlugin)
+      .register(ratelimitsPlugin)
+      .register(apollo.createHandler());
 
     return this.#server.listen(
       {

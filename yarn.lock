@@ -113,6 +113,7 @@ __metadata:
     "@tailwindcss/forms": 0.3.4
     "@tailwindcss/typography": 0.4.1
     "@types/bree": 6.2.1
+    "@types/busboy": 0.2.4
     "@types/ioredis": 4.27.5
     "@types/jest": 27.0.2
     "@types/js-yaml": 4.0.3
@@ -131,7 +132,8 @@ __metadata:
     eslint: 7.32.0
     eslint-config-prettier: 8.3.0
     fastify: 3.22.0
-    fastify-cors: 6.0.2
+    fastify-multipart: 5.0.1
+    fastify-no-icon: 4.0.0
     gc-stats: 1.4.0
     graphql: 15.5.3
     graphql-redis-subscriptions: 2.4.0
@@ -5551,6 +5553,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/busboy@npm:0.2.4":
+  version: 0.2.4
+  resolution: "@types/busboy@npm:0.2.4"
+  dependencies:
+    "@types/node": "*"
+  checksum: bc60257557c65cc8c5a68d38292b807a6a797111d60feaccf9815c9fe724eb10687794996212728ec6893b8967f42e02cd83445dfdce37f583ce1b383d6d330a
+  languageName: node
+  linkType: hard
+
 "@types/configstore@npm:*":
   version: 5.0.1
   resolution: "@types/configstore@npm:5.0.1"
@@ -7619,6 +7630,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"busboy@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "busboy@npm:0.3.1"
+  dependencies:
+    dicer: 0.3.0
+  checksum: d2bcb788c4595edca4ea2168ab8bf7f9558b627ddcec2fb6bbaf0aa6a10b63da48dce35ce56936570f330c5268a3204f7037021a310a895a8b1a223568e0cc1b
+  languageName: node
+  linkType: hard
+
 "bytes@npm:3.1.0":
   version: 3.1.0
   resolution: "bytes@npm:3.1.0"
@@ -8850,6 +8870,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dicer@npm:0.3.0":
+  version: 0.3.0
+  resolution: "dicer@npm:0.3.0"
+  dependencies:
+    streamsearch: 0.1.2
+  checksum: 9f61aea61fcd81457f1b43967af7e66415b7a31d393336fa05a29b221b5ba065b99e5cac46476b2da36eb7af7665bf8dad6f9500409116dc6a35ada183841598
+  languageName: node
+  linkType: hard
+
 "diff-sequences@npm:^27.0.6":
   version: 27.0.6
   resolution: "diff-sequences@npm:27.0.6"
@@ -9116,7 +9145,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"end-of-stream@npm:^1.1.0, end-of-stream@npm:^1.4.1":
+"end-of-stream@npm:^1.1.0, end-of-stream@npm:^1.4.1, end-of-stream@npm:^1.4.4":
   version: 1.4.4
   resolution: "end-of-stream@npm:1.4.4"
   dependencies:
@@ -9802,7 +9831,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-cors@npm:6.0.2, fastify-cors@npm:^6.0.0":
+"fastify-cors@npm:^6.0.0":
   version: 6.0.2
   resolution: "fastify-cors@npm:6.0.2"
   dependencies:
@@ -9816,6 +9845,39 @@ __metadata:
   version: 0.3.1
   resolution: "fastify-error@npm:0.3.1"
   checksum: fd6a0f6f87b5e4ab59a4d3d66124bd13830a1cf85cf1987259dfb1175fc6a4bcae68b076ad78f6bb06654f72af133b44813090e9ce5502d2ef56ddcb2b0fa867
+  languageName: node
+  linkType: hard
+
+"fastify-multipart@npm:5.0.1":
+  version: 5.0.1
+  resolution: "fastify-multipart@npm:5.0.1"
+  dependencies:
+    busboy: ^0.3.1
+    deepmerge: ^4.2.2
+    end-of-stream: ^1.4.4
+    fastify-error: ^0.3.0
+    fastify-plugin: ^3.0.0
+    hexoid: ^1.0.0
+    stream-wormhole: ^1.1.0
+  checksum: 85e793b91f0f9b234745f30d4b78c074a4047addf97ea455d92e9f78e90e426d596e30bc0669e82cea31bc04525567c7a40a0f7d8054e9b69ec167562da595e4
+  languageName: node
+  linkType: hard
+
+"fastify-no-icon@npm:4.0.0":
+  version: 4.0.0
+  resolution: "fastify-no-icon@npm:4.0.0"
+  dependencies:
+    fastify-plugin: ^2.3.0
+  checksum: a1db2b95f1ce02d1a57ac057efdfbf4ae15236d2a11264ae5b0d230ffbfac912fb801764d0a630f2e1ac434d144268b1f8345a365264bbe902490c8a6d9ab92a
+  languageName: node
+  linkType: hard
+
+"fastify-plugin@npm:^2.3.0":
+  version: 2.3.4
+  resolution: "fastify-plugin@npm:2.3.4"
+  dependencies:
+    semver: ^7.3.2
+  checksum: 19ce9ec783c2c59c56a8a4854bba15367c447fc74ff300ccaefa99276f2d009854626425df2346aa4cbe9f09617b88bfd080f922056771ccec2d0bca505afed1
   languageName: node
   linkType: hard
 
@@ -10824,6 +10886,13 @@ __metadata:
     capital-case: ^1.0.4
     tslib: ^2.0.3
   checksum: 571c83eeb25e8130d172218712f807c0b96d62b020981400bccc1503a7cf14b09b8b10498a962d2739eccf231d950e3848ba7d420b58a6acd2f9283439546cd9
+  languageName: node
+  linkType: hard
+
+"hexoid@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "hexoid@npm:1.0.0"
+  checksum: 27a148ca76a2358287f40445870116baaff4a0ed0acc99900bf167f0f708ffd82e044ff55e9949c71963852b580fc024146d3ac6d5d76b508b78d927fa48ae2d
   languageName: node
   linkType: hard
 
@@ -17002,6 +17071,20 @@ resolve@^2.0.0-next.3:
   version: 1.0.1
   resolution: "stream-shift@npm:1.0.1"
   checksum: 59b82b44b29ec3699b5519a49b3cedcc6db58c72fb40c04e005525dfdcab1c75c4e0c180b923c380f204bed78211b9bad8faecc7b93dece4d004c3f6ec75737b
+  languageName: node
+  linkType: hard
+
+"stream-wormhole@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "stream-wormhole@npm:1.1.0"
+  checksum: cc19e0235c5d031bd530fa83913c807d9525fa4ba33d51691dd822c0726b8b7ef138b34f289d063a3018cddba67d3ba7fd0ecedaa97242a0f1ed2eed3c6a2ab1
+  languageName: node
+  linkType: hard
+
+"streamsearch@npm:0.1.2":
+  version: 0.1.2
+  resolution: "streamsearch@npm:0.1.2"
+  checksum: d2db57cbfbf7947ab9c75a7b4c80a8ef8d24850cf0a1a24258bb6956c97317ce1eab7dbcbf9c5aba3e6198611af1053b02411057bbedb99bf9c64b8275248997
   languageName: node
   linkType: hard
 

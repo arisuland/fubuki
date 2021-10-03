@@ -16,5 +16,5 @@
     "esModuleInterop": true
   },
   "exclude": ["node_modules", "jest.config.ts", "tests/**/*.(spec|test).ts"],
-  "include": ["**/*.ts", ".env", "*.prisma"] // include .env in emit
+  "include": ["**/*.ts"]
 }

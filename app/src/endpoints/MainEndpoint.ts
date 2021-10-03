@@ -29,9 +29,4 @@ export default class MainEndpoint {
       docs_url: 'https://docs.arisu.land',
     });
   }
-
-  @Route('/favicon.ico', 'GET')
-  favicon(_: FastifyRequest, reply: FastifyReply) {
-    return reply.status(404).send('Cannot GET /favicon.ico');
-  }
 }

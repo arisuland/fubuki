@@ -19,6 +19,10 @@
 import type { FastifyPluginCallback } from 'fastify';
 import type { Users } from '.prisma/client';
 import fp from 'fastify-plugin';
+import { useContainer } from '@augu/lilith';
+import { PrismaClient } from '@prisma/client';
+import SessionTokenService from '~/core/services/SessionTokenStore';
+import { Security } from '~/util';
 
 declare module 'fastify' {
   interface FastifyRequest {
@@ -31,6 +35,78 @@ const authentication: FastifyPluginCallback<any> = (server, _, done) => {
   // type-graphql will type this for us, so...
   server.decorateRequest('user', null);
   server.decorateRequest('sessionToken', undefined);
+
+  server.addHook('onRequest', async (req, reply, done) => {
+    // type-graphql does the job for GraphQL
+    if (req.url === '/graphql' && req.method === 'POST') return done();
+
+    // Now we fetch! But first, the container is not visible by request
+    // or server, so...
+    const container = useContainer();
+    const prisma = container.$ref<PrismaClient>(PrismaClient);
+    const sessions = container.$ref<SessionTokenService>(SessionTokenService);
+
+    if (req.headers.authorization !== undefined) {
+      const [prefix, token] = req.headers.authorization.split(' ', 2);
+      if (!prefix) {
+        reply.status(401).send({
+          message: 'Missing `Bearer` token.',
+        });
+
+        done();
+        return;
+      }
+
+      if (!token) {
+        reply.status(401).send({
+          message: 'Missing token to use.',
+        });
+
+        done();
+        return;
+      }
+
+      if (prefix !== 'Bearer') {
+        reply.status(401).send({
+          message: 'Token prefix was not prefixed with `Bearer`',
+        });
+
+        done();
+        return;
+      }
+
+      const validated = Security.validate(token);
+      if (validated === null) {
+        reply.status(404).send({
+          message: 'Invalid token or token was expired.',
+        });
+
+        done();
+        return;
+      }
+
+      const user = await prisma.users.findUnique({
+        where: {
+          id: validated.user,
+        },
+      });
+
+      if (user === null) {
+        reply.status(404).send({
+          message: 'User with token was not found.',
+        });
+
+        done();
+        return;
+      }
+
+      req.user = user;
+      req.sessionToken = token;
+      done();
+    }
+
+    done();
+  });
 
   done();
 };

@@ -88,7 +88,7 @@ export interface File {
   /**
    * The file contents
    */
-  contents: string;
+  contents: Buffer;
 }
 
 /**

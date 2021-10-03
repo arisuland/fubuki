@@ -69,8 +69,7 @@ export default class GoogleCloudProvider implements StorageProvider<IStorageConf
   async init() {
     this.logger.info('Loading Google Cloud Storage provider...');
     this.logger.warn(
-      'GCS is in alpha mode, things will break. Report bugs at here: https://github.com/auguwu/Arisu/issues',
-      { provider: 'gcs' }
+      'GCS is in alpha mode, things will break. Report bugs at here: https://github.com/auguwu/Arisu/issues'
     );
 
     this.storage = new Storage();
