@@ -114,7 +114,7 @@ __metadata:
     "@tailwindcss/typography": 0.4.1
     "@types/bree": 6.2.1
     "@types/busboy": 0.2.4
-    "@types/ioredis": 4.27.5
+    "@types/ioredis": 4.27.6
     "@types/jest": 27.0.2
     "@types/js-yaml": 4.0.3
     "@types/mime-types": 2.1.1
@@ -138,7 +138,7 @@ __metadata:
     graphql: 15.5.3
     graphql-redis-subscriptions: 2.4.0
     graphql-scalars: 1.10.1
-    ioredis: 4.27.9
+    ioredis: 4.27.10
     is-docker: 2.2.1
     is-kubernetes: 1.0.1
     is-root: 2.1.0
@@ -5627,7 +5627,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ioredis@npm:4.27.5, @types/ioredis@npm:^4.27.1":
+"@types/ioredis@npm:4.27.6":
+  version: 4.27.6
+  resolution: "@types/ioredis@npm:4.27.6"
+  dependencies:
+    "@types/node": "*"
+  checksum: d8ad39308071a3f820edc5c2cdac78900d76df1778c1053f23dfcb0eef214a7c43757f22e60adf5bb8d19f86d6512ea175228b49bea73efb11de6f7c0ae19f52
+  languageName: node
+  linkType: hard
+
+"@types/ioredis@npm:^4.27.1":
   version: 4.27.5
   resolution: "@types/ioredis@npm:4.27.5"
   dependencies:
@@ -11330,7 +11339,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:4.27.9, ioredis@npm:^4.17.3, ioredis@npm:^4.27.8":
+"ioredis@npm:4.27.10":
+  version: 4.27.10
+  resolution: "ioredis@npm:4.27.10"
+  dependencies:
+    cluster-key-slot: ^1.1.0
+    debug: ^4.3.1
+    denque: ^1.1.0
+    lodash.defaults: ^4.2.0
+    lodash.flatten: ^4.4.0
+    lodash.isarguments: ^3.1.0
+    p-map: ^2.1.0
+    redis-commands: 1.7.0
+    redis-errors: ^1.2.0
+    redis-parser: ^3.0.0
+    standard-as-callback: ^2.1.0
+  checksum: 798f57bbf6891ad4decb3338e992eb6c0f89dd99d0dd4377ea4a8340403aac66f8048a5d67aa8a5df24a56c7fd3fc864ac58f2b0f45901e228eebbe57887c5b2
+  languageName: node
+  linkType: hard
+
+"ioredis@npm:^4.17.3, ioredis@npm:^4.27.8":
   version: 4.27.9
   resolution: "ioredis@npm:4.27.9"
   dependencies:
