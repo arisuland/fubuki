@@ -137,7 +137,7 @@ __metadata:
     gc-stats: 1.4.0
     graphql: 15.6.1
     graphql-redis-subscriptions: 2.4.0
-    graphql-scalars: 1.10.1
+    graphql-scalars: 1.11.0
     ioredis: 4.27.10
     is-docker: 2.2.1
     is-kubernetes: 1.0.1
@@ -10727,14 +10727,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-scalars@npm:1.10.1":
-  version: 1.10.1
-  resolution: "graphql-scalars@npm:1.10.1"
+"graphql-scalars@npm:1.11.0":
+  version: 1.11.0
+  resolution: "graphql-scalars@npm:1.11.0"
   dependencies:
     tslib: ~2.3.0
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
-  checksum: ce5c2709ab2f898d4db608f739894499905c1fc7ed02230a3c4595580405c4a3b435de376288fea484b071fe305a790b6f69f6cea8598b4646eeeaf49c5777bd
+  checksum: 5a62f5c427a5f183649a7fea6c6bf27c14a81bd6ba70431fab4eac67ecc051c2098f9bacb4950ee28c14d455be75e2c73d911f140f7c1a3eec048d5f5d687636
   languageName: node
   linkType: hard
 
