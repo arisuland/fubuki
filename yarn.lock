@@ -106,7 +106,7 @@ __metadata:
     "@augu/tsconfig": 1.1.1
     "@augu/utils": 1.5.6
     "@aws-sdk/client-s3": 3.35.0
-    "@google-cloud/storage": 5.14.5
+    "@google-cloud/storage": 5.14.6
     "@mikro-orm/sql-highlighter": 1.0.1
     "@prisma/client": 3.2.0
     "@sentry/node": 6.12.0
@@ -3717,9 +3717,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/storage@npm:5.14.5":
-  version: 5.14.5
-  resolution: "@google-cloud/storage@npm:5.14.5"
+"@google-cloud/storage@npm:5.14.6":
+  version: 5.14.6
+  resolution: "@google-cloud/storage@npm:5.14.6"
   dependencies:
     "@google-cloud/common": ^3.7.0
     "@google-cloud/paginator": ^3.0.0
@@ -3740,7 +3740,7 @@ __metadata:
     snakeize: ^0.1.0
     stream-events: ^1.0.1
     xdg-basedir: ^4.0.0
-  checksum: 4d0fee319bfa753034a7da02d888c4a249cba9ad327f30df8b6c992a58b37c91554ec98b0bd38f76bf79cd220d7090287a089750152b8e53cea820ad76941064
+  checksum: 930d02a80afffe7f512277281bc34b2dfabff1fb6712544788e07413a857870c05b923b7b8f2c2d7f83d034dd39bff0d3132713632079e6ec8f367923ae0e1ee
   languageName: node
   linkType: hard
 
