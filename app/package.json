@@ -30,7 +30,7 @@
     "@google-cloud/storage": "5.14.6",
     "@mikro-orm/sql-highlighter": "1.0.1",
     "@prisma/client": "3.2.0",
-    "@sentry/node": "6.12.0",
+    "@sentry/node": "6.13.3",
     "@tailwindcss/forms": "0.3.4",
     "@tailwindcss/typography": "0.4.1",
     "apollo-server-fastify": "3.3.0",
