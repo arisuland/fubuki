@@ -29,7 +29,7 @@
     "@fontsource/noto-sans": "4.5.1",
     "framer-motion": "4.1.17",
     "luxon": "2.0.2",
-    "marked": "3.0.6",
+    "marked": "3.0.7",
     "next": "11.1.2",
     "next-pwa": "5.3.1",
     "next-sitemap": "1.6.179",
