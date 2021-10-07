@@ -245,7 +245,7 @@ __metadata:
     eslint-plugin-react: 7.26.1
     framer-motion: 4.1.17
     luxon: 2.0.2
-    marked: 3.0.6
+    marked: 3.0.7
     next: 11.1.2
     next-pwa: 5.3.1
     next-sitemap: 1.6.179
@@ -13592,12 +13592,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:3.0.6":
-  version: 3.0.6
-  resolution: "marked@npm:3.0.6"
+"marked@npm:3.0.7":
+  version: 3.0.7
+  resolution: "marked@npm:3.0.7"
   bin:
     marked: bin/marked
-  checksum: 4ef99d94dfd1defeb110ec8e5c52c96e6943938332c60bac0256ec8b2995bf87237f3be2eadf9e96cf5a05ebb1f15023b7496b9272167cef094c814d384180dd
+  checksum: f77260b835ec6707ad38e9e4774694bbd2322cc39bc6dc8b11eb7c8c5eef03ed19f50c0b32e5c85fb58491f91008ba8ecef5530489fbf8b0f6c57ef884f45402
   languageName: node
   linkType: hard
 
