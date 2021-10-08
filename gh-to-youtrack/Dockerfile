@@ -10,7 +10,4 @@ RUN yarn
 RUN yarn build
 RUN yarn cache clean
 
-# Give it executable permissions
-RUN chmod +x ./docker/start.sh
-
 ENTRYPOINT [ "yarn", "start" ]

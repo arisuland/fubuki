@@ -1,5 +1,5 @@
 {
-  "name": "@arisu/arisu",
+  "name": "@arisu/tsubaki",
   "description": "☔ Translation made with simplicity, but robust in mind. Made with 💖 TypeScript, using Vue with Nuxt.js.",
   "version": "1.0.0-alpha.0",
   "main": "build/main.js",

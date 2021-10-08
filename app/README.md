@@ -1,5 +1,5 @@
 <div align='center'>
-  <h2>☔ Arisu</h2>
+  <h2>☔ Tsubaki</h2>
   <div align='center'>
     <a href="https://arisu.land"><strong>Website</strong></a>  •  <a href="https://arisu.land/discord"><strong>Discord</strong></a>   •   <a href="https://github.com/auguwu/Arisu/discussions"><strong>Discussions</strong></a>
   </div>
@@ -9,7 +9,7 @@
 
 ### What is this folder?
 
-This folder contains all the application code for Arisu.
+This folder contains all the application code for Arisu, this is code-named **Tsubaki**.
 
 ## Tech Stack
 
