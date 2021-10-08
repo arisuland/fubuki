@@ -39,7 +39,7 @@
     "shiki": "0.9.11",
     "subscriptions-transport-ws": "0.9.19",
     "twemoji": "13.1.0",
-    "xss": "1.0.9"
+    "xss": "1.0.10"
   },
   "devDependencies": {
     "@augu/eslint-config": "2.2.0",

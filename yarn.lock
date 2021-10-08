@@ -257,7 +257,7 @@ __metadata:
     subscriptions-transport-ws: 0.9.19
     twemoji: 13.1.0
     typescript: 4.4.3
-    xss: 1.0.9
+    xss: 1.0.10
   languageName: unknown
   linkType: soft
 
@@ -19393,7 +19393,19 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"xss@npm:1.0.9, xss@npm:^1.0.8":
+"xss@npm:1.0.10":
+  version: 1.0.10
+  resolution: "xss@npm:1.0.10"
+  dependencies:
+    commander: ^2.20.3
+    cssfilter: 0.0.10
+  bin:
+    xss: bin/xss
+  checksum: 0dbc70a716020d854569610d5bc949ba9d3b7f530b7af5508ffe84edaea228c34a4e1227f71cb3a4741373b1c49c3cb691f69dddefda45a594a31f112ae6a738
+  languageName: node
+  linkType: hard
+
+"xss@npm:^1.0.8":
   version: 1.0.9
   resolution: "xss@npm:1.0.9"
   dependencies:
