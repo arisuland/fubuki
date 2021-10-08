@@ -25,15 +25,14 @@ export type BitResolvable<T extends {}> = string | number | keyof T | Bitfield<T
  * Represents a {@link Bitfield} class to handle bitwise operations.
  */
 export default class Bitfield<T extends {}> {
-  ['constructor']!: typeof Bitfield;
-  static FLAGS: {};
+  static FLAGS: {} = {};
   bits: number = 0;
 
   /**
    * @param bits The number of bits to use
    */
   constructor(bits: BitResolvable<T> = 0) {
-    this.bits = this.constructor.resolve<T>(bits);
+    this.bits = (this.constructor as typeof Bitfield).resolve<T>(bits);
   }
 
   private static resolve<T extends object>(bits: BitResolvable<T>): number {
@@ -45,14 +44,15 @@ export default class Bitfield<T extends {}> {
       if (!Number.isNaN(bits)) return Number(bits);
     }
 
+    if (!isNaN(Number(bits))) return Number(bits);
     throw new RangeError(`Cannot resolve bit "${bits}".`);
   }
 
   add(...bits: BitResolvable<T>[]) {
     let total = this.bits;
-    for (const bit of bits) total |= this.constructor.resolve(bit);
+    for (const bit of bits) total |= (this.constructor as typeof Bitfield).resolve(bit);
 
-    if (Object.isFrozen(this)) return new this.constructor(this.bits | total);
+    if (Object.isFrozen(this)) return new (this.constructor as typeof Bitfield)(this.bits | total);
     this.bits |= total;
 
     return this;
@@ -60,16 +60,16 @@ export default class Bitfield<T extends {}> {
 
   remove(...bits: BitResolvable<T>[]) {
     let total = this.bits;
-    for (const bit of bits) total |= this.constructor.resolve(bit);
+    for (const bit of bits) total |= (this.constructor as typeof Bitfield).resolve(bit);
 
-    if (Object.isFrozen(this)) return new this.constructor(this.bits & ~total);
+    if (Object.isFrozen(this)) return new (this.constructor as typeof Bitfield)(this.bits & ~total);
     this.bits &= ~total;
 
     return this;
   }
 
   has(bit: BitResolvable<T>) {
-    const b = this.constructor.resolve<T>(bit);
+    const b = (this.constructor as typeof Bitfield).resolve<T>(bit);
     return (this.bits & b) === b;
   }
 }

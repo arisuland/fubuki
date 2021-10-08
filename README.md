@@ -4,7 +4,7 @@
     <a href="https://arisu.land"><strong>Website</strong></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="https://arisu.land/discord"><strong>Discord</strong></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="https://github.com/auguwu/Arisu/discussions"><strong>Discussions</strong></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="https://youtrack.floofy.dev/projects/4381512b-a4dc-4fc1-ae7c-82d178a99aa1"><strong>Issue Tracker</strong></a>    
   </div>
   <br />
-  <blockquote>Translation made with simplicity, yet robust. Made with 💖 using <a href='https://typescriptlang.org'><strong>TypeScript</strong></a>, <a href='https://reactjs.org'><strong>React</strong></a> with <a href='https://nextjs.org'><strong>Next.js</strong></a>.</blockquote>
+  <blockquote>Translation made with simplicity, yet robust. Made with 💖 using <a href='https://typescriptlang.org'><strong>TypeScript</strong></a>, <a href='https://vuejs.org'><strong>Vue</strong></a> with <a href='https://nuxtjs.org'><strong>Nuxt.js</strong></a>.</blockquote>
 </div>
 
 ## Features
@@ -27,6 +27,8 @@ Arisu is split into different packages, each of which is a seperate folder in th
 - [**github-bot**](./github-bot) — A GitHub bot that automatically syncs your translations with GitHub.
 - [**typings**](./typings) — A package that provides typings for Arisu's JavaScript SDKs.
 - [**web**](./web) — Web application that runs [arisu.land](https://arisu.land)
+- [**gh-to-youtrack**](./gh-to-youtrack) — Simple microservice to handle posting issues from GitHub towards
+  our [YouTrack](https://youtrack.floofy.dev/projects/4381512b-a4dc-4fc1-ae7c-82d178a99aa1) instance.
 
 There are other projects within the Arisu ecosystem, but they are split into different repositories under the **arisuland** organization.
 

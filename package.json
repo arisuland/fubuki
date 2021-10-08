@@ -2,6 +2,7 @@
   "name": "@arisu/root",
   "private": true,
   "workspaces": [
+    "gh-to-youtrack/",
     "github-bot/",
     "typings/",
     "app/",

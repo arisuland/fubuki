@@ -16,31 +16,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-// Import fonts
-import '@fontsource/cantarell';
-import '@fontsource/jetbrains-mono';
-import '@fontsource/noto-sans';
+/* eslint-disable camelcase */
 
-// Import stuffs
-import { ChakraProvider } from '@chakra-ui/react';
-import type { AppProps } from 'next/app';
-import { UserProvider } from '~/hooks/useUser';
-import theme from '../theme';
-import Head from 'next/head';
+import type { FastifyReply, FastifyRequest } from 'fastify';
+import { Endpoint, Route } from '~/core';
 
-// Arisu is just "Alice" translated from Japanese :shrug:
-export default function AliceApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <Head>
-        <title>Arisu</title>
-      </Head>
-
-      <UserProvider>
-        <ChakraProvider resetCSS theme={theme}>
-          <Component {...pageProps} />
-        </ChakraProvider>
-      </UserProvider>
-    </>
-  );
+@Endpoint('/integrations/github')
+export default class GitHubIntegrationEndpoint {
+  @Route('/', 'GET')
+  get(_: FastifyRequest, reply: FastifyReply) {
+    return reply.status(404).send('Cannot GET /integrations/github');
+  }
 }

@@ -16,23 +16,15 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-const withPWA = require('next-pwa');
+/* eslint-disable camelcase */
 
-/**
- * Represents the base configuration for Next.js
- * @type {import('next').NextConfig}
- */
-const baseConfig = {
-  productionBrowserSourceMaps: true,
-  poweredByHeader: false,
-  webpack5: true,
-  images: {
-    domains: ['cdn.floofy.dev', 'cdn.arisu.land'],
-  },
-  eslint: {
-    // ESLint gets run during docker build / ci, so not needed.
-    ignoreDuringBuilds: true,
-  },
-};
+import type { FastifyReply, FastifyRequest } from 'fastify';
+import { Endpoint, Route } from '~/core';
 
-module.exports = withPWA(baseConfig);
+@Endpoint('/integrations')
+export default class IntegrationsEndpoint {
+  @Route('/', 'GET')
+  get(_: FastifyRequest, reply: FastifyReply) {
+    return reply.status(404).send('Cannot GET /integrations');
+  }
+}

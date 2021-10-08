@@ -23,6 +23,7 @@ import type { MiddlewareFn } from 'type-graphql';
 const mod: MiddlewareFn<ArisuContext> = async ({ context }, next) => {
   if (!context.req.user) throw new Error('unable to obtain user.');
 
+  console.log(context.req.user);
   const flags = new UserFlags(context.req.user.flags);
   let isAdmin = flags.has('Admin') || flags.has('Owner');
 

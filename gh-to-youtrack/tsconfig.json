@@ -1,0 +1,14 @@
+{
+  "extends": "@augu/tsconfig",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "typeRoots": ["./src/@types", "./node_modules/@types"],
+    "types": ["node"],
+    "outDir": "./build",
+    "rootDir": "./src",
+    "skipLibCheck": true,
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules", "jest.config.ts", "tests/**/*.(spec|test).ts"],
+  "include": ["src/**/*.ts"]
+}

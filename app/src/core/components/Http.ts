@@ -44,6 +44,7 @@ import logPlugin from '~/core/middleware/logging';
 import { ArisuContext, resolvers } from '~/graphql';
 import { error, log } from '~/graphql/middleware';
 import { requestsHit } from '../registry/PrometheusRegistry';
+import IORedis from 'ioredis';
 
 const mergePrefixes = (prefix: string, other: string) => (prefix === '/' ? other : `${prefix}${other}`);
 
@@ -95,15 +96,14 @@ export default class HttpServer {
           };
 
     this.#pubSub = new RedisPubSub({
-      connection: config,
-      connectionListener: (error) => {
-        if (error !== undefined) {
-          this.logger.error('Recieved an exception while running the PubSub client:', error);
-          return;
-        }
-
-        this.logger.info('PubSub client has successfully made a connection.');
-      },
+      publisher: new IORedis({
+        ...config,
+        connectionName: 'arisu:pubsub:publisher',
+      }),
+      subscriber: new IORedis({
+        ...config,
+        connectionName: 'arisu:pubsub:subscriber',
+      }),
     });
 
     const schema = await buildSchema({
@@ -175,6 +175,7 @@ export default class HttpServer {
   async dispose() {
     this.logger.info('Closing server...');
 
+    this.#subscriptionServer.close();
     await this.#pubSub.close();
     await this.#server.close();
   }

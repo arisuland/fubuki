@@ -121,7 +121,16 @@ export default class ZodError {
   // eslint-disable-next-line
   options?: Array<typeof ZodPath>;
 
+  @Field(() => [ZodError], {
+    description: 'Returns a list of ZodError objects that went wrong in the arguments when validating.',
+    nullable: true,
+  })
   argumentsError?: ZodError[];
+
+  @Field(() => [ZodError], {
+    description: 'Returns a list of ZodError objects that went wrong in the return type.',
+    nullable: true,
+  })
   returnTypeError?: ZodError[];
   validation?: 'email' | 'url' | 'uuid' | 'regex' | 'cuid';
   maximum?: number;
@@ -131,3 +140,54 @@ export default class ZodError {
   mutipleOf?: number;
   params?: Record<string, any>;
 }
+
+/*
+export interface ZodInvalidArgumentsIssue extends ZodIssueBase {
+  code: typeof ZodIssueCode.invalid_arguments;
+  argumentsError: ZodError;
+}
+
+export interface ZodInvalidReturnTypeIssue extends ZodIssueBase {
+  code: typeof ZodIssueCode.invalid_return_type;
+  returnTypeError: ZodError;
+}
+
+export interface ZodInvalidDateIssue extends ZodIssueBase {
+  code: typeof ZodIssueCode.invalid_date;
+}
+
+export type StringValidation = "email" | "url" | "uuid" | "regex" | "cuid";
+
+export interface ZodInvalidStringIssue extends ZodIssueBase {
+  code: typeof ZodIssueCode.invalid_string;
+  validation: StringValidation;
+}
+
+export interface ZodTooSmallIssue extends ZodIssueBase {
+  code: typeof ZodIssueCode.too_small;
+  minimum: number;
+  inclusive: boolean;
+  type: "array" | "string" | "number";
+}
+
+export interface ZodTooBigIssue extends ZodIssueBase {
+  code: typeof ZodIssueCode.too_big;
+  maximum: number;
+  inclusive: boolean;
+  type: "array" | "string" | "number";
+}
+
+export interface ZodInvalidIntersectionTypesIssue extends ZodIssueBase {
+  code: typeof ZodIssueCode.invalid_intersection_types;
+}
+
+export interface ZodNotMultipleOfIssue extends ZodIssueBase {
+  code: typeof ZodIssueCode.not_multiple_of;
+  multipleOf: number;
+}
+
+export interface ZodCustomIssue extends ZodIssueBase {
+  code: typeof ZodIssueCode.custom;
+  params?: { [k: string]: any };
+}
+*/

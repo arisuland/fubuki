@@ -16,11 +16,30 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { baseUrl, protocol } from './apollo';
-import { HttpClient } from '@augu/orchid';
-import { version } from '@/package.json';
+/* eslint-disable camelcase */
 
-export default new HttpClient({
-  userAgent: `Arisu/Frontend (+https://github.com/auguwu/Arisu; v${version})`,
-  baseUrl: `${protocol}://${baseUrl}`,
-});
+import type { FastifyReply, FastifyRequest } from 'fastify';
+import { PrismaClient } from '@prisma/client';
+import { HttpClient } from '@augu/orchid';
+import { Endpoint, Route } from '~/core';
+import { Inject } from '@augu/lilith';
+
+@Endpoint('/integrations/github/webhook')
+export default class GitHubIntegrationWebhookEndpoint {
+  @Inject
+  private readonly prisma!: PrismaClient;
+
+  @Inject
+  private readonly http!: HttpClient;
+
+  @Route('/', 'GET')
+  getWebhook(req: FastifyRequest, reply: FastifyReply) {
+    return reply.status(404).send('Cannot GET /integrations/github/webhook');
+  }
+
+  @Route('/', 'POST')
+  postWebhook(req: FastifyRequest, reply: FastifyReply) {
+    console.log(req.body);
+    return reply.status(204).send();
+  }
+}

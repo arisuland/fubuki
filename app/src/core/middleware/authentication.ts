@@ -36,7 +36,7 @@ const authentication: FastifyPluginCallback<any> = (server, _, done) => {
   server.decorateRequest('user', null);
   server.decorateRequest('sessionToken', undefined);
 
-  server.addHook('onRequest', async (req, reply, done) => {
+  server.addHook('onRequest', async (req, reply) => {
     // type-graphql does the job for GraphQL
     if (req.url === '/graphql' && req.method === 'POST') return done();
 
@@ -44,7 +44,6 @@ const authentication: FastifyPluginCallback<any> = (server, _, done) => {
     // or server, so...
     const container = useContainer();
     const prisma = container.$ref<PrismaClient>(PrismaClient);
-    const sessions = container.$ref<SessionTokenService>(SessionTokenService);
 
     if (req.headers.authorization !== undefined) {
       const [prefix, token] = req.headers.authorization.split(' ', 2);
@@ -53,7 +52,6 @@ const authentication: FastifyPluginCallback<any> = (server, _, done) => {
           message: 'Missing `Bearer` token.',
         });
 
-        done();
         return;
       }
 
@@ -62,7 +60,6 @@ const authentication: FastifyPluginCallback<any> = (server, _, done) => {
           message: 'Missing token to use.',
         });
 
-        done();
         return;
       }
 
@@ -71,7 +68,6 @@ const authentication: FastifyPluginCallback<any> = (server, _, done) => {
           message: 'Token prefix was not prefixed with `Bearer`',
         });
 
-        done();
         return;
       }
 
@@ -81,7 +77,6 @@ const authentication: FastifyPluginCallback<any> = (server, _, done) => {
           message: 'Invalid token or token was expired.',
         });
 
-        done();
         return;
       }
 
@@ -96,16 +91,12 @@ const authentication: FastifyPluginCallback<any> = (server, _, done) => {
           message: 'User with token was not found.',
         });
 
-        done();
         return;
       }
 
       req.user = user;
       req.sessionToken = token;
-      done();
     }
-
-    done();
   });
 
   done();
