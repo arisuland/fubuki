@@ -68,21 +68,21 @@ export default class GraphQLHighlighter {
     switch (ast.operation.operation) {
       case 'query':
         operation = `${styles.bold(
-          colors.magenta(`query${ast.operation.name !== undefined ? ` ${ast.operation.name}` : ''}`)
+          colors.magenta(`query${ast.operation.name !== undefined ? ` ${ast.operation.name.value}` : ''}`)
         )} ${styles.bold(colors.gray('{'))}`;
 
         break;
 
       case 'mutation':
         operation = `${styles.bold(
-          colors.cyan(`mutation${ast.operation.name !== undefined ? ` ${ast.operation.name}` : ''}`)
+          colors.cyan(`mutation${ast.operation.name !== undefined ? ` ${ast.operation.name.value}` : ''}`)
         )} ${styles.bold(colors.gray('{'))}`;
 
         break;
 
       case 'subscription':
         operation = `${styles.bold(
-          colors.blue(`subscription${ast.operation.name !== undefined ? ` ${ast.operation.name}` : ''}`)
+          colors.blue(`subscription${ast.operation.name !== undefined ? ` ${ast.operation.name.value}` : ''}`)
         )} ${styles.bold(colors.gray('{'))}`;
 
         break;

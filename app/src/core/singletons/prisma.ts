@@ -16,12 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { SqlHighlighter } from '@mikro-orm/sql-highlighter';
 import { Container, useContainer } from '@augu/lilith';
-import { PrismaClient } from '@prisma/client';
-import { Logger } from 'tslog';
 import { calculateHRTime } from '@augu/utils';
 import { colors, styles } from 'leeks.js';
+import { SqlHighlighter } from '@mikro-orm/sql-highlighter';
+import { PrismaClient } from '@prisma/client';
+import { Logger } from 'tslog';
 
 const highlighter = new SqlHighlighter();
 export async function teardown(this: Container, prisma: PrismaClient) {
@@ -57,8 +57,8 @@ client.$use(async (params, next) => {
   const after = calculateHRTime(before);
   logger.debug(
     `${styles.bold(
-      colors.cyan(`${params.model}${colors.white('->')}${styles.bold(colors.cyan(params.action))}`)
-    )} ~ Executed operation in ${after.toFixed(2)}ms`
+      colors.cyan(`${params.model ?? '<unknown>'}${colors.white('->')}${styles.bold(colors.cyan(params.action))}`)
+    )} - Executed operation in ${after.toFixed(2)}ms`
   );
 
   return result;

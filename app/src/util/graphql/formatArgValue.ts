@@ -17,14 +17,16 @@
  */
 
 import type { ObjectFieldNode, ValueNode } from 'graphql';
-import { colors } from 'leeks.js';
+import { colors, styles } from 'leeks.js';
 import { withIndex } from '..';
 
 const formatArgValue = (value: ValueNode, colorize = false) => {
   let formatted = '';
   switch (value.kind) {
     case 'StringValue':
-      formatted += colorize ? colors.gray(`"${value.value}"`) : `"${value.value}"`;
+      formatted += colorize
+        ? colors.gray(`"${styles.bold(colors.white(value.value))}${colors.gray('"')}`)
+        : `"${value.value}"`;
       break;
 
     case 'NullValue':

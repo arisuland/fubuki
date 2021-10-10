@@ -27,13 +27,14 @@ import { Logger } from 'tslog';
 const pings = [] as number[];
 let lastPing: [number, number];
 let timerHook: any;
+let timeout: any;
+let hasLogged = false;
 
 // So Noel, what's the different between src/middleware/logging.ts
 // and src/graphql/middleware/log.ts? Well, the difference is,
 // this is on the GraphQL execution point while logging.ts is refered
 // to the request execution.
 const mod: MiddlewareFn<ArisuContext> = async ({ context, info }, next) => {
-  console.log(context.container);
   const logger = context.container.$ref(Logger);
   const startedAt = process.hrtime();
   lastPing = startedAt;
@@ -47,9 +48,9 @@ const mod: MiddlewareFn<ArisuContext> = async ({ context, info }, next) => {
 
   const avg = pings.reduce((acc, curr) => acc + curr, 0) / pings.length;
   logger.debug(
-    `${colors.cyan('graphql:query')} ~ ${titleCase(info.operation.operation)} was executed in ${resolvedTime.toFixed(
-      2
-    )}ms (avg: ${styles.bold(colors.magenta(`${avg.toFixed(2)}ms`))})`,
+    `${colors.cyan('graphql:query')} ~ ${titleCase(info.operation.operation)}${
+      info.operation.name !== undefined ? ' ' + info.operation.name.value : ''
+    } was executed in ${resolvedTime.toFixed(2)}ms (avg: ${styles.bold(colors.magenta(`${avg.toFixed(2)}ms`))})`,
     '\n',
     GraphQLHighlighter.instance.highlight(info)
   );
