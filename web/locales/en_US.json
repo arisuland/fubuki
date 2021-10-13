@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "name": "English (US)",
+    "author": "noel",
+    "contributors": [],
+    "aliases": ["en"],
+    "flag": "🇺🇸",
+    "code": "en_US"
+  },
+  "strings": {
+    "generic": {
+      "navbar": {
+        "discord": "Discord",
+        "github": "GitHub",
+        "documentation": "Docs"
+      },
+      "footer": {
+        "copyright": "Copyright (c) 2020-$(current.year) Noelware",
+        "license": "Arisu is licensed under the GPL-3.0 License"
+      }
+    },
+    "errors": {
+      "404": {
+        "title": "404 - Not Found ^w^",
+        "message": "Hey, are you lost? Here, click the button below to go back. :3"
+      },
+      "500": {
+        "title": "500 - Internal Server Error >w>",
+        "message": "Uh oh, an internal server error has occured. If this error keeps occuring, press the Report button or join our Discord server for more information!"
+      }
+    },
+    "website": {
+      "init": {
+        "title": "Welcome $(user)! Let's setup Arisu.",
+        "description": "In this GUI, we'll setup Arisu components to be tailored like the official website! (but tweaked a bot.)",
+        "forms": {
+          "0": {
+            "title": "Login as Administrator to get started!",
+            "description": "Password: `admin` | Username: `admin`"
+          }
+        }
+      }
+    }
+  }
+}
