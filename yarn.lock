@@ -66,7 +66,7 @@ __metadata:
     "@typescript-eslint/parser": 5.0.0
     consola: 2.15.3
     eslint: 8.0.0
-    eslint-config-prettier: 4.0.0
+    eslint-config-prettier: 4.3.0
     node-rdkafka: 2.11.0
     nodemon: 2.0.13
     probot: 12.1.1
@@ -6328,16 +6328,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:4.0.0":
-  version: 4.0.0
-  resolution: "eslint-config-prettier@npm:4.0.0"
+"eslint-config-prettier@npm:4.3.0":
+  version: 4.3.0
+  resolution: "eslint-config-prettier@npm:4.3.0"
   dependencies:
     get-stdin: ^6.0.0
   peerDependencies:
     eslint: ">=3.14.1"
   bin:
     eslint-config-prettier-check: bin/cli.js
-  checksum: e2360e133dd51f8ade8db7c97b92ac216a6cd59840211606acb0efdb6e8fea561d4713ef93e7bd3e85dcd9aad4ac04ef63706c451fe0d603999f70ce20b1a4ae
+  checksum: d2b8a6e95da3bd4a37a791b26d59f4b3cfb597a533f4c46aa1f5c23e0dae651f7afc09434108a1bd0ead8d031708119d0361e3f7168c356d751e2366ec5d19e0
   languageName: node
   linkType: hard
 
