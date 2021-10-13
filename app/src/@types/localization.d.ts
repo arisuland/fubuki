@@ -68,7 +68,7 @@ declare global {
       error: {
         message: string;
         status: number;
-      }
+      };
     }
   }
 }
