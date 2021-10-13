@@ -1,7 +1,5 @@
 {
   "extends": ["prettier", "@augu/eslint-config/ts.js"],
-  "plugins": ["prettier"],
-
   "rules": {
     // TypeScript
     "@typescript-eslint/indent": "off",
