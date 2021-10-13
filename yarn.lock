@@ -126,7 +126,7 @@ __metadata:
     fastify-no-icon: 4.0.0
     gc-stats: 1.4.0
     graphql: 15.6.1
-    graphql-scalars: 1.11.1
+    graphql-scalars: 1.12.0
     ioredis: 4.28.0
     is-docker: 2.2.1
     is-kubernetes: 1.0.1
@@ -7498,14 +7498,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-scalars@npm:1.11.1":
-  version: 1.11.1
-  resolution: "graphql-scalars@npm:1.11.1"
+"graphql-scalars@npm:1.12.0":
+  version: 1.12.0
+  resolution: "graphql-scalars@npm:1.12.0"
   dependencies:
     tslib: ~2.3.0
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
-  checksum: 219810fdb4e1a72461c378de4c306e828933b66ab6a5aecc72e63197d2898378ee5f3d93bc2c8dfbc21145e67714c762555d4e99bd9964bddfccc29e5683f28d
+  checksum: fcfac99f8ebbf23117b1602c7677f5ea2c52020fd86051c79bfa44a64e293418da97e66e31538212113067ce32f540d0dff3d9ff4136798af2d7957a61772f9b
   languageName: node
   linkType: hard
 
