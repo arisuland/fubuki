@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { ObjectType, Field, registerEnumType, createUnionType } from 'type-graphql';
+import { ObjectType, Field, registerEnumType, createUnionType, Int } from 'type-graphql';
 import { JSONObjectResolver } from 'graphql-scalars';
 
 // https://github.com/colinhacks/zod/blob/master/src/ZodError.ts#L4-L18
@@ -131,63 +131,39 @@ export default class ZodError {
     description: 'Returns a list of ZodError objects that went wrong in the return type.',
     nullable: true,
   })
-  returnTypeError?: ZodError[];
+  @Field(() => ZodError, {
+    description: 'Returns the invalid return type error itself, if the `code` is InvalidReturnType.',
+    nullable: true,
+  })
+  returnTypeError?: ZodError;
+
+  @Field(() => String, {
+    description: 'Returns the string validation issue type, which can be `email`, `url`, `uuid`, `regex`, or `cuid`.',
+    nullable: true,
+  })
   validation?: 'email' | 'url' | 'uuid' | 'regex' | 'cuid';
+
+  @Field(() => Int, {
+    description: 'Returns the maxmium number if the ZodError code is `TooBig`.',
+    nullable: true,
+  })
   maximum?: number;
+
+  @Field(() => Boolean, { nullable: true })
   inclusive?: boolean;
+
+  @Field(() => String, { nullable: true })
   type?: 'array' | 'string' | 'number';
+
+  @Field(() => Int, {
+    description: 'Returns the minimum number if the ZodError code is `TooSmall`.',
+    nullable: true,
+  })
   minimum?: number;
+
+  @Field(() => Int, { nullable: true })
   mutipleOf?: number;
+
+  @Field(() => JSONObjectResolver, { nullable: true })
   params?: Record<string, any>;
 }
-
-/*
-export interface ZodInvalidArgumentsIssue extends ZodIssueBase {
-  code: typeof ZodIssueCode.invalid_arguments;
-  argumentsError: ZodError;
-}
-
-export interface ZodInvalidReturnTypeIssue extends ZodIssueBase {
-  code: typeof ZodIssueCode.invalid_return_type;
-  returnTypeError: ZodError;
-}
-
-export interface ZodInvalidDateIssue extends ZodIssueBase {
-  code: typeof ZodIssueCode.invalid_date;
-}
-
-export type StringValidation = "email" | "url" | "uuid" | "regex" | "cuid";
-
-export interface ZodInvalidStringIssue extends ZodIssueBase {
-  code: typeof ZodIssueCode.invalid_string;
-  validation: StringValidation;
-}
-
-export interface ZodTooSmallIssue extends ZodIssueBase {
-  code: typeof ZodIssueCode.too_small;
-  minimum: number;
-  inclusive: boolean;
-  type: "array" | "string" | "number";
-}
-
-export interface ZodTooBigIssue extends ZodIssueBase {
-  code: typeof ZodIssueCode.too_big;
-  maximum: number;
-  inclusive: boolean;
-  type: "array" | "string" | "number";
-}
-
-export interface ZodInvalidIntersectionTypesIssue extends ZodIssueBase {
-  code: typeof ZodIssueCode.invalid_intersection_types;
-}
-
-export interface ZodNotMultipleOfIssue extends ZodIssueBase {
-  code: typeof ZodIssueCode.not_multiple_of;
-  multipleOf: number;
-}
-
-export interface ZodCustomIssue extends ZodIssueBase {
-  code: typeof ZodIssueCode.custom;
-  params?: { [k: string]: any };
-}
-*/

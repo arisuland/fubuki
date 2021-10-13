@@ -34,7 +34,7 @@ interface Configuration {
   runPendingMigrations?: boolean;
   prometheusPort?: number;
   sentryDsn?: string;
-  singyeong?: SingyeongConfig;
+  pubsub?: PubSubConfig;
   storage: StorageConfig;
   redis: RedisConfig;
   host?: string;
@@ -59,12 +59,36 @@ interface StorageConfig {
   fs?: FilesystemStorageConfig; // add fs as an alias
 }
 
-interface SingyeongConfig {
-  dsn: string;
-  reconnect?: boolean;
-  namespace?: string;
-  clientId?: string;
+interface PubSubConfig {
+  type: 'kafka' | 'redis';
+  kafka?: KafkaPubSubConfig;
+  redis?: RedisConfig;
 }
+
+interface KafkaPubSubConfig {
+  autoCreateTopics?: boolean;
+  groupId?: any;
+  topic?: string;
+  host: string;
+  port: number;
+}
+
+const redisShape = z.object({
+  sentinels: z
+    .array(
+      z.object({
+        host: z.string(),
+        port: z.string(),
+      })
+    )
+    .optional(),
+
+  password: z.string().optional(),
+  master: z.string().optional(),
+  index: z.number().min(1).max(16).optional(),
+  host: z.string().default('localhost'),
+  port: z.number().default(6379),
+});
 
 const zodSchema = z
   .object({
@@ -103,31 +127,22 @@ const zodSchema = z
         .optional(),
     }),
 
-    singyeong: z
+    redis: redisShape,
+    pubsub: z
       .object({
-        dsn: z.string(),
-        reconnect: z.boolean().optional().default(false),
-        namespace: z.string().optional(),
-        clientId: z.string().default('arisu').optional(),
+        type: z.enum(['kafka', 'redis']).default('redis'),
+        kafka: z
+          .object({
+            autoCreateTopics: z.boolean().default(true).optional(),
+            groupId: z.any().optional(), // TODO: what to do with this? owo
+            topic: z.string().optional().default('tsubaki'),
+            host: z.string(),
+            port: z.number(),
+          })
+          .optional(),
+        redis: redisShape,
       })
       .optional(),
-
-    redis: z.object({
-      sentinels: z
-        .array(
-          z.object({
-            host: z.string(),
-            port: z.string(),
-          })
-        )
-        .optional(),
-
-      password: z.string().optional(),
-      master: z.string().optional(),
-      index: z.number().min(1).max(16).optional(),
-      host: z.string().default('localhost'),
-      port: z.number().default(6379),
-    }),
   })
   .strict();
 
@@ -154,6 +169,13 @@ export default class Config {
           storage: {
             fs: {
               directory: './.arisu',
+            },
+          },
+          pubsub: {
+            type: 'redis',
+            redis: {
+              host: 'localhost',
+              port: 6379,
             },
           },
         },
