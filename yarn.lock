@@ -94,25 +94,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@arisu/gh-to-youtrack@workspace:gh-to-youtrack":
-  version: 0.0.0-use.local
-  resolution: "@arisu/gh-to-youtrack@workspace:gh-to-youtrack"
-  dependencies:
-    "@augu/dotenv": 1.3.0
-    "@augu/eslint-config": 2.2.0
-    "@augu/orchid": 3.1.1
-    "@augu/tsconfig": 1.1.1
-    "@types/node": 16.10.3
-    "@typescript-eslint/eslint-plugin": 4.33.0
-    "@typescript-eslint/parser": 4.33.0
-    consola: 2.15.3
-    eslint: 7.32.0
-    fastify: 3.22.0
-    fastify-no-icon: 4.0.0
-    typescript: 4.4.3
-  languageName: unknown
-  linkType: soft
-
 "@arisu/github@workspace:github-bot":
   version: 0.0.0-use.local
   resolution: "@arisu/github@workspace:github-bot"
@@ -200,6 +181,7 @@ __metadata:
     jsonwebtoken: 8.5.1
     leeks.js: 0.2.4
     mime-types: 2.1.33
+    node-rdkafka: ^2.11.0
     nodemon: 2.0.13
     prettier: 2.4.1
     prisma: 3.2.1
@@ -3985,15 +3967,15 @@ __metadata:
   linkType: hard
 
 "@graphql-tools/import@npm:^6.5.0":
-  version: 6.5.2
-  resolution: "@graphql-tools/import@npm:6.5.2"
+  version: 6.5.3
+  resolution: "@graphql-tools/import@npm:6.5.3"
   dependencies:
     "@graphql-tools/utils": 8.2.5
     resolve-from: 5.0.0
     tslib: ~2.3.0
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 75f8b4869730c13e89c615a4fb41bdb607c037979d8aada755070efed616134d6586bd135e3db5b9080ec0f6098fe4ca4df897e64112295d46930b8bedf19224
+  checksum: 666adc418d47b73165f9ec08a53b88eac143c400749e6f02770e78d98f2101207b097e97febf519072662273b9200a12dd8c15ee52ea682508a91e39471a6374
   languageName: node
   linkType: hard
 
@@ -5740,7 +5722,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:16.10.3":
+"@types/node@npm:*":
   version: 16.10.3
   resolution: "@types/node@npm:16.10.3"
   checksum: 3fd429bce8a4acb497dcc62b536782a5e87ccf7cd91d64a78b263ae5d66cb72bf84be9eeeff6f84ae0567b065a40b267caa66d311f9e094990a5847bbd168a29
@@ -7204,6 +7186,15 @@ __metadata:
   version: 2.2.0
   resolution: "binary-extensions@npm:2.2.0"
   checksum: ccd267956c58d2315f5d3ea6757cf09863c5fc703e50fbeb13a7dc849b812ef76e3cf9ca8f35a0c48498776a7478d7b4a0418e1e2b8cb9cb9731f2922aaad7f8
+  languageName: node
+  linkType: hard
+
+"bindings@npm:^1.3.1":
+  version: 1.5.0
+  resolution: "bindings@npm:1.5.0"
+  dependencies:
+    file-uri-to-path: 1.0.0
+  checksum: 65b6b48095717c2e6105a021a7da4ea435aa8d3d3cd085cb9e85bcb6e5773cf318c4745c3f7c504412855940b585bdf9b918236612a1c7a7942491de176f1ae7
   languageName: node
   linkType: hard
 
@@ -9013,9 +9004,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.3.723, electron-to-chromium@npm:^1.3.857":
-  version: 1.3.862
-  resolution: "electron-to-chromium@npm:1.3.862"
-  checksum: f2fe9b1d712d43494510dc024033205577d604ff673f29ef35c5755a7c585c825f1be19f950a486559affb728f11313f47dbf13a9fec6c9df83618bec3340552
+  version: 1.3.864
+  resolution: "electron-to-chromium@npm:1.3.864"
+  checksum: a3405aa5d1ce5af0da9b2c5fff9da9aeaa49d9aafc2a3046a7d448e438ef02a7ed10625a10b2eb6b6c3452d70f75f9b28c9ea3603f74b29cbdcdacd984927f69
   languageName: node
   linkType: hard
 
@@ -9933,6 +9924,13 @@ __metadata:
   dependencies:
     flat-cache: ^3.0.4
   checksum: f49701feaa6314c8127c3c2f6173cfefff17612f5ed2daaafc6da13b5c91fd43e3b2a58fd0d63f9f94478a501b167615931e7200e31485e320f74a33885a9c74
+  languageName: node
+  linkType: hard
+
+"file-uri-to-path@npm:1.0.0":
+  version: 1.0.0
+  resolution: "file-uri-to-path@npm:1.0.0"
+  checksum: b648580bdd893a008c92c7ecc96c3ee57a5e7b6c4c18a9a09b44fb5d36d79146f8e442578bc0e173dc027adf3987e254ba1dfd6e3ec998b7c282873010502144
   languageName: node
   linkType: hard
 
@@ -13886,7 +13884,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nan@npm:^2.13.2":
+"nan@npm:^2.13.2, nan@npm:^2.14.0":
   version: 2.15.0
   resolution: "nan@npm:2.15.0"
   dependencies:
@@ -14204,6 +14202,17 @@ __metadata:
   bin:
     node-pre-gyp: ./bin/node-pre-gyp
   checksum: 118a8989c2edc5935906a59e9cf8bc508f8183f43da3ceb449bde122901b26bf25aa426481a3b1bed44cb739275e249a8ea85521caa15c33e8377ac0dd31bdbc
+  languageName: node
+  linkType: hard
+
+"node-rdkafka@npm:^2.11.0":
+  version: 2.11.0
+  resolution: "node-rdkafka@npm:2.11.0"
+  dependencies:
+    bindings: ^1.3.1
+    nan: ^2.14.0
+    node-gyp: latest
+  checksum: 27dad4add591cb89e3014af5eb206c0e7468912843917a81bdd431746102c00b8bffee700ce84831aecfec2144ee3a7a164a61aad968a1403b1887e8d42f472f
   languageName: node
   linkType: hard
 

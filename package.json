@@ -2,7 +2,6 @@
   "name": "@arisu/root",
   "private": true,
   "workspaces": [
-    "gh-to-youtrack/",
     "github-bot/",
     "typings/",
     "app/",
@@ -11,9 +10,9 @@
   "scripts": {
     "build:ci": "true",
     "prepare": "husky install",
-    "format": "prettier --config --parser typescript ./.prettierrc.json --write app/src/**/*.ts singyeong/src/**/*.ts github-bot/src/**/*.ts typings/typings/**/*.d.ts",
+    "fmt": "prettier --config --parser typescript ./.prettierrc.json --write app/src/**/*.ts github-bot/src/**/*.ts typings/typings/**/*.d.ts",
     "build": "true",
-    "lint": "yarn workspaces foreach --from '{@arisu/arisu,@arisu/github-bot,@arisu/web}' -p run lint"
+    "lint": "yarn workspaces foreach --from '{@arisu/tsubaki,@arisu/github-bot,@arisu/web}' -p run lint"
   },
   "devDependencies": {
     "husky": "7.0.2",
