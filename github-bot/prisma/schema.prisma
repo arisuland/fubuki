@@ -1,0 +1,23 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+/// Represents a [Project] that is linked with a Arisu project.
+/// This is enabled within your project's settings.
+model Project {
+  /// The project's ID to retrieve
+  projectId String @map("project_id")
+
+  /// The project owner's ID
+  ownerId String @map("owner_id")
+
+  /// Project ID for `github-bot`.
+  id String @id @default(uuid())
+
+  @@map("projects")
+}

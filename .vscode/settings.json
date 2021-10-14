@@ -4,6 +4,8 @@
     "**/.pnp.*": true
   },
   "prettier.enable": true,
-  "elixirLS.projectDir": "./microservices/fidget",
-  "elixir.projectPath": "./microservices/fidget"
+  "[prisma]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "Prisma.prisma"
+  }
 }

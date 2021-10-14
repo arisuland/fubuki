@@ -4,7 +4,7 @@ datasource db {
 }
 
 generator client {
-  provider        = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 model Users {
@@ -25,7 +25,7 @@ model Users {
 }
 
 model Projects {
-  baseLanguage String @map("base_language")
+  baseLanguage String   @map("base_language")
   description  String?
   updatedAt    DateTime @updatedAt
   createdAt    DateTime @default(now())
@@ -39,7 +39,7 @@ model Projects {
 }
 
 model AccessTokens {
-  ownerId String @map("owner_id")
+  ownerId String @map("owner_id")@unique
   owner   Users  @relation(fields: [ownerId], references: [id])
   token   String
   id      String @id @default(uuid())
