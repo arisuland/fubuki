@@ -18,9 +18,15 @@
 
 import 'source-map-support/register';
 
+import { createOctokitMiddleware } from './middleware/octokit';
+import { createAppAuth } from '@octokit/auth-app';
 import { existsSync } from 'fs';
 import { readFile } from 'fs/promises';
+import * as kafka from './kafka';
+import { client } from './prisma';
 import consola from 'consola';
+import fastify from 'fastify';
+import { App } from '@octokit/app';
 
 (require('@augu/dotenv') as typeof import('@augu/dotenv')).parse({
   file: (require('path') as typeof import('path')).join(process.cwd(), '..', '.env'),
@@ -32,10 +38,96 @@ import consola from 'consola';
       type: 'string',
     },
 
+    HOST: {
+      default: '0.0.0.0',
+      type: 'string',
+    },
+
+    PORT: {
+      type: 'int',
+      default: 8890,
+    },
+
+    DATABASE_URL: 'string',
+    TSUBAKI_URL: 'string',
     GITHUB_APP_ID: 'string',
     GITHUB_APP_SECRET: 'string',
     GITHUB_APP_PEM_LOCATION: 'string',
+    KAFKA_CONSUMER_PORT: 'int',
+    KAFKA_CONSUMER_HOST: 'string',
+    KAFKA_CONSUMER_TOPIC: 'string',
+    GITHUB_APP_INSTALLATION_ID: 'int',
+    KAFKA_CONSUMER_GROUP_ID: {
+      default: undefined,
+      type: 'string',
+    },
   },
 });
 
 const logger = consola.withScope('arisu:github');
+
+const main = async () => {
+  if (!existsSync(process.env.GITHUB_APP_PEM_LOCATION))
+    throw new Error(
+      `Missing \`GITHUB_APP_PEM_LOCATION\` location. It was not found on ${process.env.GITHUB_APP_PEM_LOCATION}`
+    );
+
+  logger.info('Launching Kafka consumer...');
+  await kafka.connect();
+
+  logger.info('Launching Prisma client...');
+  await client.$connect();
+
+  logger.info('Creating GitHub app and server...');
+
+  const privateKey = await readFile(process.env.GITHUB_APP_PEM_LOCATION, 'utf-8');
+  const app = new App({
+    appId: process.env.GITHUB_APP_INSTALLATION_ID,
+    privateKey,
+    webhooks: {
+      secret: process.env.WEBHOOK_SECRET,
+    },
+    oauth: {
+      allowSignup: false,
+      clientId: process.env.GITHUB_APP_ID,
+      clientSecret: process.env.GITHUB_APP_SECRET,
+    },
+  });
+
+  const installation = await app.getInstallationOctokit(parseInt(process.env.GITHUB_APP_INSTALLATION_ID));
+  const info = await installation.request('GET /app');
+  logger.info(`Authenticated as application ${info.data.name} (${info.data.id})`);
+
+  const server = fastify();
+  server.register(require('fastify-no-icon')).register(createOctokitMiddleware(app));
+
+  process.on('SIGINT', async () => {
+    logger.info('Told to disconnect... (CTRL+C action)');
+
+    await client.$disconnect();
+    kafka.disconnect();
+    server.close(() => {
+      // noop
+    });
+  });
+
+  return server.listen(
+    {
+      port: parseInt(process.env.PORT ?? '8890'),
+      host: process.env.HOST ?? '0.0.0.0',
+    },
+    (error, address) => {
+      if (error) {
+        logger.error('Unable to start server:', error);
+        process.exit(1);
+      }
+
+      logger.info(`GitHub bot has launched in ${address}!`);
+    }
+  );
+};
+
+main().catch((ex) => {
+  logger.fatal('Unable to start GitHub Bot:', ex);
+  process.exit(1);
+});

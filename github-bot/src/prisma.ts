@@ -15,3 +15,43 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
+
+import { colors, styles } from 'leeks.js';
+import { calculateHRTime } from '@augu/utils';
+import { SqlHighlighter } from '@mikro-orm/sql-highlighter';
+import { PrismaClient } from '@prisma/client';
+import consola from 'consola';
+
+const highlighter = new SqlHighlighter();
+const logger = consola.withScope('arisu:github:prisma');
+
+export const client = new PrismaClient({
+  errorFormat: 'pretty',
+  log: [
+    {
+      emit: 'event',
+      level: 'query',
+    },
+  ],
+});
+
+if (process.env.NODE_ENV === 'development') {
+  client.$on('query', (event) => logger.debug(`Executed SQL query:\n${highlighter.highlight(event.query)}`));
+  client.$use(async (params, next) => {
+    const before = process.hrtime();
+    const result = await next(params);
+    const after = calculateHRTime(before);
+
+    logger.debug(
+      `${styles.bold(
+        colors.cyan(
+          `${params.model ?? '<unknown>'}${colors.white('~>')}${styles.bold(
+            colors.cyan(params.action)
+          )} ~ Executed operation in ${after.toFixed(2)}ms`
+        )
+      )}`
+    );
+
+    return result;
+  });
+}

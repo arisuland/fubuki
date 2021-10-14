@@ -10,6 +10,7 @@ sw.js
 github-bot/config.yml
 app/config.yml
 app/.env
+github-bot/.github
 
 # Yarn workspace
 

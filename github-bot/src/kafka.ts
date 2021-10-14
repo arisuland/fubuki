@@ -26,7 +26,6 @@ const logger = consola.withScope('arisu:github:kafka');
 export let consumer: KafkaConsumer;
 
 export function connect() {
-  logger.info('Launching Kafka consumer...');
   const groupId = process.env.KAFKA_CONSUME_GROUP_ID ?? randomBytes(16).toString('hex');
   consumer = new KafkaConsumer(
     {
@@ -74,10 +73,18 @@ export function connect() {
   });
 
   consumer.on('event.error', (error) => logger.error('Received exception in Kafka consumer:', error));
+  consumer.on('event.log', (message) => {
+    if (process.env.NODE_ENV === 'development') {
+      logger.debug(`Consumer> ${message}`);
+    }
+  });
+
+  consumer.on('subscribed', (topics) => logger.info(`Subscribed to topics: ${topics.join(', ')}`));
+
   return new Promise<void>((resolve, reject) => {
     consumer.on('ready', (_, metadata) => {
       const topics = metadata.topics.map((s) => s.name);
-      logger.info('Connected to Kafka consumer, found topics:', topics.map((s) => `-   ${s}`).join('\n'));
+      logger.info('Connected to Kafka consumer, found topics:\n', topics.map((s) => `-   ${s}`).join('\n'));
 
       if (topics.includes(process.env.KAFKA_CONSUMER_TOPIC)) {
         logger.info(`Subscribing to topic ${process.env.KAFKA_CONSUMER_TOPIC}!`);
@@ -88,6 +95,11 @@ export function connect() {
         consumer.disconnect();
         return reject(new Error(`Requested topic ${process.env.KAFKA_CONSUMER_TOPIC} was not found.`));
       }
+    });
+
+    consumer.once('event.error', (error) => {
+      logger.error('Received exception in Kafka consumer:', error);
+      return reject(error);
     });
 
     logger.info('Connecting to Kafka consumer...');

@@ -1,7 +1,11 @@
 FROM node:16-alpine
 
+# Setup Python 3 (for node-gyp with Kafka bindings)
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+
 LABEL MAINTAINER="Arisu Team <contact@arisu.land>, Noel <cutie@floofy.dev>"
-RUN apk update && apk add --no-cache git ca-certificates
+RUN apk update && apk add --no-cache git ca-certificates git ca-certificates make gcc g++
 
 WORKDIR /app/Arisu/backend
 COPY . .
