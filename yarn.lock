@@ -89,7 +89,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@arisu/root@workspace:."
   dependencies:
-    eslint-config-prettier: ^8.3.0
+    eslint-config-prettier: 8.3.0
     husky: 7.0.2
     prettier: 2.4.1
     vls: 0.7.4
@@ -5941,7 +5941,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:8.3.0, eslint-config-prettier@npm:^8.3.0":
+"eslint-config-prettier@npm:8.3.0":
   version: 8.3.0
   resolution: "eslint-config-prettier@npm:8.3.0"
   peerDependencies:
