@@ -11,8 +11,11 @@
   "forwardPorts": [
     80,    // http
     5432,  // postgres
+    2181,  // zookeeper
+    9092,  // kafka
     6379,  // redis
-    17093, // frontend
-    28093  // backend
+    17903, // backend
+    28093, // frontend
+    29092  // kafka
   ]
 }
