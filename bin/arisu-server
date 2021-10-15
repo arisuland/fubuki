@@ -1,22 +1,47 @@
 #!/bin/bash
 
-# Setup logging
-BLUE='\033[38;2;81;81;140m'
-GREEN='\033[38;2;165;204;165m'
-PINK='\033[38;2;241;204;209m'
-RESET='\033[0m'
+. "$PWD/bin/liblog.sh"
 
-info() {
-  timestamp=$(date +"%D ~%r")
-  printf "%b\\n" "${GREEN}info${RESET}  | ${PINK}${timestamp}${RESET} ~ $1"
+VERSION="1.0.0"
+
+print_color() {
+  printf "%b\\n" "$1"
 }
 
-debug() {
-  local debug="${ARISU_DEBUG:-false}"
-  shopt -s nocasematch
-  timestamp=$(date +"%D ~%r")
+help() {
+  print_color "${PINK}${BOLD}USAGE${RESET} ==> ${BOLD}${UNDERLINE}arisu-server <command> [...args]${RESET}"
+  echo ""
+  print_color "${GREEN}${UNDERLINE}${BOLD}Commands${RESET}"
+  print_color "${BOLD}  help${RESET}    - Runs this help menu."
+  print_color "${BOLD}  version${RESET} - Gets the current version of \`arisu-server\` binary."
+  print_color "${BOLD}  start${RESET}   - Starts the backend or frontend server."
 
-  if ! [[ "$debug" = "1" || "$debug" =~ ^(no|false)$ ]]; then
-    printf "%b\\n" "${BLUE}debug${RESET} | ${PINK}${timestamp}${RESET} ~ $1"
-  fi
+  exit 0
 }
+
+version() {
+  print_color "${GREEN}${BOLD}$VERSION${RESET}"
+  exit 0
+}
+
+start() {
+  local type=$1
+  print_color "Undetermined type ${BOLD}$type${RESET} was not found. Only values can be available: \`backend\` or \`frontend\`"
+
+  exit 0
+}
+
+if [[ "$1" == "help" ]]; then
+  help
+fi
+
+if [[ "$1" == "version" ]]; then
+  version
+fi
+
+if [[ "$1" == "start" ]]; then
+  start "$1" "$2"
+fi
+
+help
+exit 0

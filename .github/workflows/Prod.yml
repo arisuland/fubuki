@@ -29,3 +29,35 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
+  #     - name: Login into Docker Hub
+  #       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u auguwu --password-stdin
+
+  #     - name: chmod
+  #       run: chmod +x ./docker/build.sh && chmod +x ./docker/publish.sh
+
+  #     - name: Build images
+  #       run: ./docker/build.sh
+
+  #     - name: Push all images
+  #       run: ./docker/publish.sh
+
+  # deploy:
+  #   name: Deploy to Kubernetes
+  #   needs: push-prod
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Make kubeconfig
+  #       run: |
+  #         mkdir ~/.kube
+  #         echo "${{ secrets.KUBE_CONFIG }}" > ~/.kube/config
+
+  #     - name: Add images to Deployments
+  #       run: |
+  #         kubectl set tag deployment/tsubaki arisu=arisuland/tsubaki:latest --namespace arisu
+  #         kubectl set tag deployment/github arisu=arisuland/github:latest --namespace arisu
+
+  #     - name: Deploy!
+  #       run: |
+  #         kubectl rollout status deployment/tsubaki
+  #         kubectl rollout status deployment/github

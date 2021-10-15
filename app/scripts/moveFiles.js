@@ -19,6 +19,7 @@
 const { existsSync } = require('fs');
 const { copyFile } = require('fs/promises');
 const { Logger } = require('tslog');
+const isDocker = require('is-docker');
 const { join } = require('path');
 
 const logger = new Logger();
@@ -30,10 +31,12 @@ const logger = new Logger();
     process.exit(1);
   }
 
-  if (existsSync(join(process.cwd(), 'config.yml')))
+  if (!isDocker() && existsSync(join(process.cwd(), 'config.yml')))
     await copyFile(join(process.cwd(), 'config.yml'), join(process.cwd(), 'build', 'config.yml'));
 
-  await copyFile(join(process.cwd(), '.env'), join(process.cwd(), 'build', '.env'));
+  // we explicitly ignore `.env` in Docker builds, so
+  // if it's not in a Docker environment, let's move the .env file
+  if (!isDocker()) await copyFile(join(process.cwd(), '.env'), join(process.cwd(), 'build', '.env'));
   await copyFile(
     join(process.cwd(), 'prisma', 'schema.prisma'),
     join(process.cwd(), 'build', 'prisma', 'schema.prisma')

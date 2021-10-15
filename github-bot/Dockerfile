@@ -10,7 +10,7 @@ RUN apk update && apk add --no-cache git ca-certificates make gcc g++ bash
 
 WORKDIR /app/Arisu/github
 COPY . .
-RUN npm i -g typescript eslint
+RUN yarn global add typescript eslint
 RUN yarn
 RUN yarn build
 RUN yarn cache clean
