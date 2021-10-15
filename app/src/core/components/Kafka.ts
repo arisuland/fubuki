@@ -58,21 +58,52 @@ export default class Kafka {
       brokers: kafka.brokers.map((s) => `${s.host}${s.port !== undefined ? `:${s.port}` : ''}`),
       clientId: 'tsubaki',
       logLevel: process.env.NODE_ENV === 'development' ? 5 : 4,
+      logCreator: (level) => {
+        const log = this.logger.getChildLogger({ name: 'Arisu: kafka-producer' });
+        return (entry) => {
+          // Do not log an entry if `level` = 0 (Nothing)
+          if (level === 0) return;
+
+          let levelName!: string;
+          switch (level) {
+            case 1:
+              levelName = 'error';
+              break;
+
+            case 2:
+              levelName = 'warn';
+              break;
+
+            case 4:
+              levelName = 'info';
+              break;
+
+            case 5:
+              levelName = 'debug';
+              break;
+          }
+
+          // if we can't get a level name, let's
+          // not log it.
+          if (!levelName) return;
+          log[levelName](entry.log.message);
+        };
+      },
     });
 
     this.logger.info('Creating producer...');
+    const started = Date.now();
+
     this.producer = this.kafka.producer({
       allowAutoTopicCreation: kafka.autoCreateTopics ?? true,
     });
 
     // setup producer events
-    this.producer!.on('producer.connect', (...args: any[]) =>
-      this.logger.info('Connected to Kafka producer!', ...args)
+    this.producer!.on('producer.connect', (event: { timestamp: number }) =>
+      this.logger.info(`Connected to Kafka producer in ~${event.timestamp - started}ms`)
     );
 
-    this.producer!.on('producer.disconnect', (...args: any[]) =>
-      this.logger.info('Disconnected from Kafka producer :(', ...args)
-    );
+    this.producer!.on('producer.disconnect', () => this.logger.info('Disconnected from Kafka producer :('));
 
     return this.producer.connect();
   }

@@ -3,3 +3,82 @@ services:
   tsubaki:
     container_name: tsubaki
     restart: always
+    ports:
+      - '17903:17903'
+    networks:
+      - furry
+    volumes:
+      - type: bind
+        read_only: true
+        target: /app/Arisu/backend/.env
+        source: ./app/.env
+
+      - type: bind
+        read_only: true
+        target: /app/Arisu/backend/config.yml
+        source: ./app/config.yml
+
+      # 
+      - tsubaki_data:/var/lib/arisu
+
+#version: '3.8'
+#services:
+#  github:
+#    build: .
+#    restart: always
+#    ports:
+#      - '8890:8890'
+#    networks:
+#      - furry
+#    volumes:
+#      - type: bind
+#        read_only: true
+#        target: /app/Arisu/github/.env
+#        source: ./.env
+#
+#  zookeeper:
+#    image: bitnami/zookeeper:latest
+#    restart: always
+#    ports:
+#      - '2181:2181'
+#    environment:
+#      ZOOKEEPER_ID: 1
+#      ZOOKEEPER_SERVER_ID: zookeeper
+#      ZOOKEEPER_CLIENT_PORT: 2181
+#      ALLOW_ANONYMOUS_LOGIN: 'yes'
+#
+#  kafka:
+#    image: bitnami/kafka:latest
+#    restart: always
+#    ports:
+#      - '9092:9092'
+#      - '29092:29092'
+#    volumes:
+#      - kafka-data:/var/lib/kafka
+#    environment:
+#      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+#      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+#      KAFKA_GROUP_INITAL_REBALANCE_DELAY_MS: 0
+#      ALLOW_PLAINTEXT_LISTENER: 'yes'
+#      KAFKA_LISTENERS: PLAINTEXT://localhost:29092,PLAINTEXT_HOST://localhost:9092
+#      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+#      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+#      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:29092,PLAINTEXT_HOST://localhost:9092
+#
+#  postgres:
+#    image: postgres
+#    restart: always
+#    ports:
+#      - '5567:5432'
+#    volumes:
+#      - postgres-data:/var/lib/postgresql
+#    environment:
+#      POSTGRES_USER: arisu
+#      POSTGRES_PASSWORD: arisu
+#
+#volumes:
+#  kafka-data:
+#  postgres-data:
+#networks:
+#  furry:
+#    external: true
