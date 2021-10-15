@@ -34,10 +34,12 @@ jobs:
 
   #     - name: Add images to Deployments
   #       run: |
-  #         kubectl set tag deployment/tsubaki arisu=arisuland/tsubaki:latest --namespace arisu
-  #         kubectl set tag deployment/github arisu=arisuland/github:latest --namespace arisu
+  #         kubectl set tag deployment/tsubaki tsubaki=arisuland/tsubaki:latest --namespace arisu
+  #         kubectl set tag deployment/github github=arisuland/github:latest --namespace arisu
+  #         kubectl set tag deployment/arisu arisu=arisuland/arisu:latest --namespace arisu
 
   #     - name: Deploy!
   #       run: |
   #         kubectl rollout status deployment/tsubaki
   #         kubectl rollout status deployment/github
+  #         kubectl rollout status deployment/arisu
