@@ -1,5 +1,6 @@
 name: Push to Production
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -30,17 +31,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-  #     - name: Login into Docker Hub
-  #       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u auguwu --password-stdin
+      - name: Login into Docker Hub
+        run: echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login -u auguwu --password-stdin
 
-  #     - name: chmod
-  #       run: chmod +x ./docker/build.sh && chmod +x ./docker/publish.sh
+      - name: chmod
+        run: chmod +x ./docker/build.sh && chmod +x ./docker/publish.sh
 
-  #     - name: Build images
-  #       run: ./docker/build.sh
+      - name: Build images
+        run: ./docker/build.sh
 
-  #     - name: Push all images
-  #       run: ./docker/publish.sh
+      - name: Push all images
+        run: ./docker/publish.sh
 
   # deploy:
   #   name: Deploy to Kubernetes
