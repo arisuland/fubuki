@@ -9,7 +9,6 @@ RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 
 # Work on build
 LABEL MAINTAINER="Arisu Team <contact@arisu.land>, Noel <cutie@floofy.dev>"
-LABEL land.arisu.tsubaki.service="backend"
 LABEL land.arisu.tsubaki.version=${version}
 LABEL land.arisu.tsubaki.commit-hash=${commit_hash}
 

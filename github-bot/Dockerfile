@@ -5,9 +5,8 @@ ARG commit_hash="unknown"
 
 # Work on build
 LABEL MAINTAINER="Arisu Team <contact@arisu.land>, Noel <cutie@floofy.dev>"
-LABEL land.arisu.tsubaki.service="backend"
-LABEL land.arisu.tsubaki.version=${version}
-LABEL land.arisu.tsubaki.commit-hash=${commit_hash}
+LABEL land.arisu.github.version=${version}
+LABEL land.arisu.github.commit-hash=${commit_hash}
 
 RUN apk update && apk add --no-cache git ca-certificates
 
