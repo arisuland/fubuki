@@ -1,31 +1,10 @@
-name: Push to Production
+name: Push Docker images
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - master
-
-    paths-ignore:
-      - '.github/**'
-      - '.husky/**'
-      - '.vscode/**'
-      - 'assets/**'
-      - 'locales/**'
-      - 'docker/**'
-      - '.kube/**'
-      - '.idea/**'
-      - '.dockerignore'
-      - '.eslintignore'
-      - '.gitignore'
-      - '**.md'
-      - 'LICENSE'
-      - 'renovate.json'
-      - '.prettierc.json'
-      - '.prettierignore'
-
+  release:
+    types:
+      - released
 jobs:
-  push-prod:
-    name: Push to Production
+  docker:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
