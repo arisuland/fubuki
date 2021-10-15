@@ -3687,9 +3687,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 16.10.9
-  resolution: "@types/node@npm:16.10.9"
-  checksum: b47c3e3896ce243d3bc9e356578d4d607357d9ea0c1445a15cb564341580ac4db4f95677bf15fd354e46343edbd171ac19701740a53637234411da5b66c883a4
+  version: 16.11.0
+  resolution: "@types/node@npm:16.11.0"
+  checksum: 194ae80ec72f664e15e03c33f116be96aa1e85b167a19e31003c53ddfc36dabd65744e9a76c1d46b7ce2e5981d2ccb8e84a85c3ec9ac89f1471daaa885bdcfd0
   languageName: node
   linkType: hard
 
@@ -4955,9 +4955,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001265":
-  version: 1.0.30001265
-  resolution: "caniuse-lite@npm:1.0.30001265"
-  checksum: 19f1943045503ebd182191075a991035523123db6985bcccde6702c445154a470a72ff064568a977b607a0c42789bed73ecee6a6a04601dd04691c1a1fdfbd1c
+  version: 1.0.30001267
+  resolution: "caniuse-lite@npm:1.0.30001267"
+  checksum: 1a84f792a17a7819d42bed24eafe2a4832ab1f58937b6d65a9f43e9cdd2a3b10308e8bc2bbb3808f1df6b60940b1770b185c42370fa9dac2c8bc5c8a0363c158
   languageName: node
   linkType: hard
 
@@ -5796,9 +5796,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.3.867":
-  version: 1.3.867
-  resolution: "electron-to-chromium@npm:1.3.867"
-  checksum: 032c48d51462c771e4017ad6d35e2b088bf9aa74a1b5dc8050cf0f386a446f139582c9efd4fdd50ff74e0b5f4d58faee3af9b491304a752441ea69d4e42cdba9
+  version: 1.3.869
+  resolution: "electron-to-chromium@npm:1.3.869"
+  checksum: 0e6615df267e96b5ff42673cde257ef2709d87699a828dccc1fbc6539d60169736eff93f8ef9e3943117f6d74e705f08aa92c80810c9ca89746b09b3f70166ea
   languageName: node
   linkType: hard
 
@@ -6910,8 +6910,8 @@ __metadata:
   linkType: hard
 
 "google-auth-library@npm:^7.0.0, google-auth-library@npm:^7.9.2":
-  version: 7.10.0
-  resolution: "google-auth-library@npm:7.10.0"
+  version: 7.10.1
+  resolution: "google-auth-library@npm:7.10.1"
   dependencies:
     arrify: ^2.0.0
     base64-js: ^1.3.0
@@ -6922,7 +6922,7 @@ __metadata:
     gtoken: ^5.0.4
     jws: ^4.0.0
     lru-cache: ^6.0.0
-  checksum: 0c564b87197aa1f513cde97ad993ce158ffc8319d3e8a12426e6b8a9c5b030724b0e1d6d4155a41de210f902180d25e156f95a71bb423633a3c30276b6dee203
+  checksum: b5f55d4db005dfe9419f413689b0d3ff2847cb52c8ccd0b50036f524f72314eab4465f46c5268f52525d268df82327c9fc1cf0f365e90c734e4056de29f414ac
   languageName: node
   linkType: hard
 
@@ -7512,11 +7512,11 @@ __metadata:
   linkType: hard
 
 "is-core-module@npm:^2.2.0":
-  version: 2.7.0
-  resolution: "is-core-module@npm:2.7.0"
+  version: 2.8.0
+  resolution: "is-core-module@npm:2.8.0"
   dependencies:
     has: ^1.0.3
-  checksum: 8ec6dc714438ef9dc4dae10c94d21bd5aa67244da7e85bd9e42f0fd298514181214f6bebe358a486477c1242458b170ad7a8c936be0be15d465862fa61d3d1c7
+  checksum: f8b52714891e1a6c6577fcb8d5e057bab064a7a30954aab6beb5092e311473eb8da57afd334de4981dc32409ffca998412efc3a2edceb9e397cef6098d21dd91
   languageName: node
   linkType: hard
 
@@ -8699,15 +8699,14 @@ __metadata:
   linkType: hard
 
 "light-my-request@npm:^4.2.0":
-  version: 4.5.0
-  resolution: "light-my-request@npm:4.5.0"
+  version: 4.6.0
+  resolution: "light-my-request@npm:4.6.0"
   dependencies:
     ajv: ^8.1.0
     cookie: ^0.4.0
     fastify-warning: ^0.2.0
-    readable-stream: ^3.6.0
     set-cookie-parser: ^2.4.1
-  checksum: e5dbef6f85d75e2f7a183116ddbc8af90e7fad913c77a44e2040e08de83c891ee8a2d235a2faddd2ccc3061d974a5fbb7d78f713d2d97d2ee36021a865785ecc
+  checksum: 5e367cec28be846f2cc77e0ae9d18cc3bc1076e321b639603ac773b9bb940964f1ce7d3169490c18ab186674130ae581933e86c5b34a639cc11c7b29e99c05da
   languageName: node
   linkType: hard
 
@@ -10307,7 +10306,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"readable-stream@npm:^3.1.1, readable-stream@npm:^3.4.0, readable-stream@npm:^3.6.0":
+"readable-stream@npm:^3.1.1, readable-stream@npm:^3.4.0":
   version: 3.6.0
   resolution: "readable-stream@npm:3.6.0"
   dependencies:

@@ -5,11 +5,11 @@ ENV PYTHONUNBUFFERED=1
 RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 
 LABEL MAINTAINER="Arisu Team <contact@arisu.land>, Noel <cutie@floofy.dev>"
-RUN apk update && apk add --no-cache git ca-certificates git ca-certificates make gcc g++
+RUN apk update && apk add --no-cache git ca-certificates git ca-certificates make gcc g++ bash
 
 WORKDIR /app/Arisu/backend
 COPY . .
-RUN npm i -g typescript eslint
+RUN yarn global add typescript eslint
 RUN yarn
 RUN yarn build
 RUN yarn cache clean
