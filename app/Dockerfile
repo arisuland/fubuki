@@ -1,11 +1,18 @@
 FROM node:16-alpine AS builder
 
+ARG version="unknown"
+ARG commit_hash="unknown"
+
 # Setup Python 3
 ENV PYTHONUNBUFFERED=1
 RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 
 # Work on build
 LABEL MAINTAINER="Arisu Team <contact@arisu.land>, Noel <cutie@floofy.dev>"
+LABEL land.arisu.tsubaki.service="backend"
+LABEL land.arisu.tsubaki.version=${version}
+LABEL land.arisu.tsubaki.commit-hash=${commit_hash}
+
 RUN apk update && apk add --no-cache git ca-certificates make gcc g++ bash
 
 WORKDIR /app

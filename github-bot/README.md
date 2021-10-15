@@ -61,11 +61,10 @@ GITHUB_APP_PEM_LOCATION=
 # # The installation ID you can get from the GitHub Apps dashboard
 GITHUB_APP_INSTALLATION_ID=
 
-# Host for connecting to Kafka
-KAFKA_CONSUMER_HOST=
-
-# Port for connecting to Kafka
-KAFKA_CONSUMER_PORT=
+# Brokers for connecting to Kafka
+# You specify them in an array like:
+# localhost:9092,localhost2:9092
+KAFKA_CONSUMER_BROKERS=...
 
 # The topic to use to send PubSub around the backend and
 # the app. The topic must be the same you specified in

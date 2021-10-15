@@ -50,12 +50,12 @@ import { App } from '@octokit/app';
 
     DATABASE_URL: 'string',
     TSUBAKI_URL: 'string',
+    WEBHOOK_SECRET: 'string',
     GITHUB_APP_ID: 'string',
     GITHUB_APP_SECRET: 'string',
     GITHUB_APP_PEM_LOCATION: 'string',
-    KAFKA_CONSUMER_PORT: 'int',
-    KAFKA_CONSUMER_HOST: 'string',
     KAFKA_CONSUMER_TOPIC: 'string',
+    KAFKA_CONSUMER_BROKERS: 'string',
     GITHUB_APP_INSTALLATION_ID: 'int',
     KAFKA_CONSUMER_GROUP_ID: {
       default: undefined,
@@ -79,7 +79,6 @@ const main = async () => {
   await client.$connect();
 
   logger.info('Creating GitHub app and server...');
-
   const privateKey = await readFile(process.env.GITHUB_APP_PEM_LOCATION, 'utf-8');
   const app = new App({
     appId: process.env.GITHUB_APP_INSTALLATION_ID,
@@ -105,7 +104,7 @@ const main = async () => {
     logger.info('Told to disconnect... (CTRL+C action)');
 
     await client.$disconnect();
-    kafka.disconnect();
+    await kafka.disconnect();
     server.close(() => {
       // noop
     });

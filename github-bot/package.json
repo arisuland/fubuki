@@ -1,7 +1,7 @@
 {
   "name": "@arisu/github",
   "description": "☔ GitHub automation bot to automate syncing translations from Arisu <- -> GitHub",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "main": "build/main.js",
   "private": true,
   "license": "GPL-3.0",
@@ -31,8 +31,8 @@
     "consola": "2.15.3",
     "fastify": "3.22.0",
     "fastify-no-icon": "4.0.0",
+    "kafkajs": "1.15.0",
     "leeks.js": "0.2.4",
-    "node-rdkafka": "2.11.0",
     "source-map-support": "0.5.20"
   },
   "devDependencies": {

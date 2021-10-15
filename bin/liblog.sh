@@ -8,7 +8,7 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 
 info() {
-  timestamp=$(date +"%D ~%r")
+  timestamp=$(date +"%D ~ %r")
   printf "%b\\n" "${GREEN}${BOLD}info${RESET}  | ${PINK}${BOLD}${timestamp}${RESET} ~ $1"
 }
 

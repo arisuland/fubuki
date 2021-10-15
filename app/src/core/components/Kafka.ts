@@ -114,23 +114,4 @@ export default class Kafka {
     this.logger.warn('Disconnecting Kafka producer...');
     return this.producer.disconnect();
   }
-
-  publish(channel: string, type: KafkaPublishTypes, data?: Record<string, any>) {
-    // TODO: type `data`
-    if (this.producer === null) return Promise.resolve(); // no-op
-
-    return this.producer.send({
-      messages: [
-        {
-          value: JSON.stringify({
-            type,
-            d: data,
-          }),
-        },
-      ],
-
-      topic: channel,
-      timeout: 2500, // 2.5 seconds should work
-    });
-  }
 }
