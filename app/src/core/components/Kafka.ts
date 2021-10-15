@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { AdminClient, Producer } from 'node-rdkafka';
+import { Kafka as KafkaClient, Producer } from 'kafkajs';
 import { Component, Inject } from '@augu/lilith';
 import { Logger } from 'tslog';
 import Config from './Config';
@@ -42,106 +42,64 @@ export default class Kafka {
 
   @Inject
   private readonly config!: Config;
-  producer?: Producer;
+  private kafka!: KafkaClient;
 
-  load() {
-    const pubsub = this.config.getProperty('pubsub');
-    if (pubsub === undefined) {
-      this.logger.warn('Unable to identify `pubsub` option, defaulting to Redis...');
+  producer: Producer | null = null;
+
+  async load() {
+    const kafka = this.config.getProperty('kafka');
+    if (kafka === undefined) {
+      this.logger.warn('Kafka configuration is missing, but optional!');
       return Promise.resolve();
     }
 
-    if (pubsub.type !== 'kafka') {
-      this.logger.warn(`PubSub type was set to ${pubsub.type}, skipping...`);
-      return Promise.resolve();
-    }
-
-    if (pubsub.kafka === undefined) {
-      this.logger.warn('Missing Kafka options to initialize.');
-      return Promise.resolve();
-    }
+    this.logger.debug('Creating Kafka broker client...');
+    this.kafka = new KafkaClient({
+      brokers: kafka.brokers.map((s) => `${s.host}${s.port !== undefined ? `:${s.port}` : ''}`),
+      clientId: 'tsubaki',
+      logLevel: process.env.NODE_ENV === 'development' ? 5 : 4,
+    });
 
     this.logger.info('Creating producer...');
-    this.producer = new Producer({
-      'metadata.broker.list': `${pubsub.kafka.host}:${pubsub.kafka.port}`,
+    this.producer = this.kafka.producer({
+      allowAutoTopicCreation: kafka.autoCreateTopics ?? true,
     });
 
-    this.producer.on('event.error', (error) =>
-      this.logger.error('Received unknown exception in Kafka producer:', error)
+    // setup producer events
+    this.producer!.on('producer.connect', (...args: any[]) =>
+      this.logger.info('Connected to Kafka producer!', ...args)
     );
-    return new Promise<void>((resolve, reject) => {
-      this.logger.info('We are now making an attempt to connect to Kafka Producer...');
-      this.producer!.on('ready', async (_, metadata) => {
-        const topics = metadata.topics.map((t) => t.name);
-        this.logger.info(
-          `Successfully made a connection to the Kafka producer, found topics:`,
-          topics.map((s) => `    - ${s}`).join('\n')
-        );
 
-        if (topics.includes(pubsub.kafka!.topic ?? 'tsubaki')) {
-          return resolve();
-        } else {
-          this.logger.warn(`Unable to find requested topic: ${pubsub.kafka!.topic ?? 'tsubaki'}`);
-          if (pubsub.kafka!.autoCreateTopics === true) {
-            this.logger.info(`Creating topic '${pubsub.kafka!.topic ?? 'tsubaki'}'...`);
+    this.producer!.on('producer.disconnect', (...args: any[]) =>
+      this.logger.info('Disconnected from Kafka producer :(', ...args)
+    );
 
-            // Create AdminClient to create topics
-            const admin = AdminClient.create({
-              'metadata.broker.list': `${pubsub.kafka!.host}:${pubsub.kafka!.port}`,
-            });
-
-            admin.createTopic(
-              // eslint-disable-next-line
-              { topic: pubsub.kafka!.topic ?? 'tsubaki', num_partitions: 2, replication_factor: 1 },
-              (error) => {
-                if (error !== undefined) {
-                  reject(error);
-                } else {
-                  this.logger.info(`Created topic '${pubsub.kafka!.topic ?? 'tsubaki'}', please restart the server.`);
-                  reject(new Error('Requires server restart.'));
-                }
-              }
-            );
-          } else {
-            this.producer!.disconnect();
-            return reject(
-              new Error(
-                `Topic ${
-                  pubsub.kafka!.topic ?? 'tsubaki'
-                } was not found (reason: \`autoCreateTopics\` was undefined or set to \`false\`.)`
-              )
-            );
-          }
-        }
-      });
-
-      this.producer!.connect({ allTopics: true });
-    });
+    return this.producer.connect();
   }
 
   dispose() {
-    if (!this.producer) return;
+    if (this.producer === null) return;
 
-    this.logger.warn('Disposing producer...');
+    this.logger.warn('Disconnecting Kafka producer...');
     return this.producer.disconnect();
   }
 
-  publish<T>(type: KafkaPublishTypes, data: T) {
-    if (!this.producer) return;
+  publish(channel: string, type: KafkaPublishTypes, data?: Record<string, any>) {
+    // TODO: type `data`
+    if (this.producer === null) return Promise.resolve(); // no-op
 
-    const pubsub = this.config.getProperty('pubsub')!;
-    this.producer!.produce(
-      pubsub.kafka!.topic ?? 'tsubaki',
-      null,
-      Buffer.from(
-        JSON.stringify({
-          channel: type,
-          payload: data,
-        })
-      ),
-      null, // TODO: provide a key?
-      Date.now(),
-      [{ channel: type }]
-    );
+    return this.producer.send({
+      messages: [
+        {
+          value: JSON.stringify({
+            type,
+            d: data,
+          }),
+        },
+      ],
+
+      topic: channel,
+      timeout: 2500, // 2.5 seconds should work
+    });
   }
 }

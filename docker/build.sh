@@ -44,11 +44,13 @@ if [[ "$BRANCH" == "master" ]]; then
 
   cd github-bot
   docker build . -t "arisuland/github:latest" --no-cache
+  cd ..
 else
   debug "github: changed directory to $(pwd)/github-bot!"
 
   cd github-bot
   docker build . -t "arisuland/github:$BRANCH" --no-cache
+  cd ..
 fi
 
 GITHUB_BOT_VERSION=$(cat ./github-bot/package.json | jq '.version' | tr -d '"')

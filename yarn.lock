@@ -143,9 +143,9 @@ __metadata:
     jest: 27.2.5
     js-yaml: 4.1.0
     jsonwebtoken: 8.5.1
+    kafkajs: 1.15.0
     leeks.js: 0.2.4
     mime-types: 2.1.33
-    node-rdkafka: 2.11.0
     nodemon: 2.0.13
     prettier: 2.4.1
     prisma: 3.2.1
@@ -8630,6 +8630,13 @@ __metadata:
     jwa: ^2.0.0
     safe-buffer: ^5.0.1
   checksum: d68d07aa6d1b8cb35c363a9bd2b48f15064d342a5d9dc18a250dbbce8dc06bd7e4792516c50baa16b8d14f61167c19e851fd7f66b59ecc68b7f6a013759765f7
+  languageName: node
+  linkType: hard
+
+"kafkajs@npm:1.15.0":
+  version: 1.15.0
+  resolution: "kafkajs@npm:1.15.0"
+  checksum: b2f21f9e8c49d96a17c7e697c6cdf1df3bea4260734d4d648f6071cdb4b0d6c5d56597a169f17cb986aa569d80f6ba71655333b35f56f38f8ad6bb8423eb6184
   languageName: node
   linkType: hard
 

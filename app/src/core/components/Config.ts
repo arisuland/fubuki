@@ -34,8 +34,8 @@ interface Configuration {
   runPendingMigrations?: boolean;
   prometheusPort?: number;
   sentryDsn?: string;
-  pubsub?: PubSubConfig;
   storage: StorageConfig;
+  kafka?: KafkaConfig;
   redis: RedisConfig;
   host?: string;
 }
@@ -59,18 +59,15 @@ interface StorageConfig {
   fs?: FilesystemStorageConfig; // add fs as an alias
 }
 
-interface PubSubConfig {
-  type: 'kafka' | 'redis';
-  kafka?: KafkaPubSubConfig;
-  redis?: RedisConfig;
-}
-
-interface KafkaPubSubConfig {
+interface KafkaConfig {
   autoCreateTopics?: boolean;
+  brokers: {
+    host: string;
+    port?: number;
+  }[];
+
   groupId?: any;
   topic?: string;
-  host: string;
-  port: number;
 }
 
 const redisShape = z.object({
@@ -128,19 +125,17 @@ const zodSchema = z
     }),
 
     redis: redisShape,
-    pubsub: z
+    kafka: z
       .object({
-        type: z.enum(['kafka', 'redis']).default('redis'),
-        kafka: z
-          .object({
-            autoCreateTopics: z.boolean().default(true).optional(),
-            groupId: z.any().optional(), // TODO: what to do with this? owo
-            topic: z.string().optional().default('tsubaki'),
+        autoCreateTopics: z.boolean().default(true).optional(),
+        groupId: z.any().optional(), // TODO: what to do with this? owo
+        topic: z.string().optional().default('arisu:tsubaki'),
+        brokers: z.array(
+          z.object({
             host: z.string(),
-            port: z.number(),
+            port: z.number().optional().default(9092),
           })
-          .optional(),
-        redis: redisShape,
+        ),
       })
       .optional(),
   })
