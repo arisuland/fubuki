@@ -1,11 +1,11 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-. "../bin/liblog.sh"
+. "$PWD/bin/liblog.sh"
 
 info "Linting projects..."
-yarn workspaces foreach --from '{@arisu/tsubaki,@arisu/web,@arisu/github}' lint:ci
+yarn workspaces foreach --from '{@arisu/tsubaki,@arisu/github}' -p -R run lint:ci
 
 info "Checking if we can compile"
-yarn workspaces foreach --from '{@arisu/tsubaki,@arisu/github}' build:ci
+yarn workspaces foreach --from '{@arisu/tsubaki,@arisu/github}' -p -R run build:ci
 
 info "✔ Everything has been checked. :3"

@@ -9,11 +9,8 @@
   "bugs": "https://github.com/auguwu/Arisu/issues",
   "author": "Noel <cutie@floofy.dev>, Arisu Team <contact@arisu.land>",
   "scripts": {
-    "postbuild": "next-sitemap",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint src --ext .ts,.vue --fix",
-    "dev": "next dev -p 28093"
+    "lint:ci": "eslint src --ext .ts",
+    "lint": "eslint src --ext .ts,.vue --fix"
   },
   "dependencies": {
     "@arisu/typings": "1.0.1",

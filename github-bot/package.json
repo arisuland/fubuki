@@ -10,6 +10,9 @@
   "bugs": "https://github.com/arisuland/Arisu/issues",
   "author": "Noel <cutie@floofy.dev>, Arisu Team <contact@arisu.land>",
   "scripts": {
+    "prisma:generate": "prisma generate",
+    "build:ci": "tsc --noEmit",
+    "lint:ci": "eslint src --ext .ts",
     "start": "cd build && node main.js",
     "build": "rm -rf build && tsc",
     "lint": "eslint src --ext .ts --fix",
