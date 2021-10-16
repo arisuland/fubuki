@@ -18,6 +18,6 @@
     "eslint-config-prettier": "8.3.0",
     "husky": "7.0.2",
     "prettier": "2.4.1",
-    "vls": "0.7.4"
+    "vls": "0.7.6"
   }
 }
