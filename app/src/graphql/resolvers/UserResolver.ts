@@ -53,6 +53,20 @@ export class ResultObject {
 @Resolver()
 export default class UserResolver {
   @Query(() => User, {
+    name: 'me',
+    nullable: true,
+    description: 'Returns the user by their session token, if any.',
+  })
+  @UseMiddleware(auth)
+  async me(@Ctx() { prisma, req }: ArisuContext) {
+    return prisma.users.findUnique({
+      where: {
+        id: req.user!.id,
+      },
+    });
+  }
+
+  @Query(() => User, {
     name: 'user',
     nullable: true,
     description: 'Returns a user by their unique identifier or username.',

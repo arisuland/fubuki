@@ -5,16 +5,23 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowJs": true,
+    "sourceMap": true,
     "strict": true,
     "noEmit": true,
     "baseUrl": ".",
-    "types": ["node"],
+    "typeRoots": ["src/@types", "./node_modules/@types"],
+    "types": [
+      "node",
+      "@nuxt/types",
+      "@nuxtjs/apollo/types/nuxt",
+      "@nuxtjs/i18n/types/vue",
+      "@nuxtjs/pwa/dist/pwa",
+      "@nuxtjs/sentry/types"
+    ],
     "paths": {
       "~/*": ["./src/*"],
-      "@/*": ["./*"]
-    },
-    "skipLibCheck": true
+      "@/*": ["./src/*"]
+    }
   },
-  "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "exclude": ["node_modules"]
 }
