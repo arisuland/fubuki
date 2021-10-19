@@ -278,7 +278,7 @@ __metadata:
     type-graphql: 1.1.1
     typescript: 4.4.4
     ws: 8.2.3
-    zod: 3.9.8
+    zod: 3.10.1
   languageName: unknown
   linkType: soft
 
@@ -29661,10 +29661,10 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"zod@npm:3.9.8":
-  version: 3.9.8
-  resolution: "zod@npm:3.9.8"
-  checksum: 6e88fd13f77284e877a0664d373dfc3662199a57e4fad1b01d1c913c45ba670d40db4fafe577161b7f9f3bc2d80aff8bf7a2ffa49108d0e40b886ad13ee747ba
+"zod@npm:3.10.1":
+  version: 3.10.1
+  resolution: "zod@npm:3.10.1"
+  checksum: c5a964e1f3b956d4926ac6abec9eae9854ad2b948ba7ec412340aaca901af9f6cb434cfee571c7de96b4766fe1b1996ddd548f71ed7536b93adb76c4ea197613
   languageName: node
   linkType: hard
 
