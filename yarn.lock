@@ -233,7 +233,7 @@ __metadata:
     "@prisma/client": 3.2.1
     "@sentry/node": 6.13.3
     "@types/bree": 6.2.1
-    "@types/busboy": 0.2.4
+    "@types/busboy": 0.3.0
     "@types/ioredis": 4.27.8
     "@types/jest": 27.0.2
     "@types/js-yaml": 4.0.3
@@ -7219,12 +7219,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/busboy@npm:0.2.4":
-  version: 0.2.4
-  resolution: "@types/busboy@npm:0.2.4"
+"@types/busboy@npm:0.3.0":
+  version: 0.3.0
+  resolution: "@types/busboy@npm:0.3.0"
   dependencies:
     "@types/node": "*"
-  checksum: bc60257557c65cc8c5a68d38292b807a6a797111d60feaccf9815c9fe724eb10687794996212728ec6893b8967f42e02cd83445dfdce37f583ce1b383d6d330a
+  checksum: d05becbb08aa74dcc09a1670c07c5d9ec4eada22fda2547ca3d34b81eaed25f09fa83011d77da4851e2dbcb7ee161112503aaa254daf0cf869e66614ff4acdb7
   languageName: node
   linkType: hard
 
