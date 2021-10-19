@@ -336,7 +336,7 @@ __metadata:
     eslint-plugin-nuxt: 2.0.0
     eslint-plugin-vue: 7.19.1
     graphql-tag: 2.12.5
-    highlight.js: 11.2.0
+    highlight.js: 11.3.1
     leeks.js: 0.2.4
     luxon: 2.0.2
     marked: 3.0.7
@@ -16437,10 +16437,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"highlight.js@npm:11.2.0":
-  version: 11.2.0
-  resolution: "highlight.js@npm:11.2.0"
-  checksum: 12bfd562899a6a70d20321460ec40a94456bd8a9cb7deedbb70630c1981b937690fa0c7cf056d8f12c3c39981b400fb1a4f8b784b97399b26bd812460809cc0e
+"highlight.js@npm:11.3.1":
+  version: 11.3.1
+  resolution: "highlight.js@npm:11.3.1"
+  checksum: 9adaaa1fe5aaae0ca522f9355bc2a7387f76ab362f88c32c86879b99f606619a9aa33c32ffc94cd893987e71ba5d2de6f3e325ed9e8eac65e5872d251e8cba3a
   languageName: node
   linkType: hard
 
