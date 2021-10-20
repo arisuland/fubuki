@@ -1,4 +1,4 @@
-FROM node:16-alpine AS builder
+FROM node:17-alpine AS builder
 
 ARG version="unknown"
 ARG commit_hash="unknown"
@@ -22,7 +22,7 @@ RUN yarn build
 RUN yarn cache clean
 RUN rm -rf src scripts
 
-FROM node:16-alpine
+FROM node:17-alpine
 
 WORKDIR /app/Arisu/backend
 
