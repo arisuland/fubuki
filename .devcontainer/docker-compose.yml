@@ -25,23 +25,23 @@ services:
     image: bitnami/zookeeper:latest
     restart: always
     ports:
-      - '2181:2181'
+      - '2323:2323'
     environment:
       ZOOKEEPER_ID: 1
       ZOOKEEPER_SERVER_ID: zookeeper
-      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_CLIENT_PORT: 2323
       ALLOW_ANONYMOUS_LOGIN: 'yes'
 
-  kafka:
+  arisu-kafka:
     image: bitnami/kafka:latest
     restart: always
     ports:
-      - '9092:9092'
-      - '29092:29092'
+      - '9091:9092'
+      - '29091:29092'
     volumes:
-      - kafka-data:/var/lib/kafka
+      - arisu_kafka_data:/var/lib/kafka
     environment:
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2323
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_GROUP_INITAL_REBALANCE_DELAY_MS: 0
       ALLOW_PLAINTEXT_LISTENER: 'yes'
@@ -53,4 +53,4 @@ services:
 volumes:
   postgres_data:
   redis_data:
-  kafka_data:
+  arisu_kafka_data:
