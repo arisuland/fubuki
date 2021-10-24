@@ -26,6 +26,7 @@ import { isEmail } from 'class-validator';
 import * as argon2 from 'argon2';
 import { auth } from '../middleware';
 import User from '~/graphql/objects/User';
+import Config from '~/core/components/Config';
 
 export interface Result {
   success: boolean;
@@ -98,6 +99,10 @@ export default class UserResolver {
     @Arg('input', { description: 'The input for creating a new user in the database.' })
     { username, password, email }: CreateUserInput
   ) {
+    const config: Config = context.container.$ref(Config);
+    const registrations = config.getProperty('registrations') ?? true;
+    if (!registrations) throw new Error('Registrations are not enabled on this Tsubaki instance.');
+
     // Check if a user exists
     const prisma: PrismaClient = context.container.$ref(PrismaClient);
     const hasUser = await prisma.users.findFirst({

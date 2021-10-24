@@ -30,22 +30,104 @@ import { S3StorageConfig, S3Provider } from '~/storage/S3StorageProvider';
 
 const NOT_FOUND_SYMBOL = Symbol.for('$arisu::config::not.found');
 
+/**
+ * Represents the configuration portion for running Tsubaki. Read more
+ * [here](https://docs.arisu.land/self-hosting/config) for more information
+ * on all possible values.
+ */
 interface Configuration {
-  runPendingMigrations?: boolean;
-  prometheusPort?: number;
+  /**
+   * If registrations should be enabled on the server. If not, no one
+   * is allowed to register on this instance, unless explicity registered
+   * by an administator on the admin dashboard.
+   */
+  registrations?: boolean;
+
+  /**
+   * Returns the DSN for Sentry, this will output logs to Sentry related to Tsubaki.
+   */
   sentryDsn?: string;
+
+  /**
+   * Returns the sitename to embed when running your instance.
+   */
+  siteName?: string;
+
+  /**
+   * Returns the site icon to use when displayed on the website.
+   */
+  siteIcon?: string;
+
+  /**
+   * Returns the object for using an optional storage bucket
+   * or the filesystem.
+   */
   storage: StorageConfig;
+
+  /**
+   * Returns the configuration for creating a Kafka broker for Tsubaki. This is
+   * primarily used for communication between the GitHub bot and Tsubaki.
+   */
   kafka?: KafkaConfig;
+
+  /**
+   * Returns the configuration for using Redis for caching user sessions.
+   */
   redis: RedisConfig;
+
+  /**
+   * Custom host to use when launching the HTTP server. This can be masked
+   * using the `HOST` or `TSUBAKI_HOST` environment variable. The default is
+   * `'0.0.0.0'`, so anyone on the network can visit it.
+   */
   host?: string;
+
+  /**
+   * Returns the port to listen to the HTTP server. If the port is taken,
+   * Tsubaki will try to find an available port round-robin style and use
+   * that.
+   */
+  port?: number;
+
+  /**
+   * Returns the timezone to use for date objects. If this is not set,
+   * it'll not do time conversion based on the timezone.
+   */
+  tz?: string;
 }
 
 interface RedisConfig {
+  /**
+   * Sets the sentinel servers to use when using **Redis Sentinel** instead
+   * of **Redis Standalone**. The {@link RedisConfig.master master name} is required
+   * to be set if this is defined.
+   */
   sentinels?: RedisSentinelConfig[];
+
+  /**
+   * Sets the password for basic authentication.
+   */
   password?: string;
+
+  /**
+   * Returns the master name for connecting to any redis sentinel servers.
+   */
   master?: string;
+
+  /**
+   * Returns the database ID to use
+   */
   index?: number;
+
+  /**
+   * Returns the host for connecting to Redis. This defaults to `'localhost'`
+   * if nothing was put here.
+   */
   host: string;
+
+  /**
+   * Returns the port to use when connecting to Redis.
+   */
   port: number;
 }
 
@@ -53,20 +135,55 @@ interface RedisConfig {
 interface RedisSentinelConfig extends Pick<RedisConfig, 'host' | 'port'> {}
 
 interface StorageConfig {
+  /**
+   * Uses the file-system for storing projects. If you do use this,
+   * it is required to setup a proper volume if you're using Docker or using
+   * a **VolumePersistentClaim** if using Kubernetes.
+   *
+   * Read more [here](https://docs.arisu.land/self-hosting/docker#volume-management) and
+   * [here](https://docs.arisu.land/self-hosting/on-kubernetes#vpc) for more information.
+   */
   filesystem?: FilesystemStorageConfig;
+
+  /**
+   * Uses Google Cloud Storage to store projects. This is still alpha
+   * testing since Arisu uses **S3** in production.
+   */
   gcs?: GoogleCloudStorageConfig;
+
+  /**
+   * Uses Amazon S3 to store projects. This is recommended to be using
+   * in production environments, but you can choose whatever.
+   */
   s3?: S3StorageConfig;
+
+  /**
+   * Alias for {@link StorageConfig.filesystem}.
+   */
   fs?: FilesystemStorageConfig; // add fs as an alias
 }
 
 interface KafkaConfig {
+  /**
+   * If the producer should auto-create the {@link KafkaConfig.topic topic} for you.
+   */
   autoCreateTopics?: boolean;
+
+  /**
+   * Returns a record of the brokers to connect to
+   */
   brokers: {
     host: string;
     port?: number;
   }[];
 
-  groupId?: any;
+  /**
+   * Returns the topic to send messages towards.
+   *
+   * > {{warn}}
+   * > **This must be the SAME as the one you set when using the GitHub bot microservice or it will not produce messages.**
+   * > {{/warn}}
+   */
   topic?: string;
 }
 
@@ -89,8 +206,7 @@ const redisShape = z.object({
 
 const zodSchema = z
   .object({
-    runPendingMigrations: z.boolean().optional(),
-    prometheusPort: z.number().min(1024).max(65535).optional(),
+    registrations: z.boolean().default(true).optional(),
     sentryDsn: z.string().optional(),
     storage: z.object({
       filesystem: z
@@ -156,7 +272,6 @@ export default class Config {
     if (!existsSync(configPath)) {
       const config = yaml.dump(
         {
-          runPendingMigrations: true,
           redis: {
             host: 'localhost',
             port: 6379,
@@ -164,13 +279,6 @@ export default class Config {
           storage: {
             fs: {
               directory: './.arisu',
-            },
-          },
-          pubsub: {
-            type: 'redis',
-            redis: {
-              host: 'localhost',
-              port: 6379,
             },
           },
         },
