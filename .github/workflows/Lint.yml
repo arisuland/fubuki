@@ -80,7 +80,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Installs all global packages
-        run: yarn global add eslint typescript
+        run: npm i -g eslint typescript
 
       - name: Installs local packages
         run: yarn
