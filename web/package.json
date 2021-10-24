@@ -9,7 +9,9 @@
   "bugs": "https://github.com/auguwu/Arisu/issues",
   "author": "Noel <cutie@floofy.dev>, Arisu Team <contact@arisu.land>",
   "scripts": {
-    "lint:ci": "eslint src --ext .ts",
+    "build:ci": "true",
+    "lint:ci": "eslint src --ext .ts,.vue",
+    "build": "nuxt build",
     "lint": "eslint src --ext .ts,.vue --fix"
   },
   "dependencies": {

@@ -8,11 +8,10 @@
     "web/"
   ],
   "scripts": {
-    "build:ci": "true",
     "prepare": "husky install",
-    "fmt": "prettier --config --parser typescript ./.prettierrc.json --write app/src/**/*.ts github-bot/src/**/*.ts typings/typings/**/*.d.ts",
-    "build": "true",
-    "lint": "yarn workspaces foreach --from '{@arisu/tsubaki,@arisu/github-bot,@arisu/web}' -p run lint"
+    "build": "yarn workspaces foreach --from '{@arisu/tsubaki,@arisu/github,@arisu/web}' -p run build",
+    "lint": "yarn workspaces foreach --from '{@arisu/tsubaki,@arisu/github,@arisu/web}' -p run lint",
+    "fmt": "prettier --config --parser typescript ./.prettierrc.json --write app/src/**/*.ts github-bot/src/**/*.ts typings/typings/**/*.d.ts"
   },
   "devDependencies": {
     "eslint-config-prettier": "8.3.0",

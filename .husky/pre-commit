@@ -3,9 +3,9 @@
 . "$PWD/bin/liblog.sh"
 
 info "Linting projects..."
-yarn workspaces foreach --from '{@arisu/tsubaki,@arisu/github}' -p -R run lint:ci
+yarn workspaces foreach --from '{@arisu/web,@arisu/tsubaki,@arisu/github}' -p run lint:ci
 
 info "Checking if we can compile"
-yarn workspaces foreach --from '{@arisu/tsubaki,@arisu/github}' -p -R run build:ci
+yarn workspaces foreach --from '{@arisu/web,@arisu/tsubaki,@arisu/github}' -p run lint:ci
 
 info "✔ Everything has been checked. :3"
