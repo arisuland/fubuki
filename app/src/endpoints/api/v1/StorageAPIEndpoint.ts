@@ -124,8 +124,8 @@ export default class StorageAPIEndpoint {
       limits: {
         fileSize: 100 * (1024 * 1024), // 100mb is only allowed (maybe TODO - add premium support for ~500mb single file uploads?)
         files: 1, // one one file is allowed
-      },
-    });
+      } as any,
+    } as any);
 
     this.logger.debug(`Uploading file ${file.filename} (field-name: ${file.fieldname})`);
     const buffer = await file.toBuffer();
@@ -170,7 +170,7 @@ export default class StorageAPIEndpoint {
     let fileToUpload: File[] = [];
 
     // eslint-disable-next-line
-    for await (const file of req.files({ limits: { fileSize: 100 * (1024 * 1024) } })) {
+    for await (const file of req.files({ limits: { fileSize: 100 * (1024 * 1024) } } as any)) {
       const contents = await file.toBuffer();
 
       fileToUpload.push({
