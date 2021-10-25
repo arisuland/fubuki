@@ -120,7 +120,7 @@ const nuxtConfig: NuxtConfig = {
     '@nuxt/typescript-build',
     '@nuxt/http',
     '@nuxtjs/pwa',
-    '@nuxtjs/storybook',
+    //'@nuxtjs/storybook',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sentry',
     '@nuxtjs/apollo',
