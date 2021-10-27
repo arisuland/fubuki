@@ -3,6 +3,7 @@
 node_modules
 build
 .next
+.nuxt
 .env
 sw.js
 .arisu

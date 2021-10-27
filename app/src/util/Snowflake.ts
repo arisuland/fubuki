@@ -37,7 +37,22 @@ export default class Snowflake {
     const timestamp = Date.now();
     this.increment++;
 
+    let node = 1;
+    if (process.env.DEDI_NODE !== undefined) {
+      const lastChar = process.env.DEDI_NODE[process.env.DEDI_NODE.length - 1];
+      if (!isNaN(Number(lastChar))) node = +lastChar;
+    }
+
     if (this.increment >= 4095) this.increment = 0;
-    return ((timestamp - this.EPOCH) << 23) | (process.pid << 12) | this.increment;
+
+    // TODO: reset it back to `timestamp - this.EPOCH`
+    //       at the time of me coding this, it's at
+    //       Jan 1st, 2022 @ 00:00 UTC - and it's Oct 26th, 2021 @ 18:00 MST (America/Phoenix)
+    return (
+      (BigInt(this.EPOCH - timestamp) << 22n) |
+      (BigInt(node) << 17n) |
+      (BigInt(process.pid) << 12n) |
+      BigInt(this.increment)
+    ).toString();
   }
 }

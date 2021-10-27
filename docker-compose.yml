@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   tsubaki:
+    build: ./app/Arisu
     container_name: tsubaki
     restart: always
     ports:
@@ -18,9 +19,8 @@ services:
         target: /app/Arisu/backend/config.yml
         source: ./app/config.yml
 
-      # 
+      #
       - tsubaki_data:/var/lib/arisu
-
 #version: '3.8'
 #services:
 #  github:

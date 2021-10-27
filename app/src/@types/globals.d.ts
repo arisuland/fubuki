@@ -24,6 +24,7 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       NODE_ENV: 'development' | 'production';
+      TELEMETRY_SERVER_URL?: string;
     }
   }
 
@@ -88,11 +89,5 @@ declare global {
     executable: string;
     config_file: string;
     io_threads_active: string;
-  }
-
-  interface FidgetStats {
-    elixir: string;
-    project: string;
-    ping: number;
   }
 }

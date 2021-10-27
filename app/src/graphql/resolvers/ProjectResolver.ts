@@ -22,8 +22,10 @@ import type { ArisuContext } from '~/graphql';
 import StorageProviderService from '~/core/services/StorageProviderService';
 import UpdateProjectInput from '~/graphql/input/projects/UpdateProjectInput';
 import CreateProjectInput from '~/graphql/input/projects/CreateProjectInput';
+import { Snowflake } from '~/util';
 import { auth } from '../middleware';
 import Project from '~/graphql/objects/Project';
+import ProjectLanguage from '../objects/projects/ProjectLanguage';
 
 @Resolver()
 export default class ProjectResolver {
@@ -91,9 +93,12 @@ export default class ProjectResolver {
         description,
         ownerId: req.user!.id,
         name,
+        id: Snowflake.generate(),
+        languages: {},
       },
       include: {
         owner: true,
+        languages: true,
       },
     });
 
@@ -193,5 +198,82 @@ export default class ProjectResolver {
         id,
       },
     });
+  }
+
+  @Query(() => [ProjectLanguage], {
+    description: 'Returns the project languages of an available project.',
+    name: 'getProjectLanguages',
+  })
+  async getLanguages(
+    @Ctx() { prisma }: ArisuContext,
+    @Arg('nameOrId', { description: "The project's ID or name to look for." }) nameOrId: string
+  ) {
+    const project = await prisma.projects.findFirst({
+      where: {
+        id: nameOrId,
+        OR: {
+          name: nameOrId,
+        },
+      },
+    });
+
+    if (project === null) return [];
+
+    const languages = await prisma.projectLanguages.findMany({
+      where: {
+        project: {
+          id: project.id,
+        },
+      },
+    });
+
+    return languages;
+  }
+
+  @Mutation(() => ResultObject, {
+    description: '',
+  })
+  @UseMiddleware(auth)
+  async addLanguage(
+    @Ctx() { prisma }: ArisuContext,
+    @Arg('id', { description: "Returns the project's ID to add this language to." }) id: string,
+    @Arg('code', { description: 'Returns the ISO-8601 compliant code.' }) code: string,
+    @Arg('flag', { description: 'Returns the flag to use (i.e, `us` -> en_US)' }) flag: string
+  ): Promise<Result> {
+    // Check if the project exists
+    const project = await prisma.projects.findUnique({
+      where: { id },
+    });
+
+    if (project === null)
+      return {
+        success: false,
+        errors: [new Error(`project(${id}): doesn't exist`)],
+      };
+
+    // Check if the language exists
+    const language = await prisma.projectLanguages.findUnique({
+      where: { code },
+    });
+
+    if (language !== null)
+      return {
+        success: false,
+        errors: [new Error(`project(${id})->language(${code}): language exists in db.`)],
+      };
+
+    // TODO: do string difference between nodes
+    await prisma.projectLanguages.create({
+      data: {
+        completed: 0,
+        code,
+        flag,
+        project: {},
+      },
+    });
+
+    return {
+      success: true,
+    };
   }
 }

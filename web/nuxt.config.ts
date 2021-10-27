@@ -63,13 +63,14 @@ if (existsSync(join(process.cwd(), '.env'))) {
   });
 } else {
   process.env.PORT = '17903';
+  process.env.NODE_ENV = 'development';
   process.env.TSUBAKI_URL = 'http://localhost:28093';
 }
 
 const nuxtConfig: NuxtConfig = {
   srcDir: 'src',
-  target: 'static',
-  modern: process.env.NODE_ENV === 'development' && 'client',
+  target: 'server',
+  modern: process.env.NODE_ENV === 'production' && 'client',
   dev: !process.env.NODE_ENV || process.env.NODE_ENV === 'development',
   dir: {
     pages: 'views',
@@ -99,7 +100,20 @@ const nuxtConfig: NuxtConfig = {
     },
   },
 
-  serverMiddleware: ['~/middleware/log', '~/middleware/headers', '~/middleware/redirects'],
+  serverMiddleware: [
+    '~/middleware/log',
+    '~/middleware/headers',
+    '~/middleware/redirects',
+    {
+      path: '/api/process',
+      handler: '~/middleware/api/process',
+    },
+    {
+      path: '/metrics',
+      handler: '~/middleware/api/metrics',
+    },
+  ],
+
   server: {
     port:
       process.env.PORT !== undefined && !Number.isNaN(process.env.PORT)

@@ -19,30 +19,41 @@ model Users {
   flags       Int           @default(0)
   email       String
   name        String?
-  id          String        @id @default(uuid())
+  id          String        @id
 
   @@map("users")
 }
 
 model Projects {
-  baseLanguage String   @map("base_language")
+  baseLanguage String             @map("base_language")
   description  String?
-  updatedAt    DateTime @updatedAt
-  createdAt    DateTime @default(now())
-  ownerId      String   @map("owner_id")
-  owner        Users    @relation(fields: [ownerId], references: [id])
-  flags        Int      @default(0)
+  languages    ProjectLanguages[] @relation
+  updatedAt    DateTime           @updatedAt
+  createdAt    DateTime           @default(now())
+  ownerId      String             @map("owner_id")
+  owner        Users              @relation(fields: [ownerId], references: [id])
+  flags        Int                @default(0)
   name         String
-  id           String   @id @default(uuid())
+  id           String             @id
 
   @@map("projects")
 }
 
 model AccessTokens {
-  ownerId String @map("owner_id")@unique
+  ownerId String @unique @map("owner_id")
   owner   Users  @relation(fields: [ownerId], references: [id])
   token   String
-  id      String @id @default(uuid())
+  id      String @id
 
   @@map("access_tokens")
+}
+
+model ProjectLanguages {
+  completed Int
+  project   Projects @relation(references: [id], fields: [projectsId])
+  flag      String
+  code      String   @unique
+
+  projectsId String
+  @@map("project_languages")
 }

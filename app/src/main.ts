@@ -38,6 +38,7 @@ import { registry, registerStuff, usersRegistered } from '~/core/registry/Promet
 import { collectDefaultMetrics } from 'prom-client';
 import { version, commitHash } from '~/util/Constants';
 import { PrismaClient } from '@prisma/client';
+import TelemetryClient from './util/TelemetryClient';
 import updateNotifier from './util/UpdateNotifier';
 import container from '~/container';
 import Logger from '~/core/singletons/logger';

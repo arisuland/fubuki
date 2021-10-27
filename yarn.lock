@@ -335,7 +335,6 @@ __metadata:
     nuxt: 2.15.8
     postcss: 8.3.11
     prettier: 2.4.1
-    prom-client: 14.0.0
     stylelint: 14.0.0
     stylelint-config-recommended: 6.0.0
     tailwindcss: 2.2.17
@@ -7374,9 +7373,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:>=6":
-  version: 16.11.4
-  resolution: "@types/node@npm:16.11.4"
-  checksum: 96e08c0f8bb17601c18640a8eac61e2f236fe0c8a6b01a9221c10749157358fb29fdef4b5e264f72559e72f9830e6093f3ab5fef2df90afdad562ffa45ac534c
+  version: 16.11.6
+  resolution: "@types/node@npm:16.11.6"
+  checksum: 6e19634766ff589d3d2f361c2196b671f8f133cdadc5ad347a621c360d8994b6c4fbccfb2ad9c60c588c593831a96497c9c6b77d2b7e91be723384b94f6368e7
   languageName: node
   linkType: hard
 
@@ -7416,9 +7415,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^14.0.10":
-  version: 14.17.29
-  resolution: "@types/node@npm:14.17.29"
-  checksum: 5441e505a6287c7d36f083be95b39ef93238bb4bdb6e2c934304cc9b0f5ac33e7d552c8047824cbd274fcb6f5554703a102c039c8a5306d2acf4ebc3c3f7298b
+  version: 14.17.32
+  resolution: "@types/node@npm:14.17.32"
+  checksum: c3ec45db5d8ca6ed80bcc2fe3cd9f15c1518d43cf048dd5444d1fcbe308d302a42721cb3f19548ac2e7b8b7db4f7f6cd4bf9ed58ab1d30a0bf61758350edd9d5
   languageName: node
   linkType: hard
 
@@ -7527,13 +7526,13 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*":
-  version: 17.0.31
-  resolution: "@types/react@npm:17.0.31"
+  version: 17.0.33
+  resolution: "@types/react@npm:17.0.33"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: c2ea547b3e3398f53971908ae34bdb1ca1f2d8f1cf57a6f21c37b2bb77c2e625b5349de69b3c573f969056362eddac4bbac075d5d470716feef4161e26692b83
+  checksum: 5f53f3dae034229ff1eccb5de1c16d046696e883f8eae81b86e95c532798e655015e4edff8a6c9ec8f1c0ef12bb60dec43622d06256ba33ba6069e67a74b8d4e
   languageName: node
   linkType: hard
 
@@ -8169,8 +8168,8 @@ __metadata:
   linkType: hard
 
 "@vue/component-compiler-utils@npm:^3.1.0":
-  version: 3.2.2
-  resolution: "@vue/component-compiler-utils@npm:3.2.2"
+  version: 3.3.0
+  resolution: "@vue/component-compiler-utils@npm:3.3.0"
   dependencies:
     consolidate: ^0.15.1
     hash-sum: ^1.0.2
@@ -8178,13 +8177,13 @@ __metadata:
     merge-source-map: ^1.1.0
     postcss: ^7.0.36
     postcss-selector-parser: ^6.0.2
-    prettier: ^1.18.2
+    prettier: ^1.18.2 || ^2.0.0
     source-map: ~0.6.1
     vue-template-es2015-compiler: ^1.9.0
   dependenciesMeta:
     prettier:
       optional: true
-  checksum: ae2d08b4c1907c1bdb2c35e0d67e58afd3afa053bbc5f9cdb6de8915b051124d034cd6b14808aca5c93776289dd832e5514847e4fb925571857aa237262d753a
+  checksum: 70fee2289a4f54ec1be4d46136ee9b9893e31bf5622cead5be06c3dfb83449c3dbe6f8c03404625ccf302d0628ff9e2ea1debfae609d1bfe1d065d8f57c5dba8
   languageName: node
   linkType: hard
 
@@ -10397,7 +10396,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.0.0, browserslist@npm:^4.12.0, browserslist@npm:^4.16.6, browserslist@npm:^4.17.3, browserslist@npm:^4.6.4":
+"browserslist@npm:^4.0.0, browserslist@npm:^4.12.0, browserslist@npm:^4.16.6, browserslist@npm:^4.17.3, browserslist@npm:^4.17.5, browserslist@npm:^4.6.4":
   version: 4.17.5
   resolution: "browserslist@npm:4.17.5"
   dependencies:
@@ -11715,19 +11714,19 @@ __metadata:
   linkType: hard
 
 "core-js-compat@npm:^3.12.1, core-js-compat@npm:^3.16.0, core-js-compat@npm:^3.16.2, core-js-compat@npm:^3.8.1":
-  version: 3.18.3
-  resolution: "core-js-compat@npm:3.18.3"
+  version: 3.19.0
+  resolution: "core-js-compat@npm:3.19.0"
   dependencies:
-    browserslist: ^4.17.3
+    browserslist: ^4.17.5
     semver: 7.0.0
-  checksum: 320fab41e881d56e6d3582781fc365769dd3b9d3deae35407fb28f96076e657290c4444d453bfa0dfb98d45c29f3082f15fc68c5f73d16037bd47dc9198b2499
+  checksum: 78a497590bcb85a6836a423640a84a1d4968168a3deb483c5cd7b47bf68862d26167ee9d2ce7887881d11ab6211b4912feb9a84594eba5c79db3068d910c5408
   languageName: node
   linkType: hard
 
 "core-js-pure@npm:^3.10.2, core-js-pure@npm:^3.8.2":
-  version: 3.18.3
-  resolution: "core-js-pure@npm:3.18.3"
-  checksum: 57ad0e318be08ea09081a854027aa0bac9f13b0eaf783a01ecf6e04def72f2abdb8beac76529ce3aed3d5f105f5f42f0d9c80c3b95dcdc7d175f888ecbb507c6
+  version: 3.19.0
+  resolution: "core-js-pure@npm:3.19.0"
+  checksum: b1ff8e30791b4d32777200189fc7e0b0c5aa57ffb36280c4ee4aed83bee551b21a5027e62d12ca9bbdfa6522b795642d9ba0513b983dfc710c657551c58aefaa
   languageName: node
   linkType: hard
 
@@ -11739,9 +11738,9 @@ __metadata:
   linkType: hard
 
 "core-js@npm:^3.0.1, core-js@npm:^3.0.4, core-js@npm:^3.6.5, core-js@npm:^3.8.2":
-  version: 3.18.3
-  resolution: "core-js@npm:3.18.3"
-  checksum: 4aa5017992c18b0a09ded6c7dbf3c3880b27b6ade97a522dba332f52381466978d441317e5aad49f0684e9241aecc450e3e72c550ddaccfc9fb1e69c5908e53c
+  version: 3.19.0
+  resolution: "core-js@npm:3.19.0"
+  checksum: 9f03e72f01d9eeafb2724ee5787ab8d6e7dcf0e3b44c4dec23e6a0cfc9e2e0a76460b77ce7d1d0be09db918618b11595fad6838978ff97f2684270738898c5a2
   languageName: node
   linkType: hard
 
@@ -13031,9 +13030,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.3.564, electron-to-chromium@npm:^1.3.878":
-  version: 1.3.878
-  resolution: "electron-to-chromium@npm:1.3.878"
-  checksum: d5b4ab14d4d82228a6730befef1c412a00be095566983a13fbf008ca0b15b6583f42c0c60a6ad35bdf5bfb92ee189fce66817698ef8d4360ae4182c14a0eff12
+  version: 1.3.879
+  resolution: "electron-to-chromium@npm:1.3.879"
+  checksum: 9f7bfa6c7b28e02f40aafe30865689e6859b8d667deeea8e5e0877ae77cd2f5c24a10177b01e93daa621135ed96e3ea1052dcf2f96bef7b896ea110c3b87c372
   languageName: node
   linkType: hard
 
@@ -13644,9 +13643,9 @@ __metadata:
   linkType: hard
 
 "estraverse@npm:^5.1.0, estraverse@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "estraverse@npm:5.2.0"
-  checksum: ec11b70d946bf5d7f76f91db38ef6f08109ac1b36cda293a26e678e58df4719f57f67b9ec87042afdd1f0267cee91865be3aa48d2161765a93defab5431be7b8
+  version: 5.3.0
+  resolution: "estraverse@npm:5.3.0"
+  checksum: 072780882dc8416ad144f8fe199628d2b3e7bbc9989d9ed43795d2c90309a2047e6bc5979d7e2322a341163d22cfad9e21f4110597fe487519697389497e4e2b
   languageName: node
   linkType: hard
 
@@ -22118,21 +22117,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prettier@npm:2.4.1, prettier@npm:^2.4.1":
+"prettier@npm:2.4.1, prettier@npm:^1.18.2 || ^2.0.0, prettier@npm:^2.4.1":
   version: 2.4.1
   resolution: "prettier@npm:2.4.1"
   bin:
     prettier: bin-prettier.js
   checksum: cc6830588b401b0d742862fe9c46bc9118204fb307c3abe0e49e95b35ed23629573807ffdf9cdd65289c252a0bb51fc0171437f6626ee36378dea80f0ee80b91
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^1.18.2":
-  version: 1.19.1
-  resolution: "prettier@npm:1.19.1"
-  bin:
-    prettier: ./bin-prettier.js
-  checksum: bc78219e0f8173a808f4c6c8e0a137dd8ebd4fbe013e63fe1a37a82b48612f17b8ae8e18a992adf802ee2cf7428f14f084e7c2846ca5759cf4013c6e54810e1f
   languageName: node
   linkType: hard
 

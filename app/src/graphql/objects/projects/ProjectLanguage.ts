@@ -16,29 +16,26 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Registry, collectDefaultMetrics, Counter, Gauge } from 'prom-client';
+import { ObjectType, Field, Int } from 'type-graphql';
+import Project from '../Project';
 
-export const registry = new Registry();
-export const requestHit = new Counter({
-  name: 'arisu_requests_hit',
-  help: 'How many requests all endpoints were hit.',
-  registers: [registry],
-  labelNames: ['endpoint', 'method'],
-});
+@ObjectType()
+export default class ProjectLanguage {
+  @Field(() => Int, {
+    description: 'Returns the completion of this language by percent.',
+  })
+  completed!: number;
 
-export const requestLatency = new Gauge({
-  registers: [registry],
-  name: 'arisu_request_latency',
-  help: 'Returns the request latency of endpoints (excludes /_nuxt)',
-  labelNames: ['endpoint', 'method'],
-});
+  @Field(() => Project, {
+    description: 'Returns the project reference.',
+  })
+  project!: Project;
 
-export const registerMetrics = () => {
-  collectDefaultMetrics({
-    register: registry,
-    prefix: 'arisu_',
-  });
+  @Field({
+    description: 'Returns the flag from the language code (i.e, `us` -> en_US)',
+  })
+  flag!: string;
 
-  registry.registerMetric(requestHit);
-  registry.registerMetric(requestLatency);
-};
+  @Field({ description: 'Returns the language code.' })
+  code!: string;
+}

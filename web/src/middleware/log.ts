@@ -32,6 +32,7 @@ const mod: ServerMiddleware = (req, res, next) => {
   const now = process.hrtime();
   res.once('finish', () => {
     const endTime = calculateHrTime(now);
+
     consola.success(
       `[ ${leeks.colors.cyan(new Date().toLocaleString('en-US'))} | ${leeks.colors.magenta(
         ` ${req.method!.toUpperCase()} ${req.url} `

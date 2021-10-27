@@ -21,6 +21,44 @@ import * as argon2 from 'argon2';
 
 const prisma = new PrismaClient();
 
+// snowflake might not be available, so it's here!
+/**
+ * Represents a Snowflake ID.
+ */
+class Snowflake {
+  /**
+   * Returns the epoch timestamp of the snowflake, which
+   * is January 1st, 2022. (`2022-01-01T07:00:00.000Z`)
+   */
+  public static EPOCH: number = 1641020400000;
+
+  // Returns the increment id of the snowflake
+  private static increment: number = 0;
+
+  /**
+   * Genereates a new snowflake ID using this utility.
+   * @param workerId The worker ID to use.
+   */
+  static generate() {
+    const timestamp = Date.now();
+    this.increment++;
+
+    let node = 0;
+    if (process.env.DEDI_NODE !== undefined) {
+      const lastChar = process.env.DEDI_NODE[process.env.DEDI_NODE.length - 1];
+      if (!isNaN(Number(lastChar))) node = +lastChar;
+    }
+
+    if (this.increment >= 4095) this.increment = 0;
+    return (
+      (BigInt(timestamp - this.EPOCH) << 22n) |
+      (BigInt(node) << 17n) |
+      (BigInt(process.pid) << 12n) |
+      BigInt(this.increment)
+    ).toString();
+  }
+}
+
 const main = async () => {
   // `admin` account gets deleted after first initialization
   console.log('Creating `admin` user with `admin` password...');
@@ -34,6 +72,7 @@ const main = async () => {
       email: 'admin@arisu.land',
       flags: 1 << 1,
       name: 'Admin',
+      id: Snowflake.generate(),
     },
   });
 

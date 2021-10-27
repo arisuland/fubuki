@@ -24,7 +24,6 @@ import type { ServerResponse } from 'http';
 import type { GraphQLError } from 'graphql';
 import type { User } from '@arisu/typings';
 import fetch from 'node-fetch';
-import v8 from 'v8';
 
 interface GetMeResult {
   errors?: readonly GraphQLError[];
@@ -90,18 +89,9 @@ const mod: ServerMiddleware = async (req, res) => {
   }
 
   const memory = process.memoryUsage();
-  const v8Stats = v8.getHeapStatistics();
-
   return send(res, 200, {
     pid: process.pid,
-    memory: {
-      v8: {
-        computed: v8Stats.total_heap_size - v8Stats.used_heap_size,
-        malloc: v8Stats.malloced_memory,
-        zapped: v8Stats.does_zap_garbage === 1,
-      },
-      computed: memory.rss - (memory.heapTotal - memory.heapUsed),
-    },
+    memory: memory.rss - (memory.heapTotal - memory.heapUsed),
     versions: {
       node: process.version,
       arisu: version,

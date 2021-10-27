@@ -27,6 +27,7 @@ import * as argon2 from 'argon2';
 import { auth } from '../middleware';
 import User from '~/graphql/objects/User';
 import Config from '~/core/components/Config';
+import { Snowflake } from '~/util';
 
 export interface Result {
   success: boolean;
@@ -125,11 +126,14 @@ export default class UserResolver {
 
     // Both aren't taken! Let's create the account~
     const hashedPassword = await argon2.hash(password);
+    const id = Snowflake.generate();
+
     return await prisma.users.create({
       data: {
         username,
         password: hashedPassword,
         email,
+        id,
       },
     });
   }

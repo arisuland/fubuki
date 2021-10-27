@@ -21,6 +21,7 @@ import UserFlags, { UserFlag } from '~/util/bitfields/UserFlags';
 import { Endpoint, Route } from '~/core';
 import { PrismaClient } from '@prisma/client';
 import { Inject } from '@augu/lilith';
+import { Snowflake } from '~/util';
 
 type InitRequest = FastifyRequest<{
   Body: {
@@ -79,6 +80,7 @@ export default class InitEndpoint {
           password: req.body.password,
           username: req.body.username,
           flags: flags.bits,
+          id: Snowflake.generate(),
         },
       }),
     ]);

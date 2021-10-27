@@ -60,3 +60,12 @@ export function getCallSites(_of?: Error): NodeJS.CallSite[] {
 
   return stack;
 }
+
+export function omit<T extends {}, K extends keyof T = keyof T>(obj: T, keys: K[]): Omit<T, K> {
+  return Object.keys(obj)
+    .filter((k) => !keys.includes(k as any))
+    .reduce((acc, curr) => {
+      acc[curr] = obj[curr];
+      return acc;
+    }, {} as T);
+}

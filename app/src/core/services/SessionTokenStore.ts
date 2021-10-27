@@ -128,7 +128,8 @@ export default class SessionTokenService {
         this.logger.info(`Purging user session ${key} - expired`);
         await this.redis.client.hdel('arisu:sessions', key);
 
-        // TODO: add a notification (which the frontend can subscribe to using the GQL subscriptions api?)
+        // do NOT create new sessions if it expired. :<
+        return;
       }
 
       this.createExpirationTimeout(data);
