@@ -36,13 +36,15 @@ import 'reflect-metadata';
 
 import { registry, registerStuff, usersRegistered } from '~/core/registry/PrometheusRegistry';
 import { collectDefaultMetrics } from 'prom-client';
+import { init, configureScope } from '@sentry/node';
 import { version, commitHash } from '~/util/Constants';
 import { PrismaClient } from '@prisma/client';
-import TelemetryClient from './util/TelemetryClient';
 import updateNotifier from './util/UpdateNotifier';
+import { colors } from 'leeks.js';
 import container from '~/container';
 import Logger from '~/core/singletons/logger';
 import isRoot from 'is-root';
+import Config from './core/components/Config';
 import ts from 'typescript';
 
 const log = Logger.getChildLogger({ name: 'Arisu: bootstrap' });
@@ -73,6 +75,30 @@ const main = async () => {
 
   log.info('✔ Arisu was launched successfully. :3');
   const client = container.$ref<PrismaClient>(PrismaClient);
+  const config = container.$ref<Config>(Config);
+
+  const sentryDsn = config.getProperty('sentryDsn');
+  if (process.env.NODE_ENV === 'production' && sentryDsn !== undefined) {
+    log.info(
+      `Environment is set to ${colors.cyan('production')} and ${colors.cyan(
+        '`sentryDsn`'
+      )} is available, initializing...`
+    );
+
+    init({
+      dsn: sentryDsn,
+    });
+
+    configureScope((scope) => {
+      scope.setTags({
+        'server.environment': process.env.NODE_ENV,
+        'telemetry.enabled': process.env.TELEMETRY_SERVER_URL !== undefined,
+        'arisu.version': require('~/package.json').version,
+      });
+    });
+
+    log.info(`Installed Sentry using DSN: ${colors.cyan(sentryDsn)}`);
+  }
 
   // get users for metrics
   const users = await client.users.findMany();
