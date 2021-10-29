@@ -43,7 +43,7 @@
     "marked": "3.0.8",
     "normalize-url": "7.0.2",
     "nuxt": "2.15.8",
-    "tailwindcss": "2.2.17",
+    "tailwindcss": "2.2.19",
     "twemoji": "13.1.0",
     "xss": "1.0.10"
   },
