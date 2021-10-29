@@ -332,7 +332,7 @@ __metadata:
     eslint: 8.1.0
     eslint-config-prettier: 8.3.0
     eslint-plugin-nuxt: 3.0.0
-    eslint-plugin-vue: 7.20.0
+    eslint-plugin-vue: 8.0.1
     graphql-tag: 2.12.5
     highlight.js: 11.3.1
     leeks.js: 0.2.4
@@ -13396,7 +13396,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vue@npm:7.20.0, eslint-plugin-vue@npm:^7.19.1, eslint-plugin-vue@npm:^7.20.0":
+"eslint-plugin-vue@npm:8.0.1":
+  version: 8.0.1
+  resolution: "eslint-plugin-vue@npm:8.0.1"
+  dependencies:
+    eslint-utils: ^3.0.0
+    natural-compare: ^1.4.0
+    semver: ^7.3.5
+    vue-eslint-parser: ^8.0.0
+  peerDependencies:
+    eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
+  checksum: ea1153f247fe43babd5471cb4ef844867718bd63cde2c82d4b62e2258a712c2229509f0f3a7f659326c68e9fda61e2b778cc631d00b25fbe7000a7d2783b232c
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-vue@npm:^7.19.1, eslint-plugin-vue@npm:^7.20.0":
   version: 7.20.0
   resolution: "eslint-plugin-vue@npm:7.20.0"
   dependencies:
