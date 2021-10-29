@@ -108,10 +108,6 @@ const nuxtConfig: NuxtConfig = {
       path: '/api/process',
       handler: '~/middleware/api/process',
     },
-    {
-      path: '/metrics',
-      handler: '~/middleware/api/metrics',
-    },
   ],
 
   server: {
@@ -191,7 +187,6 @@ const nuxtConfig: NuxtConfig = {
       },
     },
 
-    errorHandler: '~/plugins/apollo/error-handler',
     includeNodeModules: false,
     tokenName: 'arisu-session-token',
     defaultOptions: {

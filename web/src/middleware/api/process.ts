@@ -23,7 +23,7 @@ import type { ServerMiddleware } from '@nuxt/types';
 import type { ServerResponse } from 'http';
 import type { GraphQLError } from 'graphql';
 import type { User } from '@arisu/typings';
-import fetch from 'node-fetch';
+import centra from '@aero/centra';
 
 interface GetMeResult {
   errors?: readonly GraphQLError[];
@@ -38,26 +38,19 @@ const send = (res: ServerResponse, statusCode: number, data: Record<string, any>
 
 const checkAdmin = async (auth: string) => {
   // Get user information
-  const res = await fetch(`${process.env.TSUBAKI_URL}/graphql`, {
-    method: 'POST',
-    body: JSON.stringify({
+  const data = await centra(process.env.TSUBAKI_URL, 'POST')
+    .header('Authorization', `Session ${auth}`)
+    .body({
       query: `
-        {
-          me {
-            username
+        query Self {
+          user {
             flags
-            id
           }
         }
       `,
-    }),
+    })
+    .json<GetMeResult>();
 
-    headers: {
-      Authorization: `Session ${auth}`,
-    },
-  });
-
-  const data = (await res.json()) as GetMeResult;
   if (data.errors !== undefined) throw new Error(data.errors[0].message);
 
   // check flags

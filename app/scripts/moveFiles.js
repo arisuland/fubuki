@@ -36,7 +36,9 @@ const logger = new Logger();
 
   // we explicitly ignore `.env` in Docker builds, so
   // if it's not in a Docker environment, let's move the .env file
-  if (!isDocker()) await copyFile(join(process.cwd(), '.env'), join(process.cwd(), 'build', '.env'));
+  if (!isDocker() && existsSync(join(process.cwd(), '.env')))
+    await copyFile(join(process.cwd(), '.env'), join(process.cwd(), 'build', '.env'));
+
   await copyFile(
     join(process.cwd(), 'prisma', 'schema.prisma'),
     join(process.cwd(), 'build', 'prisma', 'schema.prisma')
