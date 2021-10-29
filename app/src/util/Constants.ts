@@ -16,8 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { execSync } from 'child_process';
 import * as pkg from '@/package.json';
-import shell from '~/util/shell';
 
 /**
  * Returns the current version of Arisu.
@@ -29,7 +29,7 @@ export const version = pkg.version;
  */
 export const commitHash: string | null = (() => {
   try {
-    return shell.exec('git', ['rev-parse', 'HEAD']);
+    return execSync('git rev-parse HEAD', { encoding: 'utf-8' }).trim().slice(0, 8);
   } catch (ex) {
     return null;
   }

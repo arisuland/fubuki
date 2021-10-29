@@ -22,13 +22,13 @@ import type { ArisuContext } from '..';
 import { graphqlLatency } from '~/core/registry/PrometheusRegistry';
 import { colors, styles } from 'leeks.js';
 import GraphQLHighlighter from '~/util/graphql/highlighter';
+import { STATUS_CODES } from 'http';
+import TelemetryClient from '~/util/TelemetryClient';
 import { Logger } from 'tslog';
 
 const pings = [] as number[];
 let lastPing: [number, number];
 let timerHook: any;
-let timeout: any;
-let hasLogged = false;
 
 // So Noel, what's the different between src/middleware/logging.ts
 // and src/graphql/middleware/log.ts? Well, the difference is,
@@ -45,6 +45,31 @@ const mod: MiddlewareFn<ArisuContext> = async ({ context, info }, next) => {
   const resolvedTime = calculateHRTime(startedAt);
   timerHook?.();
   pings.push(resolvedTime);
+
+  if (context.req.sessionToken !== undefined)
+    await TelemetryClient.INSTANCE.send(context.req.sessionToken, {
+      format_version: 1, // eslint-disable-line
+      os: {
+        platform: process.platform,
+        arch: process.arch,
+        version: process.version,
+      },
+      platform: {
+        http: {
+          endpoint: '/graphql',
+          method: context.req.method,
+          time: resolvedTime,
+          status: `${context.reply.statusCode} ${STATUS_CODES[context.reply.statusCode]}`,
+        },
+
+        runtime: {
+          version: require('@/package.json').version,
+          commit_hash: (require('~/util/Constants') as typeof import('~/util/Constants')).commitHash ?? 'unknown', // eslint-disable-line
+        },
+      },
+      sender: 'tsubaki',
+      user: context.req.user!,
+    });
 
   const avg = pings.reduce((acc, curr) => acc + curr, 0) / pings.length;
   logger.debug(

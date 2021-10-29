@@ -61,6 +61,14 @@ export function getCallSites(_of?: Error): NodeJS.CallSite[] {
   return stack;
 }
 
+/**
+ * Constructs a new object with the properties of {@link T the object} excluded by the
+ * {@link T object's} {@link K keys}.
+ *
+ * @param obj The object to omit props from
+ * @param keys The properties' name to omit.
+ * @returns A new object of the keys excluded.
+ */
 export function omit<T extends {}, K extends keyof T = keyof T>(obj: T, keys: K[]): Omit<T, K> {
   return Object.keys(obj)
     .filter((k) => !keys.includes(k as any))

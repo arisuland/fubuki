@@ -31,11 +31,6 @@ export interface TelemetryPacket {
   format_version: 1;
 
   /**
-   * Returns the project used, this can be omitted.
-   */
-  project?: string;
-
-  /**
    * Returns the information of the given platform.
    */
   platform: TsubakiInfo;
@@ -71,6 +66,7 @@ interface TsubakiInfo {
   http: {
     endpoint: string;
     method: string;
+    status: string;
     time: number;
   };
 
