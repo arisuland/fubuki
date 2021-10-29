@@ -187,7 +187,7 @@ __metadata:
     "@octokit/core": 3.5.1
     "@prisma/client": 3.3.0
     "@sentry/node": 6.13.3
-    "@types/node": 16.4.12
+    "@types/node": 16.11.6
     "@typescript-eslint/eslint-plugin": 5.1.0
     "@typescript-eslint/parser": 5.1.0
     consola: 2.15.3
@@ -237,7 +237,7 @@ __metadata:
     "@types/ioredis": 4.27.8
     "@types/js-yaml": 4.0.4
     "@types/mime-types": 2.1.1
-    "@types/node": 16.6.1
+    "@types/node": 16.11.6
     "@typescript-eslint/eslint-plugin": 5.1.0
     "@typescript-eslint/parser": 5.1.0
     apollo-server-fastify: 3.4.0
@@ -323,7 +323,7 @@ __metadata:
     "@tailwindcss/forms": 0.3.4
     "@tailwindcss/typography": 0.4.1
     "@types/marked": 3.0.2
-    "@types/node": 16.10.4
+    "@types/node": 16.11.6
     "@types/node-fetch": 3.0.3
     "@types/twemoji": 12.1.2
     "@typescript-eslint/eslint-plugin": 5.1.0
@@ -7380,7 +7380,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>=6":
+"@types/node@npm:*, @types/node@npm:16.11.6, @types/node@npm:>=6":
   version: 16.11.6
   resolution: "@types/node@npm:16.11.6"
   checksum: 6e19634766ff589d3d2f361c2196b671f8f133cdadc5ad347a621c360d8994b6c4fbccfb2ad9c60c588c593831a96497c9c6b77d2b7e91be723384b94f6368e7
@@ -7391,27 +7391,6 @@ __metadata:
   version: 12.20.12
   resolution: "@types/node@npm:12.20.12"
   checksum: 9e4ef12f52bbf6c1df7534e750c28edd7b49ac0793e2a8cf0ddfe02fcdc68740ebc349a727b8c584e60006ec63e6c9fa5123210ab52898e69b91835f1ac38afd
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:16.10.4":
-  version: 16.10.4
-  resolution: "@types/node@npm:16.10.4"
-  checksum: 0ed43dd58af42da2c6a695459dd502a6e189be51710145a443a621c1e91d38abc55436c8e48a243edc611fa4b934d94c972c3729b0575deeb47784873aaa54ae
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:16.4.12":
-  version: 16.4.12
-  resolution: "@types/node@npm:16.4.12"
-  checksum: 1489aeba890629ca2ed9b8f04fb77f185123810afd3d518cf87c2a18a43a43f7d954550ae3572f3dac7e634f7db67e259ceb7ca25cb584ba0bcc023b0bfca2c9
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:16.6.1":
-  version: 16.6.1
-  resolution: "@types/node@npm:16.6.1"
-  checksum: c13aa0da0c2bf9070e521d1b537ba38f64b213dd1b8aeec66c279fc21f8c0ccaf380364f6dc2ec8f84440c4cd1460b67dfe47de2cafcb6eaf4b648817cb27dc4
   languageName: node
   linkType: hard
 
