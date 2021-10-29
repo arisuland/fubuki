@@ -83,7 +83,7 @@ jobs:
         run: npm i -g eslint typescript
 
       - name: Cache Yarn dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ~/.yarn
           key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.lock') }}
