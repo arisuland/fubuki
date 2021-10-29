@@ -331,7 +331,7 @@ __metadata:
     autoprefixer: 10.4.0
     eslint: 8.1.0
     eslint-config-prettier: 8.3.0
-    eslint-plugin-nuxt: 2.0.0
+    eslint-plugin-nuxt: 3.0.0
     eslint-plugin-vue: 7.20.0
     graphql-tag: 2.12.5
     highlight.js: 11.3.1
@@ -13385,18 +13385,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-nuxt@npm:2.0.0":
-  version: 2.0.0
-  resolution: "eslint-plugin-nuxt@npm:2.0.0"
+"eslint-plugin-nuxt@npm:3.0.0":
+  version: 3.0.0
+  resolution: "eslint-plugin-nuxt@npm:3.0.0"
   dependencies:
-    eslint-plugin-vue: ^7.1.0
-    semver: ^7.3.2
-    vue-eslint-parser: ^7.1.1
-  checksum: bc6875bfea2856fb67f8262e97003d6a509f3e5ff5eec1d157e4978819bed1df8b9210d573b00d556ea9b33550677f55e678d941c293c3336f457bf38f47fe15
+    eslint-plugin-vue: ^7.20.0
+    semver: ^7.3.5
+    vue-eslint-parser: ^8.0.0
+  checksum: e4b1fd2230585e3fc59c3f77f4ff15b4afd782bb566a0e29b6565ab41e883948062132ab8953398909ba4af22557e631c19718fcd90df7605178f907438bd715
   languageName: node
   linkType: hard
 
-"eslint-plugin-vue@npm:7.20.0, eslint-plugin-vue@npm:^7.1.0, eslint-plugin-vue@npm:^7.19.1":
+"eslint-plugin-vue@npm:7.20.0, eslint-plugin-vue@npm:^7.19.1, eslint-plugin-vue@npm:^7.20.0":
   version: 7.20.0
   resolution: "eslint-plugin-vue@npm:7.20.0"
   dependencies:
@@ -27183,7 +27183,7 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"vue-eslint-parser@npm:8.0.0":
+"vue-eslint-parser@npm:8.0.0, vue-eslint-parser@npm:^8.0.0":
   version: 8.0.0
   resolution: "vue-eslint-parser@npm:8.0.0"
   dependencies:
@@ -27200,7 +27200,7 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"vue-eslint-parser@npm:^7.1.1, vue-eslint-parser@npm:^7.10.0":
+"vue-eslint-parser@npm:^7.10.0":
   version: 7.11.0
   resolution: "vue-eslint-parser@npm:7.11.0"
   dependencies:
