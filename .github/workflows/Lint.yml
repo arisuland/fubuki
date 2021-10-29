@@ -82,6 +82,14 @@ jobs:
       - name: Installs all global packages
         run: npm i -g eslint typescript
 
+      - name: Cache Yarn dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.yarn
+          key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.OS }}-yarn-cache-
+
       - name: Installs local packages
         run: yarn
 
