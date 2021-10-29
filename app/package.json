@@ -35,7 +35,7 @@
     "apollo-server-fastify": "3.4.0",
     "argon2": "0.28.2",
     "boxen": "5.1.2",
-    "bree": "6.3.1",
+    "bree": "6.4.0",
     "class-validator": "0.13.1",
     "debounce": "1.2.1",
     "defu": "5.0.0",

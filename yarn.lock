@@ -243,7 +243,7 @@ __metadata:
     apollo-server-fastify: 3.4.0
     argon2: 0.28.2
     boxen: 5.1.2
-    bree: 6.3.1
+    bree: 6.4.0
     class-validator: 0.13.1
     debounce: 1.2.1
     defu: 5.0.0
@@ -2974,10 +2974,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@breejs/later@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "@breejs/later@npm:4.0.2"
-  checksum: d20c9e775d33d96a229b2ffdc6388fd8be5c6b3d0f64773e47728ee47eaf6fef16c6445e09806c54c30091abb1c26513a136716a561726c2c932120dee26f68a
+"@breejs/later@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "@breejs/later@npm:4.1.0"
+  checksum: 0d1c2e06b8b20266ec1aaa09ce96f1b24504d6248a62ac3455a0f46fb9189bae0a5960f962c02cd21dbf9794dd11566e970a8204f02af12f6d6815b32b2d2f1e
   languageName: node
   linkType: hard
 
@@ -10286,12 +10286,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bree@npm:6.3.1":
-  version: 6.3.1
-  resolution: "bree@npm:6.3.1"
+"bree@npm:6.4.0":
+  version: 6.4.0
+  resolution: "bree@npm:6.4.0"
   dependencies:
     "@babel/runtime": ^7.12.5
-    "@breejs/later": ^4.0.2
+    "@breejs/later": ^4.1.0
     boolean: ^3.0.2
     bthreads: ^0.5.1
     combine-errors: ^3.0.3
@@ -10303,7 +10303,7 @@ __metadata:
     ms: ^2.1.2
     p-wait-for: 3.1.0
     safe-timers: ^1.1.0
-  checksum: edab6896b614f8cf63ab14ffa3c47e27e64b38ff3d9f8e31e00f9154ae00b00e4e4cbfa3b3af5f2d1c7564727c547fc7650ecad6a03e9134d0584b3b3299f0ec
+  checksum: ee2eca97daf275075bdfa1b38e61e8bcc3f2d27a2dd219d336b5b562142b2b81139c5f6b02750952c4f43cc44d64481c82579cc52f2cd611fa65ab8a34602464
   languageName: node
   linkType: hard
 
