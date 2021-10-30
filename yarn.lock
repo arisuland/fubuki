@@ -332,7 +332,7 @@ __metadata:
     eslint: 8.1.0
     eslint-config-prettier: 8.3.0
     eslint-plugin-nuxt: 3.0.0
-    eslint-plugin-vue: 8.0.2
+    eslint-plugin-vue: 8.0.3
     graphql-tag: 2.12.5
     highlight.js: 11.3.1
     leeks.js: 0.2.4
@@ -13396,17 +13396,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vue@npm:8.0.2":
-  version: 8.0.2
-  resolution: "eslint-plugin-vue@npm:8.0.2"
+"eslint-plugin-vue@npm:8.0.3":
+  version: 8.0.3
+  resolution: "eslint-plugin-vue@npm:8.0.3"
   dependencies:
     eslint-utils: ^3.0.0
     natural-compare: ^1.4.0
     semver: ^7.3.5
-    vue-eslint-parser: ^8.0.0
+    vue-eslint-parser: ^8.0.1
   peerDependencies:
     eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
-  checksum: 87d6393d63b85b76ce35d77a6f20527b82a9acbfdab13a8affaf45e5461682c9147f41c9784536e8dfb53813240081b48386ce874944b58007e0c79abedd36a5
+  checksum: 88bd597b72b8957d2f332718f89abe38e3a8b11564a37935adae64576444ea7770ee04e36e8bbad584aa963f8cb71304fa625719f63a21de3e9da0d5571e0627
   languageName: node
   linkType: hard
 
@@ -27274,6 +27274,23 @@ typescript@~4.2:
   peerDependencies:
     eslint: ">=5.0.0"
   checksum: 16d8bd31dacd9e5d3cd0fc82354c0cfdb42ee3d2e0c3aeda385b82aa48a59a440de3dc18521ea6535f4b00a54eb248d49a6ea2323fbae0d3c1afa0a00c63fe6c
+  languageName: node
+  linkType: hard
+
+"vue-eslint-parser@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "vue-eslint-parser@npm:8.0.1"
+  dependencies:
+    debug: ^4.3.2
+    eslint-scope: ^6.0.0
+    eslint-visitor-keys: ^3.0.0
+    espree: ^9.0.0
+    esquery: ^1.4.0
+    lodash: ^4.17.21
+    semver: ^7.3.5
+  peerDependencies:
+    eslint: ">=6.0.0"
+  checksum: 9c40558975ef0aecb5cf8977d59d39ffde58108c652b8fd66524aec0cc828fe63e2146c0a95b2ccb52fbd97c1b1d3e5936919920c12d4de4be4c5a752dbc4e53
   languageName: node
   linkType: hard
 
