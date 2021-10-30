@@ -348,7 +348,7 @@ __metadata:
     ts-loader: 8.1.0
     twemoji: 13.1.0
     typescript: 4.4.4
-    vue-eslint-parser: 8.0.0
+    vue-eslint-parser: 8.0.1
     xss: 1.0.10
   languageName: unknown
   linkType: soft
@@ -27243,9 +27243,9 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"vue-eslint-parser@npm:8.0.0, vue-eslint-parser@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "vue-eslint-parser@npm:8.0.0"
+"vue-eslint-parser@npm:8.0.1, vue-eslint-parser@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "vue-eslint-parser@npm:8.0.1"
   dependencies:
     debug: ^4.3.2
     eslint-scope: ^6.0.0
@@ -27256,7 +27256,7 @@ typescript@~4.2:
     semver: ^7.3.5
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: 6b5381f5b202ea42e1726772690d7bbcdd186df439033d84010d45181cac711b204805f6c7bd00240f3bbee83a898bafb5a9b1bef5c13b56dffc61df1af10372
+  checksum: 9c40558975ef0aecb5cf8977d59d39ffde58108c652b8fd66524aec0cc828fe63e2146c0a95b2ccb52fbd97c1b1d3e5936919920c12d4de4be4c5a752dbc4e53
   languageName: node
   linkType: hard
 
@@ -27277,9 +27277,9 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"vue-eslint-parser@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "vue-eslint-parser@npm:8.0.1"
+"vue-eslint-parser@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "vue-eslint-parser@npm:8.0.0"
   dependencies:
     debug: ^4.3.2
     eslint-scope: ^6.0.0
@@ -27290,7 +27290,7 @@ typescript@~4.2:
     semver: ^7.3.5
   peerDependencies:
     eslint: ">=6.0.0"
-  checksum: 9c40558975ef0aecb5cf8977d59d39ffde58108c652b8fd66524aec0cc828fe63e2146c0a95b2ccb52fbd97c1b1d3e5936919920c12d4de4be4c5a752dbc4e53
+  checksum: 6b5381f5b202ea42e1726772690d7bbcdd186df439033d84010d45181cac711b204805f6c7bd00240f3bbee83a898bafb5a9b1bef5c13b56dffc61df1af10372
   languageName: node
   linkType: hard
 
