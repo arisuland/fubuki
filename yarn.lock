@@ -250,7 +250,7 @@ __metadata:
     eslint: 8.1.0
     eslint-config-prettier: 8.3.0
     fastify: 3.22.1
-    fastify-multipart: 5.0.2
+    fastify-multipart: 5.1.0
     fastify-no-icon: 4.0.0
     gc-stats: 1.4.0
     graphql: 16.0.0
@@ -14107,9 +14107,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify-multipart@npm:5.0.2":
-  version: 5.0.2
-  resolution: "fastify-multipart@npm:5.0.2"
+"fastify-multipart@npm:5.1.0":
+  version: 5.1.0
+  resolution: "fastify-multipart@npm:5.1.0"
   dependencies:
     busboy: ^0.3.1
     deepmerge: ^4.2.2
@@ -14117,8 +14117,9 @@ __metadata:
     fastify-error: ^0.3.0
     fastify-plugin: ^3.0.0
     hexoid: ^1.0.0
+    secure-json-parse: ^2.4.0
     stream-wormhole: ^1.1.0
-  checksum: 8e8f7613f1eef223e7343a8ff510c6126ffe38320c31e97d1392101505b3e3d0bd46713efdb6d44bf7e9d6475f3f5bb6d5b14b5725e76ea203eeb127c74e4ec2
+  checksum: db546b5759ddd73b76b1a8de4f3f2df0f6e5448c6b94a02d56027fc4f8a8b05b8ef30a15efc8335b33dc0e7dc6640c9f4ee692724090f4e2e767159300e6a603
   languageName: node
   linkType: hard
 
@@ -23991,7 +23992,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"secure-json-parse@npm:^2.0.0":
+"secure-json-parse@npm:^2.0.0, secure-json-parse@npm:^2.4.0":
   version: 2.4.0
   resolution: "secure-json-parse@npm:2.4.0"
   checksum: efaafcaa08a4646ca829b29168474f57fb289a0ca7a1d77b66b55a0292785bc6eb9143b21cfc50b37dd12a823c25b12aa1771f18314ed5a616a1f8f12a318533

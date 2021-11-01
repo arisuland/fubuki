@@ -40,7 +40,7 @@
     "debounce": "1.2.1",
     "defu": "5.0.0",
     "fastify": "3.22.1",
-    "fastify-multipart": "5.0.2",
+    "fastify-multipart": "5.1.0",
     "fastify-no-icon": "4.0.0",
     "gc-stats": "1.4.0",
     "graphql": "16.0.0",
