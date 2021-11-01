@@ -31,7 +31,6 @@
     "@nuxtjs/pwa": "3.3.5",
     "@nuxtjs/sentry": "5.1.4",
     "@nuxtjs/storybook": "4.1.1",
-    "@nuxtjs/stylelint-module": "4.0.0",
     "@nuxtjs/tailwindcss": "4.2.1",
     "@tailwindcss/forms": "0.3.4",
     "@tailwindcss/typography": "0.4.1",
@@ -43,6 +42,7 @@
     "marked": "3.0.8",
     "normalize-url": "7.0.2",
     "nuxt": "2.15.8",
+    "postcss-reporter": "7.0.4",
     "tailwindcss": "2.2.19",
     "twemoji": "13.1.0",
     "xss": "1.0.10"
@@ -63,8 +63,6 @@
     "eslint-plugin-vue": "8.0.1",
     "postcss": "8.3.11",
     "prettier": "2.4.1",
-    "stylelint": "14.0.1",
-    "stylelint-config-recommended": "6.0.0",
     "ts-loader": "8.1.0",
     "typescript": "4.4.4",
     "vue-eslint-parser": "8.0.0"

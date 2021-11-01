@@ -36,9 +36,9 @@ const mod: ServerMiddleware = (req, res, next) => {
     consola.success(
       `[ ${leeks.colors.cyan(new Date().toLocaleString('en-US'))} | ${leeks.colors.magenta(
         ` ${req.method!.toUpperCase()} ${req.url} `
-      )} ] ${leeks.styles.dim(`${res.statusCode} (${res.statusMessage})`)} ${leeks.colors.cyan('(')}${leeks.styles.bold(
-        leeks.hex('#FFC0DC', `~${endTime.toFixed(2)}ms`)
-      )}${leeks.colors.cyan(')')}`
+      )} ] ${leeks.styles.bold(`${res.statusCode} (${res.statusMessage})`)} ${leeks.colors.cyan(
+        '('
+      )}${leeks.styles.bold(leeks.hex('#FFC0DC', `~${endTime.toFixed(2)}ms`))}${leeks.colors.cyan(')')}`
     );
   });
 

@@ -130,11 +130,9 @@ const nuxtConfig: NuxtConfig = {
     '@nuxt/typescript-build',
     '@nuxt/http',
     '@nuxtjs/pwa',
-    //'@nuxtjs/storybook',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sentry',
     '@nuxtjs/apollo',
-    '@nuxtjs/stylelint-module',
   ],
 
   sentry: {
@@ -174,12 +172,6 @@ const nuxtConfig: NuxtConfig = {
     exposeConfig: true,
   },
 
-  stylelint: {
-    configFile: '~/../.stylelintrc.json',
-    fix: true,
-    formatter: (require('stylelint') as typeof import('stylelint')).formatters.unix,
-  },
-
   apollo: {
     clientConfigs: {
       default: {
@@ -211,6 +203,15 @@ const nuxtConfig: NuxtConfig = {
         file: join(process.cwd(), 'locales', 'en_US.json'),
       },
     ],
+  },
+
+  build: {
+    postcss: {
+      plugins: {
+        autoprefixer: {},
+        'postcss-reporter': {},
+      },
+    },
   },
 };
 

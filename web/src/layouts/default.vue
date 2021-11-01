@@ -1,1 +1,5 @@
-<template></template>
+<template>
+  <div id="app">
+    <nuxt />
+  </div>
+</template>

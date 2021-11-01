@@ -16,22 +16,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import type { ServerMiddleware } from '@nuxt/types';
-import redirects from '../assets/json/redirects.json';
+import { FastifyReply, FastifyRequest } from 'fastify';
+import { Endpoint, Route } from '~/core';
 
-const mod: ServerMiddleware = (req, res, next) => {
-  const redirect = redirects.find((redir) => redir.redirect === req.url!.slice(1)); // omit `/`
-  if (redirect !== undefined) {
-    if (redirect.link === '...') return next();
-
-    res.writeHead(301, {
-      Location: redirect.link,
-    });
-
-    res.end();
-  } else {
-    return next();
+// dumb silly route because yes.
+@Endpoint('/teapot')
+export default class MetricsEndpoint {
+  @Route('/', 'GET')
+  teapot(_: FastifyRequest, reply: FastifyReply) {
+    return reply.status(418).send('imma teapot. :3');
   }
-};
-
-export default mod;
+}
