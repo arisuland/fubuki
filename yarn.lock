@@ -336,7 +336,7 @@ __metadata:
     highlight.js: 11.3.1
     leeks.js: 0.2.4
     luxon: 2.0.2
-    marked: 3.0.8
+    marked: 4.0.0
     normalize-url: 7.0.2
     nuxt: 2.15.8
     postcss: 8.3.11
@@ -18843,12 +18843,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"marked@npm:3.0.8":
-  version: 3.0.8
-  resolution: "marked@npm:3.0.8"
+"marked@npm:4.0.0":
+  version: 4.0.0
+  resolution: "marked@npm:4.0.0"
   bin:
-    marked: bin/marked
-  checksum: 3cdeaa126bbeca5b1b8d2f91e9728018dcd63b250233f3607009a4d70bb6bd9df8c769f1bc52ce9856d1316c91c9dacb1d94d80696f76d094146b4fab126a4eb
+    marked: bin/marked.js
+  checksum: 1889c1b58cba6ea764435ef2fefef037733899dcb1d54300453b355ac70ada0109132631b0a2c3ee0ce633b930a1bc6d6ee1bd1dea38cf901dd30099fa68e143
   languageName: node
   linkType: hard
 
