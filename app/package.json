@@ -54,7 +54,7 @@
     "kafkajs": "1.15.0",
     "leeks.js": "0.2.4",
     "mime-types": "2.1.33",
-    "prom-client": "14.0.0",
+    "prom-client": "14.0.1",
     "reflect-metadata": "0.1.13",
     "source-map-support": "0.5.20",
     "tslog": "3.2.2",
