@@ -228,7 +228,7 @@ __metadata:
     "@augu/tsconfig": 1.1.1
     "@augu/utils": 1.5.6
     "@aws-sdk/client-s3": 3.39.0
-    "@google-cloud/storage": 5.15.4
+    "@google-cloud/storage": 5.15.5
     "@mikro-orm/sql-highlighter": 1.0.1
     "@prisma/client": 3.4.0
     "@sentry/node": 6.14.0
@@ -3299,9 +3299,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@google-cloud/storage@npm:5.15.4":
-  version: 5.15.4
-  resolution: "@google-cloud/storage@npm:5.15.4"
+"@google-cloud/storage@npm:5.15.5":
+  version: 5.15.5
+  resolution: "@google-cloud/storage@npm:5.15.5"
   dependencies:
     "@google-cloud/common": ^3.7.4
     "@google-cloud/paginator": ^3.0.0
@@ -3315,14 +3315,14 @@ __metadata:
     gcs-resumable-upload: ^3.3.0
     get-stream: ^6.0.0
     hash-stream-validation: ^0.2.2
-    mime: ^2.2.0
+    mime: ^3.0.0
     mime-types: ^2.0.8
     p-limit: ^3.0.1
     pumpify: ^2.0.0
     snakeize: ^0.1.0
     stream-events: ^1.0.1
     xdg-basedir: ^4.0.0
-  checksum: 598fdc499c6be16d3f5421a3d0b806b0fd65b14265649496f3c42f515226f5118de5eb9c359bf25fe62812b93cfdc65e735a74f064b507263b0f887c132e2341
+  checksum: 92cffc8213847f77a3c6b6c047564d0714b5634d808798b135249c0919881735e92617361dbe053a332c2a1873185e8923e757121583dbd5cb8cbee78d4cacee
   languageName: node
   linkType: hard
 
@@ -19195,12 +19195,21 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"mime@npm:^2.2.0, mime@npm:^2.3.1, mime@npm:^2.4.4, mime@npm:~2.5.2":
+"mime@npm:^2.3.1, mime@npm:^2.4.4, mime@npm:~2.5.2":
   version: 2.5.2
   resolution: "mime@npm:2.5.2"
   bin:
     mime: cli.js
   checksum: dd3c93d433d41a09f6a1cfa969b653b769899f3bd573e7bfcea33bdc8b0cc4eba57daa2f95937369c2bd2b6d39d62389b11a4309fe40d1d3a1b736afdedad0ff
+  languageName: node
+  linkType: hard
+
+"mime@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "mime@npm:3.0.0"
+  bin:
+    mime: cli.js
+  checksum: f43f9b7bfa64534e6b05bd6062961681aeb406a5b53673b53b683f27fcc4e739989941836a355eef831f4478923651ecc739f4a5f6e20a76487b432bfd4db928
   languageName: node
   linkType: hard
 
