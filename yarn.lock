@@ -286,7 +286,7 @@ __metadata:
     "@augu/eslint-config": 2.2.0
     "@augu/tsconfig": 1.1.1
     "@graphql-codegen/cli": 2.2.2
-    "@graphql-codegen/typescript": 2.3.0
+    "@graphql-codegen/typescript": 2.3.1
     "@typescript-eslint/eslint-plugin": 5.3.0
     "@typescript-eslint/parser": 5.3.0
     consola: 2.15.3
@@ -3526,17 +3526,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/typescript@npm:2.3.0":
-  version: 2.3.0
-  resolution: "@graphql-codegen/typescript@npm:2.3.0"
+"@graphql-codegen/schema-ast@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "@graphql-codegen/schema-ast@npm:2.4.0"
   dependencies:
     "@graphql-codegen/plugin-helpers": ^2.3.0
+    "@graphql-tools/utils": ^8.1.1
+    tslib: ~2.3.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 38a2d10baf645a4a5992024c7cf7eb8a8752a38ca3895e980e5ddda86623ff1611bc057648290f9482bcbe9c0468381bedc58168f1c62bde8d3a3b521d0d9942
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/typescript@npm:2.3.1":
+  version: 2.3.1
+  resolution: "@graphql-codegen/typescript@npm:2.3.1"
+  dependencies:
+    "@graphql-codegen/plugin-helpers": ^2.3.0
+    "@graphql-codegen/schema-ast": ^2.4.0
     "@graphql-codegen/visitor-plugin-common": 2.5.0
     auto-bind: ~4.0.0
     tslib: ~2.3.0
   peerDependencies:
-    graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
-  checksum: 8db4b878be5ce7f3ab3f5fdb29f62574e8de77ed26b9250f6446eb8e7a7d3f6884c374a8eaec9fd0c101a3d99d150580a2e6ddf1f9844204e4d13ccab2a8b12d
+    graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 5130f4630bf9521f05f81a013ecb9953cd32faeca0f6dc924664304d91027369bca1a5b65f5b8e8061a908bc5db1120f1bffa64168c919593bec2f1d7384810a
   languageName: node
   linkType: hard
 
