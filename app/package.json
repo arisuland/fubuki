@@ -31,7 +31,7 @@
     "@google-cloud/storage": "5.15.5",
     "@mikro-orm/sql-highlighter": "1.0.1",
     "@prisma/client": "3.4.1",
-    "@sentry/node": "6.14.0",
+    "@sentry/node": "6.14.1",
     "apollo-server-fastify": "3.4.1",
     "argon2": "0.28.2",
     "boxen": "5.1.2",
