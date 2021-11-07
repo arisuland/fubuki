@@ -335,7 +335,7 @@ __metadata:
     graphql-tag: 2.12.6
     highlight.js: 11.3.1
     leeks.js: 0.2.4
-    luxon: 2.0.2
+    luxon: 2.1.0
     marked: 4.0.0
     normalize-url: 7.0.2
     nuxt: 2.15.8
@@ -18947,10 +18947,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"luxon@npm:2.0.2":
-  version: 2.0.2
-  resolution: "luxon@npm:2.0.2"
-  checksum: eb2e366cf41a129704ae3213e0aea3e1504390af2a84322a5bbb6a22c92d96c7cb70e58b941a109c5e1bfbed51784d08130278feeee6cdf169940af90a68ded5
+"luxon@npm:2.1.0":
+  version: 2.1.0
+  resolution: "luxon@npm:2.1.0"
+  checksum: 3b4090a5d48343dd0d1123f8688b93e121ed2dc7910af967440fd977df30dae25bcb72870d3f72bab659d8f637c421bb9d7fbc6ad130c03b2bbb964fce16ac29
   languageName: node
   linkType: hard
 
