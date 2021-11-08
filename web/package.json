@@ -29,7 +29,7 @@
     "@nuxtjs/apollo": "4.0.1-rc.5",
     "@nuxtjs/i18n": "7.2.0",
     "@nuxtjs/pwa": "3.3.5",
-    "@nuxtjs/sentry": "5.1.4",
+    "@nuxtjs/sentry": "5.1.5",
     "@nuxtjs/storybook": "4.2.0",
     "@nuxtjs/tailwindcss": "4.2.1",
     "@tailwindcss/forms": "0.3.4",
