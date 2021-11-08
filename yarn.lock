@@ -317,7 +317,7 @@ __metadata:
     "@nuxtjs/i18n": 7.2.0
     "@nuxtjs/pwa": 3.3.5
     "@nuxtjs/sentry": 5.1.4
-    "@nuxtjs/storybook": 4.1.1
+    "@nuxtjs/storybook": 4.2.0
     "@nuxtjs/tailwindcss": 4.2.1
     "@tailwindcss/forms": 0.3.4
     "@tailwindcss/typography": 0.4.1
@@ -4735,6 +4735,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nuxt/devalue@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@nuxt/devalue@npm:2.0.0"
+  checksum: 345f6c3964722e805797ee0b249b25bb31246264d39a77cd42acf1f20e4869904d3a1fd74b91c6af62c0eecad1b2135e23e38b750073ce1971083cfd8eedd4a5
+  languageName: node
+  linkType: hard
+
 "@nuxt/friendly-errors-webpack-plugin@npm:^2.5.1":
   version: 2.5.2
   resolution: "@nuxt/friendly-errors-webpack-plugin@npm:2.5.2"
@@ -5103,27 +5110,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxtjs/storybook@npm:4.1.1":
-  version: 4.1.1
-  resolution: "@nuxtjs/storybook@npm:4.1.1"
+"@nuxtjs/storybook@npm:4.2.0":
+  version: 4.2.0
+  resolution: "@nuxtjs/storybook@npm:4.2.0"
   dependencies:
-    "@nuxt/devalue": ^1.2.5
+    "@nuxt/devalue": ^2.0.0
     "@nuxt/postcss8": ^1.1.3
-    "@storybook/addon-essentials": ~6.3.2
+    "@storybook/addon-essentials": ~6.3.12
     "@storybook/addon-postcss": ^2.0.0
-    "@storybook/react-docgen-typescript-plugin": ^0.7.2-canary.91cf050.0
-    "@storybook/vue": ~6.3.2
-    arg: ^5.0.0
+    "@storybook/react-docgen-typescript-plugin": ^1.0.1
+    "@storybook/vue": ~6.3.12
+    arg: ^5.0.1
     consola: ^2.15.3
     create-require: ^1.1.1
-    css-loader: ^5.2.6
-    jiti: ^1.10.1
-    postcss: ^8.3.5
+    css-loader: ^6.5.1
+    jiti: ^1.12.9
+    postcss: ^8.3.11
     upath: ^2.0.1
-    vue-loader: ^15.9.7
+    vue-loader: ^15.9.8
   bin:
     nuxt-storybook: bin/nuxt-storybook.js
-  checksum: be32e5498b43ef2cfe714a53a8ea189ce57c794f918e93a4f36f676ef9d6e95adfc25755b48c1f026956540e5262acdf24c642b452d83d9a025912e8491a946f
+  checksum: 9b5d160d14632a8075210a6216d87ea9ca5228b3e1157461ea212a783a56ad77650617a1059544663ad2621ca8e8d3e56ecd9cf160a86043fa1d25da6a4ad264
   languageName: node
   linkType: hard
 
@@ -6133,7 +6140,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-essentials@npm:~6.3.2":
+"@storybook/addon-essentials@npm:~6.3.12":
   version: 6.3.12
   resolution: "@storybook/addon-essentials@npm:6.3.12"
   dependencies:
@@ -6775,22 +6782,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react-docgen-typescript-plugin@npm:^0.7.2-canary.91cf050.0":
-  version: 0.7.2-canary.abb479f.0
-  resolution: "@storybook/react-docgen-typescript-plugin@npm:0.7.2-canary.abb479f.0"
+"@storybook/react-docgen-typescript-plugin@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@storybook/react-docgen-typescript-plugin@npm:1.0.1"
   dependencies:
     debug: ^4.1.1
     endent: ^2.0.1
     find-cache-dir: ^3.3.1
     flat-cache: ^3.0.4
     micromatch: ^4.0.2
-    react-docgen-typescript: ^1.22.0
+    react-docgen-typescript: ^2.0.0
     tslib: ^2.0.0
-    webpack-sources: ^2.2.0
   peerDependencies:
     typescript: ">= 3.x"
     webpack: ">= 4"
-  checksum: de6fb8c0417d0638661c497b404e0e4e87f9cbeef88a6d38b84aa2e5cb18f6855d4b4566f7145f8008ab3578ee3cb334535110e7f805245a78b9e2313a0f1561
+  checksum: b76875a37ae78421e4549453d67359f743a2245c9474f1897426f5e436ef7a35e277823033b13949ec453dcd63f699bbdf7c1009a18058783bc67eab75db49b1
   languageName: node
   linkType: hard
 
@@ -6911,7 +6917,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/vue@npm:~6.3.2":
+"@storybook/vue@npm:~6.3.12":
   version: 6.3.12
   resolution: "@storybook/vue@npm:6.3.12"
   dependencies:
@@ -12242,7 +12248,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-loader@npm:^5.0.0, css-loader@npm:^5.2.6":
+"css-loader@npm:^5.0.0":
   version: 5.2.7
   resolution: "css-loader@npm:5.2.7"
   dependencies:
@@ -12259,6 +12265,24 @@ __metadata:
   peerDependencies:
     webpack: ^4.27.0 || ^5.0.0
   checksum: fb0742b30ac0919f94b99a323bdefe6d48ae46d66c7d966aae59031350532f368f8bba5951fcd268f2e053c5e6e4655551076268e9073ccb58e453f98ae58f8e
+  languageName: node
+  linkType: hard
+
+"css-loader@npm:^6.5.1":
+  version: 6.5.1
+  resolution: "css-loader@npm:6.5.1"
+  dependencies:
+    icss-utils: ^5.1.0
+    postcss: ^8.2.15
+    postcss-modules-extract-imports: ^3.0.0
+    postcss-modules-local-by-default: ^4.0.0
+    postcss-modules-scope: ^3.0.0
+    postcss-modules-values: ^4.0.0
+    postcss-value-parser: ^4.1.0
+    semver: ^7.3.5
+  peerDependencies:
+    webpack: ^5.0.0
+  checksum: 5a3bedecb468038f09673d25c32d8db5b0baa6c38820253c54ce4c56c27a2250d5d5b4bace77dd5e20ba0a569604eb759362bab4e3128e7db2229e40857d4aca
   languageName: node
   linkType: hard
 
@@ -17748,7 +17772,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jiti@npm:^1.10.1, jiti@npm:^1.9.2":
+"jiti@npm:^1.12.9, jiti@npm:^1.9.2":
   version: 1.12.9
   resolution: "jiti@npm:1.12.9"
   bin:
@@ -22152,7 +22176,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.3.11, postcss@npm:^8.1.10, postcss@npm:^8.1.6, postcss@npm:^8.2.1, postcss@npm:^8.2.15, postcss@npm:^8.3.5":
+"postcss@npm:8.3.11, postcss@npm:^8.1.10, postcss@npm:^8.1.6, postcss@npm:^8.2.1, postcss@npm:^8.2.15, postcss@npm:^8.3.11, postcss@npm:^8.3.5":
   version: 8.3.11
   resolution: "postcss@npm:8.3.11"
   dependencies:
@@ -22888,12 +22912,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-docgen-typescript@npm:^1.22.0":
-  version: 1.22.0
-  resolution: "react-docgen-typescript@npm:1.22.0"
+"react-docgen-typescript@npm:^2.0.0":
+  version: 2.1.1
+  resolution: "react-docgen-typescript@npm:2.1.1"
   peerDependencies:
-    typescript: ">= 3.x"
-  checksum: f5e5519cf3f1136b8e66bb3c459e02edf4d6c0d3bc1ee0fa848c8446f93f5332fb67c794f36e3597fd7374dea7433243537a4fd2b9311aa5d0c5a844ab8cb980
+    typescript: ">= 4.3.x"
+  checksum: d4ef24b1e6ed7f47f436a74efd2bf61afb9b6c64a9035c9a49f08f1cabfd608fff5fa2a81569573ed702905a7e4c65a41898ef3e5a336b2f0b3fd1bab4753eab
   languageName: node
   linkType: hard
 
@@ -24526,7 +24550,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"source-list-map@npm:^2.0.0, source-list-map@npm:^2.0.1":
+"source-list-map@npm:^2.0.0":
   version: 2.0.1
   resolution: "source-list-map@npm:2.0.1"
   checksum: 806efc6f75e7cd31e4815e7a3aaf75a45c704871ea4075cb2eb49882c6fca28998f44fc5ac91adb6de03b2882ee6fb02f951fdc85e6a22b338c32bfe19557938
@@ -27227,7 +27251,7 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"vue-loader@npm:^15.9.7":
+"vue-loader@npm:^15.9.7, vue-loader@npm:^15.9.8":
   version: 15.9.8
   resolution: "vue-loader@npm:15.9.8"
   dependencies:
@@ -27497,16 +27521,6 @@ typescript@~4.2:
     source-list-map: ^2.0.0
     source-map: ~0.6.1
   checksum: 37463dad8d08114930f4bc4882a9602941f07c9f0efa9b6bc78738cd936275b990a596d801ef450d022bb005b109b9f451dd087db2f3c9baf53e8e22cf388f79
-  languageName: node
-  linkType: hard
-
-"webpack-sources@npm:^2.2.0":
-  version: 2.3.1
-  resolution: "webpack-sources@npm:2.3.1"
-  dependencies:
-    source-list-map: ^2.0.1
-    source-map: ^0.6.1
-  checksum: 6fd67f2274a84c5f51ad89767112ec8b47727134bf0f2ba0cff458c970f18966939a24128bdbddba621cd66eeb2bef0552642a9333cd8e54514f7b2a71776346
   languageName: node
   linkType: hard
 
