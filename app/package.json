@@ -28,7 +28,7 @@
     "@augu/orchid": "3.1.1",
     "@augu/utils": "1.5.6",
     "@aws-sdk/client-s3": "3.40.0",
-    "@google-cloud/storage": "5.15.5",
+    "@google-cloud/storage": "5.15.6",
     "@mikro-orm/sql-highlighter": "1.0.1",
     "@prisma/client": "3.4.1",
     "@sentry/node": "6.14.1",
