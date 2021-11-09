@@ -51,7 +51,7 @@
     "@augu/eslint-config": "2.2.0",
     "@augu/tsconfig": "1.1.1",
     "@nuxt/types": "2.15.8",
-    "@types/marked": "3.0.3",
+    "@types/marked": "4.0.0",
     "@types/node": "16.11.7",
     "@types/node-fetch": "3.0.3",
     "@types/twemoji": "12.1.2",
