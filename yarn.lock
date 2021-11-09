@@ -197,7 +197,7 @@ __metadata:
     fastify-no-icon: 4.0.0
     kafkajs: 1.15.0
     leeks.js: 0.2.4
-    nodemon: 2.0.14
+    nodemon: 2.0.15
     prisma: 3.4.2
     source-map-support: 0.5.20
     ts-node: 10.4.0
@@ -264,7 +264,7 @@ __metadata:
     kafkajs: 1.15.0
     leeks.js: 0.2.4
     mime-types: 2.1.34
-    nodemon: 2.0.14
+    nodemon: 2.0.15
     prettier: 2.4.1
     prisma: 3.4.2
     prom-client: 14.0.1
@@ -12514,7 +12514,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^3.0.0, debug@npm:^3.1.0, debug@npm:^3.1.1, debug@npm:^3.2.6":
+"debug@npm:^3.0.0, debug@npm:^3.1.0, debug@npm:^3.1.1, debug@npm:^3.2.6, debug@npm:^3.2.7":
   version: 3.2.7
   resolution: "debug@npm:3.2.7"
   dependencies:
@@ -19937,7 +19937,27 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"nodemon@npm:2.0.14, nodemon@npm:^2.0.4":
+"nodemon@npm:2.0.15":
+  version: 2.0.15
+  resolution: "nodemon@npm:2.0.15"
+  dependencies:
+    chokidar: ^3.5.2
+    debug: ^3.2.7
+    ignore-by-default: ^1.0.1
+    minimatch: ^3.0.4
+    pstree.remy: ^1.1.8
+    semver: ^5.7.1
+    supports-color: ^5.5.0
+    touch: ^3.1.0
+    undefsafe: ^2.0.5
+    update-notifier: ^5.1.0
+  bin:
+    nodemon: bin/nodemon.js
+  checksum: 0569b09b713fdcc76f06734d7cc106950e69e02069cbf44bda3fae8d266926bdfa003aeddd22f8fcdf46ea6ff51ca64f5528f8006536e79820a26e648ef346cf
+  languageName: node
+  linkType: hard
+
+"nodemon@npm:^2.0.4":
   version: 2.0.14
   resolution: "nodemon@npm:2.0.14"
   dependencies:
@@ -22409,7 +22429,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"pstree.remy@npm:^1.1.7":
+"pstree.remy@npm:^1.1.7, pstree.remy@npm:^1.1.8":
   version: 1.1.8
   resolution: "pstree.remy@npm:1.1.8"
   checksum: 5cb53698d6bb34dfb278c8a26957964aecfff3e161af5fbf7cee00bbe9d8547c7aced4bd9cb193bce15fb56e9e4220fc02a5bf9c14345ffb13a36b858701ec2d
@@ -26321,7 +26341,7 @@ typescript@~4.2:
   languageName: node
   linkType: hard
 
-"undefsafe@npm:^2.0.3":
+"undefsafe@npm:^2.0.3, undefsafe@npm:^2.0.5":
   version: 2.0.5
   resolution: "undefsafe@npm:2.0.5"
   checksum: f42ab3b5770fedd4ada175fc1b2eb775b78f609156f7c389106aafd231bfc210813ee49f54483d7191d7b76e483bc7f537b5d92d19ded27156baf57592eb02cc
