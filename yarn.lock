@@ -321,7 +321,7 @@ __metadata:
     "@nuxtjs/tailwindcss": 4.2.1
     "@tailwindcss/forms": 0.3.4
     "@tailwindcss/typography": 0.4.1
-    "@types/marked": 3.0.3
+    "@types/marked": 4.0.0
     "@types/node": 16.11.7
     "@types/node-fetch": 3.0.3
     "@types/twemoji": 12.1.2
@@ -7439,10 +7439,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/marked@npm:3.0.3":
-  version: 3.0.3
-  resolution: "@types/marked@npm:3.0.3"
-  checksum: 42d859c2e4b38d738dd09a3d90b695e1188f975c82e40d122cf5f40bf2f52b0f9c5815b217eeb01a5a5549c6cf3a5f2b291478a505d4832f813af22e3040ff00
+"@types/marked@npm:4.0.0":
+  version: 4.0.0
+  resolution: "@types/marked@npm:4.0.0"
+  checksum: e9d085ac163744ee9abf34cc53cda37bf4c9147dc0b555c2cb349ea5f3b51c82df7083b86f1ddc8001c11fe6f2ffaf93d2d816826f8148ba8a25a81a3e3d661c
   languageName: node
   linkType: hard
 
