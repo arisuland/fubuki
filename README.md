@@ -114,13 +114,17 @@ $ docker-compose up -d
 
 ## Configuration
 
-The configuration file is located at `./config.yml`. It is a YAML file that contains all the configurations for Arisu.
+The configuration for **Tsubaki** is located in `app/config.yml` with the following options:
 
-Be warned that the configuration file is **not** checked for errors. If you have any issues with the configuration file, please open an [issue](https://github.com/arisuland/Arisu/issues).
+```yml
+# If registrations are enabled in this instance of Tsubaki,
+# if not, you will have to
+registrations: false
+```
 
 ## Contributing
 
-> Refer to the [Contributing](.github/CONTRIBUTING.md) section for more details.
+> Refer to the [Contributing](.github/CONTRIBUTING.md) section before moving on.
 
 ## License
 

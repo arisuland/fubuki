@@ -13,7 +13,10 @@
       "~/*": ["./src/*"],
       "@/*": ["./*"]
     },
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "tsBuildInfoFile": "./build/.tsbuildinfo",
+    "importHelpers": true,
+    "incremental": true
   },
   "exclude": ["node_modules", "jest.config.ts", "tests/**/*.(spec|test).ts"],
   "include": ["**/*.ts"]
