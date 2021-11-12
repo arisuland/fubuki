@@ -62,6 +62,12 @@ export enum UserFlag {
    * cannot attach this flag to themselves.
    */
   Founder = 1 << 4,
+
+  /**
+   * If this user has given us access to send in data usage / error reports
+   * behalf their user account.
+   */
+  TelemetryOptIn = 1 << 5,
 }
 
 class UserFlags extends Bitfield<UserFlag> {}
