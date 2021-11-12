@@ -16,6 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import minimist from 'minimist';
+
 /* eslint-disable camelcase */
 
 /** */
@@ -26,7 +28,13 @@ declare global {
       NODE_ENV: 'development' | 'production';
       TELEMETRY_SERVER_URL?: string;
     }
+
+    interface Global {
+      argv: minimist.ParsedArgs;
+    }
   }
+
+  const argv: minimist.ParsedArgs;
 
   type PossiblyUndefined<T> = T | undefined;
   type PossiblyNull<T> = T | null;

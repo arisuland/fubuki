@@ -19,20 +19,39 @@
 import './util/patches/RequirePatch';
 import 'reflect-metadata';
 
-(require('@augu/dotenv') as typeof import('@augu/dotenv')).parse({
-  file: (require('path') as typeof import('path')).join(process.cwd(), '..', '.env'),
-  populate: true,
-  schema: {
-    NODE_ENV: {
-      type: 'string',
-      oneOf: ['development', 'production'],
-      default: 'development',
-    },
+import { existsSync } from 'fs';
+import { parse } from '@augu/dotenv';
+import { join } from 'path';
+import Logger from '~/core/singletons/logger';
 
-    DATABASE_URL: 'string',
-    JWT_SECRET: 'string',
+const argv = (require('minimist') as typeof import('minimist'))(process.argv.slice(2), {
+  default: {
+    config: join(process.cwd(), '..', 'config.yml'),
+    env: join(process.cwd(), '..', '.env'),
   },
 });
+
+(global as any).argv = argv;
+
+const ENV_FILE_PATH = argv.env ?? join(process.cwd(), '..', '.env');
+if (existsSync(ENV_FILE_PATH)) {
+  Logger.info(`Found environment variable file in ${ENV_FILE_PATH}!`);
+
+  parse({
+    file: ENV_FILE_PATH,
+    populate: true,
+    schema: {
+      NODE_ENV: {
+        type: 'string',
+        oneOf: ['development', 'production'],
+        default: 'development',
+      },
+
+      DATABASE_URL: 'string',
+      JWT_SECRET: 'string',
+    },
+  });
+}
 
 import { registry, registerStuff, usersRegistered } from '~/core/registry/PrometheusRegistry';
 import { collectDefaultMetrics } from 'prom-client';
@@ -42,7 +61,6 @@ import { PrismaClient } from '@prisma/client';
 import updateNotifier from './util/UpdateNotifier';
 import { colors } from 'leeks.js';
 import container from '~/container';
-import Logger from '~/core/singletons/logger';
 import isRoot from 'is-root';
 import Config from './core/components/Config';
 import ts from 'typescript';
@@ -50,7 +68,7 @@ import ts from 'typescript';
 const log = Logger.getChildLogger({ name: 'Arisu: bootstrap' });
 const main = async () => {
   await updateNotifier();
-  if (isRoot()) log.warn('Running Arisu as root is not recommended, you have been warned.');
+  if (isRoot()) log.warn('Running Arisu as root is not recommended! Please run Arisu in a non-root environment.');
 
   registerStuff();
   collectDefaultMetrics({

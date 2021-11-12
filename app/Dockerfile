@@ -24,11 +24,11 @@ RUN rm -rf src scripts
 
 FROM node:17-alpine
 
-WORKDIR /app/Arisu/backend
+WORKDIR /app/arisu/tsubaki
 
-COPY --from=builder /app/node_modules /app/Arisu/backend/node_modules
-COPY --from=builder /app/build /app/Arisu/backend/build
-COPY docker /app/Arisu/backend/docker
+COPY --from=builder /app/node_modules /app/arisu/tsubaki/node_modules
+COPY --from=builder /app/build /app/arisu/tsubaki/build
+COPY docker /app/arisu/tsubaki/docker
 RUN chmod +x ./docker/start.sh
 
 ENTRYPOINT [ "sh", "./docker/start.sh" ]

@@ -1,7 +1,7 @@
 {
-  "name": "@arisu/web",
+  "name": "@arisu/fubuki",
   "description": "☔ Translation made with simplicity, but robust in mind. Made with 💖 TypeScript, using React with Next.js.",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "license": "GPL-3.0",
   "private": true,
   "homepage": "https://arisu.land",

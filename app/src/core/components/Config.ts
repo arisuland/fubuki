@@ -264,12 +264,17 @@ const zodSchema = z
 export default class Config {
   @Inject
   private readonly logger!: Logger;
+
+  #path: string;
   #config!: Configuration;
 
-  async load() {
-    const configPath = join(process.cwd(), '..', 'config.yml');
+  constructor() {
+    // argv.config is default to TSUBAKI/build/config.yml if not set.
+    this.#path = process.env.TSUBAKI_CONFIG_FILE ?? argv.config;
+  }
 
-    if (!existsSync(configPath)) {
+  async load() {
+    if (!existsSync(this.#path)) {
       const config = yaml.dump(
         {
           redis: {
@@ -288,7 +293,7 @@ export default class Config {
         }
       );
 
-      await writeFile(configPath, config);
+      await writeFile(this.#path, config);
       return Promise.reject(
         new SyntaxError(
           "Weird, you didn't have a configuration file... So, I may have provided you a default one, if you don't mind... >W<"
@@ -297,7 +302,7 @@ export default class Config {
     }
 
     this.logger.info('Loading configuration...');
-    const contents = await readFile(configPath, 'utf8');
+    const contents = await readFile(this.#path, 'utf8');
     const config = yaml.load(contents) as unknown as Configuration;
 
     try {
