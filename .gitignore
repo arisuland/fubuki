@@ -15,13 +15,13 @@ github-bot/.github
 
 # Yarn workspace
 
-/.yarn/
-!.yarn/patches
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
-/.pnp.
+/.yarn/*
+!/.yarn/patches
+!/.yarn/releases
+!/.yarn/plugins
+!/.yarn/sdks
+!/.yarn/versions
+/.pnp.js
 
 # Jetbrains IDEs
 
