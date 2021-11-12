@@ -23,7 +23,7 @@ services:
       - kafka-cluster
 
   kafka1:
-    image: bitnami/kafka:2.8.1
+    image: bitnami/kafka:3.0.0
     container_name: kafka-1
     ports:
       - '9092:9092'
@@ -41,7 +41,7 @@ services:
       - kafka-cluster
 
   kafka2:
-    image: bitnami/kafka:2.8.1
+    image: bitnami/kafka:3.0.0
     container_name: kafka-2
     ports:
       - '9093:9093'
@@ -59,7 +59,7 @@ services:
       - kafka-cluster
 
   kafka3:
-    image: bitnami/kafka:2.8.1
+    image: bitnami/kafka:3.0.0
     container_name: kafka-3
     ports:
       - '9094:9094'
