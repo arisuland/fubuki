@@ -212,7 +212,7 @@ __metadata:
     highlight.js: 11.3.1
     leeks.js: 0.2.4
     luxon: 2.1.1
-    marked: 4.0.0
+    marked: 4.0.1
     normalize-url: 7.0.2
     nuxt: 2.15.8
     postcss: 8.3.11
@@ -19011,12 +19011,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:4.0.0":
-  version: 4.0.0
-  resolution: "marked@npm:4.0.0"
+"marked@npm:4.0.1":
+  version: 4.0.1
+  resolution: "marked@npm:4.0.1"
   bin:
     marked: bin/marked.js
-  checksum: 1889c1b58cba6ea764435ef2fefef037733899dcb1d54300453b355ac70ada0109132631b0a2c3ee0ce633b930a1bc6d6ee1bd1dea38cf901dd30099fa68e143
+  checksum: dd8a5057ada906913fb722931eb90edc9993c764d57c36553b09f4246aae218e8b00a4af4be04c96b3a0cb5876e82945d0b899b617b7378ee0bd81a83bb53e23
   languageName: node
   linkType: hard
 
