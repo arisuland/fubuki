@@ -292,7 +292,7 @@ __metadata:
     "@types/ioredis": 4.28.1
     "@types/js-yaml": 4.0.4
     "@types/mime-types": 2.1.1
-    "@types/minimist": ^1.2.2
+    "@types/minimist": 1.2.2
     "@types/node": 16.11.7
     "@typescript-eslint/eslint-plugin": 5.3.1
     "@typescript-eslint/parser": 5.3.1
@@ -320,7 +320,7 @@ __metadata:
     kafkajs: 1.15.0
     leeks.js: 0.2.4
     mime-types: 2.1.34
-    minimist: ^1.2.5
+    minimist: 1.2.5
     nodemon: 2.0.15
     prettier: 2.4.1
     prisma: 3.4.2
@@ -7381,7 +7381,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/minimist@npm:^1.2.2":
+"@types/minimist@npm:1.2.2":
   version: 1.2.2
   resolution: "@types/minimist@npm:1.2.2"
   checksum: b8da83c66eb4aac0440e64674b19564d9d86c80ae273144db9681e5eeff66f238ade9515f5006ffbfa955ceff8b89ad2bd8ec577d7caee74ba101431fb07045d
@@ -19295,7 +19295,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimist@npm:^1.1.1, minimist@npm:^1.2.0, minimist@npm:^1.2.5":
+"minimist@npm:1.2.5, minimist@npm:^1.1.1, minimist@npm:^1.2.0, minimist@npm:^1.2.5":
   version: 1.2.5
   resolution: "minimist@npm:1.2.5"
   checksum: 86706ce5b36c16bfc35c5fe3dbb01d5acdc9a22f2b6cc810b6680656a1d2c0e44a0159c9a3ba51fb072bb5c203e49e10b51dcd0eec39c481f4c42086719bae52
