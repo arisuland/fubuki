@@ -1,0 +1,16 @@
+@import '@fontsource/cantarell/index.css';
+@import '@fontsource/jetbrains-mono/index.css';
+@import '@fontsource/inter/index.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  min-height: 100%;
+}
+
+body {
+  height: 100%;
+}

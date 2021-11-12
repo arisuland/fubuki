@@ -16,27 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-/**
- * Tailwind configuration for arisu.land
- */
-module.exports = {
-  purge: {
-    enabled: process.env.NODE_ENV === 'production',
-    content: ['src/components/*.{ts,tsx}', 'src/pages/*.{ts,tsx}'],
-  },
-  darkMode: 'media', // or 'media' or 'class'
-  mode: 'jit',
-  theme: {
-    extend: {
-      colors: {
-        discord: '#7289DA',
-        github: '#333333',
-        twitter: '#1DA1F2',
-      },
-    },
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
-};
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+
+export default new ApolloClient({
+  uri: process.env.NODE_ENV === 'production' ? 'https://api.arisu.land' : process.env.TSUBAKI_URL,
+  cache: new InMemoryCache(),
+  name: 'Fubuki',
+  version: '1.0.0',
+  connectToDevTools: true,
+});

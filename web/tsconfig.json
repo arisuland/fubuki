@@ -9,19 +9,15 @@
     "strict": true,
     "noEmit": true,
     "baseUrl": ".",
-    "typeRoots": ["src/@types", "./node_modules/@types"],
-    "types": [
-      "node",
-      "@nuxt/types",
-      "@nuxtjs/apollo/types/nuxt",
-      "@nuxtjs/i18n/types/vue",
-      "@nuxtjs/pwa/dist/pwa",
-      "@nuxtjs/sentry/types"
-    ],
-    "paths": {
-      "~/*": ["./src/*"],
-      "@/*": ["./src/*"]
-    }
+    "typeRoots": ["src/types", "./node_modules/@types"],
+    "types": ["node"],
+    "importHelpers": true,
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    "jsx": "preserve",
+    "skipLibCheck": true,
+    "isolatedModules": true
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
