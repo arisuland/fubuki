@@ -171,7 +171,7 @@ __metadata:
     leeks.js: 0.2.4
     nodemon: 2.0.15
     prisma: 3.5.0
-    source-map-support: 0.5.20
+    source-map-support: 0.5.21
     ts-node: 10.4.0
     typescript: 4.5.2
   languageName: unknown
@@ -243,7 +243,7 @@ __metadata:
     prisma: 3.5.0
     prom-client: 14.0.1
     reflect-metadata: 0.1.13
-    source-map-support: 0.5.20
+    source-map-support: 0.5.21
     ts-node: 10.4.0
     tslib: 2.3.1
     tslog: 3.2.2
@@ -10655,7 +10655,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:0.5.20, source-map-support@npm:^0.5.17, source-map-support@npm:^0.5.19":
+"source-map-support@npm:0.5.21":
+  version: 0.5.21
+  resolution: "source-map-support@npm:0.5.21"
+  dependencies:
+    buffer-from: ^1.0.0
+    source-map: ^0.6.0
+  checksum: 43e98d700d79af1d36f859bdb7318e601dfc918c7ba2e98456118ebc4c4872b327773e5a1df09b0524e9e5063bb18f0934538eace60cca2710d1fa687645d137
+  languageName: node
+  linkType: hard
+
+"source-map-support@npm:^0.5.17, source-map-support@npm:^0.5.19":
   version: 0.5.20
   resolution: "source-map-support@npm:0.5.20"
   dependencies:
