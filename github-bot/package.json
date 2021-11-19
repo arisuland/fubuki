@@ -33,7 +33,7 @@
     "fastify-no-icon": "4.0.0",
     "kafkajs": "1.15.0",
     "leeks.js": "0.2.4",
-    "source-map-support": "0.5.20"
+    "source-map-support": "0.5.21"
   },
   "devDependencies": {
     "@augu/eslint-config": "2.2.0",

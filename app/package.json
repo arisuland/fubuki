@@ -57,7 +57,7 @@
     "minimist": "1.2.5",
     "prom-client": "14.0.1",
     "reflect-metadata": "0.1.13",
-    "source-map-support": "0.5.20",
+    "source-map-support": "0.5.21",
     "tslog": "3.2.2",
     "type-graphql": "1.1.1",
     "ws": "8.2.3",
