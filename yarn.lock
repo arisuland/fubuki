@@ -120,7 +120,7 @@ __metadata:
     is-docker: 2.2.1
     is-kubernetes: 1.0.1
     luxon: 2.1.1
-    marked: 4.0.3
+    marked: 4.0.4
     normalize-url: 7.0.2
     postcss: 8.3.11
     postcss-import: 14.0.2
@@ -8501,12 +8501,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:4.0.3":
-  version: 4.0.3
-  resolution: "marked@npm:4.0.3"
+"marked@npm:4.0.4":
+  version: 4.0.4
+  resolution: "marked@npm:4.0.4"
   bin:
     marked: bin/marked.js
-  checksum: 06f123a8ec559e5c5d1511f206e39d577612063537bd607242b53ff248a56907fff5f278e28f7d1b343384a25e77c7613b94b4ba030d268e4cbad5ffcaa77d39
+  checksum: 8f108320ab84d823314a1506f777a20336a2572543c0881abb78156838356eb21cd15f162267cc154620ab031aaf8c9c3a6177b5465de00d954afcbaf5c62164
   languageName: node
   linkType: hard
 
