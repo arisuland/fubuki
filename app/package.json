@@ -1,6 +1,6 @@
 {
   "name": "@arisu/tsubaki",
-  "description": "☔ Translation made with simplicity, but robust in mind. Made with 💖 TypeScript, using Vue with Nuxt.js.",
+  "description": "☔ Translation made with simplicity, but robust in mind.",
   "version": "1.0.0",
   "main": "build/main.js",
   "license": "GPL-3.0",
@@ -35,7 +35,6 @@
     "apollo-server-fastify": "3.5.0",
     "argon2": "0.28.2",
     "boxen": "5.1.2",
-    "bree": "6.5.0",
     "class-validator": "0.13.2",
     "debounce": "1.2.1",
     "defu": "5.0.0",
