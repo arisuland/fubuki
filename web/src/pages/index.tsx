@@ -1,4 +1,4 @@
-/**
+/*
  * ☔ Arisu: Translation made with simplicity, yet robust.
  * Copyright (C) 2020-2021 Noelware
  *
@@ -16,6 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import { Box } from '@chakra-ui/react';
+
 export default function Index() {
-  return <div>hello world.</div>;
+  return <Box>hallo</Box>;
 }

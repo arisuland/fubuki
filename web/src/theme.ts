@@ -1,4 +1,4 @@
-/**
+/*
  * ☔ Arisu: Translation made with simplicity, yet robust.
  * Copyright (C) 2020-2021 Noelware
  *
@@ -16,4 +16,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import consola from 'consola';
+import { extendTheme } from '@chakra-ui/react';
+
+const fonts = {
+  body: 'Inter, system-ui, sans-serif',
+  heading: 'Inter, serif',
+  mono: '"JetBrains Mono", "Fira Code", Menlo, monospace',
+};
+
+export default extendTheme({
+  fonts,
+  initialColorMode: 'dark',
+  useSystemColorMode: true,
+});

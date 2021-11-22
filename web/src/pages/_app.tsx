@@ -1,4 +1,4 @@
-/**
+/*
  * ☔ Arisu: Translation made with simplicity, yet robust.
  * Copyright (C) 2020-2021 Noelware
  *
@@ -16,23 +16,28 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { ApolloProvider } from '@apollo/client';
-import type { AppProps } from 'next/app';
-import apolloClient from '../lib/apollo';
-import Head from 'next/head';
+import '@fontsource/fira-code/index.css';
+import '@fontsource/jetbrains-mono/index.css';
+import '@fontsource/inter/index.css';
 
-import '../styles/styles.scss';
+import { ApolloProvider } from '@apollo/client';
+import { ChakraProvider } from '@chakra-ui/react';
+import type { AppProps } from 'next/app';
+import Navbar from 'src/components/Navbar';
+import apollo from '../lib/apollo';
+import theme from '../theme';
+
+// Import FontAwesome icons here
+import '../lib/fa';
 
 export default function FubukiApp({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <Head>
-        <title>Arisu</title>
-      </Head>
-
-      <ApolloProvider client={apolloClient}>
+    <ChakraProvider theme={theme}>
+      <ApolloProvider client={apollo}>
+        {/* @ts-ignore */}
+        <Navbar />
         <Component {...pageProps} />
       </ApolloProvider>
-    </>
+    </ChakraProvider>
   );
 }

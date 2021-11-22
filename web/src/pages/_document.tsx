@@ -1,4 +1,4 @@
-/**
+/*
  * ☔ Arisu: Translation made with simplicity, yet robust.
  * Copyright (C) 2020-2021 Noelware
  *
@@ -37,14 +37,6 @@ export default class FubukiDocument extends Document {
             content="☔ Translation made with simplicity, yet robust. Made with ❤️ in TypeScript."
           />
           <meta name="theme-color" content="#76509C" />
-          <meta
-            property="og:description"
-            content="☔ Translation made with simplicity, yet robust. Made with ❤️ in TypeScript."
-          />
-          <meta property="og:title" content="Arisu - Translation made with simplicity." />
-          <meta property="og:image" content="https://cdn.floofy.dev/art/icons/icon_cinnamonserval.png" />
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://arisu.land" />
         </Head>
         <body>
           <Main />

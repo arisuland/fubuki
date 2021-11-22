@@ -1,4 +1,4 @@
-/**
+/*
  * ☔ Arisu: Translation made with simplicity, yet robust.
  * Copyright (C) 2020-2021 Noelware
  *
