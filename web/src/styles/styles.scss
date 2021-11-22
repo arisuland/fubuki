@@ -1,4 +1,3 @@
-@import '@fontsource/cantarell/index.css';
 @import '@fontsource/jetbrains-mono/index.css';
 @import '@fontsource/inter/index.css';
 
@@ -6,11 +5,38 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .avatar {
+    border-radius: 50%;
+    @apply block m-auto;
+  }
+
+  .fix-width {
+    width: 67.9%;
+    @apply font-medium text-lg lg:text-2xl mt-2 break-words text-center;
+  }
+
+  .blog-card {
+    width: 54.6%;
+    @apply bg-gray-800 shadow-md rounded-md mb-5;
+  }
+
+  @media (min-width: 1024px) {
+    .blog-card {
+      width: 45.6%;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html {
-  scroll-behavior: smooth;
   min-height: 100%;
 }
 
 body {
+  font-family: 'Inter', sans-serif;
   height: 100%;
 }

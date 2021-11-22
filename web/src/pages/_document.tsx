@@ -18,7 +18,7 @@
 
 import Document, { NextScript, Head, Html, Main, DocumentContext } from 'next/document';
 
-export default class PawDocument extends Document {
+export default class FubukiDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initial = await Document.getInitialProps(ctx);
     return { ...initial };

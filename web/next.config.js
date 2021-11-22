@@ -1,4 +1,4 @@
-/**
+/*
  * ☔ Arisu: Translation made with simplicity, yet robust.
  * Copyright (C) 2020-2021 Noelware
  *
@@ -18,7 +18,7 @@
 
 // @ts-check
 
-const withPWA = require('next-pwa');
+// const withPWA = require('next-pwa');
 
 /**
  * Next.js configuration for Fubuki
@@ -62,4 +62,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPWA(nextConfig);
+module.exports = nextConfig;

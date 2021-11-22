@@ -6,3 +6,10 @@
   <br />
   <blockquote>Translation made with simplicity, yet robust. Made with 💖 using <a href='https://typescriptlang.org'><strong>TypeScript</strong></a>, <a href='https://reactjs.org'><strong>React</strong></a> with <a href='https://nextjs.org'><strong>Next.js</strong></a>.</blockquote>
 </div>
+
+## What is this directory?
+
+This is the directory for the **web ui** of Arisu, you can view it [here](https://arisu.land)
+
+You can view our UI components over at [arisuland/ui](https://github.com/arisuland/ui). Our Storybook for the
+UI components can be located [here](https://sb.arisu.land).

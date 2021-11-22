@@ -1,14 +1,25 @@
-FROM node:17-alpine
+FROM node:17-alpine AS builder
 
-LABEL MAINTAINER="Arisu Team <contact@arisu.land>"
-RUN apk update && apk add git ca-certificates
+ARG version="unknown"
+ARG commit_hash="unknown"
 
-WORKDIR /opt/Arisu/frontend
+LABEL MAINTAINER="Arisu Team <contact@arisu.land>, Noel <cutie@floofy.dev>"
+LABEL land.arisu.fubuki.version=${version}
+LABEL land.arisu.fubuki.commit-hash=${commit_hash}
+
+RUN apk update && apk add --no-cache git ca-certificates make gcc g++ bash
+WORKDIR /build/fubuki
 COPY . .
+
 RUN yarn global add typescript eslint
 RUN yarn
-RUN NEXT_TELEMETRY_DISABLED=1 NODE_ENV=production yarn build
-RUN rm -rf src
-RUN yarn cache clean
+RUN yarn build
+RUN yarn cache remove
 
-ENTRYPOINT [ "nuxt", "start" ]
+FROM node:17-alpine
+
+WORKDIR /app/arisu/fubuki
+COPY --from=builder /build/fubuki/node_modules /app/arisu/fubuki/node_modules
+COPY --from=builder /build/fubuki/build        /app/arisu/fubuki/build
+
+ENTRYPOINT [ "yarn", "start" ]

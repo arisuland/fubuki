@@ -16,32 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { nextHydration, nextRenderTime, webVitals } from './api/metrics';
-import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import { ApolloProvider } from '@apollo/client';
+import type { AppProps } from 'next/app';
 import apolloClient from '../lib/apollo';
 import Head from 'next/head';
 
 import '../styles/styles.scss';
-
-export const reportWebMetric = (vital: NextWebVitalsMetric) => {
-  if (vital.label === 'web-vital') {
-    const gauge = webVitals[vital.name];
-    gauge.set(vital.value);
-  }
-
-  if (vital.label === 'custom') {
-    switch (vital.name) {
-      case 'Next.js-hydration':
-        nextHydration.set(vital.value);
-        break;
-
-      case 'Next.js-render':
-        nextRenderTime.set(vital.value);
-        break;
-    }
-  }
-};
 
 export default function FubukiApp({ Component, pageProps }: AppProps) {
   return (
