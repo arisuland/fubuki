@@ -231,7 +231,7 @@ __metadata:
     apollo-server-fastify: 3.5.0
     argon2: 0.28.2
     boxen: 5.1.2
-    bree: 6.5.0
+    bree: 7.1.0
     class-validator: 0.13.2
     debounce: 1.2.1
     defu: 5.0.0
@@ -2589,7 +2589,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.5, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.5, @babel/runtime@npm:^7.11.2, @babel/runtime@npm:^7.8.4":
   version: 7.16.3
   resolution: "@babel/runtime@npm:7.16.3"
   dependencies:
@@ -5546,7 +5546,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"boolean@npm:^3.0.2":
+"boolean@npm:^3.1.4":
   version: 3.1.4
   resolution: "boolean@npm:3.1.4"
   checksum: 9a48bce4799ccca861be0ec9564f47a96dd01535079624e37b06df45e5dc89d14dcefa04c56f1491a91f0827029f6d9e25690f0b308dfc248b9e64e15593aa35
@@ -5595,24 +5595,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bree@npm:6.5.0":
-  version: 6.5.0
-  resolution: "bree@npm:6.5.0"
+"bree@npm:7.1.0":
+  version: 7.1.0
+  resolution: "bree@npm:7.1.0"
   dependencies:
-    "@babel/runtime": ^7.12.5
     "@breejs/later": ^4.1.0
-    boolean: ^3.0.2
-    bthreads: ^0.5.1
+    boolean: ^3.1.4
     combine-errors: ^3.0.3
-    cron-validate: ^1.4.1
-    debug: ^4.3.1
-    human-interval: ^2.0.0
+    cron-validate: ^1.4.3
+    debug: ^4.3.2
+    human-interval: ^2.0.1
     is-string-and-not-blank: ^0.0.2
     is-valid-path: ^0.1.1
-    ms: ^2.1.2
-    p-wait-for: 3.1.0
+    ms: ^2.1.3
+    p-wait-for: 3
     safe-timers: ^1.1.0
-  checksum: 3d4aa01a15d6276045616f424aaca186239e12f5946cb432138e40476c1b914db8de52f7a99bb16f9145340cf55c2ba409f2c14e063e651dced9e15a793413cf
+  checksum: 47188418eeef330b119ac8f23602fcb5915877071a71a36e2f0df97d41af2408b49669156a2209c110d980c73dd055cf427de13b4769779c1539a7f9c3c75ce7
   languageName: node
   linkType: hard
 
@@ -5735,15 +5733,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bthreads@npm:^0.5.1":
-  version: 0.5.1
-  resolution: "bthreads@npm:0.5.1"
-  dependencies:
-    bufio: ~1.0.5
-  checksum: 5a1031dc30ff79aa61853e085fd7590ac9f03f524042e28488535ec3205fdfed429edbb4fa7bf0232cdd968b8a7eb6805e6a63b0abcd0ccafaf8a3a111be9cdd
-  languageName: node
-  linkType: hard
-
 "btoa-lite@npm:^1.0.0":
   version: 1.0.0
   resolution: "btoa-lite@npm:1.0.0"
@@ -5789,13 +5778,6 @@ __metadata:
     base64-js: ^1.3.1
     ieee754: ^1.1.13
   checksum: e2cf8429e1c4c7b8cbd30834ac09bd61da46ce35f5c22a78e6c2f04497d6d25541b16881e30a019c6fd3154150650ccee27a308eff3e26229d788bbdeb08ab84
-  languageName: node
-  linkType: hard
-
-"bufio@npm:~1.0.5":
-  version: 1.0.7
-  resolution: "bufio@npm:1.0.7"
-  checksum: 4871b8060a8d3bc04de8722f5cc5575b77f4cb18af389eab62d51bf42b08f43fe75159126ef11f15fe4045dc8c20e0e344406ca8388cb1371e558b986e971a57
   languageName: node
   linkType: hard
 
@@ -6558,7 +6540,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cron-validate@npm:^1.4.1":
+"cron-validate@npm:^1.4.3":
   version: 1.4.3
   resolution: "cron-validate@npm:1.4.3"
   dependencies:
@@ -8838,7 +8820,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"human-interval@npm:^2.0.0":
+"human-interval@npm:^2.0.1":
   version: 2.0.1
   resolution: "human-interval@npm:2.0.1"
   dependencies:
@@ -10925,7 +10907,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ms@npm:^2.0.0, ms@npm:^2.1.1, ms@npm:^2.1.2":
+"ms@npm:^2.0.0, ms@npm:^2.1.1, ms@npm:^2.1.3":
   version: 2.1.3
   resolution: "ms@npm:2.1.3"
   checksum: aa92de608021b242401676e35cfa5aa42dd70cbdc082b916da7fb925c542173e36bce97ea3e804923fe92c0ad991434e4a38327e15a1b5b5f945d66df615ae6d
@@ -11651,12 +11633,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"p-wait-for@npm:3.1.0":
-  version: 3.1.0
-  resolution: "p-wait-for@npm:3.1.0"
+"p-wait-for@npm:3":
+  version: 3.2.0
+  resolution: "p-wait-for@npm:3.2.0"
   dependencies:
     p-timeout: ^3.0.0
-  checksum: 372d63d8a70e3118fc2c8095d4db1cd45ea5bf3021fa32b0ab64ec8c6f8b0de19fd5a3c5d0b986b693eb232814b3e401ded23623cf6c31f311c62f3c2b4bd76e
+  checksum: 7f6840e9233d96836a233dee9c5b1c711bfdf76228d0eaea68fa74a79418f5eef6dc1915dadd28d17312a99f6a53daa308b1c18b779bc9c1dabcae3d6b35a086
   languageName: node
   linkType: hard
 
