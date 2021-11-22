@@ -108,7 +108,7 @@ __metadata:
     "@chakra-ui/react": 1.7.2
     "@emotion/react": 11.6.0
     "@emotion/styled": 11.6.0
-    "@fontsource/fira-code": ^4.5.2
+    "@fontsource/fira-code": 4.5.2
     "@fontsource/inter": 4.5.1
     "@fontsource/jetbrains-mono": 4.5.0
     "@fortawesome/fontawesome-svg-core": 1.2.36
@@ -134,7 +134,7 @@ __metadata:
     luxon: 2.1.1
     marked: 4.0.4
     next: 12.0.4
-    next-pwa: 5.4.0
+    next-pwa: 5.4.1
     normalize-url: 7.0.2
     postcss-reporter: 7.0.4
     prom-client: 14.0.1
@@ -3726,7 +3726,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/fira-code@npm:^4.5.2":
+"@fontsource/fira-code@npm:4.5.2":
   version: 4.5.2
   resolution: "@fontsource/fira-code@npm:4.5.2"
   checksum: 6d3aafc6689e5316eac8299ec64da26bc2ec561ea20d5fd89c1552dfc9a230e0a4d525a691d5bf45da1186ff91a9b9420ca7b37ee2125ae1461941ee46ae5feb
@@ -11469,19 +11469,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-pwa@npm:5.4.0":
-  version: 5.4.0
-  resolution: "next-pwa@npm:5.4.0"
+"next-pwa@npm:5.4.1":
+  version: 5.4.1
+  resolution: "next-pwa@npm:5.4.1"
   dependencies:
     babel-loader: ^8.2.2
     clean-webpack-plugin: ^4.0.0
     globby: ^11.0.4
-    terser-webpack-plugin: ^5.2.4
-    workbox-webpack-plugin: ^6.3.0
-    workbox-window: ^6.3.0
+    terser-webpack-plugin: ^5.2.5
+    workbox-webpack-plugin: ^6.4.1
+    workbox-window: ^6.4.1
   peerDependencies:
     next: ">=9.0.0"
-  checksum: 3bd4be5df83a82b057f28724f1aa3c4d25226c06b6779f374b3c5ddcb146aa05bcf7f1a281612fe48f3f8af2cc7082f6988adcf38dc1fc4292f0cc490ee01f0b
+  checksum: 7f1ae403edf3ec2d8f4750ee9fd98d61a192d381fa5105b94151c215472d013882d839777f025efb1b9e4b6b336139b602ce6fb7dd90a8a60c43a7f8d20377d6
   languageName: node
   linkType: hard
 
@@ -14163,7 +14163,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser-webpack-plugin@npm:^5.2.4":
+"terser-webpack-plugin@npm:^5.2.5":
   version: 5.2.5
   resolution: "terser-webpack-plugin@npm:5.2.5"
   dependencies:
@@ -15263,7 +15263,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"workbox-webpack-plugin@npm:^6.3.0":
+"workbox-webpack-plugin@npm:^6.4.1":
   version: 6.4.1
   resolution: "workbox-webpack-plugin@npm:6.4.1"
   dependencies:
@@ -15279,7 +15279,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"workbox-window@npm:6.4.1, workbox-window@npm:^6.3.0":
+"workbox-window@npm:6.4.1, workbox-window@npm:^6.4.1":
   version: 6.4.1
   resolution: "workbox-window@npm:6.4.1"
   dependencies:
