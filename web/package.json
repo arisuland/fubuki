@@ -37,7 +37,7 @@
     "autoprefixer": "10.4.0",
     "consola": "2.15.3",
     "emoji-regex": "10.0.0",
-    "framer-motion": "5.3.1",
+    "framer-motion": "5.3.2",
     "graphql": "16.0.1",
     "graphql-tag": "2.12.6",
     "luxon": "2.1.1",
