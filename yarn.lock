@@ -128,7 +128,7 @@ __metadata:
     emoji-regex: 10.0.0
     eslint: 8.3.0
     eslint-config-prettier: 8.3.0
-    framer-motion: 5.3.1
+    framer-motion: 5.3.2
     graphql: 16.0.1
     graphql-tag: 2.12.6
     luxon: 2.1.1
@@ -8843,9 +8843,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:5.3.1":
-  version: 5.3.1
-  resolution: "framer-motion@npm:5.3.1"
+"framer-motion@npm:5.3.2":
+  version: 5.3.2
+  resolution: "framer-motion@npm:5.3.2"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     framesync: 6.0.1
@@ -8859,7 +8859,7 @@ __metadata:
   dependenciesMeta:
     "@emotion/is-prop-valid":
       optional: true
-  checksum: 048d43a5f55e37621bfb2e6d3ff581005a29da1a1fafd77e3a8861f31e40700f27e7772c63b96064387132a2a94fcb71f41c8a97c76dd0bf14a87ca806b77c48
+  checksum: 63ca3580a9beb12f7b896357988f712842c219a7e7c281e5955d09481f4131b6822d26d9dedef0abd3e44884466a20c102ecdda3302a2555a2759205b0854ef3
   languageName: node
   linkType: hard
 
