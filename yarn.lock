@@ -25,9 +25,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollo/client@npm:3.4.17":
-  version: 3.4.17
-  resolution: "@apollo/client@npm:3.4.17"
+"@apollo/client@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@apollo/client@npm:3.5.5"
   dependencies:
     "@graphql-typed-document-node/core": ^3.0.0
     "@wry/context": ^0.6.0
@@ -40,9 +40,9 @@ __metadata:
     symbol-observable: ^4.0.0
     ts-invariant: ^0.9.0
     tslib: ^2.3.0
-    zen-observable-ts: ~1.1.0
+    zen-observable-ts: ^1.2.0
   peerDependencies:
-    graphql: ^14.0.0 || ^15.0.0
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
     react: ^16.8.0 || ^17.0.0
     subscriptions-transport-ws: ^0.9.0 || ^0.11.0
   peerDependenciesMeta:
@@ -50,7 +50,7 @@ __metadata:
       optional: true
     subscriptions-transport-ws:
       optional: true
-  checksum: 01624eceab4e71bfcc6fa6fc53ca413c17208a2651d61ebced039c6461da8e590bfef909f994dc23b94803ac49f67d4bd72057e8e33100c37da3ef9566db76d4
+  checksum: 765675a25d2e983c1ed0050a2a2d168e581d98de6771c9ebd8a67e7cf9b13275b08d1b2e4a3fe50d66c46e56f8c206909ff5c0145bf86a906830b6bc3d5e4ed7
   languageName: node
   linkType: hard
 
@@ -99,7 +99,7 @@ __metadata:
   resolution: "@arisu/fubuki@workspace:web"
   dependencies:
     "@aero/centra": 1.0.8
-    "@apollo/client": 3.4.17
+    "@apollo/client": 3.5.5
     "@arisu/typings": 1.0.1
     "@augu/dotenv": 1.3.0
     "@augu/eslint-config": 2.2.0
@@ -118,7 +118,7 @@ __metadata:
     "@graphql-codegen/cli": 2.3.0
     "@graphql-codegen/typescript": 2.4.1
     "@types/marked": 4.0.1
-    "@types/node": 16.11.9
+    "@types/node": 16.11.10
     "@types/react": 17.0.36
     "@types/twemoji": 12.1.2
     "@typescript-eslint/eslint-plugin": 5.4.0
@@ -128,7 +128,7 @@ __metadata:
     emoji-regex: 10.0.0
     eslint: 8.3.0
     eslint-config-prettier: 8.3.0
-    framer-motion: 5.3.1
+    framer-motion: 5.3.3
     graphql: 16.0.1
     graphql-tag: 2.12.6
     is-docker: 2.2.1
@@ -136,7 +136,7 @@ __metadata:
     luxon: 2.1.1
     marked: 4.0.4
     next: 12.0.4
-    next-pwa: 5.4.0
+    next-pwa: 5.4.1
     normalize-url: 7.0.2
     postcss-reporter: 7.0.4
     prom-client: 14.0.1
@@ -167,7 +167,7 @@ __metadata:
     "@octokit/core": 3.5.1
     "@prisma/client": 3.5.0
     "@sentry/node": 6.15.0
-    "@types/node": 16.11.9
+    "@types/node": 16.11.10
     "@typescript-eslint/eslint-plugin": 5.4.0
     "@typescript-eslint/parser": 5.4.0
     consola: 2.15.3
@@ -218,7 +218,7 @@ __metadata:
     "@types/js-yaml": 4.0.5
     "@types/mime-types": 2.1.1
     "@types/minimist": 1.2.2
-    "@types/node": 16.11.9
+    "@types/node": 16.11.10
     "@typescript-eslint/eslint-plugin": 5.4.0
     "@typescript-eslint/parser": 5.4.0
     apollo-server-fastify: 3.5.0
@@ -235,7 +235,7 @@ __metadata:
     gc-stats: 1.4.0
     graphql: 15.3.0
     graphql-scalars: 1.13.6
-    ioredis: 4.28.0
+    ioredis: 4.28.1
     is-docker: 2.2.1
     is-kubernetes: 1.0.1
     is-root: 2.1.0
@@ -256,7 +256,7 @@ __metadata:
     tslog: 3.2.2
     type-graphql: 1.1.1
     typescript: 4.5.2
-    ws: 8.2.3
+    ws: 8.3.0
     zod: 3.11.6
   languageName: unknown
   linkType: soft
@@ -5392,10 +5392,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:16.11.9":
+"@types/node@npm:*":
   version: 16.11.9
   resolution: "@types/node@npm:16.11.9"
   checksum: baec2e6471ee58fd1e9874e6f47ab95a918a0f46b42424392e4c13e3e07f078f8b72b6b48073b0b14f710ed66c5f1b2e497df43f28151000f11f5f299382cfe2
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:16.11.10":
+  version: 16.11.10
+  resolution: "@types/node@npm:16.11.10"
+  checksum: 9c79419c5c3d92d5825bffa30f3668533f598d8b63a73ea7fc24e47f162bdbed92b0f8e4f4261cc3314b39cee050e303366d2aa154abc95c63a572a110b8c160
   languageName: node
   linkType: hard
 
@@ -5499,13 +5506,6 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: fb2f1cc1bc294607cf737a998a04d4eaca78b0a183905b879849c0e009f47ff4adaa6cbc7d9ac2d2ecc61652c8367e0f8bb02aab0af67a82e8c922746e96434b
-  languageName: node
-  linkType: hard
-
-"@types/zen-observable@npm:0.8.3":
-  version: 0.8.3
-  resolution: "@types/zen-observable@npm:0.8.3"
-  checksum: 08c88354abcf03a2176a2ec32e07da1f25fdad94fbc2f419bea53d77deb04ad4759518b4fe3fc695e61065dd4bdf7c8bd26b5211a6cd5be2233872806bdee48d
   languageName: node
   linkType: hard
 
@@ -8852,9 +8852,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:5.3.1":
-  version: 5.3.1
-  resolution: "framer-motion@npm:5.3.1"
+"framer-motion@npm:5.3.3":
+  version: 5.3.3
+  resolution: "framer-motion@npm:5.3.3"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     framesync: 6.0.1
@@ -8868,7 +8868,7 @@ __metadata:
   dependenciesMeta:
     "@emotion/is-prop-valid":
       optional: true
-  checksum: 048d43a5f55e37621bfb2e6d3ff581005a29da1a1fafd77e3a8861f31e40700f27e7772c63b96064387132a2a94fcb71f41c8a97c76dd0bf14a87ca806b77c48
+  checksum: 95a112cf427bc2c087fc918b626c39a6bfc77842cf5beec133e96af08e67f6ad984f0a210a7e436d409a334f00cb27e570119106c71458d465b7c163cb0992a4
   languageName: node
   linkType: hard
 
@@ -9842,9 +9842,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:4.28.0":
-  version: 4.28.0
-  resolution: "ioredis@npm:4.28.0"
+"ioredis@npm:4.28.1":
+  version: 4.28.1
+  resolution: "ioredis@npm:4.28.1"
   dependencies:
     cluster-key-slot: ^1.1.0
     debug: ^4.3.1
@@ -9857,7 +9857,7 @@ __metadata:
     redis-errors: ^1.2.0
     redis-parser: ^3.0.0
     standard-as-callback: ^2.1.0
-  checksum: d6951d3df93b94a8716090f233ccc9124fe82a244965ac695835a7d4d1795ca28025ef91abfbc014cce63b96112badfc216b8d91827722ddc406f10bd221b6ab
+  checksum: aa86fd81e71176bf6e14d5fc20bad18324ed34d70803eac8cd1c6f25cc9f61f98a337a28bf95103f6f4336583e830b735f4049ed91fc36734fed65850947f428
   languageName: node
   linkType: hard
 
@@ -11471,19 +11471,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-pwa@npm:5.4.0":
-  version: 5.4.0
-  resolution: "next-pwa@npm:5.4.0"
+"next-pwa@npm:5.4.1":
+  version: 5.4.1
+  resolution: "next-pwa@npm:5.4.1"
   dependencies:
     babel-loader: ^8.2.2
     clean-webpack-plugin: ^4.0.0
     globby: ^11.0.4
-    terser-webpack-plugin: ^5.2.4
-    workbox-webpack-plugin: ^6.3.0
-    workbox-window: ^6.3.0
+    terser-webpack-plugin: ^5.2.5
+    workbox-webpack-plugin: ^6.4.1
+    workbox-window: ^6.4.1
   peerDependencies:
     next: ">=9.0.0"
-  checksum: 3bd4be5df83a82b057f28724f1aa3c4d25226c06b6779f374b3c5ddcb146aa05bcf7f1a281612fe48f3f8af2cc7082f6988adcf38dc1fc4292f0cc490ee01f0b
+  checksum: 7f1ae403edf3ec2d8f4750ee9fd98d61a192d381fa5105b94151c215472d013882d839777f025efb1b9e4b6b336139b602ce6fb7dd90a8a60c43a7f8d20377d6
   languageName: node
   linkType: hard
 
@@ -14165,7 +14165,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser-webpack-plugin@npm:^5.2.4":
+"terser-webpack-plugin@npm:^5.2.5":
   version: 5.2.5
   resolution: "terser-webpack-plugin@npm:5.2.5"
   dependencies:
@@ -15265,7 +15265,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"workbox-webpack-plugin@npm:^6.3.0":
+"workbox-webpack-plugin@npm:^6.4.1":
   version: 6.4.1
   resolution: "workbox-webpack-plugin@npm:6.4.1"
   dependencies:
@@ -15281,7 +15281,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"workbox-window@npm:6.4.1, workbox-window@npm:^6.3.0":
+"workbox-window@npm:6.4.1, workbox-window@npm:^6.4.1":
   version: 6.4.1
   resolution: "workbox-window@npm:6.4.1"
   dependencies:
@@ -15354,6 +15354,21 @@ __metadata:
     utf-8-validate:
       optional: true
   checksum: c869296ccb45f218ac6d32f8f614cd85b50a21fd434caf11646008eef92173be53490810c5c23aea31bc527902261fbfd7b062197eea341b26128d4be56a85e4
+  languageName: node
+  linkType: hard
+
+"ws@npm:8.3.0":
+  version: 8.3.0
+  resolution: "ws@npm:8.3.0"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ^5.0.2
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: 71f6919e3cb2c60ae53e00b13d7782bb77005750641855153a1716c23b7011259fe3a29a432522a3044dc7c579a7e2f5a495bb79ba9f823ce6c2e763300ef99b
   languageName: node
   linkType: hard
 
@@ -15505,13 +15520,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zen-observable-ts@npm:~1.1.0":
-  version: 1.1.0
-  resolution: "zen-observable-ts@npm:1.1.0"
+"zen-observable-ts@npm:^1.2.0":
+  version: 1.2.3
+  resolution: "zen-observable-ts@npm:1.2.3"
   dependencies:
-    "@types/zen-observable": 0.8.3
     zen-observable: 0.8.15
-  checksum: 1772727f2c96af228c52b008260e1e4ae512782abc9d4f4a78d1a61913aa3b55ae672ad343ecf6895d9b968b5e3f4a41b5a317702cdc6cd5f6f93bc0dacf8103
+  checksum: 0548b555c67671f1240fb416755d2c27abf095b74a9e25c1abf23b2e15de40e6b076c678a162021358fe62914864eb9f0a57cd65e203d66c4988a08b220e6172
   languageName: node
   linkType: hard
 
