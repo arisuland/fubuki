@@ -24,6 +24,7 @@ import { ApolloProvider } from '@apollo/client';
 import { ChakraProvider } from '@chakra-ui/react';
 import type { AppProps } from 'next/app';
 import Navbar from 'src/components/Navbar';
+import Footer from 'src/components/Footer';
 import apollo from '../lib/apollo';
 import theme from '../theme';
 
@@ -37,6 +38,7 @@ export default function FubukiApp({ Component, pageProps }: AppProps) {
         {/* @ts-ignore */}
         <Navbar />
         <Component {...pageProps} />
+        <Footer />
       </ApolloProvider>
     </ChakraProvider>
   );

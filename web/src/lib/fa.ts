@@ -16,7 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { faCalendar, faCloudMoonRain, faBookOpen, faBook } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faCloudMoonRain, faBookOpen, faBook, faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faDiscord, faTwitter, faGithub, faDocker } from '@fortawesome/free-brands-svg-icons';
 import * as core from '@fortawesome/fontawesome-svg-core';
 
 core.library.add(
@@ -24,5 +25,13 @@ core.library.add(
   faCalendar,
   faCloudMoonRain,
   faBookOpen,
-  faBook
+  faBook,
+  faTimes,
+  faBars,
+
+  // Brands
+  faDiscord,
+  faTwitter,
+  faGithub,
+  faDocker
 );

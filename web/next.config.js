@@ -18,7 +18,26 @@
 
 // @ts-check
 
+const { Months, omitZero } = require('@augu/utils');
+const { execSync } = require('child_process');
+const { version } = require('./package.json');
+const isDocker = require('is-docker');
+const isKube = require('is-kubernetes');
+
 // const withPWA = require('next-pwa');
+
+const commitHash = () => execSync('git rev-parse --short HEAD', { encoding: 'utf-8' }).trim();
+const getDate = () => {
+  const current = new Date();
+  const hours = omitZero(current.getHours());
+  const minutes = omitZero(current.getMinutes());
+  const seconds = omitZero(current.getSeconds());
+  const tz = process.env.TZ !== undefined ? process.env.TZ : 'UTC';
+
+  return `${
+    Months[current.getMonth()]
+  } ${current.getDate()}, ${current.getFullYear()} @ ${hours}:${minutes}:${seconds} ${tz}`;
+};
 
 /**
  * Next.js configuration for Fubuki
@@ -34,6 +53,19 @@ const nextConfig = {
   },
   productionBrowserSourceMaps: true,
   swcMinify: true,
+  generateBuildId: () => {
+    const date = getDate();
+    return `v${version} (commit: ${commitHash()}, build date: ${date})`;
+  },
+  env: {
+    version,
+    commit: commitHash(),
+    buildDate: getDate(),
+    // docker: isDocker() ? 'true' : 'false',
+    // kube: isKube() ? 'true' : 'false',
+    docker: 'true',
+    kube: 'true',
+  },
   eslint: {
     // Disables linting while building the production
     // build, it already gets linted during Docker.
