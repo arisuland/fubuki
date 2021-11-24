@@ -63,7 +63,7 @@
     "@augu/tsconfig": "1.1.1",
     "@types/marked": "4.0.1",
     "@types/node": "16.11.10",
-    "@types/react": "17.0.36",
+    "@types/react": "17.0.37",
     "@types/twemoji": "12.1.2",
     "@typescript-eslint/eslint-plugin": "5.4.0",
     "@typescript-eslint/parser": "5.4.0",
