@@ -119,7 +119,7 @@ __metadata:
     "@graphql-codegen/typescript": 2.4.1
     "@types/marked": 4.0.1
     "@types/node": 16.11.10
-    "@types/react": 17.0.36
+    "@types/react": 17.0.37
     "@types/twemoji": 12.1.2
     "@types/validator": 13.7.0
     "@typescript-eslint/eslint-plugin": 5.4.0
@@ -145,7 +145,7 @@ __metadata:
     react: 17.0.2
     react-dom: 17.0.2
     react-modal: 3.14.4
-    sass: 1.43.4
+    sass: 1.43.5
     shiki: 0.9.12
     tslib: 2.3.1
     twemoji: 13.1.0
@@ -5430,14 +5430,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:17.0.36":
-  version: 17.0.36
-  resolution: "@types/react@npm:17.0.36"
+"@types/react@npm:17.0.37":
+  version: 17.0.37
+  resolution: "@types/react@npm:17.0.37"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: feeaa484d5d7e354ba6830b06342dec6fd1a2ac87f73d21d3d4f2a3d311459de4090330a1e8af7275c8d1e7737b655a7550c8dd3dbc74ccf34ffd3fc824bbd12
+  checksum: e68b0d59aa69577fc6a6d654b25d5d8408625498f4c483f160b557fac21e840f6e8807cbde93e9f039949b6d624a019b1990d18499c1d65aecf3605c25e30242
   languageName: node
   linkType: hard
 
@@ -13325,14 +13325,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.43.4":
-  version: 1.43.4
-  resolution: "sass@npm:1.43.4"
+"sass@npm:1.43.5":
+  version: 1.43.5
+  resolution: "sass@npm:1.43.5"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
   bin:
     sass: sass.js
-  checksum: 9af80105dabd32752c60b4557115832982cf1019c02c952db6a26c61a3e18dc95044c896685e6e9a6d6dd6643fc411ecf2ea4a8a431a8a08a7510a45d5a492ae
+  checksum: 4dc71400a6e21e0aa841ba69f536ba242b956229fea88acc3faafa44114ca59496a4b153704175c36ac835e33934059dc8d843638c8952f4f1220adbef54c988
   languageName: node
   linkType: hard
 
