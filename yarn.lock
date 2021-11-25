@@ -136,7 +136,7 @@ __metadata:
     is-docker: 2.2.1
     is-kubernetes: 1.0.1
     luxon: 2.1.1
-    marked: 4.0.4
+    marked: 4.0.5
     next: 12.0.4
     next-pwa: 5.4.1
     normalize-url: 7.0.2
@@ -11186,12 +11186,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:4.0.4":
-  version: 4.0.4
-  resolution: "marked@npm:4.0.4"
+"marked@npm:4.0.5":
+  version: 4.0.5
+  resolution: "marked@npm:4.0.5"
   bin:
     marked: bin/marked.js
-  checksum: 8f108320ab84d823314a1506f777a20336a2572543c0881abb78156838356eb21cd15f162267cc154620ab031aaf8c9c3a6177b5465de00d954afcbaf5c62164
+  checksum: c9ab69cf846f4deaaf984cc596923c3251243701f005cee999ee55b704ceb46dd5c9ff454ae774d03eaf725654aed593a3461211076e6a412f1352a2df426d4d
   languageName: node
   linkType: hard
 
