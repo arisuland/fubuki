@@ -20,9 +20,11 @@ import '@fontsource/fira-code/index.css';
 import '@fontsource/jetbrains-mono/index.css';
 import '@fontsource/inter/index.css';
 
+import type { ReactElement, ReactNode } from 'react';
 import { ApolloProvider } from '@apollo/client';
 import { ChakraProvider } from '@chakra-ui/react';
 import type { AppProps } from 'next/app';
+import type { NextPage } from 'next';
 import Navbar from 'src/components/Navbar';
 import Footer from 'src/components/Footer';
 import apollo from '../lib/apollo';
@@ -31,15 +33,28 @@ import theme from '../theme';
 // Import FontAwesome icons here
 import '../lib/fa';
 
-export default function FubukiApp({ Component, pageProps }: AppProps) {
+type NextPageWithLayout = NextPage & {
+  getLayout?(page: ReactElement): ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+export default function FubukiApp({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout =
+    Component.getLayout ??
+    ((page) => (
+      <>
+        <Navbar />
+        {page}
+        <Footer />
+      </>
+    ));
+
   return (
     <ChakraProvider theme={theme}>
-      <ApolloProvider client={apollo}>
-        {/* @ts-ignore */}
-        <Navbar />
-        <Component {...pageProps} />
-        <Footer />
-      </ApolloProvider>
+      <ApolloProvider client={apollo}>{getLayout(<Component {...pageProps} />)}</ApolloProvider>
     </ChakraProvider>
   );
 }

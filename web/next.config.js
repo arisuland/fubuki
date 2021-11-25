@@ -61,10 +61,8 @@ const nextConfig = {
     version,
     commit: commitHash(),
     buildDate: getDate(),
-    // docker: isDocker() ? 'true' : 'false',
-    // kube: isKube() ? 'true' : 'false',
-    docker: 'true',
-    kube: 'true',
+    docker: isDocker() ? 'true' : 'false',
+    kube: isKube() ? 'true' : 'false',
   },
   eslint: {
     // Disables linting while building the production

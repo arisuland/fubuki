@@ -16,8 +16,67 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import type { GetStaticProps } from 'next';
+import ErrorScreen from 'src/components/Error';
+import InitScreen from 'src/components/init/InitalizationScreen';
 import { Box } from '@chakra-ui/react';
+import Navbar from 'src/components/Navbar';
+import Footer from 'src/components/Footer';
+import { ReactElement } from 'react';
 
-export default function Index() {
-  return <Box>hallo</Box>;
+interface MainIndexProps {
+  initScreen: boolean;
+  error?: Error;
+  url: string;
 }
+
+export const getStaticProps: GetStaticProps<MainIndexProps> = async () => {
+  let data: any;
+  let error: Error | null = null;
+
+  try {
+    data = await fetch(`${process.env.TSUBAKI_URL}/api/v1/init`);
+  } catch (ex) {
+    data = null;
+    error = ex as Error;
+  }
+
+  if (error !== null) {
+    return {
+      props: {
+        error: {
+          message: error.message,
+          name: error.name,
+          stack: error.stack,
+        },
+
+        url: process.env.TSUBAKI_URL!,
+        initScreen: false,
+      },
+    };
+  } else {
+    return {
+      props: {
+        initScreen: data.status === 204,
+        url: process.env.TSUBAKI_URL!,
+      },
+    };
+  }
+};
+
+const IndexPage = ({ initScreen, error, url }: MainIndexProps) => {
+  if (error !== undefined) return <ErrorScreen {...error} />;
+
+  return initScreen ? (
+    <InitScreen url={url} />
+  ) : (
+    <>
+      <Navbar />
+      <Box>hallo</Box>
+      <Footer />
+    </>
+  );
+};
+
+IndexPage.getLayout = (page: ReactElement) => page;
+export default IndexPage;
