@@ -256,7 +256,7 @@ __metadata:
     source-map-support: 0.5.21
     ts-node: 10.4.0
     tslib: 2.3.1
-    tslog: 3.2.2
+    tslog: 3.3.0
     type-graphql: 1.1.1
     typescript: 4.5.2
     ws: 8.3.0
@@ -13649,7 +13649,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:0.5.21, source-map-support@npm:^0.5.17, source-map-support@npm:^0.5.19, source-map-support@npm:~0.5.20":
+"source-map-support@npm:0.5.21, source-map-support@npm:^0.5.17, source-map-support@npm:^0.5.21, source-map-support@npm:~0.5.20":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
   dependencies:
@@ -14482,12 +14482,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslog@npm:3.2.2":
-  version: 3.2.2
-  resolution: "tslog@npm:3.2.2"
+"tslog@npm:3.3.0":
+  version: 3.3.0
+  resolution: "tslog@npm:3.3.0"
   dependencies:
-    source-map-support: ^0.5.19
-  checksum: b47982666f84a12285f615af66df3d3a18adcf50254e10f96dc3301805b319e89075754388133d8bb25ad01190f94130b8bf6b893d4843d39c3aaae11b3d778a
+    source-map-support: ^0.5.21
+  checksum: c94bb075e953ccace19370012ac1183ebb54b361286128ea30c4ed1cb1488b3c85e48a4067f1bd1fad18c107ecd346995f75fff2e424e09b07c5e804c1022576
   languageName: node
   linkType: hard
 
