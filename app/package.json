@@ -44,7 +44,7 @@
     "gc-stats": "1.4.0",
     "graphql": "15.3.0",
     "graphql-scalars": "1.13.6",
-    "ioredis": "4.28.1",
+    "ioredis": "4.28.2",
     "is-docker": "2.2.1",
     "is-kubernetes": "1.0.1",
     "is-root": "2.1.0",
