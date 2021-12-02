@@ -34,6 +34,7 @@ import { Formik, Form, Field } from 'formik';
 import type { LoginResult } from '@arisu/typings/typings/graphql';
 import validator from 'validator';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const initialValidators = (values: { username: string; password: string; email: string }) => {
   const errors: Record<string, any> = {};
@@ -55,33 +56,69 @@ interface CreateUserScreenProps {
 
 export default function BeingStageScreen({ onDone, url }: CreateUserScreenProps) {
   const [errors, setErrors] = useState<any>(null);
+  const router = useRouter();
 
   const submit = (url: string) => async (values: { username: string; password: string; email: string }) => {
     console.log(`username: ${values.username} | password: ${values.password} | email: ${values.email}`);
 
-    const res = await fetch(`${url}/graphql`, {
+    const res = await fetch(`${url}/api/v1/init`, {
+      method: 'POST',
+      body: JSON.stringify(values),
+    });
+
+    // we shouldn't be here.
+    if (res.status === 404) {
+      router.push('/');
+      return;
+    }
+
+    if (typeof window !== 'undefined') window.localStorage.removeItem('arisu.session');
+
+    // Login as the new user
+    const loginRes = await fetch(`${url}/graphql`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
       },
       body: JSON.stringify({
         query: `
-          mutation CreateUser($username: String!, $password: String!, $email: String!) {
-            createUser(input: { username: $username, password: $password, email: $email }) {
-              username
-              id
+          mutation Login($usernameOrEmail: String!, $password: String!) {
+            login(password: $password, emailOrUser: $usernameOrEmail) {
+              success
+              errors {
+                message
+                name
+              }
+
+              token
             }
           }
         `,
-        variables: values,
+        variables: {
+          password: values.password,
+          usernameOrEmail: values.username,
+        },
       }),
     });
 
-    const data = await res.json();
-    if (data.errors !== undefined) {
-      setErrors(data.errors);
+    const loginData = (await loginRes.json()) as { data: LoginResult | null; errors?: any[] };
+    if (loginData.errors !== undefined) {
+      setErrors(loginData.errors);
     } else {
-      if (typeof window !== 'undefined') window.localStorage.removeItem('arisu.session');
+      if (loginData.data!.errors !== undefined) {
+        setErrors(loginData.data!.errors);
+        return;
+      }
+
+      if (typeof window !== 'undefined')
+        window.localStorage.setItem(
+          'arisu.session',
+          JSON.stringify({
+            type: 'session',
+            token: loginData.data!.token,
+          })
+        );
+
       onDone();
     }
   };
@@ -136,7 +173,7 @@ export default function BeingStageScreen({ onDone, url }: CreateUserScreenProps)
                 </Field>
 
                 {errors !== null ? (
-                  <Box px={2} py={1} mt={6} bg={useColorModeValue('red.200', 'red.600')} rounded="6px">
+                  <Box px={2} py={1} mt={6} bg={useColorModeValue('red.200', 'red.900')} rounded="6px">
                     {errors.map((s: any) => (
                       <Text fontFamily='"JetBrains Mono"'>{s.message}</Text>
                     ))}

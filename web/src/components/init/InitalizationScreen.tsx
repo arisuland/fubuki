@@ -35,5 +35,5 @@ export default function InitScreen({ url }: InitScreenProps) {
 
   if (stage === 'create_user') element = <CreateUser url={url} onDone={() => router.push('/login')} />;
 
-  return element;
+  return element as JSX.Element;
 }

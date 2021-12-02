@@ -4,20 +4,18 @@
   "workspaces": [
     "github-bot/",
     "typings/",
-    "app/",
     "web/"
   ],
   "scripts": {
     "prepare": "husky install",
-    "build": "yarn workspaces foreach --from '{@arisu/tsubaki,@arisu/github,@arisu/web}' -p run build",
-    "lint": "yarn workspaces foreach --from '{@arisu/tsubaki,@arisu/github,@arisu/web}' -p run lint",
-    "fmt": "prettier --config --parser typescript ./.prettierrc.json --write app/src/**/*.ts github-bot/src/**/*.ts typings/typings/**/*.d.ts"
+    "build": "yarn workspaces foreach --from '{@arisu/github,@arisu/web}' -p run build",
+    "lint": "yarn workspaces foreach --from '{@arisu/github,@arisu/web}' -p run lint",
+    "fmt": "prettier --config --parser typescript ./.prettierrc.json --write github-bot/src/**/*.ts typings/typings/**/*.d.ts"
   },
   "devDependencies": {
     "eslint-config-prettier": "8.3.0",
     "husky": "7.0.4",
-    "prettier": "2.4.1",
-    "vls": "0.7.6"
+    "prettier": "2.4.1"
   },
   "packageManager": "yarn@3.1.0"
 }
