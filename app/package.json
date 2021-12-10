@@ -43,7 +43,7 @@
     "fastify-no-icon": "4.0.0",
     "gc-stats": "1.4.0",
     "graphql": "15.3.0",
-    "graphql-scalars": "1.13.6",
+    "graphql-scalars": "1.14.1",
     "ioredis": "4.28.2",
     "is-docker": "2.2.1",
     "is-kubernetes": "1.0.1",
