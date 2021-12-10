@@ -216,7 +216,7 @@ __metadata:
     "@sentry/node": 6.15.0
     "@types/bree": 6.2.1
     "@types/busboy": 0.3.1
-    "@types/ioredis": 4.28.1
+    "@types/ioredis": 4.28.3
     "@types/js-yaml": 4.0.5
     "@types/mime-types": 2.1.1
     "@types/minimist": 1.2.2
@@ -5235,12 +5235,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ioredis@npm:4.28.1":
-  version: 4.28.1
-  resolution: "@types/ioredis@npm:4.28.1"
+"@types/ioredis@npm:4.28.3":
+  version: 4.28.3
+  resolution: "@types/ioredis@npm:4.28.3"
   dependencies:
     "@types/node": "*"
-  checksum: 2d5adc6ce3078a0dc59911b6e50214fbcedf7bf139b6fde8e466132d8f15c90b3f55ecbd1d16e93541dc0abaa666ce924608d6e34ed4d0ee9903aab51d1c9900
+  checksum: aa3080dafdbc6829d82ffa63407ca89a6139c930467bfb16f85e5824747e15b03827dcb9c3bfdbb65ee7f2839864d1e150978c0be003bfe8cbde41dbf759e9e4
   languageName: node
   linkType: hard
 
