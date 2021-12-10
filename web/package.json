@@ -46,7 +46,7 @@
     "luxon": "2.1.1",
     "marked": "4.0.7",
     "next": "12.0.7",
-    "next-pwa": "5.4.1",
+    "next-pwa": "5.4.4",
     "normalize-url": "7.0.2",
     "postcss-reporter": "7.0.4",
     "prom-client": "14.0.1",
