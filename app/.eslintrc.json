@@ -1,1 +1,8 @@
-../shared/.eslintrc.json
+{
+  "extends": ["prettier", "@augu/eslint-config/ts.js"],
+  "rules": {
+    // TypeScript
+    "@typescript-eslint/indent": "off",
+    "quotes": "off"
+  }
+}

@@ -4,6 +4,7 @@
   "workspaces": [
     "github-bot/",
     "typings/",
+    "app/",
     "web/"
   ],
   "scripts": {
