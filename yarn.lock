@@ -138,7 +138,7 @@ __metadata:
     luxon: 2.1.1
     marked: 4.0.7
     next: 12.0.7
-    next-pwa: 5.4.1
+    next-pwa: 5.4.4
     normalize-url: 7.0.2
     postcss-reporter: 7.0.4
     prom-client: 14.0.1
@@ -6264,7 +6264,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-loader@npm:^8.2.2":
+"babel-loader@npm:^8.2.3":
   version: 8.2.3
   resolution: "babel-loader@npm:8.2.3"
   dependencies:
@@ -11306,19 +11306,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-pwa@npm:5.4.1":
-  version: 5.4.1
-  resolution: "next-pwa@npm:5.4.1"
+"next-pwa@npm:5.4.4":
+  version: 5.4.4
+  resolution: "next-pwa@npm:5.4.4"
   dependencies:
-    babel-loader: ^8.2.2
+    babel-loader: ^8.2.3
     clean-webpack-plugin: ^4.0.0
     globby: ^11.0.4
     terser-webpack-plugin: ^5.2.5
-    workbox-webpack-plugin: ^6.4.1
-    workbox-window: ^6.4.1
+    workbox-webpack-plugin: ^6.4.2
+    workbox-window: ^6.4.2
   peerDependencies:
     next: ">=9.0.0"
-  checksum: 7f1ae403edf3ec2d8f4750ee9fd98d61a192d381fa5105b94151c215472d013882d839777f025efb1b9e4b6b336139b602ce6fb7dd90a8a60c43a7f8d20377d6
+  checksum: 868e7b4222ce7d5a9de93f083d23726a1062305aa34cbf2443892d66777bb30486a7cebd2d6f023da3d4ceb5e6b998bcf419353c5d7ab5c8bdb1f16b7660f0d8
   languageName: node
   linkType: hard
 
@@ -15009,7 +15009,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"workbox-webpack-plugin@npm:^6.4.1":
+"workbox-webpack-plugin@npm:^6.4.2":
   version: 6.4.2
   resolution: "workbox-webpack-plugin@npm:6.4.2"
   dependencies:
@@ -15025,7 +15025,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"workbox-window@npm:6.4.2, workbox-window@npm:^6.4.1":
+"workbox-window@npm:6.4.2, workbox-window@npm:^6.4.2":
   version: 6.4.2
   resolution: "workbox-window@npm:6.4.2"
   dependencies:
