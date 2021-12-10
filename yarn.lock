@@ -146,7 +146,7 @@ __metadata:
     react-dom: 17.0.2
     react-modal: 3.14.4
     sass: 1.44.0
-    shiki: 0.9.13
+    shiki: 0.9.15
     tslib: 2.3.1
     twemoji: 13.1.0
     typescript: 4.5.2
@@ -13310,14 +13310,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shiki@npm:0.9.13":
-  version: 0.9.13
-  resolution: "shiki@npm:0.9.13"
+"shiki@npm:0.9.15":
+  version: 0.9.15
+  resolution: "shiki@npm:0.9.15"
   dependencies:
     jsonc-parser: ^3.0.0
     vscode-oniguruma: ^1.6.1
     vscode-textmate: 5.2.0
-  checksum: 094d1131088df411ac1d51fcb16594c577bf321769b55367565ecdf7dc22bdca0d26d329664006524eb7c0b29525d07de30fd26d89d989a71e175ebdc622ac1f
+  checksum: 58d1e3e106320252b67c63dc1269c4b834152e9c675a06a4565ec41db1c93aea2dd94e22640d7ec99334cb47cd41b914642d936577143b689ef2a0db7d938c13
   languageName: node
   linkType: hard
 
