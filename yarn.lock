@@ -118,7 +118,7 @@ __metadata:
     "@graphql-codegen/cli": 2.3.0
     "@graphql-codegen/typescript": 2.4.1
     "@types/marked": 4.0.1
-    "@types/node": 16.11.12
+    "@types/node": 16.11.13
     "@types/react": 17.0.37
     "@types/twemoji": 12.1.2
     "@types/validator": 13.7.0
@@ -170,7 +170,7 @@ __metadata:
     "@octokit/core": 3.5.1
     "@prisma/client": 3.6.0
     "@sentry/node": 6.16.1
-    "@types/node": 16.11.12
+    "@types/node": 16.11.13
     "@typescript-eslint/eslint-plugin": 5.7.0
     "@typescript-eslint/parser": 5.7.0
     consola: 2.15.3
@@ -220,7 +220,7 @@ __metadata:
     "@types/js-yaml": 4.0.5
     "@types/mime-types": 2.1.1
     "@types/minimist": 1.2.2
-    "@types/node": 16.11.12
+    "@types/node": 16.11.13
     "@typescript-eslint/eslint-plugin": 5.7.0
     "@typescript-eslint/parser": 5.7.0
     apollo-server-fastify: 3.5.0
@@ -5350,10 +5350,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:16.11.12":
+"@types/node@npm:*":
   version: 16.11.12
   resolution: "@types/node@npm:16.11.12"
   checksum: a3feb346d61a56f5a137c29bb8c63cfa3cc02e184b9dffdc18ef1528dcce55596e570575215a2e39e6ce69343eeb2a5ba71c271938f1dc8db4cc393902855412
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:16.11.13":
+  version: 16.11.13
+  resolution: "@types/node@npm:16.11.13"
+  checksum: 7c9d62c024537d7c9f2229097b9e7a93a60bc60efbc9171977f172819e229b01d0b6ed276d335996d39b0096aed2cefa58c4a34b264d712ae3595449e8d96ab7
   languageName: node
   linkType: hard
 
