@@ -130,7 +130,7 @@ __metadata:
     eslint: 8.4.1
     eslint-config-prettier: 8.3.0
     formik: 2.2.9
-    framer-motion: 5.4.5
+    framer-motion: 5.5.1
     graphql: 16.0.1
     graphql-tag: 2.12.6
     is-docker: 2.2.1
@@ -8693,9 +8693,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:5.4.5":
-  version: 5.4.5
-  resolution: "framer-motion@npm:5.4.5"
+"framer-motion@npm:5.5.1":
+  version: 5.5.1
+  resolution: "framer-motion@npm:5.5.1"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     framesync: 6.0.1
@@ -8706,7 +8706,7 @@ __metadata:
     style-value-types: 5.0.0
     tslib: ^2.1.0
   peerDependencies:
-    "@react-three/fiber": ^7.0.21
+    "@react-three/fiber": "*"
     react: ">=16.8 || ^17.0.0"
     react-dom: ">=16.8 || ^17.0.0"
     three: ^0.135.0
@@ -8718,7 +8718,7 @@ __metadata:
       optional: true
     three:
       optional: true
-  checksum: f39f3067b2b594e9f47e780245169e180ccae0e8d4901019bfab598f4ca7c5482811bdf6ecacacb587d7ec939f19928c43232b3a34ca3e18168cb3663f9536e2
+  checksum: fdcdb6e585e06292dd6f278ccfd5a3f7cfdb686871fc86b8070481f7bf68908713af1982544e74713b23dd930acd739bf1f0ed488139fefc77a71bc86d95b468
   languageName: node
   linkType: hard
 
