@@ -1,0 +1,11 @@
+tasks:
+  - init: yarn install && yarn run build
+
+ports:
+  - port: 17093
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - bradlc.vscode-tailwindcss
+    - dbaeumer.vscode-eslint

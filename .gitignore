@@ -644,5 +644,5 @@ app/build
 app/.env
 
 github-bot/.env
-tsubaki/config.yml
 github-bot/.github
+github-bot/build
