@@ -113,16 +113,6 @@ $ ./bin/arisu-server start
 $ docker-compose up -d
 ```
 
-## Configuration
-
-The configuration for **Tsubaki** is located in `app/config.yml` with the following options:
-
-```yml
-# If registrations are enabled in this instance of Tsubaki,
-# if not, you will have to
-registrations: false
-```
-
 ## Contributing
 
 > Refer to the [Contributing](.github/CONTRIBUTING.md) section before moving on.
