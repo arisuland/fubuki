@@ -23,7 +23,6 @@ Yea, I decided to create a new repository for Arisu. The old [repository](https:
 
 Arisu is split into different packages, each of which is a seperate folder in this repository.
 
-- [**app**](./app) — The main backend of Arisu.
 - [**github-bot**](./github-bot) — A GitHub bot that automatically syncs your translations with GitHub.
 - [**typings**](./typings) — A package that provides typings for Arisu's JavaScript SDKs.
 - [**web**](./web) — Web application that runs [arisu.land](https://arisu.land)
@@ -32,10 +31,11 @@ There are other projects within the Arisu ecosystem, but they are split into dif
 
 If the projects return a **`404`** status code, it means that the project is not yet ready for public use.
 
-| Name                                         | Description                                                                                           | Status |
-| -------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------ |
-| ⛴ [cli](https://github.com/arisuland/cli)    | A command-line interface to automate the process of handling translations, merging translations, etc. |
-| 🐳 [docs](https://github.com/arisuland/docs) | Documentation site for Arisu, showcasing the REST API and other stuff                                 |
+| Name                                               | Description                                                                                           | Status |
+| -------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------ |
+| ⛴ [cli](https://github.com/arisuland/cli)          | A command-line interface to automate the process of handling translations, merging translations, etc. |
+| 🐳 [docs](https://github.com/arisuland/docs)       | Documentation site for Arisu, showcasing the REST API and other stuff                                 |
+| 🎀 [tsubaki](https://github.com/arisuland/tsubaki) | Backend portion of Arisu, made in Go; originally from this repository                                 |
 
 ## Self-hosting
 
@@ -70,16 +70,17 @@ We provide official Docker images to aid running Arisu in Docker, or you can use
 
 Before we get started, Docker is required on your system to be running fully before continuing. Here is a list of images we provide:
 
-| Name                | Description                                              |
-| ------------------- | -------------------------------------------------------- |
-| `arisuland/arisu`   | [Frontend UI](./web) of Arisu, made with Vue and Nuxt.js |
-| `arisuland/tsubaki` | [Backend](./app) of Arisu, made with GraphQL             |
+| Name                | Description                                                           |
+| ------------------- | --------------------------------------------------------------------- |
+| `arisuland/fubuki`  | [Frontend UI](./web) of Arisu, made with React and Next.js            |
+| `arisuland/tsubaki` | [Backend](https://github.com/arisuland/tsubaki) of Arisu, made in Go. |
+| `arisuland/arisu`   | Joint images of `arisuland/fubuki` and `arisuland/tsubaki`            |
 
 You are also allowed to pull from `staging`, SemVer version (`arisuland/tsubaki:1.0.0`), or a specific commit.
 
 ```sh
 # 1. Pull our image from Docker Hub
-$ docker pull arisuland/arisu:latest && docker pull arisuland/tsubaki:latest
+$ docker pull arisuland/fubuki:latest && docker pull arisuland/tsubaki:latest
 
 # 2. Run our images
 $ docker run -d -p 9999:28093 --restart always --name arisu-backend \
