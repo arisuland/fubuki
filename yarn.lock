@@ -130,7 +130,7 @@ __metadata:
     eslint: 8.4.1
     eslint-config-prettier: 8.3.0
     formik: 2.2.9
-    framer-motion: 5.5.1
+    framer-motion: 5.5.3
     graphql: 16.0.1
     graphql-tag: 2.12.6
     is-docker: 2.2.1
@@ -8700,9 +8700,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:5.5.1":
-  version: 5.5.1
-  resolution: "framer-motion@npm:5.5.1"
+"framer-motion@npm:5.5.3":
+  version: 5.5.3
+  resolution: "framer-motion@npm:5.5.3"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     framesync: 6.0.1
@@ -8725,7 +8725,7 @@ __metadata:
       optional: true
     three:
       optional: true
-  checksum: fdcdb6e585e06292dd6f278ccfd5a3f7cfdb686871fc86b8070481f7bf68908713af1982544e74713b23dd930acd739bf1f0ed488139fefc77a71bc86d95b468
+  checksum: 8edcb39e1bc9216b36ebc924e18e36f2ad105e2a0ecddce9bfd551e770cd81994811445061514dbb0cc320b2d020f226523869408c5dd505a027f41fa2dad843
   languageName: node
   linkType: hard
 
