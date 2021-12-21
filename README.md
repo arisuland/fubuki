@@ -4,7 +4,7 @@
     <a href="https://arisu.land"><strong>Website</strong></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="https://arisu.land/discord"><strong>Discord</strong></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="https://github.com/auguwu/Arisu/discussions"><strong>Discussions</strong></a>&nbsp;&nbsp;•&nbsp;&nbsp;<a href="https://youtrack.floofy.dev/projects/4381512b-a4dc-4fc1-ae7c-82d178a99aa1"><strong>Issue Tracker</strong></a>    
   </div>
   <br />
-  <blockquote>Translation made with simplicity, yet robust. Made with 💖 using <a href='https://typescriptlang.org'><strong>TypeScript</strong></a>, <a href='https://reactjs.org'><strong>Vue</strong></a> with <a href='https://nextjs.org'><strong>Nuxt.js</strong></a>.</blockquote>
+  <blockquote>Translation made with simplicity, yet robust. Made with 💖 using <a href='https://typescriptlang.org'><strong>TypeScript</strong></a>, <a href='https://reactjs.org'><strong>React</strong></a> with <a href='https://nextjs.org'><strong>Next.js</strong></a>.</blockquote>
 </div>
 
 ## Features
@@ -45,73 +45,11 @@ Before we get started, I recommend learn how to run Node.js projects before you 
 
 ### Prerequisites
 
-Before we can get started, you need to have the following things installed:
-
-- [**PostgresSQL** v11+](https://postgresql.org) **~** Main database thats Arisu utilizes.
-- [**Node.js** v14+](https://nodejs.org/en/) **~** Runtime engine to run the project.
-- [**Redis** v6.2+](https://redis.io) **~** In-memory data store for Arisu.
-- [**Git** v2.31+](https://git-scm.com) **~** A version control system to get updates of Arisu easily.
-
-#### Optional Tools
-
-There are tools you can use to enhance the experience, but the following is not recommended in most cases:
-
-- [**Docker**](https://docker.com) **~** A containerization tool to run Arisu.
-- [**Sentry**](https://sentry.io) **~** A error-reporting tool to track down bugs or errors in Arisu.
-- [**Kafka**](https://kafka.apache.org) **~** Open-source distributed event streaming platform used by Arisu to provide top-notch Publish/Subscribe methods towards our microservices.
+Coming soon.
 
 ## Installation
 
-You can always install Arisu from our [Helm Chart](https://github.com/arisuland/helm) to deploy it on your Kubernetes cluster, or use the [docker-compose.yml](./docker-compose.yml) file to launch all services it needs to succeed. (`docker-compose up -d`)
-
-We provide official Docker images to aid running Arisu in Docker, or you can use the Git repository to contribute or to self-host.
-
-### Docker
-
-Before we get started, Docker is required on your system to be running fully before continuing. Here is a list of images we provide:
-
-| Name                | Description                                                           |
-| ------------------- | --------------------------------------------------------------------- |
-| `arisuland/fubuki`  | [Frontend UI](./web) of Arisu, made with React and Next.js            |
-| `arisuland/tsubaki` | [Backend](https://github.com/arisuland/tsubaki) of Arisu, made in Go. |
-| `arisuland/arisu`   | Joint images of `arisuland/fubuki` and `arisuland/tsubaki`            |
-
-You are also allowed to pull from `staging`, SemVer version (`arisuland/tsubaki:1.0.0`), or a specific commit.
-
-```sh
-# 1. Pull our image from Docker Hub
-$ docker pull arisuland/fubuki:latest && docker pull arisuland/tsubaki:latest
-
-# 2. Run our images
-$ docker run -d -p 9999:28093 --restart always --name arisu-backend \
-  -v /path/to/config.yml:/app/Arisu/backend/config.yml \
-  -v /path/to/.env:/app/Arisu/backend/.env arisuland/tsubaki:latest
-
-$ docker run -d -p 3333:17093 --restart always --name arisu-frontend \
-  -e PUBLIC_BACKEND_URL='https://arisu-backend:28093' \
-  -v /path/to/.env:/app/Arisu/frontend/.env arisuland/arisu:latest
-```
-
-> **You can now open a session with `localhost:17093` to setup your Arisu instance!**
-
-### Git repository
-
-**Git** is required on your system, this is usually for people who know how to setup PostgreSQL, Redis, and (optionally) Kafka or
-contributors who want to contribute.
-
-```sh
-# 1. Clone our repository
-$ git clone https://github.com/auguwu/Arisu
-
-# 2. Install dependencies
-$ yarn
-
-# 3. (OPTIONAL) Run the `arisu-server` binary to start the server
-$ ./bin/arisu-server start
-
-# 4. (OPTIONAL) Run `docker-compose` to start everything
-$ docker-compose up -d
-```
+Coming soon.
 
 ## Contributing
 

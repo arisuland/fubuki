@@ -1,6 +1,0 @@
-.arisu
-build
-node_modules
-.env
-.env.example
-config.yml

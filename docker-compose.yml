@@ -1,16 +1,24 @@
 version: '3.8'
 services:
-  tsubaki:
-    container_name: tsubaki
+  backend:
+    image: arisuland/tsubaki:latest
     restart: always
-    build: ./app
+    command:
+      - /app/arisu/tsubaki/tsubaki -c ./config.yml
     depends_on:
       - postgresql
-      - prometheus
       - redis
+      # - github-bot
+      # - telemetry
+      # - prometheus
+      # - minio
+      # - meilisearch
+      # - kafka-cluster-1
+      # - kafka-cluster-2
+      # - kafka-cluster-3
+      # - zookeeper
     volumes:
-      - /run/media/noel/Storage/Projects/Arisu/Arisu/app/config.yml:/app/arisu/tsubaki/build/config.yml:ro
-      # - arisu_project_data:/var/lib/arisu/projects:rw
+      - ./docker/tsubaki/config.yml:/app/arisu/tsubaki/config.yml:ro
 
   zookeeper:
     image: bitnami/zookeeper:3.7
@@ -22,7 +30,7 @@ services:
     networks:
       - kafka-cluster
 
-  kafka1:
+  kafka-cluster-1:
     image: bitnami/kafka:3.0.0
     container_name: kafka-1
     ports:
@@ -40,7 +48,7 @@ services:
     networks:
       - kafka-cluster
 
-  kafka2:
+  kafka-cluster-2:
     image: bitnami/kafka:3.0.0
     container_name: kafka-2
     ports:
@@ -58,7 +66,7 @@ services:
     networks:
       - kafka-cluster
 
-  kafka3:
+  kafka-cluster-3:
     image: bitnami/kafka:3.0.0
     container_name: kafka-3
     ports:
@@ -76,50 +84,14 @@ services:
     networks:
       - kafka-cluster
 
-  postgresql:
-    container_name: postgres
+  postgres:
+    image: bitnami/postgresql:latest
     restart: always
-    image: postgres:latest
     ports:
       - '5432:5432'
-    networks:
-      - arisu
-    volumes:
-      - arisu_postgres:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: ${DATABASE_USERNAME:-arisu}
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-arisu}
-      POSTGRES_DB: ${DATABASE_NAME:-arisu}
-
-  redis:
-    container_name: redis
-    restart: always
-    image: redis:latest
-    ports:
-      - '6379:6379'
-    networks:
-      - arisu
-    volumes:
-      - arisu_redis:/data
-
-  prometheus:
-    container_name: prometheus
-    build: ./docker/prometheus
-    restart: always
-    networks:
-      - default
-
-networks:
-  arisu:
-    internal: true
-    name: arisu
-    driver: bridge
-
-  kafka-cluster:
-    name: kafka-cluster
-    driver: bridge
+      - POSTGRES_=value
 
 volumes:
-  #arisu_projects_cache:
-  arisu_postgres:
-  arisu_redis:
+  arisu_redis_data:
+  arisu_postgresql_data:

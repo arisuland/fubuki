@@ -1,0 +1,8 @@
+# Read https://docs.arisu.land/self-hosting/configuration for more details.
+redis:
+  host: redis
+  port: 6379
+environment: development
+storage:
+  fs:
+    directory: ./data
