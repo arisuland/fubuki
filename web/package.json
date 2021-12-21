@@ -64,7 +64,7 @@
     "@augu/eslint-config": "2.2.0",
     "@augu/tsconfig": "1.1.1",
     "@types/marked": "4.0.1",
-    "@types/node": "16.11.14",
+    "@types/node": "16.11.15",
     "@types/react": "17.0.37",
     "@types/twemoji": "12.1.2",
     "@types/validator": "13.7.0",
