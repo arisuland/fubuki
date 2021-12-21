@@ -56,20 +56,6 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x]
-    services:
-      postgres:
-        image: postgres:latest
-        env:
-          POSTGRES_USER: arisu
-          POSTGRES_PASSWORD: owowhatsthis
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
-        ports:
-          - '5432:5432'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -92,10 +78,6 @@ jobs:
 
       - name: Installs local packages
         run: yarn
-
-      - name: Generate Prisma schema
-        working-directory: ${{ github.workspace }}/app
-        run: yarn generate
 
       - name: Lints the repository and checks for linting errors
         run: yarn lint
