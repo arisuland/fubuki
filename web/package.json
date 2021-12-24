@@ -58,7 +58,7 @@
     "tslib": "2.3.1",
     "twemoji": "13.1.0",
     "validator": "13.7.0",
-    "zustand": "3.6.7"
+    "zustand": "3.6.8"
   },
   "devDependencies": {
     "@augu/eslint-config": "2.2.0",
