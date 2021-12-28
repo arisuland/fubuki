@@ -136,7 +136,7 @@ __metadata:
     consola: 2.15.3
     eslint: 8.5.0
     eslint-config-prettier: 8.3.0
-    fastify: 3.25.2
+    fastify: 3.25.3
     fastify-no-icon: 4.0.0
     kafkajs: 1.15.0
     leeks.js: 0.2.4
@@ -6676,26 +6676,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:3.25.2":
-  version: 3.25.2
-  resolution: "fastify@npm:3.25.2"
+"fastify@npm:3.25.3":
+  version: 3.25.3
+  resolution: "fastify@npm:3.25.3"
   dependencies:
     "@fastify/ajv-compiler": ^1.0.0
     abstract-logging: ^2.0.0
     avvio: ^7.1.2
     fast-json-stringify: ^2.5.2
     fastify-error: ^0.3.0
-    fastify-warning: ^0.2.0
     find-my-way: ^4.5.0
     flatstr: ^1.0.12
     light-my-request: ^4.2.0
     pino: ^6.13.0
+    process-warning: ^1.0.0
     proxy-addr: ^2.0.7
     rfdc: ^1.1.4
     secure-json-parse: ^2.0.0
     semver: ^7.3.2
     tiny-lru: ^7.0.0
-  checksum: 730acc309d91870560c0bb09644fa37f5c229b190c0dbf8d91b9bac655cfcb4c3ed518f3ac43bbd51e26e907fd922cf7c7328f88a943389d41bd2108d4a9618a
+  checksum: b0ab3f9ae1c58386232a67c39e91611b856107c56c74d7b905454edbe001973b8fa4386d56714392a562ce1adfbc8dd7a2cf663a2516a1732f2ec35f3cf7f6de
   languageName: node
   linkType: hard
 
@@ -9999,6 +9999,13 @@ __metadata:
     prisma: build/index.js
     prisma2: build/index.js
   checksum: fd68e98f5012ff6a454c39510e230bea517e8c69a639463595d07aa4e0c8e0c1670c4e01374de888feb8f2d18e57afc6142d6b7348540def85fe1ee892690fe3
+  languageName: node
+  linkType: hard
+
+"process-warning@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "process-warning@npm:1.0.0"
+  checksum: c708a03241deec3cabaeee39c4f9ee8c4d71f1c5ef9b746c8252cdb952a6059068cfcdaf348399775244cbc441b6ae5e26a9c87ed371f88335d84f26d19180f9
   languageName: node
   linkType: hard
 
