@@ -34,7 +34,7 @@
     "@fortawesome/react-fontawesome": "0.1.16",
     "@graphql-codegen/cli": "2.3.0",
     "@graphql-codegen/typescript": "2.4.1",
-    "autoprefixer": "10.4.0",
+    "autoprefixer": "10.4.1",
     "consola": "2.15.3",
     "emoji-regex": "10.0.0",
     "formik": "2.2.9",
