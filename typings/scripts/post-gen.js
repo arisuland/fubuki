@@ -1,6 +1,6 @@
-/**
+/*
  * ☔ Arisu: Translation made with simplicity, yet robust.
- * Copyright (C) 2020-2021 Noelware
+ * Copyright (C) 2020-2022 Noelware
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -81,14 +81,13 @@ const main = async () => {
     printWidth: 120,
     trailingComma: 'es5',
     bracketSpacing: true,
-    jsxBracketSameLine: false,
     parser: 'typescript',
   });
 
   const output = [
-    '/**',
+    '/*',
     ' * ☔ Arisu: Translation made with simplicity, yet robust.',
-    ' * Copyright (C) 2020-2021 Noelware',
+    ' * Copyright (C) 2020-2022 Noelware',
     ' *',
     ' * This program is free software: you can redistribute it and/or modify',
     ' * it under the terms of the GNU General Public License as published by',
