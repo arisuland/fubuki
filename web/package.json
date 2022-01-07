@@ -38,7 +38,7 @@
     "consola": "2.15.3",
     "emoji-regex": "10.0.0",
     "formik": "2.2.9",
-    "framer-motion": "5.5.5",
+    "framer-motion": "5.5.6",
     "graphql": "16.0.1",
     "graphql-tag": "2.12.6",
     "is-docker": "2.2.1",
