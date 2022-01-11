@@ -26,7 +26,7 @@
     "@octokit/app": "12.0.5",
     "@octokit/auth-app": "3.6.1",
     "@octokit/core": "3.5.1",
-    "@prisma/client": "3.7.0",
+    "@prisma/client": "3.8.0",
     "@sentry/node": "6.16.1",
     "consola": "2.15.3",
     "fastify": "3.25.3",
@@ -44,7 +44,7 @@
     "eslint": "8.6.0",
     "eslint-config-prettier": "8.3.0",
     "nodemon": "2.0.15",
-    "prisma": "3.7.0",
+    "prisma": "3.8.0",
     "ts-node": "10.4.0",
     "typescript": "4.5.4"
   }
