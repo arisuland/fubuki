@@ -47,7 +47,7 @@
     "marked": "4.0.10",
     "next": "12.0.8",
     "next-pwa": "5.4.4",
-    "normalize-url": "7.0.2",
+    "normalize-url": "7.0.3",
     "postcss-reporter": "7.0.5",
     "prom-client": "14.0.1",
     "react": "17.0.2",
