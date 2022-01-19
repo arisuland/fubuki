@@ -136,7 +136,7 @@ __metadata:
     consola: 2.15.3
     eslint: 8.7.0
     eslint-config-prettier: 8.3.0
-    fastify: 3.26.0
+    fastify: 3.27.0
     fastify-no-icon: 4.0.0
     kafkajs: 1.15.0
     leeks.js: 0.2.4
@@ -6275,9 +6275,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:3.26.0":
-  version: 3.26.0
-  resolution: "fastify@npm:3.26.0"
+"fastify@npm:3.27.0":
+  version: 3.27.0
+  resolution: "fastify@npm:3.27.0"
   dependencies:
     "@fastify/ajv-compiler": ^1.0.0
     abstract-logging: ^2.0.0
@@ -6294,7 +6294,7 @@ __metadata:
     secure-json-parse: ^2.0.0
     semver: ^7.3.2
     tiny-lru: ^7.0.0
-  checksum: c1e09f53aec90af1c9b11204abdb84fe47c2dff68e4cf186c9ab4aaa202458bebf076418f671e50d5d3b203d39d73f689076534ba8a89f6f1f8ab59f98b2409b
+  checksum: 258b563001ca11402fcb79f4ed59f30aa1713c7d936238a7e00e3d00489b39081ce9a326514aa3d473dd28ba72725d3065a6ca62a7876431dc80bf509ff5d6c2
   languageName: node
   linkType: hard
 
