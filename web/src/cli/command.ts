@@ -16,22 +16,21 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { faCalendar, faCloudMoonRain, faBookOpen, faBook, faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
-import { faDiscord, faTwitter, faGithub, faDocker } from '@fortawesome/free-brands-svg-icons';
-import * as core from '@fortawesome/fontawesome-svg-core';
+import type CliContext from './context';
 
-core.library.add(
-  // Solid
-  faCalendar,
-  faCloudMoonRain,
-  faBookOpen,
-  faBook,
-  faTimes,
-  faBars,
+/**
+ * Interface to implement a {@link CommandExecutor.execute execute} command
+ * to actually, run the command.
+ */
+export interface CommandExecutor<Args extends string[] = string[], Flags extends Record<string, unknown> = {}> {
+  /**
+   * Returns the command's name.
+   */
+  name: string;
 
-  // Brands
-  faDiscord,
-  faTwitter,
-  faGithub,
-  faDocker
-);
+  /**
+   * Executes the command in the following {@link CliContext}.
+   * @param context The CLI context to use.
+   */
+  execute(context: CliContext<Args, Flags>): Promise<any>;
+}

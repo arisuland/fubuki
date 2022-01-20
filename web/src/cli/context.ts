@@ -16,24 +16,9 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { useRouter } from 'next/router';
-import { ReactNode, useEffect, useState } from 'react';
-
-import BeginScreen from './stages/BeginStageScreen';
-import CreateUser from './stages/CreateUserScreen';
-
-type InitStage = 'begin' | 'create_user';
-
-interface InitScreenProps {
-  url: string;
-}
-
-export default function InitScreen({ url }: InitScreenProps) {
-  const [stage, setStage] = useState<InitStage>('begin');
-  const router = useRouter();
-  let element: ReactNode | null = <BeginScreen onDone={() => setStage('create_user')} url={url} />;
-
-  if (stage === 'create_user') element = <CreateUser url={url} onDone={() => router.push('/login')} />;
-
-  return element as JSX.Element;
+/**
+ * Represents the current CLI context.
+ */
+export default class CliContext<Args extends string[] = string[], Flags extends Record<string, unknown> = {}> {
+  constructor(public args: Args, public flags: Flags) {}
 }

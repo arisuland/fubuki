@@ -16,16 +16,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { extendTheme } from '@chakra-ui/react';
+import { CommandExecutor } from '../command';
+import CliContext from '../context';
 
-const fonts = {
-  body: 'Inter, system-ui, sans-serif',
-  heading: 'Inter, serif',
-  mono: '"JetBrains Mono", "Fira Code", Menlo, monospace',
-};
+export default class MainCommand implements CommandExecutor {
+  name = 'main';
 
-export default extendTheme({
-  fonts,
-  initialColorMode: 'dark',
-  useSystemColorMode: true,
-});
+  async execute(context: CliContext) {
+    return 'blep';
+  }
+}

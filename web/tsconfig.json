@@ -8,15 +8,15 @@
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
-    "baseUrl": ".",
     "typeRoots": ["src/types", "./node_modules/@types"],
-    "types": ["node"],
+    "types": ["node", "reflect-metadata"],
     "importHelpers": true,
     "incremental": true,
     "tsBuildInfoFile": ".tsbuildinfo",
     "jsx": "preserve",
     "skipLibCheck": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "baseUrl": "."
   },
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
