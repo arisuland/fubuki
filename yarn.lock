@@ -32,9 +32,9 @@ __metadata:
     "@chakra-ui/react": 1.8.1
     "@emotion/react": 11.7.1
     "@emotion/styled": 11.6.0
-    "@fontsource/cantarell": 4.5.0
-    "@fontsource/inter": 4.5.1
-    "@fontsource/jetbrains-mono": 4.5.0
+    "@fontsource/cantarell": 4.5.1
+    "@fontsource/inter": 4.5.2
+    "@fontsource/jetbrains-mono": 4.5.1
     "@fortawesome/fontawesome-svg-core": 1.2.36
     "@fortawesome/free-brands-svg-icons": 5.15.4
     "@fortawesome/free-solid-svg-icons": 5.15.4
@@ -2563,24 +2563,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/cantarell@npm:4.5.0":
-  version: 4.5.0
-  resolution: "@fontsource/cantarell@npm:4.5.0"
-  checksum: c2811a607a292d1d87eb856b30303c33a44472a9ee811f7666638b6c2aa4ed26ee873a75fb5c2a96e4c24e4f0f3e04b5b1b5f36dbd3678b0457ce53ceef71851
-  languageName: node
-  linkType: hard
-
-"@fontsource/inter@npm:4.5.1":
+"@fontsource/cantarell@npm:4.5.1":
   version: 4.5.1
-  resolution: "@fontsource/inter@npm:4.5.1"
-  checksum: 53c1288366682887a763596c251021f19eb82a203144bf3050e97f915fab2eece1615a69f6a6ee9bbbfc2a86577f938798da9951b91ada231f5cb7a9d470685d
+  resolution: "@fontsource/cantarell@npm:4.5.1"
+  checksum: 2990a0ca01267fb8d0f898d95f6d56f05c8c4ee547ffa827c27fafd41472881c62f71565f48cdc81b003f41dce643259a48056f9dd2f89ef02780ecb7c526723
   languageName: node
   linkType: hard
 
-"@fontsource/jetbrains-mono@npm:4.5.0":
-  version: 4.5.0
-  resolution: "@fontsource/jetbrains-mono@npm:4.5.0"
-  checksum: 3de42f6f26506e597026c2460e9f34dc002cb8b34d7e04871ad0d2a15f277d087170ab9e0604176d23ae4ec90fefe2730660672b6b9ffd7f4cc8335ead11e134
+"@fontsource/inter@npm:4.5.2":
+  version: 4.5.2
+  resolution: "@fontsource/inter@npm:4.5.2"
+  checksum: 2fa5cb1827a83767b5b34ba829dc6e1ef9281becb1601e4f8083f95980a1fbed96db6f6f4f2a9c907e6228690577c5071e06465d72411f859b3eef4f0c520287
+  languageName: node
+  linkType: hard
+
+"@fontsource/jetbrains-mono@npm:4.5.1":
+  version: 4.5.1
+  resolution: "@fontsource/jetbrains-mono@npm:4.5.1"
+  checksum: 40cf10b37233f1c05eab4e3a82527fd05dcb08ba8f0c0780512070e6700ee6c736fe359ba016d6a3db36424de184ba32c63340fe3d8581bd479cea7e5983340d
   languageName: node
   linkType: hard
 
