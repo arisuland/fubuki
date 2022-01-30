@@ -39,7 +39,7 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": 5.15.4
     "@fortawesome/free-solid-svg-icons": 5.15.4
     "@fortawesome/react-fontawesome": 0.1.17
-    "@types/marked": 4.0.1
+    "@types/marked": 4.0.2
     "@types/minimist": 1.2.2
     "@types/node": 16.11.21
     "@types/react": 17.0.38
@@ -3878,10 +3878,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/marked@npm:4.0.1":
-  version: 4.0.1
-  resolution: "@types/marked@npm:4.0.1"
-  checksum: c2dabaae5ed5e2806ee3ef7f717ef7fe91ac5ee2718162219dd34de9d684d36efd561987fb3316b659d1add6d432696ca507da04b94380a77aac30870cb276d7
+"@types/marked@npm:4.0.2":
+  version: 4.0.2
+  resolution: "@types/marked@npm:4.0.2"
+  checksum: 61d7f47b2b9924a63600f975ae0417894d0b5e009d8d75d165ace563ec3b0e56205e66df08bc68017a530315289b491f2626e3e0b8e33ac08aec474b1944f0e8
   languageName: node
   linkType: hard
 

@@ -59,7 +59,7 @@
   "devDependencies": {
     "@augu/eslint-config": "2.2.0",
     "@augu/tsconfig": "1.1.1",
-    "@types/marked": "4.0.1",
+    "@types/marked": "4.0.2",
     "@types/minimist": "1.2.2",
     "@types/node": "16.11.21",
     "@types/react": "17.0.38",
