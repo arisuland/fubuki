@@ -61,7 +61,7 @@
     "@augu/tsconfig": "1.1.1",
     "@types/marked": "4.0.2",
     "@types/minimist": "1.2.2",
-    "@types/node": "16.11.21",
+    "@types/node": "16.11.22",
     "@types/react": "17.0.38",
     "@types/twemoji": "12.1.2",
     "@types/validator": "13.7.1",
