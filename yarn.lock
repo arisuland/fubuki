@@ -51,7 +51,7 @@ __metadata:
     emoji-regex: 10.0.0
     eslint: 8.8.0
     eslint-config-prettier: 8.3.0
-    fastify: 3.25.3
+    fastify: 3.27.1
     formik: 2.2.9
     framer-motion: 6.2.3
     graphql: 16.0.1
@@ -98,7 +98,7 @@ __metadata:
     consola: 2.15.3
     eslint: 8.8.0
     eslint-config-prettier: 8.3.0
-    fastify: 3.27.0
+    fastify: 3.27.1
     fastify-no-icon: 4.0.0
     kafkajs: 1.15.0
     leeks.js: 0.2.4
@@ -6138,9 +6138,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastify@npm:3.25.3":
-  version: 3.25.3
-  resolution: "fastify@npm:3.25.3"
+"fastify@npm:3.27.1":
+  version: 3.27.1
+  resolution: "fastify@npm:3.27.1"
   dependencies:
     "@fastify/ajv-compiler": ^1.0.0
     abstract-logging: ^2.0.0
@@ -6157,30 +6157,7 @@ __metadata:
     secure-json-parse: ^2.0.0
     semver: ^7.3.2
     tiny-lru: ^7.0.0
-  checksum: b0ab3f9ae1c58386232a67c39e91611b856107c56c74d7b905454edbe001973b8fa4386d56714392a562ce1adfbc8dd7a2cf663a2516a1732f2ec35f3cf7f6de
-  languageName: node
-  linkType: hard
-
-"fastify@npm:3.27.0":
-  version: 3.27.0
-  resolution: "fastify@npm:3.27.0"
-  dependencies:
-    "@fastify/ajv-compiler": ^1.0.0
-    abstract-logging: ^2.0.0
-    avvio: ^7.1.2
-    fast-json-stringify: ^2.5.2
-    fastify-error: ^0.3.0
-    find-my-way: ^4.5.0
-    flatstr: ^1.0.12
-    light-my-request: ^4.2.0
-    pino: ^6.13.0
-    process-warning: ^1.0.0
-    proxy-addr: ^2.0.7
-    rfdc: ^1.1.4
-    secure-json-parse: ^2.0.0
-    semver: ^7.3.2
-    tiny-lru: ^7.0.0
-  checksum: 258b563001ca11402fcb79f4ed59f30aa1713c7d936238a7e00e3d00489b39081ce9a326514aa3d473dd28ba72725d3065a6ca62a7876431dc80bf509ff5d6c2
+  checksum: a5ff30eac0ab882afe9cea9956b9b93d74c5e345eb6f6218a51d34df3b18dedc17551586aecb16524676d68238110dec7f14005a5c70b9f185a09a1a3ad34837
   languageName: node
   linkType: hard
 
