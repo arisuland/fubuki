@@ -126,7 +126,7 @@ __metadata:
   dependencies:
     "@augu/eslint-config": 2.2.0
     "@augu/tsconfig": 1.1.1
-    "@graphql-codegen/cli": 2.5.0
+    "@graphql-codegen/cli": 2.6.0
     "@graphql-codegen/typescript": 2.4.3
     "@typescript-eslint/eslint-plugin": 5.11.0
     "@typescript-eslint/parser": 5.11.0
@@ -2620,9 +2620,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/cli@npm:2.5.0":
-  version: 2.5.0
-  resolution: "@graphql-codegen/cli@npm:2.5.0"
+"@graphql-codegen/cli@npm:2.6.0":
+  version: 2.6.0
+  resolution: "@graphql-codegen/cli@npm:2.6.0"
   dependencies:
     "@graphql-codegen/core": 2.5.0
     "@graphql-codegen/plugin-helpers": ^2.4.0
@@ -2670,7 +2670,7 @@ __metadata:
     gql-gen: bin.js
     graphql-code-generator: bin.js
     graphql-codegen: bin.js
-  checksum: c136d7ad75f1d0544d9521e252a589944d23a0260ac72c2154eb2d7296653897ca01c7810c320394fbf65d46862a87b44a8587522348d479c66541cbfc3cba88
+  checksum: aec7efba7e4c61f4e723c37b21f5f884cf9d7df9f986e0a436b35f0396d5fbd845b6022e5ff80961a5c080ae8f26c4800318281f394a841081e35afe39bce677
   languageName: node
   linkType: hard
 
