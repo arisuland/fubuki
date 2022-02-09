@@ -31,7 +31,7 @@
     "consola": "2.15.3",
     "fastify": "3.27.1",
     "fastify-no-icon": "4.0.0",
-    "kafkajs": "1.15.0",
+    "kafkajs": "1.16.0",
     "leeks.js": "0.2.4",
     "source-map-support": "0.5.21"
   },

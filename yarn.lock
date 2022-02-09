@@ -100,7 +100,7 @@ __metadata:
     eslint-config-prettier: 8.3.0
     fastify: 3.27.1
     fastify-no-icon: 4.0.0
-    kafkajs: 1.15.0
+    kafkajs: 1.16.0
     leeks.js: 0.2.4
     nodemon: 2.0.15
     prisma: 3.9.1
@@ -7820,10 +7820,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"kafkajs@npm:1.15.0":
-  version: 1.15.0
-  resolution: "kafkajs@npm:1.15.0"
-  checksum: b2f21f9e8c49d96a17c7e697c6cdf1df3bea4260734d4d648f6071cdb4b0d6c5d56597a169f17cb986aa569d80f6ba71655333b35f56f38f8ad6bb8423eb6184
+"kafkajs@npm:1.16.0":
+  version: 1.16.0
+  resolution: "kafkajs@npm:1.16.0"
+  checksum: 78dbb8705bb231aa1d7767554e40acfde19cae97daf43a893fd7b0c286445a0c02d7b67ce04fa10029d341dfc81b698cb1071106eaf1c3439d721332f6a96964
   languageName: node
   linkType: hard
 
