@@ -53,7 +53,7 @@ __metadata:
     eslint-config-prettier: 8.3.0
     fastify: 3.27.1
     formik: 2.2.9
-    framer-motion: 6.2.4
+    framer-motion: 6.2.6
     graphql: 16.0.1
     graphql-tag: 2.12.6
     is-docker: 2.2.1
@@ -6414,9 +6414,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:6.2.4":
-  version: 6.2.4
-  resolution: "framer-motion@npm:6.2.4"
+"framer-motion@npm:6.2.6":
+  version: 6.2.6
+  resolution: "framer-motion@npm:6.2.6"
   dependencies:
     "@emotion/is-prop-valid": ^0.8.2
     framesync: 6.0.1
@@ -6425,12 +6425,12 @@ __metadata:
     style-value-types: 5.0.0
     tslib: ^2.1.0
   peerDependencies:
-    react: ">=16.8 || ^17.0.0"
-    react-dom: ">=16.8 || ^17.0.0"
+    react: ">=16.8 || ^17.0.0 || ^18.0.0"
+    react-dom: ">=16.8 || ^17.0.0 || ^18.0.0"
   dependenciesMeta:
     "@emotion/is-prop-valid":
       optional: true
-  checksum: 71b2fefba015812bfbb9041a5a7aebabb0181a58f33467a45c91746d25db50dd2dcb79e5d90c7d329acb45cab259e8cb503d8a0b5406f4615dfca739c91edd25
+  checksum: 84c0b0176c083a2d752b7a59f29d20c21ad9d6147366d0bf324bc75bcfd9cfaf2b9827e14df1e773e366a68c0277156bc0fabf62ac53aba7ab64afd0012a7efe
   languageName: node
   linkType: hard
 
