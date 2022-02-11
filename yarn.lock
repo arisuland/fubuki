@@ -73,7 +73,7 @@ __metadata:
     twemoji: 13.1.0
     typescript: 4.5.5
     validator: 13.7.0
-    zustand: 3.6.9
+    zustand: 3.7.0
   languageName: unknown
   linkType: soft
 
@@ -11641,14 +11641,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zustand@npm:3.6.9":
-  version: 3.6.9
-  resolution: "zustand@npm:3.6.9"
+"zustand@npm:3.7.0":
+  version: 3.7.0
+  resolution: "zustand@npm:3.7.0"
   peerDependencies:
     react: ">=16.8"
   peerDependenciesMeta:
     react:
       optional: true
-  checksum: a553cca3d96450fbc3433df8c562d737d00e7183516c1b7538bfd575055b3b9cfb141041505f211d1ee5975d60789bdfd45cdc7d6efe6dfde1fa718279cf5568
+  checksum: 6783ce6572d9dea0fde6390552b6f191416806cde697c544759bf58aad37ac5da94bee7a37b2758eed2f2fcd57e70465c0549f732631923e2df1abbfe452e705
   languageName: node
   linkType: hard
