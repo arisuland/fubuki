@@ -27,7 +27,7 @@
     "@octokit/auth-app": "3.6.1",
     "@octokit/core": "3.5.1",
     "@prisma/client": "3.9.2",
-    "@sentry/node": "6.17.7",
+    "@sentry/node": "6.17.8",
     "consola": "2.15.3",
     "fastify": "3.27.1",
     "fastify-no-icon": "4.0.0",
