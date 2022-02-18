@@ -33,7 +33,7 @@
     "@fortawesome/react-fontawesome": "0.1.17",
     "autoprefixer": "10.4.2",
     "emoji-regex": "10.0.0",
-    "fastify": "3.27.1",
+    "fastify": "3.27.2",
     "formik": "2.2.9",
     "framer-motion": "6.2.6",
     "graphql": "16.0.1",
