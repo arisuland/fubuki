@@ -13,7 +13,7 @@
     "fmt": "prettier --config --parser typescript ./.prettierrc.json --write github-bot/src/**/*.ts typings/typings/**/*.d.ts github-bot/**/*.ts"
   },
   "devDependencies": {
-    "eslint-config-prettier": "8.3.0",
+    "eslint-config-prettier": "8.4.0",
     "husky": "7.0.4",
     "prettier": "2.5.1"
   },
