@@ -32,7 +32,7 @@ __metadata:
     "@chakra-ui/react": 1.8.3
     "@emotion/react": 11.8.1
     "@emotion/styled": 11.8.1
-    "@fontsource/cantarell": 4.5.1
+    "@fontsource/cantarell": 4.5.2
     "@fontsource/inter": 4.5.4
     "@fontsource/jetbrains-mono": 4.5.3
     "@fortawesome/fontawesome-svg-core": 1.3.0
@@ -2554,10 +2554,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/cantarell@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@fontsource/cantarell@npm:4.5.1"
-  checksum: 2990a0ca01267fb8d0f898d95f6d56f05c8c4ee547ffa827c27fafd41472881c62f71565f48cdc81b003f41dce643259a48056f9dd2f89ef02780ecb7c526723
+"@fontsource/cantarell@npm:4.5.2":
+  version: 4.5.2
+  resolution: "@fontsource/cantarell@npm:4.5.2"
+  checksum: 2b7ac8b785734be50ac9fc465561631f1ae954fca20d44e7ad09ae5a12285a213ef087b584c103795da1a908d9335d509f7370d593ce119b831be2a9aa152a86
   languageName: node
   linkType: hard
 
