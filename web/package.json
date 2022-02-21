@@ -35,7 +35,7 @@
     "emoji-regex": "10.0.0",
     "fastify": "3.27.2",
     "formik": "2.2.9",
-    "framer-motion": "6.2.6",
+    "framer-motion": "6.2.7",
     "graphql": "16.0.1",
     "graphql-tag": "2.12.6",
     "is-docker": "2.2.1",
