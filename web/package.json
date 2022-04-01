@@ -41,7 +41,7 @@
     "is-docker": "2.2.1",
     "is-kubernetes": "1.0.1",
     "leeks.js": "0.2.4",
-    "minimist": "1.2.5",
+    "minimist": "1.2.6",
     "next": "12.1.0",
     "next-pwa": "5.4.4",
     "normalize-url": "7.0.3",
